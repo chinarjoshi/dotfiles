@@ -15,7 +15,7 @@ for config in 'nvim' 'alacritty' 'i3'; do
 done
 
 for X in $(ls -A $DOTFILES/X11); do
-    ln -sv $DOTFILES/$X $HOME/$X
+    ln -sv $DOTFILES/X11/$X $HOME/$X
 done
 
 sudo cp $DOTFILES/boot /boot/loader
