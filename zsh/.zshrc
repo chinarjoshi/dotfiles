@@ -11,12 +11,12 @@ export DOTFILES=$HOME/dotfiles
 export EDITOR="nvim"
 
 # Source custom aliases && functions
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/functions.zsh
+for custom in 'aliases' 'functions'; do
+    source $ZDOTDIR/${custom}.zsh
+done
 
 # Source all plugins from directory
-plugins=('suggestions' 'jump' 'highlighting' 'pair')
-for plugin in $plugins; do
+for plugin in 'suggestions' 'jump' 'highlighting' 'pair'; do
     source $ZDOTDIR/plugins/${plugin}.zsh
 done
 
