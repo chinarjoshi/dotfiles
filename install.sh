@@ -10,7 +10,7 @@ echo "export ZDOTDIR=$HOME/dotfiles/zsh" > $HOME/.zshenv
 
 ln -sv $DOTFILES/emacs $HOME/.doom.d
 
-for config in 'nvim' 'alacritty' 'i3' do
+for config in 'nvim' 'alacritty' 'i3'; do
     ln -sv $DOTFILES/$config $XDG_CONFIG_HOME/$config
 done
 
