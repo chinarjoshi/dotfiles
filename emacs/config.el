@@ -10,9 +10,9 @@
       display-line-numbers-type t)
 
 ;; Font setup
-(setq doom-font (font-spec :family "Source Code Pro" :size 14)
-      doom-big-font (font-spec :family "Source Code Pro" :size 14)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 14)
+(setq doom-font (font-spec :family "Source Code Pro" :size 21)
+      doom-big-font (font-spec :family "Source Code Pro" :size 21)
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 22)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
 ;; Remove confirm kill message
