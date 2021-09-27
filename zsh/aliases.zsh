@@ -73,6 +73,7 @@ declare -A etc=(
     	['top']='htop'
     	['clip']='xclip -selection c'
     	['find']='fd'
+	['rust']="rustc $1.rs && ./$1"
 	['cpdir']="echo $PWD | clip"
 	['cpfile']="cat $1 | clip"
 	['github']='search github'
