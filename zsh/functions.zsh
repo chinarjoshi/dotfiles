@@ -43,5 +43,5 @@ function gcl {
 }
 
 function rust {
-    rustc $1.rc && ./$1 ${@:2}
+    rustc $1.rs && ./$1 ${@:2}
 }
