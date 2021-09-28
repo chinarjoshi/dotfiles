@@ -37,3 +37,11 @@ function search() {
 
     google-chrome-stable "$url"
 }
+
+function gcl {
+    git clone https://github.com/$1
+}
+
+function rust {
+    rustc $1.rc && ./$1 ${@:2}
+}

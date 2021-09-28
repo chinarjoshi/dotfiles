@@ -6,9 +6,8 @@ unsetopt beep # Inhibit beeping
 source $ZDOTDIR/theme/powerlevel10k.zsh-theme
 
 # Append binary user directories to PATH
-export PATH=$HOME/.emacs.d/bin:$HOME/.local/bin:$PATH
-export DOTFILES=$HOME/dotfiles
-export EDITOR="nvim"
+rust=$HOME/projects/rust
+java=$HOME/projects/java
 
 # Source custom aliases && functions
 for custom in 'aliases' 'functions'; do

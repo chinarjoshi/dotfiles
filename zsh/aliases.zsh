@@ -11,7 +11,6 @@ declare -A git=(
         ['s']='status --short --branch --show-stash'
         ['bd']='branch --delete'
         ['ch']='checkout'
-        ['cl']="clone https://github.com/$1"
         ['pl']='pull origin'
         ['pu']='push origin'
         ['rh']='reset --hard'
@@ -63,12 +62,12 @@ done
 declare -A etc=(
     	['l']='ls --color=auto -AlFgGh'
     	['du']='ncdu'
-    	['ds']='doom sync'
+    	['ds']="$HOME/.emacs.d/bin/doom sync"
     	['em']='emacsclient -c'
 	['ll']='ls --color=auto -lFgGh'
     	['py']='python3'
     	['vi']='nvim'
-    	['dup']='doom upgrade'
+    	['dup']="$HOME/.emacs.d/bin/doom upgrade"
     	['rem']='killall emacs && emacs --daemon'
     	['top']='htop'
     	['clip']='xclip -selection c'
