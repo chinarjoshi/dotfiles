@@ -79,18 +79,16 @@ Also immediately enables `mixed-pitch-modes' if currently in one of the modes."
 
 ;; Company
 (after! company
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.5))
-        ;; company-global-modes '(not org-mode markdown-mode)
-        ;; company-box-show-single-candidate nil
-        ;; company-box-max-candidates 15
-        ;; company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-        ;;                            company-preview-if-just-one-frontend
-        ;;                            company-echo-metadata-frontend)))
+  (setq company-minimum-prefix-length 3
+        company-global-modes '(not org-mode markdown-mode)
+        company-box-show-single-candidate nil
+        company-box-max-candidates 15
+        company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                                   company-preview-if-just-one-frontend
+                                   company-echo-metadata-frontend)))
 
 (after! spell-fu
   (setq spell-fu-idle-delay 0.5))
-
 
 (map! :leader
       :desc "Eval Python expression"

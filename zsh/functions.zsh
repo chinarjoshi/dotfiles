@@ -43,5 +43,9 @@ function gcl() {
 }
 
 function rust() {
-    rustc $1.rs && ./$1
+    rustc $1.rs && ./$1 ${@:2}
+}
+
+function mvdir() {
+    mkdir -p "${@:-1}" && mv "$@"
 }
