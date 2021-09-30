@@ -95,7 +95,7 @@ declare -A usercfg=(
     	['einit']='.doom.d/init.el'
     	['econfig']='.doom.d/config.el' )
 for key value in "${(@kv)usercfg[@]}"; do
-    alias "${key}cfg"="$EDITOR $HOME/$value"
+    alias "${key}?"="$EDITOR $HOME/$value"
 done
 
 # Sudo configuration aliases
@@ -103,7 +103,7 @@ declare -A sudocfg=(
     	['boot']='/boot/loader/entries/arch.conf'
     	['libinput']='/etc/X11/xorg.conf.d/*' )
 for key value in "${(@kv)sudocfg[@]}"; do
-    alias "${key}cfg"="sudo $EDITOR $value"
+    alias "${key}?"="sudo $EDITOR $value"
 done
 
 # Declares configuration file aliases of the form:
@@ -113,11 +113,11 @@ done
 # only one file in directory
 for dir in $(ls $HOME/.config | tr -d ' ' | sed '/Microsoft/d'); do
     suffix="$([ $(ls $HOME/.config/$dir | wc -l) -eq 1 ] && echo '*')"
-    alias "${dir}cfg"="$EDITOR $HOME/.config/$dir/$suffix"
+    alias "${dir}?"="$EDITOR $HOME/.config/$dir/$suffix"
 done
 
 # Same alias structure as above, for every Z login file
 # List files in ZDOTDIR, grep for hidden file, remove dot for alias
 for file in $(ls -p $ZDOTDIR | grep '^\.' | sed 's/^.//'); do
-    alias "${file}cfg"="$EDITOR $ZDOTDIR/.$file"
+    alias "${file}?"="$EDITOR $ZDOTDIR/.$file"
 done

@@ -22,7 +22,5 @@ for plugin in 'suggestions' 'jump' 'highlighting' 'pair'; do
     source $ZDOTDIR/plugins/${plugin}.zsh
 done
 
-[[ -o interactive && -w $1 ]] && nvim $1
-
 # Load theme configuration (Goes last)
 source $ZDOTDIR/theme/.p10k.zsh
