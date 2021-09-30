@@ -10,9 +10,9 @@
       display-line-numbers-type t)
 
 ;; Font setup
-(setq doom-font (font-spec :family "Source Code Pro" :size 14)
-      doom-big-font (font-spec :family "Source Code Pro" :size 14)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 14)
+(setq doom-font (font-spec :family "Source Code Pro" :size 21)
+      doom-big-font (font-spec :family "Source Code Pro" :size 21)
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 22)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
 ;; Remove confirm kill message
@@ -79,18 +79,16 @@ Also immediately enables `mixed-pitch-modes' if currently in one of the modes."
 
 ;; Company
 (after! company
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.5))
-        ;; company-global-modes '(not org-mode markdown-mode)
-        ;; company-box-show-single-candidate nil
-        ;; company-box-max-candidates 15
-        ;; company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-        ;;                            company-preview-if-just-one-frontend
-        ;;                            company-echo-metadata-frontend)))
+  (setq company-minimum-prefix-length 3
+        company-global-modes '(not org-mode markdown-mode)
+        company-box-show-single-candidate nil
+        company-box-max-candidates 15
+        company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                                   company-preview-if-just-one-frontend
+                                   company-echo-metadata-frontend)))
 
 (after! spell-fu
   (setq spell-fu-idle-delay 0.5))
-
 
 (map! :leader
       :desc "Eval Python expression"
