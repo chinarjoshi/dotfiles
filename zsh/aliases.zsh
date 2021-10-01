@@ -75,7 +75,7 @@ declare -A etc=(
     'cpdir'    "echo $PWD | clip"
     'stack'    'search stackoverflow'
     'einit'    "$EDITOR $HOME/.doom.d/init.el"
-    'xinit'    "$EDITOR $HOME/.xinitrc"
+    'xinit?'    "$EDITOR $HOME/.xinitrc"
     'cpfile'   "cat $1 | clip"
     'github'   'search github'
     'google'   'search google'
@@ -86,25 +86,14 @@ for key value in "${(@kv)etc[@]}"; do
     alias "$key"="$value"
 done
 
-# User configuration aliases
-declare -A zshcfg=(
-    'zsh'       '.zshrc'
-    'alias'     'aliases.zsh'
-    'zlogin'    '.zlogin'
-    'bindkey'   'bindkey.zsh'
-    'function'  'functions.zsh'
-    'zprofile'  '.zprofile' )
-for key value in "${(@kv)usercfg[@]}"; do
-    alias "${key}?"="$EDITOR $ZDOTDIR/$value"
-done
-
+CFG='?'
 
 # Sudo configuration aliases
 declare -A sudocfg=(
     'boot'      '/boot/loader/entries/arch.conf'
     'libinput'  '/etc/X11/xorg.conf.d/*' )
 for key value in "${(@kv)sudocfg[@]}"; do
-    alias "${key}?"="sudo $EDITOR $value"
+    alias "$key$CFG"="sudo $EDITOR $value"
 done
 
 # Declares configuration file aliases of the form:
@@ -114,14 +103,14 @@ done
 # only one file in directory
 for dir in $(ls $HOME/.config | tr -d ' ' | sed '/Microsoft/d'); do
     suffix="$([[ $(ls $HOME/.config/$dir | wc -l) -eq 1 ]] && echo '*')"
-    alias "${dir}?"="$EDITOR $HOME/.config/$dir/$suffix"
+    alias "$dir$CFG"="$EDITOR $HOME/.config/$dir/$suffix"
 done
 
 # 1. Loop over files in $ZDOTDIR minus markdown or gitignore
 # 2. If there are characters before the dot: The alias is the file name
 #    Otherwise: The alias is the file extension
 # This is long and ugly regex for the sake zsh source files expansion in $ZDOTDIR
-# for file in $(ls -Ap $ZDOTDIR | grep -Ev '/$|md$|.gitignore'); do
-    #name="$([[ $(echo $file | sed 's/\..*//' | wc -c) -eq 1 ]] && echo $file | sed 's/\.//' || echo $file | sed 's/\..*//')"
-    #alias "$name$CFG"="nvim ZDOTDIR/$file"
-#done
+for file in $(ls -Ap $ZDOTDIR | grep -Ev '/$|md$|.gitignore'); do
+    name="$([[ $(echo $file | sed 's/\..*//' | wc -c) -eq 1 ]] && echo $file | sed 's/\.//' || echo $file | sed 's/\..*//')"
+    alias "$name$CFG"="$EDITOR $ZDOTDIR/$file"
+done
