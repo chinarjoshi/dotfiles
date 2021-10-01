@@ -74,13 +74,12 @@ declare -A etc=(
     'find'     'fd'
     'cpdir'    "echo $PWD | clip"
     'stack'    'search stackoverflow'
-    'einit'    "$EDITOR $HOME/.doom.d/init.el"
-    'xinit?'    "$EDITOR $HOME/.xinitrc"
-    'cpfile'   "cat $1 | clip"
+    'einit?'   "$EDITOR $HOME/.doom.d/init.el"
+    'xinit?'   "$EDITOR $HOME/.xinitrc"
     'github'   'search github'
     'google'   'search google'
     'battery'  'cat /sys/class/power_supply/BAT0/capacity'
-    'econfig'  "$EDITOR $HOME/.doom.d/config.el"
+    'econfig?' "$EDITOR $HOME/.doom.d/config.el"
     'synonym'  'aiksaurus' )
 for key value in "${(@kv)etc[@]}"; do
     alias "$key"="$value"

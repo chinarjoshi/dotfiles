@@ -43,14 +43,10 @@ command_not_found_handler() {
     fi
 }
 
-gcl() {
-    git clone https://github.com/$1
-}
+gcl() { git clone https://github.com/$1 }
 
-rust() {
-    rustc $1.rs && ./$1 ${@:2}
-}
+rust() { rustc $1.rs && ./$1 ${@:2} }
 
-mvdir() {
-    mkdir -p "${@:-1}" && mv "$@"
-}
+mvdir() { mkdir -p "${@:-1}" && mv "$@" }
+
+cpfile() { cat $1 | clip }
