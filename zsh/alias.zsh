@@ -102,10 +102,7 @@ done
 # only one file in directory
 for dir in $(ls $HOME/.config | tr -d ' ' | sed '/Microsoft/d'); do
     suffix="$([[ $(ls $HOME/.config/$dir | wc -l) -eq 1 ]] && echo '*')"
-    #alias "$dir$CFG"="$EDITOR $HOME/.config/$dir/$suffix"
-    function $dir$CFG() {
-        echo asdf;
-    }
+    alias "$dir$CFG"="$EDITOR $HOME/.config/$dir/$suffix"
 done
 
 # 1. Loop over files in $ZDOTDIR minus markdown or gitignore
