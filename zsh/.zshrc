@@ -13,7 +13,7 @@ rust=$HOME/projects/rust
 java=$HOME/projects/java
 
 # Source custom aliases && functions
-for custom in 'aliases' 'functions' 'bindkey'; do
+for custom in 'alias' 'function' 'bindkey'; do
     source $ZDOTDIR/${custom}.zsh
 done
 
