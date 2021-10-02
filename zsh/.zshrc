@@ -4,8 +4,10 @@ source $ZDOTDIR/theme/instant-prompt.zsh
 setopt autocd # cd with path name
 unsetopt beep # Inhibit beeping
 source $ZDOTDIR/theme/powerlevel10k.zsh-theme
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Append binary user directories to PATH
+# Convenience directories
 rust=$HOME/projects/rust
 java=$HOME/projects/java
 zsh=$ZDOTDIR
