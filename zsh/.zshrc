@@ -11,8 +11,11 @@ java=$HOME/projects/java
 zsh=$ZDOTDIR
 
 # Source custom aliases && functions
-for custom in 'alias' 'function' 'bindkey'; do
-    source $ZDOTDIR/${custom}.zsh
+#for custom in 'alias' 'function' 'bindkey'; do
+    #source $ZDOTDIR/${custom}.zsh
+#done
+for file in $ZDOTDIR/custom/*; do
+    source $file
 done
 
 # Source plugins

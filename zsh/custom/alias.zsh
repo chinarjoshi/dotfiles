@@ -109,7 +109,8 @@ done
 # 2. If there are characters before the dot: The alias is the file name
 #    Otherwise: The alias is the file extension
 # This is long and ugly regex for the sake zsh source files expansion in $ZDOTDIR
-for file in $(ls -Ap $ZDOTDIR | grep -Ev '/$|md$|.gitignore'); do
+# Move files to custom and add on another ls
+for file in $(ls -Ap $ZDOTDIR; ls $ZDOTDIR/custom | grep -Ev '/$|md$|.gitignore'); do
     name="$([[ $(echo $file | sed 's/\..*//' | wc -c) -eq 1 ]] && echo $file | sed 's/\.//' || echo $file | sed 's/\..*//')"
     alias "$name$CFG"="$EDITOR $ZDOTDIR/$file"
 done
