@@ -11,6 +11,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 rust=$HOME/projects/rust
 java=$HOME/projects/java
 zsh=$ZDOTDIR
+dot=$DOTFILES
 
 for file in $ZDOTDIR/custom/*; do
     source $file
