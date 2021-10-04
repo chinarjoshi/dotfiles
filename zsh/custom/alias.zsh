@@ -72,13 +72,14 @@ declare -A etc=(
     'find'     'fd'
     'cpdir'    "echo $PWD | clip"
     'stack'    'search stackoverflow'
-    'einit?'   "$EDITOR $HOME/.doom.d/init.el"
-    'xinit?'   "$EDITOR $HOME/.xinitrc"
+    'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
+    'xinit?'   "$EDITOR $DOTFILES/.xinitrc"
     'github'   'search github'
     'google'   'search google'
     'battery'  'cat /sys/class/power_supply/BAT0/capacity'
-    'econfig?' "$EDITOR $HOME/.doom.d/config.el"
-    'synonym'  'aiksaurus' )
+    'synonym'  'aiksaurus'
+    'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
+    'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )
 for key value in "${(@kv)etc[@]}"; do
     alias "$key"="$value"
 done

@@ -1,6 +1,6 @@
 declare -A env=(
     'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$PATH"
-    'EDITOR'          'nvim'
+    'EDITOR'          'em'
     'ZDOTDIR'         "$HOME/dotfiles/zsh"
     'DOTFILES'        "$HOME/dotfiles"
     'XDG_CONFIG_HOME' "$HOME/.config" )
