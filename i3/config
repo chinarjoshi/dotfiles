@@ -2,7 +2,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro 8
+font pango:Source Code Pro 0
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -125,7 +125,7 @@ bindsym $mod+Ctrl+c reload
 ## Power
 #
 
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock
+bindsym $mod+Ctrl+l exec --no-startup-id i3lock --color=000000
 bindsym $mod+Ctrl+r exec --no-startup-id systemctl reboot, mode "default"
 bindsym $mod+Ctrl+p exec --no-startup-id systemctl poweroff -i, mode "default"
 bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
@@ -138,6 +138,7 @@ bindsym $mod+Shift+d exec --no-startup-id discord
 bindsym $mod+Shift+g exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+r exec --no-startup-id rhythmbox
 bindsym $mod+Shift+s exec --no-startup-id ksnip
+bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 for_window [class="ksnip"] floating enable
 
@@ -163,5 +164,3 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 hide_edge_borders both
-
-exec --no-startup-id $HOME/.config/polybar/launch.sh
