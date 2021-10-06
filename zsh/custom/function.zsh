@@ -50,3 +50,5 @@ rust() { rustc $1.rs && ./$1 ${@:2} }
 mvdir() { mkdir -p "${@:-1}" && mv "$@" }
 
 cpfile() { cat $1 | clip }
+
+cpdir() { echo $PWD | clip }

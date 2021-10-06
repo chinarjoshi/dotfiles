@@ -4,8 +4,7 @@ declare -A git=(
     'a'    'add --all'
     'b'    'branch'
     'c'    'commit -m'
-    'd'    'diff'
-    'l'    'log --graph --pretty=oneline --decorate --all'
+    'd'    'diff' 'l'    'log --graph --pretty=oneline --decorate --all'
     'm'    'merge'
     's'    'status --short --branch --show-stash'
     'bd'   'branch --delete'
@@ -70,7 +69,6 @@ declare -A etc=(
     'top'      'htop'
     'clip'     'xclip -selection c'
     'find'     'fd'
-    'cpdir'    "echo $PWD | clip"
     'stack'    'search stackoverflow'
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
     'xinit?'   "$EDITOR $DOTFILES/.xinitrc"
