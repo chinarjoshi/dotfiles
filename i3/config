@@ -164,9 +164,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 hide_edge_borders both
-<<<<<<< HEAD
-=======
-
 #default_border pixel 1
 #default_floating_border pixel 1
->>>>>>> 44d61d4 (Tue Oct  5 05:27:02 PM EDT 2021)
