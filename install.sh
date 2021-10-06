@@ -6,9 +6,11 @@ DOTFILES=$HOME/dotfiles
 git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
 cd $DOTFILES
 
-echo "export ZDOTDIR=$HOME/dotfiles/zsh" > $HOME/.zshenv
-
 ln -sv $DOTFILES/emacs $HOME/.doom.d
+
+
+# All directories belong in XDG_CONFIG_HOME except for the following
+exclude=('boot' 'emacs' 'libinput')
 
 for config in 'nvim' 'alacritty' 'i3'; do
     ln -sv $DOTFILES/$config $XDG_CONFIG_HOME/$config
