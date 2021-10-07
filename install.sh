@@ -6,16 +6,13 @@ DOTFILES=$HOME/dotfiles
 [ ! $(command -v zsh) ] || echo "Z shell not installed." 1>&2 && exit 1
 
 git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
-cd $DOTFILES
-
 
 # All directories belong in XDG_CONFIG_HOME except for the following
-exclude=('boot' 'emacs' 'libinput' 'X11')
+exclude='boot emacs libinput X11'
 
-#ls -d $DOTFILES/*/ | xargs -n 1 basename
-
-for config in ; do
-    ln -sv $DOTFILES/$config $XDG_CONFIG_HOME/$config
+for dir in $(ls -d $DOTFILES/*/ | xargs -n 1 basename); do
+    [[ $exclude =~ $dir ]] && 
+        ln -sv $DOTFILES/$dir $XDG_CONFIG_HOME/$dir
 done
 
 for X in $(ls -A $DOTFILES/X11); do
@@ -25,7 +22,7 @@ done
 ln -sv $DOTFILES/emacs $HOME/.doom.d
 ln -sv $DOTFILES/libinput/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
 sudo cp $DOTFILES/boot /boot/loader
-sudo ln -sv $DOTFILES/libinput/libinput.conf 
-sudo ln -sv $DOTFILES/libinput/libinput.conf 
+sudo ln -sv $DOTFILES/libinput/libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
+sudo ln -sv $DOTFILES/libinput/libinput.conf /etc/X11/xorg.conf.d/20-mtrack.conf
 
 echo "Bootstrapping successful for $USER"
