@@ -70,6 +70,7 @@ declare -A etc=(
     'clip'     'xclip -selection c'
     'find'     'fd'
     'stack'    'search stackoverflow'
+    'chrome'   'google-chrome-stable'
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
     'xinit?'   "$EDITOR $DOTFILES/.xinitrc"
     'github'   'search github'

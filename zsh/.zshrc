@@ -14,6 +14,7 @@ java=$HOME/projects/java
 org=$HOME/org
 zsh=$ZDOTDIR
 dot=$DOTFILES
+down=$HOME/Downloads
 
 for file in $ZDOTDIR/custom/*; do
     source $file
