@@ -14,7 +14,10 @@
       ((string= (getenv "LAPTOP") "1") (setq size 21)))
 
 (setq doom-font (font-spec :family "Source Code Pro" :size size)
+      doom-font-increment 1
       doom-big-font (font-spec :family "Source Code Pro" :size size)
+      doom-big-font-increment 2
+      doom-serif-font (font-spec :family "EB Garamond" :size size)
       doom-variable-pitch-font (font-spec :family "Helvetica" :size size)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
