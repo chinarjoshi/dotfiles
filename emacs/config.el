@@ -12,12 +12,11 @@
 ;; Font setup
 (setq doom-font (font-spec :family "Source Code Pro" :size 21)
       doom-big-font (font-spec :family "Source Code Pro" :size 21)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 22)
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 24)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
 ;; Remove confirm kill message
-(setq confirm-kill-emacs nil
-      confirm-kill-processes nil)
+(setq confirm-kill-emacs nil)
 (if (daemonp)
     (setq initial-major-mode 'org-mode))
 
@@ -93,3 +92,5 @@ Also immediately enables `mixed-pitch-modes' if currently in one of the modes."
 (map! :leader
       :desc "Eval Python expression"
       ";" #'+python/open-repl)
+
+(setq org-hide-emphasis-markers t)
