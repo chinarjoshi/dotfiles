@@ -10,9 +10,15 @@
       display-line-numbers-type t)
 
 ;; Font setup
-(setq doom-font (font-spec :family "Source Code Pro" :size 21)
-      doom-big-font (font-spec :family "Source Code Pro" :size 21)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 24)
+(cond ((string= (getenv "DESKTOP") "1") (setq size 15))
+      ((string= (getenv "LAPTOP") "1") (setq size 21)))
+
+(setq doom-font (font-spec :family "Source Code Pro" :size size)
+      doom-font-increment 1
+      doom-big-font (font-spec :family "Source Code Pro" :size size)
+      doom-big-font-increment 2
+      doom-serif-font (font-spec :family "EB Garamond" :size size)
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size size)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
 ;; Remove confirm kill message
@@ -93,4 +99,9 @@ Also immediately enables `mixed-pitch-modes' if currently in one of the modes."
       :desc "Eval Python expression"
       ";" #'+python/open-repl)
 
+<<<<<<< HEAD
 (setq org-hide-emphasis-markers t)
+=======
+(after! org
+  (setq org-hide-emphasis-markers t))
+>>>>>>> 3621af858fc4e3efd1ee9f7ec2c450614f25020f

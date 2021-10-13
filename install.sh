@@ -15,8 +15,8 @@ for dir in $(ls -d $DOTFILES/*/ | xargs -n 1 basename); do
         ln -sv $DOTFILES/$dir $XDG_CONFIG_HOME/$dir
 done
 
-for X in $(ls -A $DOTFILES/X11); do
-    ln -sv $DOTFILES/X11/$X $HOME/$X
+for X in $(ls -A $DOTFILES/X); do
+    ln -sv $DOTFILES/X/$X $HOME/$X
 done
 
 ln -sv $DOTFILES/emacs $HOME/.doom.d
