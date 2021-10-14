@@ -6,20 +6,6 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use {'prettier/vim-prettier', run = 'yarn install' }
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true }}
-  use({
-      'NTBBloodbath/doom-one.nvim',
-      setup = function()
-          require('doom-one').setup({
-              enable_treesitter = true,
-              plugins_integrations = {
-                  neorg = true,
-                  neogit = true,
-                  whichkey = true,
-              },
-          })
-      end,
-  })
-
 
   -- lsp
   use 'neovim/nvim-lspconfig'

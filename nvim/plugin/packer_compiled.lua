@@ -73,14 +73,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
-  ["doom-one.nvim"] = {
-    loaded = true,
-    needs_bufread = false,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/opt/doom-one.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neogit"
+  },
+  neorg = {
+    config = { "\27LJ\1\2Õ\1\0\0\6\0\14\0\0194\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\f\0003\2\3\0002\3\0\0:\3\4\0022\3\0\0:\3\5\0023\3\t\0003\4\a\0003\5\6\0:\5\b\4:\4\n\3:\3\v\2:\2\r\1>\0\2\1G\0\1\0\tload\1\0\0\21core.norg.dirman\vconfig\1\0\0\15workspaces\1\0\0\1\0\1\17my_workspace\f~/neorg\24core.norg.concealer\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
+    loaded = true,
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neorg"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -129,13 +133,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: doom-one.nvim
-time([[Setup for doom-one.nvim]], true)
-try_loadstring("\27LJ\1\2…\3\0\0\3\0\b\0\v4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\0013\2\6\0:\2\a\1>\0\2\1G\0\1\0\25plugins_integrations\1\0\14\vbarbar\2\14nvim_tree\2\rwhichkey\2\14dashboard\2\15bufferline\1\rgitsigns\2\21indent_blankline\2\19vim_illuminate\2\flspsaga\1\rstartify\2\nneorg\2\14telescope\1\vneogit\2\14gitgutter\1\rpumblend\1\0\2\24transparency_amount\3\20\venable\2\1\0\5\22enable_treesitter\2\20terminal_colors\1\20cursor_coloring\1\20italic_comments\1\27transparent_background\1\nsetup\rdoom-one\frequire\0", "setup", "doom-one.nvim")
-time([[Setup for doom-one.nvim]], false)
-time([[packadd for doom-one.nvim]], true)
-vim.cmd [[packadd doom-one.nvim]]
-time([[packadd for doom-one.nvim]], false)
+-- Config for: neorg
+time([[Config for neorg]], true)
+try_loadstring("\27LJ\1\2Õ\1\0\0\6\0\14\0\0194\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\f\0003\2\3\0002\3\0\0:\3\4\0022\3\0\0:\3\5\0023\3\t\0003\4\a\0003\5\6\0:\5\b\4:\4\n\3:\3\v\2:\2\r\1>\0\2\1G\0\1\0\tload\1\0\0\21core.norg.dirman\vconfig\1\0\0\15workspaces\1\0\0\1\0\1\17my_workspace\f~/neorg\24core.norg.concealer\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
+time([[Config for neorg]], false)
 if should_profile then save_profiles() end
 
 end)
