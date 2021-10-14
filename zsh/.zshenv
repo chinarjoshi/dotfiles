@@ -1,5 +1,5 @@
 declare -A env=(
-    'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$PATH"
+    'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$HOME/.emacs.d/bin:$PATH"
     'EDITOR'          'nvim'
     'ZDOTDIR'         "$HOME/dotfiles/zsh"
     'DOTFILES'        "$HOME/dotfiles"

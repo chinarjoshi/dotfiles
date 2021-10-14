@@ -21,14 +21,14 @@
       doom-variable-pitch-font (font-spec :family "Helvetica" :size size)
       doom-unicode-font (font-spec :family "Fira Mono"))
 
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+(add-hook! '+doom-dashboard-mode-hook (hide-mode-line-mode 1) (hl-line-mode -1))
+(setq-hook! '+doom-dashboard-mode-hook evil-normal-state-cursor (list nil))
+
 ;; Remove confirm kill message
 (setq confirm-kill-emacs nil)
 (if (daemonp)
     (setq initial-major-mode 'org-mode))
-
-(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-(add-hook! '+doom-dashboard-mode-hook (hide-mode-line-mode 1) (hl-line-mode -1))
-(setq-hook! '+doom-dashboard-mode-hook evil-normal-state-cursor (list nil))
 
 ;; Mouse wheel scroll amount
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 3))
