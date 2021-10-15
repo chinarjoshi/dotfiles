@@ -57,6 +57,8 @@ done
 
 # Assorted convenience aliases
 declare -A etc=(
+    '...'      '../..'
+    '....'     '../../..'
     'l'        'ls --color=auto -lFgGh'
     'du'       'ncdu'
     'ds'       "$HOME/.emacs.d/bin/doom sync"
