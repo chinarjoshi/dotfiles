@@ -10,10 +10,8 @@
       display-line-numbers-type t)
 
 ;; Font setup
-(setq size 
-      (cond ((string= (getenv "DESKTOP") "0") 15)
-            ((string= (getenv "MAC") "0") (setq size 22))
-            (t 15)))
+(cond ((string= (getenv "DESKTOP") "0") (setq size 14))
+      ((string= (getenv "MAC") "0") (setq size 22)))
 
 (setq doom-font (font-spec :family "Source Code Pro" :size size)
       doom-font-increment 1
