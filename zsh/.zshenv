@@ -1,6 +1,6 @@
 machine() {
     # To differentiate between computers using machine-id
-    [[ ! $(cat /etc/machine-id) == "$1"* ]]
+    [[ $(cat /etc/machine-id) == "$1"* ]]
 }
 
 declare -A env=(

@@ -37,4 +37,5 @@ xset r rate 200 40
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 sudo light -S 35
+libinput-gestures-setup start
 exec i3

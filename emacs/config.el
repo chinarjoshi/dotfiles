@@ -10,8 +10,8 @@
       display-line-numbers-type t)
 
 ;; Font setup
-(cond ((string= (getenv "DESKTOP") "1") (setq size 15))
-      ((string= (getenv "MAC") "1") (setq size 21)))
+(cond ((string= (getenv "DESKTOP") "0") (setq size 15))
+      ((string= (getenv "MAC") "0") (setq size 22)))
 
 (setq doom-font (font-spec :family "Source Code Pro" :size size)
       doom-font-increment 1
@@ -99,9 +99,5 @@ Also immediately enables `mixed-pitch-modes' if currently in one of the modes."
       :desc "Eval Python expression"
       ";" #'+python/open-repl)
 
-<<<<<<< HEAD
-(setq org-hide-emphasis-markers t)
-=======
 (after! org
   (setq org-hide-emphasis-markers t))
->>>>>>> 3621af858fc4e3efd1ee9f7ec2c450614f25020f
