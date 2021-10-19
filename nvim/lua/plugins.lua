@@ -6,6 +6,7 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use {'prettier/vim-prettier', run = 'yarn install' }
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true }}
+  use 'romgrk/doom-one.vim'
   -- lsp
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
