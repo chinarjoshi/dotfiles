@@ -140,6 +140,7 @@ bindsym $mod+Shift+g exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+r exec --no-startup-id rhythmbox
 bindsym $mod+Shift+s exec --no-startup-id ksnip
 bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+Shift+t exec --no-startup-id teams
 
 for_window [class="ksnip"] floating enable
 
