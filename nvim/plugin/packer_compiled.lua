@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/completion-nvim"
   },
+  ["doom-one.vim"] = {
+    loaded = true,
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/doom-one.vim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/lualine.nvim"
