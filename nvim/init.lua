@@ -10,6 +10,7 @@ configs.setup {
     enable = true,
   }
 }
+vim.g.colors_name = 'doom-one'
 
 local lspconfig = require'lspconfig'
 local completion = require'completion'
