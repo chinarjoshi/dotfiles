@@ -11,7 +11,8 @@
 
 ;; Font setup
 (cond ((string= (getenv "DESKTOP") "0") (setq size 14))
-      ((string= (getenv "MAC") "0") (setq size 22)))
+      ((string= (getenv "MAC") "0") (setq size 22))
+      (t (setq size 14)))
 
 (setq doom-font (font-spec :family "Source Code Pro" :size size)
       doom-font-increment 1
