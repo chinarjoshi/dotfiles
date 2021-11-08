@@ -9,8 +9,9 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Convenience directories
-rust=$HOME/projects/rust
+rs=$HOME/projects/rust
 java=$HOME/projects/java
+py=$HOME/projects/python
 org=$HOME/org
 zsh=$ZDOTDIR
 dot=$DOTFILES
