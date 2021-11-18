@@ -5,7 +5,7 @@
       user-mail-address "chinarjoshi7@gmail.com")
 
 ;; Doom setup (theme, org directory, and line numbers)
-(setq doom-theme 'dark-vibrant
+(setq doom-theme 'doom-vibrant
       org-directory "~/org/"
       display-line-numbers-type t)
 
