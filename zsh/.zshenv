@@ -14,3 +14,4 @@ declare -A env=(
 for name dir in "${(@kv)env[@]}"; do
     export $name=$dir
 done
+. "$HOME/.cargo/env"

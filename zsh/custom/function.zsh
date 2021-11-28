@@ -45,7 +45,7 @@ command_not_found_handler() {
 
 gcl() { git clone https://github.com/$1 }
 
-rust() { rustc $1.rs && ./$1 ${@:2} }
+rs() { rustc $1.rs && ./$1 ${@:2} }
 
 mvdir() { mkdir -p "${@:-1}" && mv "$@" }
 

@@ -126,9 +126,9 @@ bindsym $mod+Ctrl+c reload
 ## Power
 #
 
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock --color=000000
+bindsym $mod+Ctrl+e exec --no-startup-id i3lock --color=000000
 bindsym $mod+Ctrl+r exec --no-startup-id systemctl reboot, mode "default"
-bindsym $mod+Ctrl+p exec --no-startup-id systemctl poweroff -i, mode "default"
+bindsym $mod+Ctrl+q exec --no-startup-id systemctl poweroff -i, mode "default"
 bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
 
 
