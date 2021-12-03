@@ -4,18 +4,19 @@ source $ZDOTDIR/theme/instant-prompt.zsh
 setopt autocd # cd with path name
 unsetopt beep # Inhibit beeping
 source $ZDOTDIR/theme/powerlevel10k.zsh-theme
+source $HOME/.cargo/env
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Convenience directories
-rs=$HOME/projects/rust
-java=$HOME/projects/java
-py=$HOME/projects/python
-org=$HOME/org
-zsh=$ZDOTDIR
-dot=$DOTFILES
-down=$HOME/Downloads
+r=$HOME/projects/rust
+j=$HOME/projects/java
+p=$HOME/projects/python
+o=$HOME/org
+z=$ZDOTDIR
+d=$DOTFILES
+dl=$HOME/Downloads
 
 for file in $ZDOTDIR/custom/*; do
     source $file
