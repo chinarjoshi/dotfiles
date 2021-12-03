@@ -71,68 +71,84 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["completion-nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/completion-nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/completion-nvim",
+    url = "https://github.com/nvim-lua/completion-nvim"
   },
   ["doom-one.vim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/doom-one.vim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/doom-one.vim",
+    url = "https://github.com/romgrk/doom-one.vim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/hoob3rt/lualine.nvim"
   },
   neogit = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neogit"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   neorg = {
     config = { "\27LJ\1\2Õ\1\0\0\6\0\14\0\0194\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\f\0003\2\3\0002\3\0\0:\3\4\0022\3\0\0:\3\5\0023\3\t\0003\4\a\0003\5\6\0:\5\b\4:\4\n\3:\3\v\2:\2\r\1>\0\2\1G\0\1\0\tload\1\0\0\21core.norg.dirman\vconfig\1\0\0\15workspaces\1\0\0\1\0\1\17my_workspace\f~/neorg\24core.norg.concealer\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neorg"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-lspinstall",
+    url = "https://github.com/anott03/nvim-lspinstall"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-lua/telescope.nvim"
   },
   ["vim-prettier"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-prettier"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-prettier",
+    url = "https://github.com/prettier/vim-prettier"
   },
   ["vim-ripgrep"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-ripgrep"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-ripgrep",
+    url = "https://github.com/jremmen/vim-ripgrep"
   },
   ["vim-vinegar"] = {
     loaded = true,
-    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-vinegar"
+    path = "/home/cjoshi/.local/share/nvim/site/pack/packer/start/vim-vinegar",
+    url = "https://github.com/tpope/vim-vinegar"
   }
 }
 

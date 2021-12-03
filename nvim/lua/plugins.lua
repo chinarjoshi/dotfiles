@@ -14,7 +14,6 @@ return require('packer').startup(function()
 
   -- fuzzy find
   use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/telescope.nvim'
   use 'jremmen/vim-ripgrep'
 
