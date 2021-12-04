@@ -7,7 +7,6 @@ o.smartcase = true
 o.showmode = false
 bo.swapfile = false
 o.backup = false
-o.undodir = vim.fn.stdpath('config') .. '/undodir'
 o.undofile = true
 o.incsearch = true
 o.hidden = true
