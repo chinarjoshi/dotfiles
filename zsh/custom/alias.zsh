@@ -64,9 +64,14 @@ declare -A etc=(
     'ds'       "$HOME/.emacs.d/bin/doom sync"
     'em'       'emacsclient -c'
     'll'       'ls --color=auto -AlFgGh'
+    'or'       '||'
     'py'       'python3'
+    'rb'       'reboot'
+    'sd'       'shutdown now'
     'vi'       'nvim'
+    'and'      '&&'
     'dup'      "$HOME/.emacs.d/bin/doom upgrade"
+    'lll'      'ls --color=auto -Al'
     'rem'      'killall emacs && emacs --daemon'
     'top'      'htop'
     'clip'     'xclip -selection c'
