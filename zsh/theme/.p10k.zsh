@@ -109,11 +109,7 @@
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
-<<<<<<< HEAD
   typeset -g POWERLEVEL9K_MODE=awesome-fontconfig
-=======
-  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
->>>>>>> 25082eaf539c40962dd6b408121f8628ccbc8f2b
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
   typeset -g POWERLEVEL9K_ICON_PADDING=none
@@ -1504,11 +1500,7 @@
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=178
   # Battery pictograms going from low to high level of charge.
-<<<<<<< HEAD
   typeset -g POWERLEVEL9K_BATTERY_STAGES=('%K{232}▁' '%K{232}▂' '%K{232}▃' '%K{232}▄' '%K{232}▅' '%K{232}▆' '%K{232}▇' '%K{232}█')
-=======
-  typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
->>>>>>> 25082eaf539c40962dd6b408121f8628ccbc8f2b
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
 
