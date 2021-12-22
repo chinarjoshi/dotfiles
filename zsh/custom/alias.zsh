@@ -74,6 +74,7 @@ declare -A etc=(
     'lll'      'ls --color=auto -Al'
     'rem'      'killall emacs && emacs --daemon'
     'top'      'htop'
+    'bios'     'systemctl reboot --firmware-setup'
     'clip'     'xclip -selection c'
     'find'     'fd'
     'stack'    'search stackoverflow'
@@ -84,6 +85,7 @@ declare -A etc=(
     'google'   'search google'
     'battery'  'cat /sys/class/power_supply/BAT0/capacity'
     'synonym'  'aiksaurus'
+    'windows'  'systemctl reboot --boot-loader-entry=windows.conf'
     'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
     'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )
 for key value in "${(@kv)etc[@]}"; do
@@ -96,6 +98,7 @@ CFG='?'
 # Sudo configuration aliases
 declare -A sudocfg=(
     'boot'      '/boot/loader/entries/arch.conf'
+    'loader'    '/boot/loader/loader.conf'
     'libinput'  '/etc/X11/xorg.conf.d/*' )
 for key value in "${(@kv)sudocfg[@]}"; do
     alias "$key$CFG"="sudo $EDITOR $value"

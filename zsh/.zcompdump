@@ -255,7 +255,6 @@ _comps=(
 'doas' '_doas'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
-'downgrade' '_downgrade'
 'drill' '_drill'
 'dropdb' '_postgresql'
 'dropuser' '_postgresql'
@@ -937,8 +936,6 @@ _comps=(
 'podtoc' '_perl_modules'
 'poff' '_pon'
 'policytool' '_java'
-'polybar' '_polybar'
-'polybar-msg' '_polybar_msg'
 'pon' '_pon'
 'popd' '_directory_stack'
 'postconf' '_postfix'
@@ -1624,6 +1621,7 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
+<<<<<<< HEAD
 autoload -Uz _alacritty _bat _bootctl _busctl _cargo \
             _coredumpctl _curl _downgrade _fd _hostnamectl \
             _journalctl _kernel-install _kitty _libinput _localectl \
@@ -1782,7 +1780,6 @@ autoload -Uz _alacritty _bat _bootctl _busctl _cargo \
             _zcompile _zed _zftp _zle _zmodload \
             _zmv _zparseopts _zpty _zsh-mime-handler _zsocket \
             _zstyle _ztodo
-autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
