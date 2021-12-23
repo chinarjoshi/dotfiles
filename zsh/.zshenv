@@ -9,6 +9,7 @@ declare -A env=(
     'ZDOTDIR'         "$HOME/dotfiles/zsh"
     'DOTFILES'        "$HOME/dotfiles"
     'XDG_CONFIG_HOME' "$HOME/.config"
+    'WLR_NO_HARDWARE_CURSORS' '1'
     'MAC'             "$(machine 411; echo $?)"
     'DESKTOP'         "$(machine 301; echo $?)" )
 for name dir in "${(@kv)env[@]}"; do

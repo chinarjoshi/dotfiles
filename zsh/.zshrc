@@ -18,6 +18,8 @@ z=$ZDOTDIR
 d=$DOTFILES
 dl=$HOME/Downloads
 
+export WLR_NO_HARDWARE_CURSORS=1
+
 for file in $ZDOTDIR/custom/*; do
     source $file
 done

@@ -10,14 +10,11 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wofi | xargs swaymsg exec --
-
-bindsym $mod+Space exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
-for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -34,14 +31,11 @@ output * bg #000000 solid_color
 #
 # Example configuration:
 #
- exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 
-exec wl-paste -t text --watch clipman store --max-items=60 --histpath="~/.local/share/clipman.json"
-bindsym $mod+h exec clipman pick --tool="wofi" --max-items=30 --histpath="~/.local/share/clipman.json"
-#
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -50,12 +44,12 @@ bindsym $mod+h exec clipman pick --tool="wofi" --max-items=30 --histpath="~/.loc
 #
 # Example configuration:
 #
-input type:touchpad {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-}
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -70,6 +64,8 @@ input type:touchpad {
     # Kill focused window
     bindsym $mod+Shift+q kill
 
+    # Start your launcher
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -79,10 +75,10 @@ input type:touchpad {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Ctrl+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Ctrl+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -159,13 +155,6 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-    bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
-    bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 #
 # Scratchpad:
 #
@@ -179,6 +168,29 @@ input type:touchpad {
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+    bindsym XF86MonBrightnessUp exec sudo light -A 10
+    bindsym XF86MonBrightnessDown exec sudo light -U 10
+
+    bindsym $mod+Ctrl+r exec systemctl reboot, mode "default"
+    bindsym $mod+Ctrl+q exec systemctl poweroff -i, mode "default"
+    bindsym $mod+Ctrl+s exec systemctl suspend
+    bindsym $mod+Ctrl+b exec systemctl reboot --firmware-setup
+    bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
+
+    bindsym $mod+Shift+e exec emacsclient -c -a ""
+    bindsym $mod+Shift+d exec discord
+    bindsym $mod+Shift+g exec google-chrome-stable
+    bindsym $mod+Shift+r exec rhythmbox
+    bindsym $mod+Shift+s exec ksnip
+    bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
+    bindsym $mod+Shift+t exec teams
+
+    for_window [class="ksnip"] floating enable
+
 #
 # Resizing containers:
 #
@@ -187,16 +199,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 3px
+    bindsym $down resize grow height 3px
+    bindsym $up resize shrink height 3px
+    bindsym $right resize grow width 3px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 3px
+    bindsym Down resize grow height 3px
+    bindsym Up resize shrink height 3px
+    bindsym Right resize grow width 3px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -213,7 +225,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
     colors {
         statusline #ffffff
