@@ -1,0 +1,8 @@
+git clone https://github.com/flatwhatson/emacs.git emacs
+cd emacs
+git checkout pgtk-nativecomp
+export CC=/usr/bin/gcc-10 CXX=/usr/bin/gcc-10
+./autogen.sh
+./configure --with-cairo --with-modules --with-native-compilation --with-json --with-pgtk --with-gnutls --with-rsvg --with-harfbuzz --with-xml2 --with-dbus --with-mailutils --with-gif --with-jpeg --with-png --with-tiff --with-xft --with-xpm --with-gpm=no CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
+make -j6 NATIVE_FULL_AOT=1
+sudo make install
