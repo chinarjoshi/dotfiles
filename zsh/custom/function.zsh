@@ -1,6 +1,6 @@
 # Adds all files to staging area, commits files with date and time, pulls
 # changes from remote repository, then pushes changes to remote
-fuckit() {
+gf() {
     git add --all
     git commit -m "$(date)"
     git pull origin
