@@ -1,37 +1,45 @@
 set $mod Mod4
 font pango:Source Code Pro 8
+
 # Arrow keys
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Terminal and launcher
 set $term alacritty
 bindsym $mod+Space exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
+
 # Touchpad config
 input type:keyboard {
     repeat_delay 200
     repeat_rate 30
 }
+
 # Typematic delay
 input type:touchpad {
     pointer_accel .15
     tap enabled
 }
+
 # Output settings (wallpaper)
 output eDP-1 {
     bg `find $DOTFILES/wallpapers -type f | shuf -n 1` fill
     scale 1.6
 }
+
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
+
 # Clipboard setup
 exec wl-paste -t text --watch clipman store --max-items=10 --histpath="~/.local/share/clipman.json"
 bindsym $mod+c exec clipman pick --tool="wofi" --max-items=10 --histpath="~/.local/share/clipman.json"
+
 ## Rudimentary bindings
 floating_modifier $mod normal
 bindsym $mod+Return exec $term
@@ -39,6 +47,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Ctrl+c reload
 bindsym $mod+Ctrl+e exec swaynag -t
+
 # Focus and movement
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -68,6 +77,7 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
+
 # Splits and stack layouts
 bindsym $mod+a focus parent
 bindsym $mod+b splith
@@ -76,10 +86,12 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
+
 # Fullscreen and scratchpad
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+
 # Audio and brightness control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
@@ -87,12 +99,18 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec sudo light -A 10
 bindsym XF86MonBrightnessDown exec sudo light -U 10
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
+
 # Power keybindngs
 bindsym $mod+Ctrl+r exec systemctl reboot, mode "default"
 bindsym $mod+Ctrl+q exec systemctl poweroff -i, mode "default"
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+Ctrl+b exec systemctl reboot --firmware-setup
 bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
+
 # Application keybindings
 bindsym $mod+Shift+e exec emacsclient -c -a ""
 bindsym $mod+Shift+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
@@ -101,12 +119,15 @@ bindsym $mod+Shift+r exec rhythmbox
 bindsym $mod+Shift+s exec ksnip
 bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
 bindsym $mod+Shift+t exec teams --enable-features=UseOzonePlatform --ozone-platform=wayland
+
 # Tilings (fibbonaci tiling)
 for_window [app_id=".*"] split toggle
 for_window [class=".*"] split toggle
 for_window [class="ksnip"] floating enable
+
 # Gaps
 gaps inner 10
+
 # Resizing (3px)
 mode "resize" {
     bindsym $left resize shrink width 3px
@@ -117,9 +138,15 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
 # Status bar (i3status)
 bar {
     status_command i3status
 }
+
+# etc
 default_border pixel 1
+exec ydotoold
+exec libinput-gestures-setup start
+
 include /etc/sway/config.d/*
