@@ -6,17 +6,22 @@ set $down j
 set $up k
 set $right l
 # Terminal and launcher
-set $term kitty
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $term alacritty
+bindsym $mod+Space exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
 # Typematic delay
 input type:keyboard repeat_delay 200
 input type:keyboard repeat_rate 30
 output * bg #000000 solid_color
+output eDP-1 scale 1.6
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
+# Clipboard setup
+exec wl-paste -t text --watch clipman store --max-items=10 --histpath="~/.local/share/clipman.json"
+bindsym $mod+c exec clipman pick --tool="wofi" --max-items=10 --histpath="~/.local/share/clipman.json"
 ## Rudimentary bindings
 floating_modifier $mod normal
 bindsym $mod+Return exec $term
@@ -80,12 +85,12 @@ bindsym $mod+Ctrl+b exec systemctl reboot --firmware-setup
 bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
 # Application keybindings
 bindsym $mod+Shift+e exec emacsclient -c -a ""
-bindsym $mod+Shift+d exec discord
-bindsym $mod+Shift+g exec google-chrome-stable
+bindsym $mod+Shift+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+Shift+g exec google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 bindsym $mod+Shift+r exec rhythmbox
 bindsym $mod+Shift+s exec ksnip
 bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
-bindsym $mod+Shift+t exec teams
+bindsym $mod+Shift+t exec teams --enable-features=UseOzonePlatform --ozone-platform=wayland
 # Tilings (fibbonaci tiling)
 for_window [class=".*"] split toggle
 for_window [app_id=".*"] split toggle
