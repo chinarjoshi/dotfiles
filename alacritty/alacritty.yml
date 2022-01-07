@@ -1,8 +1,12 @@
 dynamic_title: true
 
+font:
+  normal:
+    family: Noto Sans Mono
+
 window:
   title: "zsh"
 
 colors:
   primary:
-    background: '0x0c0c0c'
+    background: '0x121314'

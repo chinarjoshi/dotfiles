@@ -1,8 +1,0 @@
-dynamic_title: true
-
-window:
-  title: "zsh"
-
-colors:
-  primary:
-    background: '0x0c0c0c'

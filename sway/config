@@ -95,6 +95,8 @@ bindsym $mod+Shift+t exec teams --enable-features=UseOzonePlatform --ozone-platf
 for_window [class=".*"] split toggle
 for_window [app_id=".*"] split toggle
 for_window [class="ksnip"] floating enable
+# Gaps
+gaps inner 10
 # Resizing (3px)
 mode "resize" {
     bindsym $left resize shrink width 3px
