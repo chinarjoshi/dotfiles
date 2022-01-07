@@ -13,7 +13,7 @@ for_window [app_id="^launcher$"] floating enable, border none, resize set width 
 input type:keyboard repeat_delay 200
 input type:keyboard repeat_rate 30
 # Output settings (wallpaper)
-output eDP-1 bg `find $HOME/Pictures/wallpapers -type f | shuf -n 1` fill
+output eDP-1 bg `find $DOTFILES/wallpapers -type f | shuf -n 1` fill
 output eDP-1 scale 1.6
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
@@ -112,5 +112,5 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
 }
-hide_edge_borders both
+default_border pixel 1
 include /etc/sway/config.d/*
