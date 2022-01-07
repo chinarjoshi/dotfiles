@@ -9,12 +9,21 @@ set $right l
 set $term alacritty
 bindsym $mod+Space exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
+# Touchpad config
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 30
+}
 # Typematic delay
-input type:keyboard repeat_delay 200
-input type:keyboard repeat_rate 30
+input type:touchpad {
+    pointer_accel .15
+    tap enabled
+}
 # Output settings (wallpaper)
-output eDP-1 bg `find $DOTFILES/wallpapers -type f | shuf -n 1` fill
-output eDP-1 scale 1.6
+output eDP-1 {
+    bg `find $DOTFILES/wallpapers -type f | shuf -n 1` fill
+    scale 1.6
+}
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
