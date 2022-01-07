@@ -12,7 +12,8 @@ for_window [app_id="^launcher$"] floating enable, border none, resize set width 
 # Typematic delay
 input type:keyboard repeat_delay 200
 input type:keyboard repeat_rate 30
-output * bg #000000 solid_color
+# Output settings (wallpaper)
+output eDP-1 bg `find $HOME/Pictures/wallpapers -type f | shuf -n 1` fill
 output eDP-1 scale 1.6
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
@@ -92,8 +93,8 @@ bindsym $mod+Shift+s exec ksnip
 bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
 bindsym $mod+Shift+t exec teams --enable-features=UseOzonePlatform --ozone-platform=wayland
 # Tilings (fibbonaci tiling)
-for_window [class=".*"] split toggle
 for_window [app_id=".*"] split toggle
+for_window [class=".*"] split toggle
 for_window [class="ksnip"] floating enable
 # Gaps
 gaps inner 10

@@ -16,7 +16,7 @@
 
 (setq doom-font (font-spec :family "Source Code Pro" :size size)
       doom-font-increment 1
-      doom-big-font (font-spec :family "Source Code Pro" :size size)
+      doom-big-font (font-spec :family "Noto Sans Mono" :size size)
       doom-big-font-increment 2
       doom-serif-font (font-spec :family "EB Garamond" :size size)
       doom-variable-pitch-font (font-spec :family "Helvetica" :size size)

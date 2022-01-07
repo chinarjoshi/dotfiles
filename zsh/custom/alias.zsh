@@ -76,7 +76,6 @@ declare -A etc=(
     'top'      'htop'
     'bios'     'systemctl reboot --firmware-setup'
     'clip'     'xclip -selection c'
-    'find'     'fd'
     'wlan'     'iwctl station wlan0'
     'stack'    'search stackoverflow'
     'chrome'   'google-chrome-stable'
