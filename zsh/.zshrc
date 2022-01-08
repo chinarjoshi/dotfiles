@@ -19,9 +19,6 @@ d=$DOTFILES
 dl=$HOME/Downloads
 pac=/var/cache/pacman/pkg
 
-# Wayland system variables
-WLR_NO_HARDWARE_CURSORS=1 
-
 for file in $ZDOTDIR/custom/*; do
     source $file
 done
