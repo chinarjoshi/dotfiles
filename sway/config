@@ -6,7 +6,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $ozone "--enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 # Terminal and launcher
 set $term alacritty
@@ -28,7 +27,7 @@ input type:touchpad {
 
 # Output settings (wallpaper)
 output eDP-1 {
-    bg `find $DOTFILES/wallpapers -type f | shuf -n 1` fill
+    bg `find $DOTFILES/.wallpapers -type f | shuf -n 1` fill
     scale 1.6
 }
 
