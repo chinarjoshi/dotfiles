@@ -12,13 +12,13 @@ set $term alacritty
 bindsym $mod+Space exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
 
-# Touchpad config
+# Typematic delay
 input type:keyboard {
     repeat_delay 200
     repeat_rate 30
 }
 
-# Typematic delay
+# Touchpad config
 input type:touchpad {
     tap enabled
     pointer_accel .15
@@ -41,7 +41,7 @@ exec swayidle -w \
 exec wl-paste -t text --watch clipman store --max-items=10 --histpath="~/.local/share/clipman.json"
 bindsym $mod+c exec clipman pick --tool="wofi" --max-items=10 --histpath="~/.local/share/clipman.json"
 
-## Rudimentary bindings
+# Rudimentary bindings
 floating_modifier $mod normal
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
@@ -127,6 +127,9 @@ for_window [class=".*"] split toggle
 for_window [class="ksnip"] floating enable
 
 # Gaps
+default_border pixel 1
+hide_edge_borders smart
+smart_gaps on
 gaps inner 10
 
 # Resizing (3px)
@@ -140,13 +143,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Status bar (i3status)
-bar {
-    status_command i3status
-}
-
 # etc
-default_border pixel 1
 exec ydotoold
 exec libinput-gestures-setup start
 
