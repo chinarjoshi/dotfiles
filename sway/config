@@ -20,8 +20,9 @@ input type:keyboard {
 
 # Typematic delay
 input type:touchpad {
-    pointer_accel .15
     tap enabled
+    pointer_accel .15
+    scroll_factor .5
 }
 
 # Output settings (wallpaper)
