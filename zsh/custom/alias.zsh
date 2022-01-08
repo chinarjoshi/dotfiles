@@ -98,8 +98,7 @@ CFG='?'
 # Sudo configuration aliases
 declare -A sudocfg=(
     'boot'      '/boot/loader/entries/arch.conf'
-    'loader'    '/boot/loader/loader.conf'
-    'libinput'  '/etc/X11/xorg.conf.d/*' )
+    'loader'    '/boot/loader/loader.conf' )
 for key value in "${(@kv)sudocfg[@]}"; do
     alias "$key$CFG"="sudo $EDITOR $value"
 done
