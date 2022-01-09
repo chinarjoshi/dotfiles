@@ -1,11 +1,12 @@
-#zle -N clear_and_ls
-#bindkey '^k' clear_and_ls
-
-
 declare -A names=(
     'clear_and_ls' 'clear && l'
     'git_finish'   'gf'
     'git_status'   'gs' )
-for name command in "${(@kv)pacman[@]}"; do
-    echo "$name $command"
+for name command in "${(@kv)names[@]}"; do
+    $name() { $command }
+    zle -N $name
 done
+
+bindkey '^k' clear_and_ls
+bindkey '^g^g' git_finish
+bindkey '^g^s' git_status
