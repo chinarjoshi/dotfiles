@@ -11,5 +11,6 @@ done
 ln -sv $DOTFILES/zsh/.zshenv $HOME/.zshenv
 ln -sv $DOTFILES/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
 ln -sv $DOTFILES/.doom.d $HOME/.doom.d
+cat /etc/hostname > $DOTFILES/.identity
 
 echo "Bootstrapping successful for $USER"
