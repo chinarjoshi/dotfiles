@@ -1,6 +1,6 @@
 export DOTFILES=$HOME/dotfiles
 declare -A env=(
-    'ID'             "$(cat $DOTFILES/.identity)"
+    'ID'             "$(cat $DOTFILES/.identity 2>/dev/null)"
     'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$HOME/.emacs.d/bin:$PATH"
     'EDITOR'           'nvim'
     'ZDOTDIR'           "$DOTFILES/zsh"
