@@ -1,5 +1,5 @@
+export DOTFILES=$HOME/dotfiles
 declare -A env=(
-    'DOTFILES'      "$HOME/dotfiles"
     'ID'             "$(cat $DOTFILES/.identity)"
     'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$HOME/.emacs.d/bin:$PATH"
     'EDITOR'           'nvim'

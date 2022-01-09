@@ -4,7 +4,8 @@ declare -A git=(
     'a'    'add --all'
     'b'    'branch'
     'c'    'commit -m'
-    'd'    'diff' 'l'    'log --graph --pretty=oneline --decorate --all'
+    'd'    'diff'
+    'l'    'log --graph --pretty=oneline --decorate --all'
     'm'    'merge'
     's'    'status --short --branch --show-stash'
     'bd'   'branch --delete'
@@ -64,28 +65,23 @@ declare -A etc=(
     'ds'       "$HOME/.emacs.d/bin/doom sync"
     'em'       'emacsclient -c'
     'll'       'ls --color=auto -AlFgGh'
-    'or'       '||'
     'py'       'python3'
     'rb'       'reboot'
     'sd'       'shutdown now'
     'vi'       'nvim'
-    'and'      '&&'
+    'wn'       'systemctl reboot --boot-loader-entry=windows.conf'
     'dup'      "$HOME/.emacs.d/bin/doom upgrade"
     'lll'      'ls --color=auto -Al'
     'rem'      'killall emacs && emacs --daemon'
+    'syn'      'aiksaurus'
     'top'      'htop'
     'bios'     'systemctl reboot --firmware-setup'
-    'clip'     'xclip -selection c'
     'wlan'     'iwctl station wlan0'
     'stack'    'search stackoverflow'
     'chrome'   'google-chrome-stable'
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
-    'xinit?'   "$EDITOR $DOTFILES/.xinitrc"
     'github'   'search github'
     'google'   'search google'
-    'battery'  'cat /sys/class/power_supply/BAT0/capacity'
-    'synonym'  'aiksaurus'
-    'windows'  'systemctl reboot --boot-loader-entry=windows.conf'
     'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
     'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )
 for key value in "${(@kv)etc[@]}"; do
