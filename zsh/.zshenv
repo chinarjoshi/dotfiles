@@ -1,9 +1,9 @@
 declare -A env=(
-    'ID'            "$(cat $DOTFILES/.identity)"
-    'PATH'           "$HOME/.local/bin:$HOME/.cargo/env:$HOME/.emacs.d/bin:$PATH"
-    'EDITOR'          'nvim'
-    'ZDOTDIR'          "$HOME/dotfiles/zsh"
-    'DOTFILES'          "$HOME/dotfiles"
+    'DOTFILES'      "$HOME/dotfiles"
+    'ID'             "$(cat $DOTFILES/.identity)"
+    'PATH'            "$HOME/.local/bin:$HOME/.cargo/env:$HOME/.emacs.d/bin:$PATH"
+    'EDITOR'           'nvim'
+    'ZDOTDIR'           "$DOTFILES/zsh"
     'GTK_BACKEND'        'wayland'
     'XDG_CONFIG_HOME'     "$HOME/.config"
     'QT_QPA_PLATFORM'      'wayland-egl'

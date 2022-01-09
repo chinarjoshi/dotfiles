@@ -10,12 +10,12 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Convenience directories
-r=$HOME/projects/rust
-j=$HOME/projects/java
-p=$HOME/projects/python
-o=$HOME/org
-z=$ZDOTDIR
 d=$DOTFILES
+j=$HOME/projects/java
+o=$HOME/org
+p=$HOME/projects/python
+r=$HOME/projects/rust
+z=$ZDOTDIR
 dl=$HOME/Downloads
 pac=/var/cache/pacman/pkg
 
