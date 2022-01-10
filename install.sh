@@ -1,9 +1,10 @@
 #!/bin/sh
 
 DOTFILES=$HOME/dotfiles
-[[ -z $XDG_CONFIG_HOME ]] && XDG_CONFIG_HOME=$HOME/.config
+XDG_CONFIG_HOME=$HOME/.config
+mkdir $HOME/.config
 
-git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
+[ ! -d "$DOTFILES" ] && git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
 
 for dir in $(ls -d $DOTFILES/*/ | xargs -n 1 basename); do
     ln -sv $DOTFILES/$dir $XDG_CONFIG_HOME/$dir

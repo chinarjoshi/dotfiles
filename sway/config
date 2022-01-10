@@ -26,9 +26,9 @@ input type:touchpad {
 }
 
 # Output settings (wallpaper)
-output eDP-1 {
+output * {
     bg `find $DOTFILES/.wallpapers -type f | shuf -n 1` fill
-    scale 1.6
+    scale 1
 }
 
 # Lock screen: 5 mins, Sleep: 10 mins

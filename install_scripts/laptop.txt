@@ -1,0 +1,4 @@
+networkmanager
+libinput-gestures
+light
+ydotool
