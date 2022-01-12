@@ -28,7 +28,7 @@ input type:touchpad {
 # Output settings (wallpaper)
 output * {
     bg `find $DOTFILES/.wallpapers -type f | shuf -n 1` fill
-    scale 1
+    scale 1.6
 }
 
 # Lock screen: 5 mins, Sleep: 10 mins
