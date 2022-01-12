@@ -6,4 +6,5 @@ wifi() {
 }
 
 partition() {
-    fdisk
+    parted mklabel gpt
+    parted mkpart primary fat32 start

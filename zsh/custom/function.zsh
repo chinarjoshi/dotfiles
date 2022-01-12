@@ -12,7 +12,7 @@ connect() {
     if [ $(systemctl status | rg dhcpcd.service | wc -l) -eq 2 ]; then
         iwctl station wlan0 scan;
         iwctl station wlan0 disconnect;
-        iwctl station wlan0 connect ATT-phanas;
+        iwctl station wlan0 connect $1;
     fi
 }
 

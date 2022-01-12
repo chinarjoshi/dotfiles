@@ -119,7 +119,7 @@ bindsym $mod+Shift+g exec google-chrome-stable --enable-features=UseOzonePlatfor
 bindsym $mod+Shift+r exec spotify
 bindsym $mod+Shift+s exec ksnip
 bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
-bindsym $mod+Shift+t exec teams --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+Shift+t exec teams-for-linux
 
 # Tilings (fibbonaci tiling)
 for_window [app_id=".*"] split toggle
