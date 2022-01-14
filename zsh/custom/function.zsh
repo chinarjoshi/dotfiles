@@ -9,11 +9,10 @@ gf() {
 
 # If dhcpcd.service is active
 connect() {
-    if [ $(systemctl status | rg dhcpcd.service | wc -l) -eq 2 ]; then
+	sudo systemctl restart iwd
         iwctl station wlan0 scan;
         iwctl station wlan0 disconnect;
         iwctl station wlan0 connect $1;
-    fi
 }
 
 search() {

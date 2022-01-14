@@ -1,3 +1,4 @@
+pkg='
 linux
 linux-firmware
 base
@@ -41,9 +42,4 @@ tldr
 
 python
 python-pip
-clipman
-interception-caps2esc
-google-chrome
-teams
-discord_arch_electron
-spotify
+clipman'
