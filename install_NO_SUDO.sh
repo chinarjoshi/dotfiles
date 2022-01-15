@@ -83,6 +83,14 @@ symlinks() {
     echo "Bootstrapping successful for $USER"
 }
 
+alsa_config() {
+    amixer sset Master unmute
+    amixer sset Speaker unmute
+    amixer sset Headphone unmute
+    echo $PULSE_CONFIG > /home/c/.config/pulse/daemon.conf
+    echo $ALSA_CONFIG > /etc/asound.conf
+}
+
 # ---------------- CONFIGURATION VARIABLES ---------------
 
 IS_LAPTOP=true
@@ -91,16 +99,6 @@ INSTALL_DISK=/dev/sda
 SWAP_SIZE=10G
 FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND' # yes this should be a heredoc, so what
 
-LOADER='default arch.conf
-timeout false
-console-mode max
-editor no'
-
-BOOT_ENTRY="title PenixOS
-linux /vmlinuz-linux
-initrd /intel-ucode.img
-initrd /initramfs-linux.img
-options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda2) rw quiet acpi_osi=!Darwin"
 
 # --------------- PACKAGES ----------------
 
@@ -159,3 +157,44 @@ google-chrome
 teams
 discord_arch_electron
 spotify'
+
+# --------------------- FILES ----------------------
+
+# loader.conf
+LOADER='default arch.conf
+timeout false
+console-mode max
+editor no'
+
+# arch.conf 
+BOOT_ENTRY="title PenixOS
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda2) rw quiet acpi_osi=!Darwin"
+
+# pulse/daemon.conf
+PULSE_CONFIG='
+default-sample-format = float32le
+default-sample-rate = 48000
+alternate-sample-rate = 44100
+default-sample-channels = 2
+default-channel-map = front-left,front-right
+default-fragments = 2
+default-fragment-size-msec = 125
+resample-method = soxr-vhq
+enable-lfe-remixing = no
+high-priority = yes
+nice-level = -11
+realtime-scheduling = yes
+realtime-priority = 9
+rlimit-rtprio = 9
+daemonize = no'
+
+# asound.conf
+ALSA_CONFIG='
+# Use PulseAudio plugin hw
+pcm.!default {
+   type plug
+   slave.pcm hw
+}'
