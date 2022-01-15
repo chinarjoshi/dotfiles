@@ -120,6 +120,7 @@ bindsym $mod+Shift+r exec spotify
 bindsym $mod+Shift+s exec ksnip
 bindsym $mod+Shift+p exec $HOME/.config/polybar/launch.sh
 bindsym $mod+Shift+t exec teams
+bindsym $mod+Shift+f exec thunar
 
 # Tilings (fibbonaci tiling)
 #for_window [app_id=".*"] split toggle
