@@ -114,7 +114,7 @@ bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
 
 # Application keybindings
 bindsym $mod+Shift+e exec emacsclient -c -a ""
-bindsym $mod+Shift+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+g exec google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 bindsym $mod+Shift+r exec spotify
 bindsym $mod+Shift+s exec ksnip
@@ -126,6 +126,7 @@ bindsym $mod+Shift+f exec thunar
 #for_window [app_id=".*"] split toggle
 #for_window [class=".*"] split toggle
 for_window [class="ksnip"] floating enable
+for_window [class="discord"] floating disable
 
 # Gaps
 default_border pixel 1
