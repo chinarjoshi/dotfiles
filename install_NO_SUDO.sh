@@ -4,29 +4,28 @@ wifi() {
     # Disable all network modules and reenable broadcom-wl
     # Then restart iwd and connect to wifi
     modprobe -r wl b43 ssb bcma
-    modprbe wl
+    modprobe wl
     systemctl restart iwd
     iwctl station wlan0 connect $NETWORK_SSID
 }
 
 partition() {
-    echo $FDISK_CMD | fdisk /dev/sd$INSTALL_DISK
+    echo $FDISK_CMD | fdisk $INSTALL_DISK
 }
 
 make_filesystems() {
-    device=/dev/sd$INSTALL_DISK
-    mkfs.fat -F 32 ${device}1
-    mkfs.ext4 ${device}2
-    mount ${device}2 /mnt
+    mkfs.fat -F 32 ${INSTALL_DISK}1
+    mkfs.ext4 ${INSTALL_DISK}2
+    mount ${INSTALL_DISK}2 /mnt
     mkdir /mnt/boot
-    mount ${device}1 /mnt/boot
+    mount ${INSTALL_DISK}1 /mnt/boot
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
     swapon /mnt/swapfile
 }
 
 install_packages() {
-    pacstrap /mnt - < pkg.txt
+    echo $MAIN_PKG | xargs pacstrap /mnt
     genfstab -U /mnt >> /mnt/etc/fstab
     arch-chroot /mnt                       ### NEW SYSTEM
 }
@@ -34,7 +33,7 @@ install_packages() {
 time_lang() {
     timedatectl set-ntp true
     ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
-    lwclock --systohc
+    hwclock --systohc
     echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
     locale-gen
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf
@@ -43,10 +42,22 @@ time_lang() {
     echo 'root:fdsa' | chpasswd
 }
 
+
 users_systemd() {
     useradd -m c
     echo 'c ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
     systemctl enable systemd-networkd systemd-resolved iwd
+}
+
+yay_install() {
+    git clone https://aur.archlinux.org/yay ~/yay
+    cd ~/yay
+    su c
+    makepkg -si
+    cd ~
+    echo $AUR_PKG | xargs yay -S
+    [ $IS_LAPTOP ] && echo $LAPTOP_PKG | xargs yay -S
+    exit
 }
 
 boot() {
@@ -76,10 +87,9 @@ symlinks() {
 
 IS_LAPTOP=true
 NETWORK_SSID=ATT-phanas
-INSTALL_DISK=a
-#INSTALL_PART=2
+INSTALL_DISK=/dev/sda
 SWAP_SIZE=10G
-FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND'
+FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND' # yes this should be a heredoc, so what
 
 LOADER='default arch.conf
 timeout false
