@@ -10,15 +10,16 @@ wifi() {
 }
 
 partition() {
-    echo 'g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND' | fdisk /dev/sda
+    echo $FDISK_CMD | fdisk /dev/sd$INSTALL_DISK
 }
 
 make_filesystems() {
-    mkfs.fat -F 32 /dev/sda1
-    mkfs.ext4 /dev/sda2
-    mount /dev/sda2 /mnt
+    device=/dev/sd$INSTALL_DISK
+    mkfs.fat -F 32 ${device}1
+    mkfs.ext4 ${device}2
+    mount ${device}2 /mnt
     mkdir /mnt/boot
-    mount /dev/sda1 /mnt/boot
+    mount ${device}1 /mnt/boot
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
     swapon /mnt/swapfile
@@ -51,7 +52,7 @@ users_systemd() {
 boot() {
     bootctl install
     echo $LOADER > /boot/loader/loader.conf
-    blkid -s PARTUUID -o value /dev/sda2
+    echo $BOOT_ENTRY > /boot/loader/entries/arch.conf
 }
 
 symlinks() {
@@ -75,8 +76,10 @@ symlinks() {
 
 IS_LAPTOP=true
 NETWORK_SSID=ATT-phanas
-INSTALL_DEVICE=/dev/sda2
+INSTALL_DISK=a
+#INSTALL_PART=2
 SWAP_SIZE=10G
+FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND'
 
 LOADER='default arch.conf
 timeout false

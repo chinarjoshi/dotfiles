@@ -1,3 +1,0 @@
-NETWORK_SSID=ATT-phanas
-DEVICE=/dev/sda2
-SWAP_SIZE=10G

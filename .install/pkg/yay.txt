@@ -1,5 +1,0 @@
-yay_pkg='interception-caps2esc
-google-chrome
-teams
-discord_arch_electron
-spotify'
