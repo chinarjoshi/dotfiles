@@ -12,11 +12,8 @@ wifi() {
     iwctl station wlan0 connect $NETWORK_SSID
 }
 
-partition() {
-    echo $FDISK_CMD | fdisk $INSTALL_DISK
-}
-
 make_filesystems() {
+    sfdisk $INSTALL_DISK <<< $PARTITION_TABLE
     mkfs.fat -F 32 ${INSTALL_DISK}1
     mkfs.ext4 ${INSTALL_DISK}2
     mount ${INSTALL_DISK}2 /mnt
@@ -105,8 +102,11 @@ IS_LAPTOP=true
 NETWORK_SSID=ATT-phanas
 INSTALL_DISK=/dev/sda
 SWAP_SIZE=10G
-FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n83\nw\nEND' # yes this should be a heredoc, so what
-
+PARTITION_TABLE='
+label: gpt
+unit: sectors
+start=, size=614400, type=1, bootable
+start=, size=, type=83'
 
 # --------------- PACKAGES ----------------
 
@@ -217,7 +217,6 @@ CAPS_CONFIG='
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC]'
 
 wifi
-partition
 make_filesystems
 install_packages
 time_lang
