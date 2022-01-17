@@ -7,13 +7,17 @@ wifi() {
     modprobe -r wl b43 ssb bcma
     modprobe wl
     [[ $(ip link | grep -c wlan) ]]
+    cat <<- EOF > /var/lib/iwd/${NETWORK_SSID}.psk
+	[Security]
+	Passphrase=6080700101
+EOF
     systemctl restart iwd
     iwctl station wlan0 scan
     iwctl station wlan0 connect $NETWORK_SSID
 }
 
 make_filesystems() {
-    sfdisk $INSTALL_DISK <<< $PARTITION_TABLE
+    echo $FDISK_CMD | fdisk $INSTALL_DISK
     mkfs.fat -F 32 ${INSTALL_DISK}1
     mkfs.ext4 ${INSTALL_DISK}2
     mount ${INSTALL_DISK}2 /mnt
@@ -21,13 +25,15 @@ make_filesystems() {
     mount ${INSTALL_DISK}1 /mnt/boot
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
+    chmod 600 /mnt/swapfile
     swapon /mnt/swapfile
 }
 
 install_packages() {
     echo $MAIN_PKG | xargs pacstrap /mnt
     genfstab -U /mnt >> /mnt/etc/fstab
-    arch-chroot /mnt                       ### NEW SYSTEM
+    cp /root/**/$0 /mnt/$0
+    arch-chroot /mnt /bin/bash /$0 -chroot       ### NEW SYSTEM
 }
 
 time_lang() {
@@ -50,14 +56,11 @@ users_systemd() {
 }
 
 yay_install() {
-    git clone https://aur.archlinux.org/yay ~/yay
-    cd ~/yay
-    su c
-    makepkg -si
-    cd ~
-    echo $AUR_PKG | xargs yay -S
-    [[ $IS_LAPTOP ]] && echo $LAPTOP_PKG | xargs yay -S
-    exit
+    su c -c "git clone https://aur.archlinux.org/yay /home/c/yay \
+	       && cd /home/c/yay && makepkg -si && echo $AUR_PKG | xargs yay -S"
+    if $IS_LAPTOP; then
+        su c -c "echo $LAPTOP_PKG | xargs yay -S"
+    fi
 }
 
 boot() {
@@ -102,11 +105,7 @@ IS_LAPTOP=true
 NETWORK_SSID=ATT-phanas
 INSTALL_DISK=/dev/sda
 SWAP_SIZE=10G
-PARTITION_TABLE='
-label: gpt
-unit: sectors
-start=, size=614400, type=1, bootable
-start=, size=, type=83'
+FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n20\nw\n'
 
 # --------------- PACKAGES ----------------
 
@@ -130,7 +129,6 @@ reflector
 
 xf86-video-nouveau
 sway
-swayidle
 swaylock
 waybar
 xorg-xwayland
@@ -171,11 +169,13 @@ spotify'
 
 # --------------------- FILES ----------------------
 
+# ATT-phanas.
+
 # loader.conf
-LOADER='default arch.conf
+LOADER="default arch.conf
 timeout false
 console-mode max
-editor no'
+editor no"
 
 # arch.conf 
 BOOT_ENTRY="title PenixOS
@@ -185,7 +185,7 @@ initrd /initramfs-linux.img
 options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda2) rw quiet acpi_osi=!Darwin"
 
 # pulse/daemon.conf
-PULSE_CONFIG='
+PULSE_CONFIG="
 default-sample-format = float32le
 default-sample-rate = 48000
 alternate-sample-rate = 44100
@@ -200,29 +200,35 @@ nice-level = -11
 realtime-scheduling = yes
 realtime-priority = 9
 rlimit-rtprio = 9
-daemonize = no'
+daemonize = no"
 
 # asound.conf
-ALSA_CONFIG='
+ALSA_CONFIG="
 # Use PulseAudio plugin hw
 pcm.!default {
    type plug
    slave.pcm hw
-}'
+}"
 
-CAPS_CONFIG='
-- JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
+CAPS_CONFIG="
+- JOB: \"intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE\"
   DEVICE:
     EVENTS:
-      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]'
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]"
 
-wifi
-make_filesystems
-install_packages
-time_lang
-users_systemd
-yay_install
-boot
-symlinks
-alsa_config
-caps_to_escape
+case $1 in
+    -chroot) 
+      time_lang
+      users_systemd
+      yay_install
+      boot
+      symlinks
+      alsa_config
+      caps_to_escape
+    ;;
+    *)
+      wifi
+      make_filesystems
+      install_packages
+    ;;
+esac
