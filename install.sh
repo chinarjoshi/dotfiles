@@ -185,7 +185,6 @@ wget
 
 broadcom-wl
 iwd
-dhcpcd
 reflector
 
 xf86-video-nouveau
