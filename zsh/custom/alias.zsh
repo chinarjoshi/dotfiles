@@ -82,6 +82,7 @@ declare -A etc=(
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
     'github'   'search github'
     'google'   'search google'
+    'install?'  "$EDITOR $DOTFILES/install.sh"
     'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
     'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )
 for key value in "${(@kv)etc[@]}"; do

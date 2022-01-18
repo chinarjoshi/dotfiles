@@ -1,4 +1,78 @@
 set -e
+# ---------------- CONFIGURATION VARIABLES ---------------
+
+HOSTNAME=Desktop
+IS_LAPTOP=false
+NETWORK_SSID=ATT-phanas
+NETWORK_PASSWD=6080700101
+INSTALL_DISK=/dev/sda
+SWAP_SIZE=10G
+CPU_TYPE=amd
+FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n20\nw\n'
+
+MAIN_PKG="
+linux
+linux-firmware
+base
+base-devel
+${CPU_TYPE}-ucode
+gcc
+git
+zsh
+neovim
+man-db
+wget
+
+broadcom-wl
+iwd
+reflector
+
+xf86-video-nouveau
+sway
+swaylock
+waybar
+xorg-xwayland
+noto-fonts
+ttf-nerd-fonts-symbols
+
+pulseaudio
+alsa
+alsa-utils
+pavucontrol
+playerctl
+
+alacritty
+bat
+fzf
+fd
+ripgrep
+ranger
+tree
+tldr
+bat
+
+grim
+slurp
+wf-recorder
+
+ntfs-3g
+exfat-utils
+python
+python-pip"
+
+LAPTOP_PKG='
+libinput-gestures
+light
+ydotool'
+
+AUR_PKG='
+interception-caps2esc
+google-chrome
+teams-for-linux
+discord_arch_electron
+clipman
+spotify'
+
 # --------------------- FUNCTIONS -------------------------
 
 wifi() {
@@ -138,7 +212,7 @@ alsa_config() {
 	rlimit-rtprio = 9
 	daemonize = no
 EOF
-    chown c /home/c/.config/pulse/daemon.conf
+    chown -R c /home/c/.config/pulse/
     cat <<- EOF > /etc/asound.conf
 	# Use PulseAudio plugin hw
 	pcm.!default {
@@ -156,76 +230,8 @@ caps_to_escape() {
 	    EVENTS:
 	      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
-    #systemctl enable udevmon
+    systemctl enable udevmon
 }
-
-# ---------------- CONFIGURATION VARIABLES ---------------
-
-HOSTNAME=Desktop
-IS_LAPTOP=false
-NETWORK_SSID=ATT-phanas
-NETWORK_PASSWD=6080700101
-INSTALL_DISK=/dev/sda
-SWAP_SIZE=10G
-CPU_TYPE=amd
-FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n20\nw\n'
-
-MAIN_PKG="
-linux
-linux-firmware
-base
-base-devel
-${CPU_TYPE}-ucode
-gcc
-git
-zsh
-neovim
-man-db
-wget
-
-broadcom-wl
-iwd
-reflector
-
-xf86-video-nouveau
-sway
-swaylock
-waybar
-xorg-xwayland
-noto-fonts
-ttf-nerd-fonts-symbols
-
-pulseaudio
-alsa
-alsa-utils
-pavucontrol
-playerctl
-
-alacritty
-bat
-fzf
-fd
-ripgrep
-ranger
-tree
-tldr
-bat
-
-ntfs-3g
-exfat-utils
-python
-python-pip"
-
-LAPTOP_PKG='libinput-gestures
-light
-ydotool'
-
-AUR_PKG='interception-caps2esc
-google-chrome
-teams
-discord_arch_electron
-clipman
-spotify'
 
 case $1 in
     -chroot) 
