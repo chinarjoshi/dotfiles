@@ -39,7 +39,7 @@ declare -A pacman=(
     'r'    'Rs'
     'q'    'Q'
     'u'    'Syu' )
-for letter flag in "${(@kv)pacman[@]}"; do
+for letter flag in ${(@kv)pacman[@]}; do
     alias "p$letter"="sudo pacman --color=auto --noconfirm -$flag"
     alias "y$letter"="yay --color=auto --noconfirm -$flag"
 done

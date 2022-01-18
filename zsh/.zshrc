@@ -8,6 +8,8 @@ source $HOME/.cargo/env
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+#ZSH_HIGHLIGHT_STYLES[unknown_token]='fg=white'
 
 # Convenience directories
 d=$DOTFILES
