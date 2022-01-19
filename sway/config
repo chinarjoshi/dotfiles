@@ -117,6 +117,7 @@ bindsym $mod+Shift+g exec google-chrome-stable --enable-features=UseOzonePlatfor
 bindsym $mod+Shift+m exec spotify
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+t exec teams
+bindsym $mod+Shift+b exec blender
 
 # Tilings (fibbonaci tiling)
 #for_window [app_id=".*"] split toggle
