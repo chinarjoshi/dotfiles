@@ -30,10 +30,10 @@ output * {
 output eDP-1 scale 1.6
 
 # Lock screen: 5 mins, Sleep: 10 mins
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
+#exec swayidle -w \
+    #timeout 300 'swaylock -f -c 000000' \
+    #timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    #before-sleep 'swaylock -f -c 000000'
 
 # Clipboard setup
 exec wl-paste -t text --watch clipman store --max-items=10 --histpath="~/.local/share/clipman.json"
