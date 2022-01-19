@@ -149,6 +149,7 @@ yay_install() {
     if $IS_LAPTOP; then
         su c -c "echo $LAPTOP_PKG | xargs yay -S --noconfirm"
     fi
+    su c -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 }
 
 boot() {
