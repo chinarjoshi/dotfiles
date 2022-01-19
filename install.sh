@@ -57,6 +57,9 @@ wf-recorder
 
 ntfs-3g
 exfat-utils
+usbutils
+cups
+cups-pdf
 python
 python-pip"
 
