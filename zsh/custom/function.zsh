@@ -38,7 +38,7 @@ command_not_found_handler() {
     if [[ -o interactive && -w $1 ]]; then
         nvim $1
     else
-	echo ⚠: $@
+	echo ⚠
     fi
 }
 
