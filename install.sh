@@ -61,7 +61,8 @@ usbutils
 cups
 cups-pdf
 python
-python-pip"
+python-pip
+npm"
 
 LAPTOP_PKG='
 libinput-gestures
@@ -129,7 +130,7 @@ EOF
     cat <<- EOF > /etc/systemd/network/25-wireless.network
 	[Match]
 	Name=wlan0
-	
+
 	[Network]
 	DHCP=yes
 EOF
@@ -238,7 +239,7 @@ EOF
 }
 
 case $1 in
-    -chroot) 
+    -chroot)
       time_lang
       users_systemd
       yay_install

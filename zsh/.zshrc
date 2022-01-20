@@ -13,6 +13,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 #ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=
 
 # Convenience directories
+c=$HOME/.config
 d=$DOTFILES
 j=$HOME/projects/java
 o=$HOME/org

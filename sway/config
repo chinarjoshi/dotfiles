@@ -133,10 +133,10 @@ gaps inner 10
 
 # Resizing (3px)
 mode "resize" {
-    bindsym $left resize shrink width 3px
-    bindsym $down resize grow height 3px
-    bindsym $up resize shrink height 3px
-    bindsym $right resize grow width 3px
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
