@@ -10,9 +10,9 @@ gf() {
 # If dhcpcd.service is active
 connect() {
 	sudo systemctl restart iwd
-        iwctl station wlan0 scan;
-        iwctl station wlan0 disconnect;
-        iwctl station wlan0 connect $1;
+    iwctl station wlan0 scan;
+    iwctl station wlan0 disconnect;
+    iwctl station wlan0 connect $1;
 }
 
 search() {
@@ -24,13 +24,13 @@ search() {
     if [[ -z "$urls[$1]" ]]; then
         echo "Search engine '$1' not supported."
         return 1
-    fi    
+    fi
     # search or go to main page depending on number of arguments passed
     if [[ $# -gt 1 ]]; then
         url="${urls[$1]}${(j:+:)@[2,-1]}"
     else
         url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
-    fi    
+    fi
     google-chrome-stable "$url"
 }
 
