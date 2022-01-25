@@ -57,6 +57,7 @@ wf-recorder
 
 ntfs-3g
 exfat-utils
+dosfstools
 usbutils
 cups
 cups-pdf
