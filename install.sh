@@ -62,7 +62,11 @@ cups
 cups-pdf
 python
 python-pip
-npm"
+npm
+
+bluez
+bluez-utils
+"
 
 LAPTOP_PKG='
 libinput-gestures
@@ -236,6 +240,11 @@ caps_to_escape() {
 	      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
     systemctl enable udevmon
+}
+
+bluetooth() {
+    modprobe btusb
+    systemctl enable bluetooth.service
 }
 
 case $1 in

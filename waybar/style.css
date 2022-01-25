@@ -2,7 +2,7 @@
     border:        none;
     border-radius: 0;
     font-family:   "Noto Sans Mono";
-    font-size:     13px;
+    font-size:     12px;
     box-shadow:    none;
     text-shadow:   none;
     transition-duration: 0s;
@@ -62,10 +62,3 @@ window#waybar.solo {
     color:      rgba(217, 216, 216, 1);
 }
 
-#custom-storage.warning {
-    color:      rgba(255, 210, 4, 1);
-}
-
-#custom-storage.critical {
-    color:      rgba(238, 46, 36, 1);
-}
