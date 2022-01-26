@@ -1,88 +1,7 @@
 set -e
-# ---------------- CONFIGURATION VARIABLES ---------------
 
-HOSTNAME=Desktop
-IS_LAPTOP=false
-NETWORK_SSID=ATT-phanas
-NETWORK_PASSWD=6080700101
-INSTALL_DISK=/dev/sda
-SWAP_SIZE=10G
-CPU_TYPE=amd
-FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n20\nw\n'
-
-MAIN_PKG="
-linux
-linux-firmware
-base
-base-devel
-${CPU_TYPE}-ucode
-gcc
-git
-zsh
-neovim
-man-db
-wget
-
-broadcom-wl
-iwd
-reflector
-
-xf86-video-nouveau
-sway
-swaylock
-waybar
-xorg-xwayland
-noto-fonts
-ttf-nerd-fonts-symbols
-
-pulseaudio
-alsa
-alsa-utils
-pavucontrol
-playerctl
-
-alacritty
-bat
-fzf
-fd
-ripgrep
-ranger
-tree
-tldr
-bat
-
-grim
-slurp
-wf-recorder
-
-ntfs-3g
-exfat-utils
-dosfstools
-usbutils
-cups
-cups-pdf
-python
-python-pip
-npm
-
-bluez
-bluez-utils
-"
-
-LAPTOP_PKG='
-libinput-gestures
-light
-ydotool'
-
-AUR_PKG='
-interception-caps2esc
-google-chrome
-teams-for-linux
-discord_arch_electron
-clipman
-spotify'
-
-# --------------------- FUNCTIONS -------------------------
+source pkg.sh
+source var.sh
 
 wifi() {
     # Disable all network modules and reenable broadcom-wl
@@ -132,7 +51,7 @@ time_lang() {
 	[Security]
 	Passphrase=$NETWORK_PASSWD
 EOF
-    cat <<- EOF > /etc/systemd/network/25-wireless.network
+    cat <<- EOF > /etc/systemd/network/wireless.network
 	[Match]
 	Name=wlan0
 
@@ -146,7 +65,7 @@ EOF
 users_systemd() {
     useradd -m c
     echo 'c ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
-    systemctl enable systemd-networkd systemd-resolved systemd-timesyncd iwd
+    systemctl enable systemd-networkd systemd-resolved systemd-timesyncd bluetooth iwd
 }
 
 yay_install() {
@@ -241,11 +160,6 @@ caps_to_escape() {
 	      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
     systemctl enable udevmon
-}
-
-bluetooth() {
-    modprobe btusb
-    systemctl enable bluetooth.service
 }
 
 case $1 in

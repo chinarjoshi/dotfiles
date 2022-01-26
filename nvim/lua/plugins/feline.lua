@@ -219,20 +219,20 @@ table.insert(components.active[2], comps.file.position)
 table.insert(components.active[2], comps.file.line_percentage)
 
 -- call feline
-require('feline').setup {
-  theme = {
-    bg = colors.bg,
-    fg = colors.fg
-  },
-  components = components,
-  vi_mode_colors = vi_mode_colors,
-  force_inactive = {
-    filetypes = {
-      'NvimTree',
-      'vista',
-      'term'
-    },
-    buftypes = {},
-    bufnames = {},
-  },
-}
+--require('feline').setup {
+--theme = {
+    --bg = colors.bg,
+    --fg = colors.fg
+  --},
+  --components = components,
+  --vi_mode_colors = vi_mode_colors,
+  --force_inactive = {
+    --filetypes = {
+      --'NvimTree',
+      --'vista',
+      --'term'
+    --},
+    --buftypes = {},
+    --bufnames = {},
+  --},
+--}
