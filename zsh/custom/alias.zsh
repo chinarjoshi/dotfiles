@@ -82,7 +82,6 @@ declare -A etc=(
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
     'github'   'search github'
     'google'   'search google'
-    'install?'  "$EDITOR $DOTFILES/install.sh"
     'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
     'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )
 for key value in "${(@kv)etc[@]}"; do
@@ -111,7 +110,7 @@ done
 for file in $(ls -A $ZDOTDIR | grep '^.z'); do
     alias ${file:1}$CFG="$EDITOR $ZDOTDIR/$file"
 done
-    
+
 # Custom zsh file aliases
 for file in $(ls $ZDOTDIR/custom); do
     alias ${file%.zsh}$CFG="$EDITOR $ZDOTDIR/custom/$file"

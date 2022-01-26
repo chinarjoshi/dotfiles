@@ -21,11 +21,11 @@ swaylock
 waybar
 xorg-xwayland
 noto-fonts
-ttf-nerd-fonts-symbols
 
-pulseaudio
-pulseaudio-bluetooth
-alsa
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-docs
 alsa-utils
 pavucontrol
 playerctl
@@ -43,6 +43,8 @@ bat
 grim
 slurp
 wf-recorder
+xdg-desktop-portal
+xdg-desktop-portal-wlr
 
 ntfs-3g
 exfat-utils
@@ -66,6 +68,7 @@ ydotool'
 
 AUR_PKG='
 interception-caps2esc
+nerd-fonts-noto
 google-chrome
 teams-for-linux
 discord_arch_electron

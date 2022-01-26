@@ -66,6 +66,7 @@ users_systemd() {
     useradd -m c
     echo 'c ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
     systemctl enable systemd-networkd systemd-resolved systemd-timesyncd bluetooth iwd
+    systemctl set-environment XDG_CURRENT_DESKTOP=sway
 }
 
 yay_install() {
@@ -162,6 +163,10 @@ EOF
     systemctl enable udevmon
 }
 
+xdg-wlr() {
+
+
+
 case $1 in
     -chroot)
       time_lang
@@ -171,6 +176,7 @@ case $1 in
       symlinks
       alsa_config
       caps_to_escape
+      xdg-wlr
       echo "\n---------------------------\nDone :)"
     ;;
     *)
