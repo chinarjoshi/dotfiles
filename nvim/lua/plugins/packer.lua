@@ -42,8 +42,7 @@ return packer.startup(function()
   -- treesitter interface
   use 'nvim-treesitter/nvim-treesitter'
 
-  -- colorschemes
-  use { 'rose-pine/neovim', as = 'rose-pine' }
+  -- colorscheme
   use { 'navarasu/onedark.nvim', as = 'onedark' }
 
   -- LSP
@@ -74,6 +73,10 @@ return packer.startup(function()
     config = function()
       require('gitsigns').setup()
     end
+  }
+  use {
+      'glacambre/firenvim',
+      run = function() vim.fn['firenvim#install'](0) end
   }
 
 end)

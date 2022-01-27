@@ -56,7 +56,7 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB colors
-cmd [[colorscheme rose-pine]]
+cmd [[colorscheme onedark]]
 
 -----------------------------------------------------------
 -- Tabs, indent
