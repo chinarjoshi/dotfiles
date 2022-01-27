@@ -13,6 +13,9 @@ local default_opts = { noremap = true, silent = true }
 -- clear search highlighting
 map('n', '<leader>c', ':nohl<CR>', default_opts)
 
+-- map Esc to kk
+map('i', 'kk', '<Esc>', {noremap = true})
+
 -- don't use arrow keys
 map('', '<up>', '<nop>', { noremap = true })
 map('', '<down>', '<nop>', { noremap = true })

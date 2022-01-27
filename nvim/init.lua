@@ -7,6 +7,12 @@
   ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
   ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 
+
+Neovim init file
+Version: 0.44.0 - 2022/01/21
+Maintainer: brainf+ck
+Website: https://github.com/brainfucksec/neovim-lua
+
 --]]
 
 -----------------------------------------------------------
@@ -22,3 +28,4 @@ require('plugins/vista')
 require('plugins/nvim-cmp')
 require('plugins/nvim-lspconfig')
 require('plugins/nvim-treesitter')
+require('plugins/alpha-nvim')

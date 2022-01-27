@@ -26,8 +26,9 @@ opt.swapfile = false          -- don't use swapfile
 opt.number = true             -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
 opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
+opt.colorcolumn = '80'        -- line lenght marker at 80 columns
 opt.splitright = true         -- vertical split to the right
-opt.splitbelow = true         -- horizontal split to the bottom
+opt.splitbelow = true         -- orizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
@@ -40,7 +41,7 @@ cmd [[au BufWritePre * :%s/\s\+$//e]]
 exec([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
   augroup end
 ]], false)
 
