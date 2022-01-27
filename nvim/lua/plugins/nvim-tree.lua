@@ -43,7 +43,7 @@ require('nvim-tree').setup {
     ignore = true,
   },
   view = {
-    width = 32,
+    width = 25,
     auto_resize = true
   },
 }

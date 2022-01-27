@@ -43,9 +43,8 @@ return packer.startup(function()
   use 'nvim-treesitter/nvim-treesitter'
 
   -- colorschemes
-  use 'tanvirtin/monokai.nvim'
-
   use { 'rose-pine/neovim', as = 'rose-pine' }
+  use { 'navarasu/onedark.nvim', as = 'onedark' }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -77,9 +76,4 @@ return packer.startup(function()
     end
   }
 
-  -- dashboard
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
 end)
