@@ -55,6 +55,7 @@ cups-pdf
 python
 python-pip
 npm
+ctags
 
 bluez
 bluez-utils

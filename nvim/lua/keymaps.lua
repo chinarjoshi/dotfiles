@@ -13,9 +13,6 @@ local default_opts = { noremap = true, silent = true }
 -- clear search highlighting
 map('n', '<leader>c', ':nohl<CR>', default_opts)
 
--- map Esc to kk
-map('i', 'kk', '<Esc>', {noremap = true})
-
 -- don't use arrow keys
 map('', '<up>', '<nop>', { noremap = true })
 map('', '<down>', '<nop>', { noremap = true })
@@ -39,10 +36,10 @@ map('n', '<leader>q', ':qa!<CR>', default_opts)
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 -- open terminal
-map('n', '<C-t>', ':Term<CR>', { noremap = true })
+map('n', '<leader>t', ':Term<CR>', { noremap = true })
 
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
+map('n', '<leader>f', ':NvimTreeToggle<CR>', default_opts)   -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
