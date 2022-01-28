@@ -2,16 +2,6 @@
 -- Statusline configuration file
 -----------------------------------------------------------
 
--- Plugin: feline.nvim
--- https://github.com/famiu/feline.nvim
-
--- For the configuration see the Usage section:
---- https://github.com/famiu/feline.nvim/blob/master/USAGE.md
-
--- Thanks to ibhagwan for the example to follow:
---- https://github.com/ibhagwan/nvim-lua
-
-
 local colors = require 'colors'
 
 -- Rose Pinè theme

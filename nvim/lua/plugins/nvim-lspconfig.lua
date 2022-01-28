@@ -2,9 +2,6 @@
 -- Neovim LSP configuration file
 -----------------------------------------------------------
 
--- Plugin: nvim-lspconfig
--- for language server setup see: https://github.com/neovim/nvim-lspconfig
-
 local nvim_lsp = require 'lspconfig'
 
 -- Add additional capabilities supported by nvim-cmp
