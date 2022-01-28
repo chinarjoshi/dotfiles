@@ -1,13 +1,10 @@
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
-require('settings')
-require('keymaps')
-require('plugins/packer')
-require('plugins/nvim-tree')
-require('plugins/indent-blankline')
-require('plugins/feline')
-require('plugins/vista')
-require('plugins/nvim-cmp')
-require('plugins/nvim-lspconfig')
-require('plugins/nvim-treesitter')
+
+local function loadAll(path)
+  local scan = require('plenary.scandir')
+  for _, file in ipairs(scan.scan_dir(path, { depth = 0 })) do
+      require(file)
+  end
+end
