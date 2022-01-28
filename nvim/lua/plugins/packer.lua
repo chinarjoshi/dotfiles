@@ -35,7 +35,7 @@ return packer.startup(function()
   use 'nvim-treesitter/nvim-treesitter'
 
   -- colorscheme
-  use { 'navarasu/onedark.nvim', as = 'onedark' }
+  use 'navarasu/onedark.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -54,8 +54,8 @@ return packer.startup(function()
 
   -- statusline
   use {
-    'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- git labels
