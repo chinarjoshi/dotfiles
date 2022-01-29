@@ -20,6 +20,7 @@ o=$HOME/org
 p=$HOME/projects/python
 r=$HOME/projects/rust
 z=$ZDOTDIR
+n=$DOTFILES/nvim
 dl=$HOME/Downloads
 pac=/var/cache/pacman/pkg
 
