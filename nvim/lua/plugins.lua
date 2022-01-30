@@ -34,7 +34,7 @@ return packer.startup(function()
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
   use 'kosayoda/nvim-lightbulb'
-  use 'mfussenegger/nvim-lint'
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'liuchengxu/vista.vim'
 
   -------------------------------- Completion

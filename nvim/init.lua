@@ -11,7 +11,9 @@ long = {
   'nvim-cmp',
   'nvim-lspconfig',
   'nvim-tree',
-  'vista'
+  'vista',
+  'null-ls',
+  'lsp-installer',
 }
 for _, file in ipairs(base) do require(file) end
 for _, file in ipairs(long) do require('config.' .. file) end

@@ -2,9 +2,6 @@
 -- Neovim LSP configuration file
 -----------------------------------------------------------
 
--- Plugin: nvim-lspconfig
--- for language server setup see: https://github.com/neovim/nvim-lspconfig
-
 local nvim_lsp = require 'lspconfig'
 
 -- Add additional capabilities supported by nvim-cmp
@@ -57,32 +54,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
-
---[[
-
-Language servers:
-
-Add your language server to `servers`
-
-For language servers list see:
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
-Bash --> bashls
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
-
-Python --> pyright
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-
-C-C++ -->  clangd
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
-
-HTML/CSS/JSON --> vscode-html-languageserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
-
-JavaScript/TypeScript --> tsserver
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-
---]]
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
