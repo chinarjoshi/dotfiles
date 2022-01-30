@@ -13,9 +13,6 @@ local default_opts = { noremap = true, silent = true }
 -- clear search highlighting
 map('n', '<leader>c', ':nohl<CR>', default_opts)
 
--- map Esc to kk
-map('i', 'kk', '<Esc>', {noremap = true})
-
 -- don't use arrow keys
 map('', '<up>', '<nop>', { noremap = true })
 map('', '<down>', '<nop>', { noremap = true })
@@ -24,7 +21,6 @@ map('', '<right>', '<nop>', { noremap = true })
 
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
-map('i', '<leader>s', '<C-c>:w<CR>', default_opts)
 
 -- move around splits using Ctrl + {h,j,k,l}
 map('n', '<C-h>', '<C-w>h', default_opts)
@@ -39,12 +35,12 @@ map('n', '<leader>q', ':qa!<CR>', default_opts)
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 -- open terminal
-map('n', '<C-t>', ':Term<CR>', { noremap = true })
+map('n', '<leader>t', ':Term<CR>', { noremap = true })
 
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
+map('n', '<leader>f', ':NvimTreeToggle<CR>', default_opts)       -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista tag-viewer
-map('n', '<C-m>', ':Vista!!<CR>', default_opts)   -- open/close
+map('n', '<leader>m', ':Vista!!<CR>', default_opts)   -- open/close

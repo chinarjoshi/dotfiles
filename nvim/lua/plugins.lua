@@ -49,11 +49,6 @@ return packer.startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
-  --------------------------------- Aesthetic
-  use 'navarasu/onedark.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
-
   --------------------------------- Git
   use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
@@ -71,6 +66,11 @@ return packer.startup(function()
   use 'numToStr/Comment.nvim'
   use 'folke/todo-comments.nvim'
   use 'mizlan/iswap.nvim'
+
+  --------------------------------- Aesthetic
+  use 'navarasu/onedark.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-lualine/lualine.nvim'
 
   --------------------------------- Etc.
   use 'nvim-orgmode/orgmode'
