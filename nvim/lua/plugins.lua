@@ -19,9 +19,13 @@ packer.init {
   },
 }
 return packer.startup(function()
+  config = {
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+  }
   -------------------------------- Base
   use 'wbthomason/packer.nvim'
   use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+  use 'lewis6991/impatient.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'nvim-telescope/telescope.nvim'
@@ -34,7 +38,6 @@ return packer.startup(function()
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
   use 'kosayoda/nvim-lightbulb'
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'liuchengxu/vista.vim'
 
   -------------------------------- Completion

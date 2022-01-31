@@ -8,11 +8,10 @@ base = {
 -- Plugins with their own config file
 long = {
   'indent-blankline',
+  'nvim-tree',
   'nvim-cmp',
   'nvim-lspconfig',
-  'nvim-tree',
   'vista',
-  'null-ls',
   'lsp-installer',
 }
 for _, file in ipairs(base) do require(file) end
