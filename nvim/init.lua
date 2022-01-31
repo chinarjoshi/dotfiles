@@ -1,5 +1,5 @@
--- Base files
-base = {
+-- Core files
+core = {
   'settings',
   'keymaps',
   'plugins'
@@ -8,10 +8,11 @@ base = {
 long = {
   'nvim-tree',
   'indent-blankline',
+  'treesitter',
   'nvim-cmp',
   'nvim-lspconfig',
   'vista',
   'others'
 }
-for _, file in ipairs(base) do require(file) end
+for _, file in ipairs(core) do require(file) end
 for _, file in ipairs(long) do require('config.' .. file) end
