@@ -158,14 +158,10 @@ caps_to_escape() {
 	- JOB: \"intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE\"
 	  DEVICE:
 	    EVENTS:
-	      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
     systemctl enable udevmon
 }
-
-xdg-wlr() {
-
-
 
 case $1 in
     -chroot)

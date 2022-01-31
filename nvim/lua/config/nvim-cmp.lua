@@ -1,10 +1,6 @@
 -----------------------------------------------------------
--- Autocomplete configuration file
+-- Autocompletion configuration file
 -----------------------------------------------------------
-
--- Plugin: nvim-cmp
--- https://github.com/hrsh7th/nvim-cmpa
-
 
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -17,7 +13,6 @@ cmp.setup {
     end,
   },
 
--- completion settings
   completion = {
     --completeopt = 'menu,menuone,noselect'
     keyword_length = 2

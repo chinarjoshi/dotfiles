@@ -73,5 +73,6 @@ return packer.startup(function()
   use 'folke/which-key.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'ellisonleao/glow.nvim'
+  use 'mizlan/iswap.nvim'
 
 end)
