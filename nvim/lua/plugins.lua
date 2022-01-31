@@ -34,7 +34,6 @@ return packer.startup(function()
   -------------------------------- LSP
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
-  use 'williamboman/nvim-lsp-installer'
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
   use 'kosayoda/nvim-lightbulb'
@@ -56,11 +55,6 @@ return packer.startup(function()
   use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
 
-  --------------------------------- Debugging
-  use 'mfussenegger/nvim-dap'
-  use 'mfussenegger/nvim-dap-python'
-  use 'rcarriga/nvim-dap-ui'
-
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
   use 'blackCauldron7/surround.nvim'
@@ -68,7 +62,6 @@ return packer.startup(function()
   use 'windwp/nvim-ts-autotag'
   use 'numToStr/Comment.nvim'
   use 'folke/todo-comments.nvim'
-  use 'mizlan/iswap.nvim'
 
   --------------------------------- Aesthetic
   use 'navarasu/onedark.nvim'
@@ -77,9 +70,7 @@ return packer.startup(function()
 
   --------------------------------- Etc.
   use 'nvim-orgmode/orgmode'
-  use 'lewis6991/spellsitter.nvim'
   use 'folke/which-key.nvim'
-  use 'michaelb/sniprun'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'ellisonleao/glow.nvim'
 

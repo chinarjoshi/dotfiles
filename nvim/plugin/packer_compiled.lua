@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/home/c/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["iswap.nvim"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/iswap.nvim",
-    url = "https://github.com/mizlan/iswap.nvim"
-  },
   ["lightspeed.nvim"] = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
@@ -169,30 +164,10 @@ _G.packer_plugins = {
     path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-python"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
-    url = "https://github.com/mfussenegger/nvim-dap-python"
-  },
-  ["nvim-dap-ui"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
   ["nvim-lightbulb"] = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
     url = "https://github.com/kosayoda/nvim-lightbulb"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -243,16 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
-  },
-  sniprun = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/sniprun",
-    url = "https://github.com/michaelb/sniprun"
-  },
-  ["spellsitter.nvim"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
-    url = "https://github.com/lewis6991/spellsitter.nvim"
   },
   ["surround.nvim"] = {
     loaded = true,
