@@ -21,6 +21,7 @@ swaylock
 waybar
 xorg-xwayland
 noto-fonts
+ttf-dejavu
 
 pipewire
 pipewire-alsa
