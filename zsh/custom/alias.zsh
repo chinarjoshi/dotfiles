@@ -61,14 +61,13 @@ declare -A etc=(
     '...'      '../..'
     '....'     '../../..'
     'l'        'ls --color=auto -lFgGh'
+    'r'        '. ranger'
+    'v'        'nvim'
     'du'       'ncdu'
-    'ds'       "$HOME/.emacs.d/bin/doom sync"
-    'em'       'emacsclient -c'
     'll'       'ls --color=auto -AlFgGh'
     'py'       'python3'
     'rb'       'reboot'
     'sd'       'shutdown now'
-    'vi'       'nvim'
     'wn'       'systemctl reboot --boot-loader-entry=windows.conf'
     'dup'      "$HOME/.emacs.d/bin/doom upgrade"
     'lll'      'ls --color=auto -Al'

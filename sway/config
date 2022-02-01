@@ -130,6 +130,7 @@ default_border pixel 1
 hide_edge_borders smart
 smart_gaps on
 gaps inner 10
+gaps outer 0
 
 # Resizing (3px)
 mode "resize" {
