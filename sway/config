@@ -113,7 +113,7 @@ bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
 # Application keybindings
 bindsym $mod+Shift+e exec emacsclient -c -a ""
 bindsym $mod+Shift+d exec discord
-bindsym $mod+Shift+g exec google-chrome-stable
+bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+m exec spotify
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+t exec teams

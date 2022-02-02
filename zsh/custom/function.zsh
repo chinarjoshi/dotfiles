@@ -31,7 +31,7 @@ search() {
     else
         url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
     fi
-    google-chrome-stable "$url"
+    firefox $url
 }
 
 command_not_found_handler() {
