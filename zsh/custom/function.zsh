@@ -46,8 +46,8 @@ gcl() { git clone https://github.com/$1 }
 
 rs() { rustc $1.rs && ./$1 ${@:2} }
 
-mvdir() { mkdir -p "${@:-1}" && mv "$@" }
+cpfile() { cat $1 | wl-copy }
 
-cpfile() { cat $1 | clip }
+cpdir() { echo $PWD | wl-copy }
 
-cpdir() { echo $PWD | clip }
+rm() { mv $@ $HOME/.local/share/Trash }

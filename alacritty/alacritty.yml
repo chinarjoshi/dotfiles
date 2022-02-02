@@ -4,7 +4,7 @@ window.opacity: 0.85
 
 font:
   normal:
-    family: JetBrains Mono
+    family: Noto Sans Mono
 
 window:
   title: "zsh"
