@@ -25,7 +25,7 @@ input type:touchpad {
 
 # Output settings (wallpaper)
 output * {
-    bg `find $DOTFILES/.wallpapers -type f | shuf -n 1` fill
+    bg `find $DOTFILES/sway/.wallpapers -type f | shuf -n 1` fill
 }
 output eDP-1 scale 1.6
 
@@ -42,6 +42,7 @@ bindsym $mod+c exec clipman pick --tool="wofi" --max-items=10 --histpath="~/.loc
 # Rudimentary bindings
 floating_modifier $mod normal
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Ctrl+c reload
@@ -111,13 +112,13 @@ bindsym $mod+Ctrl+b exec systemctl reboot --firmware-setup
 bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
 
 # Application keybindings
-bindsym $mod+Shift+e exec emacsclient -c -a ""
-bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+g exec google-chrome-stable
 bindsym $mod+Shift+m exec spotify
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+t exec teams
+bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+b exec blender
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 # Tilings (fibbonaci tiling)
 #for_window [app_id=".*"] split toggle

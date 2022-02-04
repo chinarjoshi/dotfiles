@@ -57,10 +57,11 @@ return packer.startup(function()
 
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
-  use 'blackCauldron7/surround.nvim'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  use 'numToStr/Comment.nvim'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  --use 'numToStr/Comment.nvim'
   use 'folke/todo-comments.nvim'
 
   --------------------------------- Aesthetic

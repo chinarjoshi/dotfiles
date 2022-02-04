@@ -57,6 +57,8 @@ python
 python-pip
 npm
 ctags
+firefox
+cronie
 
 bluez
 bluez-utils
@@ -71,7 +73,6 @@ ydotool'
 AUR_PKG='
 interception-caps2esc
 nerd-fonts-noto
-google-chrome
 teams-for-linux
 discord_arch_electron
 clipman

@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["Comment.nvim"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/Comment.nvim",
-    url = "https://github.com/numToStr/Comment.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -224,11 +219,6 @@ _G.packer_plugins = {
     path = "/home/c/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
-  ["surround.nvim"] = {
-    loaded = true,
-    path = "/home/c/.local/share/nvim/site/pack/packer/start/surround.nvim",
-    url = "https://github.com/blackCauldron7/surround.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -243,6 +233,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/c/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/c/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/c/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["vista.vim"] = {
     loaded = true,
