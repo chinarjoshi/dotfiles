@@ -4,6 +4,7 @@
 
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require('lspkind')
 
 cmp.setup {
   -- load snippet support
@@ -59,4 +60,14 @@ cmp.setup {
     { name = 'path' },
     { name = 'buffer' },
   },
+
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      maxwidth = 50,
+      before = function (entry, vim_item)
+        return vim_item
+      end
+   })
+  }
 }

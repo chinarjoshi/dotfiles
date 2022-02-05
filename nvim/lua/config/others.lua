@@ -9,12 +9,10 @@ standard = {
   'trouble',
   'nvim-autopairs',
   'todo-comments',
-  'nvim-web-devicons',
   'neogit',
   'orgmode',
 }
 require('impatient')
-require('lualine').setup{ options = { theme = 'onedark' } }
 require('luasnip.loaders.from_vscode').load()
 require('iswap').setup{}
 

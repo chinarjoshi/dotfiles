@@ -7,6 +7,7 @@ core = {
 -- Plugins with their own config file
 long = {
   'nvim-tree',
+  'feline',
   'indent-blankline',
   'treesitter',
   'nvim-cmp',

@@ -38,6 +38,7 @@ return packer.startup(function()
   use 'folke/trouble.nvim'
   use 'kosayoda/nvim-lightbulb'
   use 'liuchengxu/vista.vim'
+  use 'onsails/lspkind-nvim'
 
   -------------------------------- Completion
   use 'hrsh7th/nvim-cmp'
@@ -58,16 +59,14 @@ return packer.startup(function()
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  --use 'numToStr/Comment.nvim'
   use 'folke/todo-comments.nvim'
 
   --------------------------------- Aesthetic
   use 'navarasu/onedark.nvim'
   use 'kyazdani42/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
+  use 'feline-nvim/feline.nvim'
 
   --------------------------------- Etc.
   use 'nvim-orgmode/orgmode'

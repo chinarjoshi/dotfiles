@@ -50,4 +50,4 @@ cpfile() { cat $1 | wl-copy }
 
 cpdir() { echo $PWD | wl-copy }
 
-rm() { mv $@ $HOME/.local/share/Trash }
+rt() { mv $@ $HOME/.local/share/Trash }
