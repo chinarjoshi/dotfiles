@@ -151,7 +151,8 @@ bar {
 # etc
 exec ydotoold
 exec libinput-gestures-setup start
-exec sudo light -S 80
+exec sudo light -S 70
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec nm-applet --indicator
 
 include /etc/sway/config.d/*
