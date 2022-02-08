@@ -20,13 +20,46 @@ packer.init {
 }
 
 local plugins = {
-   { "nvim-lua/plenary.nvim" },
-   { "lewis6991/impatient.nvim" },
-   { "nathom/filetype.nvim" },
-   {
-      "wbthomason/packer.nvim",
-      event = "VimEnter",
+   config = {
+     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
    },
+   -------------------------------- Base
+   { "wbthomason/packer.nvim", event = "VimEnter", },
+   { "nvim-treesitter/nvim-treesitter", event = "BufRead", run=':TSUpdate'},
+   { "lewis6991/impatient.nvim" },
+   { "nvim-lua/plenary.nvim" },
+   {
+      "kyazdani42/nvim-tree.lua",
+      after = "nvim-web-devicons", -- if not lazyload
+      --cmd = { "NvimTreeToggle", "NvimTreeFocus" }, --if lazyload
+      setup = function()
+         require("core.mappings").nvimtree()
+      end,
+   },
+   {
+      "nvim-telescope/telescope.nvim",
+      module = "telescope",
+      cmd = "Telescope",
+      setup = function()
+         require("core.mappings").telescope()
+      end,
+   },
+   { 'ahmedkhalf/project.nvim' },
+   {
+      "neovim/nvim-lspconfig",
+      module = "lspconfig",
+      setup = function()
+         require("core.utils").packer_lazy_load "nvim-lspconfig"
+         vim.defer_fn(function()
+            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+         end, 0)
+      end,
+   },
+   { 'folke/trouble.nvim' },
+   { 'kosayoda/nvim-lightbulb' },
+   { 'liuchengxu/vista.vim' },
+   { 'onsails/lspkind' },
+   { "nathom/filetype.nvim" },
    {
       "NvChad/nvim-base16.lua",
       after = "packer.nvim",
@@ -34,14 +67,8 @@ local plugins = {
          require("colors").init()
       end,
    },
-   {
-      "kyazdani42/nvim-web-devicons",
-      after = "nvim-base16.lua",
-   },
-   {
-      "feline-nvim/feline.nvim",
-      after = "nvim-web-devicons",
-   },
+   { "kyazdani42/nvim-web-devicons", after = "nvim-base16.lua", },
+   { "feline-nvim/feline.nvim", after = "nvim-web-devicons", },
    {
       "akinsho/bufferline.nvim",
       after = "nvim-web-devicons",
@@ -49,20 +76,10 @@ local plugins = {
          require("core.mappings").bufferline()
       end,
    },
-   {
-      "lukas-reineke/indent-blankline.nvim",
-      event = "BufRead",
-   },
+   { "lukas-reineke/indent-blankline.nvim", event = "BufRead", },
 
-   {
-      "NvChad/nvim-colorizer.lua",
-      event = "BufRead",
-   },
+   { "NvChad/nvim-colorizer.lua", event = "BufRead", },
 
-   {
-      "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
-   },
 
    -- git stuff
    {
@@ -74,33 +91,14 @@ local plugins = {
 
    -- lsp stuff
 
-   {
-      "neovim/nvim-lspconfig",
-      module = "lspconfig",
-      setup = function()
-         require("core.utils").packer_lazy_load "nvim-lspconfig"
-         -- reload the current file so lsp actually starts for it
-         vim.defer_fn(function()
-            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-         end, 0)
-      end,
-   },
 
-   {
-      "ray-x/lsp_signature.nvim",
-      after = "nvim-lspconfig",
-   },
+   { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig", },
 
    {
       "andymass/vim-matchup",
       setup = function()
          require("core.utils").packer_lazy_load "vim-matchup"
       end,
-   },
-
-   {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
    },
 
    -- load luasnips + cmp related in insert mode only
@@ -111,13 +109,7 @@ local plugins = {
       event = "InsertEnter",
    },
 
-   -- cmp by default loads after friendly snippets
-   -- if snippets are disabled -> cmp loads on insertEnter!
-   {
-      "hrsh7th/nvim-cmp",
-      event = not plugin_settings.status.snippets and "InsertEnter",
-      after = plugin_settings.status.snippets and "friendly-snippets",
-   },
+   { "hrsh7th/nvim-cmp", after = "friendly-snippets", },
 
    {
       "L3MON4D3/LuaSnip",
@@ -125,56 +117,20 @@ local plugins = {
       after = "nvim-cmp",
    },
 
-   {
-      "saadparwaiz1/cmp_luasnip",
-      after = plugin_settings.options.cmp.lazy_load and "LuaSnip",
-   },
+   { "saadparwaiz1/cmp_luasnip", after = "LuaSnip", },
 
-   {
-      "hrsh7th/cmp-nvim-lua",
-      after = (plugin_settings.status.snippets and "cmp_luasnip") or "nvim-cmp",
-   },
+   { "hrsh7th/cmp-nvim-lua", after = 'cmp_luasnip' or "nvim-cmp", },
 
-   {
-      "hrsh7th/cmp-nvim-lsp",
-      after = "cmp-nvim-lua",
-   },
+   { "hrsh7th/cmp-nvim-lsp", after = "cmp-nvim-lua", },
 
-   {
-      "hrsh7th/cmp-buffer",
-      after = "cmp-nvim-lsp",
-   },
+   { "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp", },
 
-   {
-      "hrsh7th/cmp-path",
-      after = "cmp-buffer",
-   },
+   { "hrsh7th/cmp-path", after = "cmp-buffer", },
 
    -- misc plugins
-   {
-      "windwp/nvim-autopairs",
-      after = 'nvim-cmp'
-   },
+   { "windwp/nvim-autopairs", after = 'nvim-cmp' },
 
-   -- file managing , picker etc
-   {
-      "kyazdani42/nvim-tree.lua",
-      -- only set "after" if lazy load is disabled and vice versa for "cmd"
-      after = not true and "nvim-web-devicons",
-      cmd = true and { "NvimTreeToggle", "NvimTreeFocus" },
-      setup = function()
-         require("core.mappings").nvimtree()
-      end,
-   },
 
-   {
-      "nvim-telescope/telescope.nvim",
-      module = "telescope",
-      cmd = "Telescope",
-      setup = function()
-         require("core.mappings").telescope()
-      end,
-   },
 }
 
 return packer.startup { plugins }
