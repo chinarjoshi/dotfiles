@@ -66,23 +66,6 @@ for _, plugin in ipairs({
 end
 
 plugins = {
-   -- enable/disable plugins (false for disable)
-   status = {
-      blankline = true, -- indentline stuff
-      bufferline = true, -- manage and preview opened buffers
-      colorizer = false, -- color RGB, HEX, CSS, NAME color codes
-      comment = true, -- easily (un)comment code, language aware
-      dashboard = false,
-      better_escape = true, -- map to <ESC> with no lag
-      feline = true, -- statusline
-      gitsigns = true,
-      lspsignature = true, -- lsp enhancements
-      vim_matchup = true, -- improved matchit
-      cmp = true,
-      snippets = true,
-      nvimtree = true,
-      autopairs = true,
-   },
    options = {
       packer = {
          init_file = "plugins.packerInit",

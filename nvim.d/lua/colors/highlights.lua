@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 
 local colors = require("colors").get()
+local transparency = false
 
 local black = colors.black
 local black2 = colors.black2

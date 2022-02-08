@@ -1,8 +1,8 @@
 local M = {}
 
 local cmd = vim.cmd
+
 M.close_buffer = function(force)
-   -- Options
    local opts = {
       next = "cycle", -- how to retrieve the next buffer
       quit = false, -- exit when last buffer is deleted
@@ -67,7 +67,6 @@ M.close_buffer = function(force)
    local next_buf = get_next_buf(buf)
    local windows = vim.fn.getbufinfo(buf)[1].windows
 
-   -- force deletion of terminal buffers to avoid the prompt
    if force or vim.fn.getbufvar(buf, "&buftype") == "terminal" then
       local chad_term, type = pcall(function()
          return vim.api.nvim_buf_get_var(buf, "term_type")
@@ -101,9 +100,11 @@ M.close_buffer = function(force)
    end
 end
 
+-- hide statusline
+-- tables fetched from load_config function
 M.hide_statusline = function()
-   local hidden = {'help', 'NvimTree', 'terminal'}
-   local shown = {}
+   local hidden = require("core.utils").load_config().plugins.options.statusline.hidden
+   local shown = require("core.utils").load_config().plugins.options.statusline.shown
    local api = vim.api
    local buftype = api.nvim_buf_get_option(0, "ft")
 
@@ -121,55 +122,18 @@ M.hide_statusline = function()
    api.nvim_set_option("laststatus", 2)
 end
 
+M.load_config = function()
+   local conf = require "core.default_config"
 
-M.map = function(mode, keys, command, opt)
-   local options = { noremap = true, silent = true }
-   if opt then
-      options = vim.tbl_extend("force", options, opt)
+   local chadrcExists, change = pcall(require, "custom.chadrc")
+
+   -- if chadrc exists , then merge its table into the default config's
+
+   if chadrcExists then
+      conf = vim.tbl_deep_extend("force", conf, change)
    end
 
-   -- all valid modes allowed for mappings
-   -- :h map-modes
-   local valid_modes = {
-      [""] = true,
-      ["n"] = true,
-      ["v"] = true,
-      ["s"] = true,
-      ["x"] = true,
-      ["o"] = true,
-      ["!"] = true,
-      ["i"] = true,
-      ["l"] = true,
-      ["c"] = true,
-      ["t"] = true,
-   }
-
-   -- helper function for M.map
-   -- can gives multiple modes and keys
-   local function map_wrapper(sub_mode, lhs, rhs, sub_options)
-      if type(lhs) == "table" then
-         for _, key in ipairs(lhs) do
-            map_wrapper(sub_mode, key, rhs, sub_options)
-         end
-      else
-         if type(sub_mode) == "table" then
-            for _, m in ipairs(sub_mode) do
-               map_wrapper(m, lhs, rhs, sub_options)
-            end
-         else
-            if valid_modes[sub_mode] and lhs and rhs then
-               vim.api.nvim_set_keymap(sub_mode, lhs, rhs, sub_options)
-            else
-               sub_mode, lhs, rhs = sub_mode or "", lhs or "", rhs or ""
-               print(
-                  "Cannot set mapping [ mode = '" .. sub_mode .. "' | key = '" .. lhs .. "' | cmd = '" .. rhs .. "' ]"
-               )
-            end
-         end
-      end
-   end
-
-   map_wrapper(mode, keys, command, options)
+   return conf
 end
 
 -- load plugin after entering vim ui
@@ -181,3 +145,24 @@ M.packer_lazy_load = function(plugin, timer)
       end, timer)
    end
 end
+
+M.remove_default_plugins = function(plugin_table)
+   local removals = require("core.utils").load_config().plugins.default_plugin_remove or {}
+   local result = {}
+
+   if vim.tbl_isempty(removals) then
+      return plugin_table
+   end
+
+   for _, value in pairs(plugin_table) do
+      for _, plugin in ipairs(removals) do
+         if value[1] ~= plugin then
+            table.insert(result, value)
+         end
+      end
+   end
+
+   return result
+end
+
+return M
