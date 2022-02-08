@@ -104,12 +104,12 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
 
 # Power keybindngs
-bindsym $mod+Ctrl+r exec systemctl reboot, mode "default"
-bindsym $mod+Ctrl+q exec systemctl poweroff -i, mode "default"
-bindsym $mod+Ctrl+s exec systemctl suspend
+bindsym $mod+Ctrl+r exec sudo systemctl reboot, mode "default"
+bindsym $mod+Ctrl+q exec sudo systemctl poweroff -i, mode "default"
+bindsym $mod+Ctrl+s exec sudo systemctl suspend
 bindsym $mod+Ctrl+l exec swaylock
-bindsym $mod+Ctrl+b exec systemctl reboot --firmware-setup
-bindsym $mod+Ctrl+w exec systemctl reboot --boot-loader-entry=windows.conf
+bindsym $mod+Ctrl+b exec sudo systemctl reboot --firmware-setup
+bindsym $mod+Ctrl+w exec sudo systemctl reboot --boot-loader-entry=windows.conf
 
 # Application keybindings
 bindsym $mod+Shift+f exec firefox
