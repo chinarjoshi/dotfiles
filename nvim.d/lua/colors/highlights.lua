@@ -1,8 +1,6 @@
 local cmd = vim.cmd
 
-local override = require("core.utils").load_config().ui.hl_override
 local colors = require("colors").get()
-local ui = require("core.utils").load_config().ui
 
 local black = colors.black
 local black2 = colors.black2
@@ -24,17 +22,20 @@ local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
 
--- functions for setting highlights
-local fg = require("core.utils").fg
-local fg_bg = require("core.utils").fg_bg
-local bg = require("core.utils").bg
+function bg(group, col)
+   cmd("hi " .. group .. " guibg=" .. col)
+end
+
+function fg(group, col)
+   cmd("hi " .. group .. " guifg=" .. col)
+end
+
+function fg_bg(group, fgcol, bgcol)
+   cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+end
 
 -- Comments
-if ui.italic_comments then
-   fg("Comment", grey_fg .. " gui=italic")
-else
-   fg("Comment", grey_fg)
-end
+fg("Comment", grey_fg .. " gui=italic")
 
 -- Disable cursor line
 cmd "hi clear CursorLine"
@@ -67,7 +68,7 @@ fg("LineNr", grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
-if ui.transparency then
+if transparency then
    bg("Normal", "NONE")
    bg("Folded", "NONE")
    fg("Folded", "NONE")
@@ -149,7 +150,7 @@ for i, color in ipairs(section_title_colors) do
 end
 
 -- Disable some highlight in nvim tree if transparency enabled
-if ui.transparency then
+if transparency then
    bg("NormalFloat", "NONE")
    bg("NvimTreeNormal", "NONE")
    bg("NvimTreeNormalNC", "NONE")
@@ -166,8 +167,4 @@ if ui.transparency then
    bg("TelescopePromptPrefix", "NONE")
    fg("TelescopeBorder", one_bg)
    fg_bg("TelescopeResultsTitle", black, blue)
-end
-
-if #override ~= 0 then
-   require(override)
 end
