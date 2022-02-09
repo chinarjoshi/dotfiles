@@ -91,13 +91,6 @@ return packer.startup(function()
   }
   use 'TimUntersberger/neogit'
 
-  use { 'NvChad/nvim-base16.lua',
-     after = 'packer.nvim',
-     config = function()
-        require('colors').init()
-     end,
-  }
-
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
   use 'windwp/nvim-autopairs'
@@ -106,6 +99,12 @@ return packer.startup(function()
   use 'folke/todo-comments.nvim'
 
   --------------------------------- Aesthetic
+  use { 'NvChad/nvim-base16.lua',
+     after = 'packer.nvim',
+     config = function()
+        require('colors').init()
+     end,
+  }
   use { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', }
   use { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'}
   use { 'NvChad/nvim-colorizer.lua', event = 'BufRead', }
@@ -118,16 +117,16 @@ return packer.startup(function()
   }
 
   --------------------------------- Etc.
-  use 'nvim-orgmode/orgmode'
+  use { 'nvim-orgmode/orgmode', ft = 'org' }
   use 'folke/which-key.nvim'
   use { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', }
   use 'ellisonleao/glow.nvim'
-  use 'mizlan/iswap.nvim'
+  use { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } }
   use { 'andymass/vim-matchup',
      setup = function()
         require('core.utils').packer_lazy_load 'vim-matchup'
      end,
-  },
-  use { 'windwp/nvim-autopairs', after = 'nvim-cmp' },
+  }
+  use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }
 
 end)
