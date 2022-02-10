@@ -1,84 +1,15 @@
 local utils = require "core.utils"
 
-local config = utils.load_config()
 local map_wrapper = utils.map
-
 local maps = config.mappings
 local plugin_maps = maps.plugins
-local nvChad_options = config.options.nvChad
-
 local cmd = vim.cmd
-
--- This is a wrapper function made to disable a plugin mapping from chadrc
--- If keys are nil, false or empty string, then the mapping will be not applied
--- Useful when one wants to use that keymap for any other purpose
-local map = function(...)
-   local keys = select(2, ...)
-   if not keys or keys == "" then
-      return
-   end
-   map_wrapper(...)
-end
 
 local M = {}
 
 -- these mappings will only be called during initialization
 M.misc = function()
-   local function non_config_mappings()
-      -- Don't copy the replaced text after pasting in visual mode
-      map_wrapper("v", "p", '"_dP')
-
-      -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
-      -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
-      -- empty mode is same as using :map
-      -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
-      map_wrapper("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-      map_wrapper("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-      map_wrapper("", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-      map_wrapper("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-
-      -- use ESC to turn off search highlighting
-      map_wrapper("n", "<Esc>", ":noh <CR>")
-
-      -- center cursor when moving (goto_definition)
-
-      -- yank from current cursor to end of line
-      map_wrapper("n", "Y", "yg$")
-   end
-
-   local function optional_mappings()
-      -- don't yank text on cut ( x )
-      if not nvChad_options.copy_cut then
-         map_wrapper({ "n", "v" }, "x", '"_x')
-      end
-
-      -- don't yank text on delete ( dd )
-      if not nvChad_options.copy_del then
-         map_wrapper({ "n", "v" }, "d", '"_d')
-      end
-
-      -- navigation within insert mode
-      if nvChad_options.insert_nav then
-         local inav = maps.insert_nav
-
-         map("i", inav.backward, "<Left>")
-         map("i", inav.end_of_line, "<End>")
-         map("i", inav.forward, "<Right>")
-         map("i", inav.next_line, "<Up>")
-         map("i", inav.prev_line, "<Down>")
-         map("i", inav.beginning_of_line, "<ESC>^i")
-      end
-
-      -- easier navigation between windows
-      if nvChad_options.window_nav then
-         local wnav = maps.window_nav
-
-         map("n", wnav.moveLeft, "<C-w>h")
-         map("n", wnav.moveRight, "<C-w>l")
-         map("n", wnav.moveUp, "<C-w>k")
-         map("n", wnav.moveDown, "<C-w>j")
-      end
-   end
+   map_wrapper("v", "p", '"_dP')
 
    local function required_mappings()
       map("n", maps.misc.cheatsheet, ":lua require('nvchad.cheatsheet').show() <CR>") -- show keybinds
@@ -120,9 +51,6 @@ M.misc = function()
       map("n", maps.misc.update_nvchad, ":NvChadUpdate <CR>")
    end
 
-   non_config_mappings()
-   optional_mappings()
-   required_mappings()
 end
 
 -- below are all plugin related mappings
