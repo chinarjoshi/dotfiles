@@ -4,8 +4,6 @@ if not present then
    return
 end
 
-local snippets_status = require("core.utils").load_config().plugins.status.snippets
-
 local default = {
    completion = {
       completeopt = "menuone,noselect",
@@ -13,13 +11,11 @@ local default = {
    documentation = {
       border = "single",
    },
-   snippet = (snippets_status and {
+   snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
       end,
-   }) or {
-      expand = function(_) end,
-   },
+   }
    formatting = {
       format = function(entry, vim_item)
          local icons = require "plugins.configs.lspkind_icons"
@@ -49,7 +45,7 @@ local default = {
       ["<Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
-         elseif snippets_status and require("luasnip").expand_or_jumpable() then
+         elseif require("luasnip").expand_or_jumpable() then
             require("luasnip").expand_or_jump()
          else
             fallback()

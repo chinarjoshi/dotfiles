@@ -1,13 +1,19 @@
-local present, feline = pcall(require, "feline")
-if not present then
-   return
-end
+feline = require('feline')
 
 local default = {
    colors = require("colors").get(),
    lsp = require "feline.providers.lsp",
    lsp_severity = vim.diagnostic.severity,
-   config = require("core.utils").load_config().plugins.options.statusline,
+   config = {
+      hidden = {
+         "help",
+         "dashboard",
+         "NvimTree",
+         "terminal",
+      },
+      shortline = true,
+      style = "default", -- default, round , slant , block , arrow
+   },
 }
 
 default.icon_styles = {
