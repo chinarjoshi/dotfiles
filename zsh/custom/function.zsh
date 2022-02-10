@@ -1,6 +1,6 @@
 # Adds all files to staging area, commits files with date and time, pulls
 # changes from remote repository, then pushes changes to remote
-gf() {
+g() {
     git add --all
     git commit -m "$(date)"
     git pull origin
@@ -9,7 +9,7 @@ gf() {
 
 # If dhcpcd.service is active
 connect() {
-	sudo systemctl restart iwd
+    sudo systemctl restart iwd
     iwctl station wlan0 scan;
     iwctl station wlan0 disconnect;
     iwctl station wlan0 connect $1;
@@ -39,6 +39,7 @@ command_not_found_handler() {
         nvim $1
     else
 	echo ⚠
+	return 1
     fi
 }
 
@@ -51,3 +52,15 @@ cpfile() { cat $1 | wl-copy }
 cpdir() { echo $PWD | wl-copy }
 
 rt() { mv $@ $HOME/.local/share/Trash }
+
+vpn() { 
+    sudo openconnect --csd-wrapper /usr/lib/openconnect/hipreport.sh --protocol=gp https://vpn.gatech.edu <<- EOF
+	cjoshi44
+	$GT_PASSWD
+	push1
+	ni-ext-gw.vpn.gatech.edu
+	$GT_PASSWD
+	push1
+	ni-ext-gw.vpn.gatech.edu
+EOF
+}
