@@ -1,2 +1,0 @@
-GT_ID=903753738
-GT_PASSWD="!fdsa7Fdsa|"
