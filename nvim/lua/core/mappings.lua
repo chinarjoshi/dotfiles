@@ -1,16 +1,14 @@
-local utils = require "core.utils"
+require('which-key').register({
 
-local map_wrapper = utils.map
-local maps = config.mappings
-local plugin_maps = maps.plugins
+
+
+}, { prefix = '<leader>' })
 local cmd = vim.cmd
 
 local M = {}
 
 -- these mappings will only be called during initialization
 M.misc = function()
-   map_wrapper("v", "p", '"_dP')
-
    local function required_mappings()
       map("n", maps.misc.cheatsheet, ":lua require('nvchad.cheatsheet').show() <CR>") -- show keybinds
       map("n", maps.misc.close_buffer, ":lua require('core.utils').close_buffer() <CR>") -- close  buffer

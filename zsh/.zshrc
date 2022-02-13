@@ -20,7 +20,7 @@ o=$HOME/org
 p=$HOME/projects/python
 r=$HOME/projects/rust
 z=$ZDOTDIR
-n=$DOTFILES/nvim.d
+n=$DOTFILES/nvim
 dl=$HOME/Downloads
 pac=/var/cache/pacman/pkg
 
@@ -31,7 +31,7 @@ done
 for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
-. $ZDOTDIR/passwd.sh
+[[ -f $ZDOTDIR/passwd.sh ]] && . $ZDOTDIR/passwd.sh
 
 # Load theme configuration (Goes last)
 . $ZDOTDIR/theme/.p10k.zsh
