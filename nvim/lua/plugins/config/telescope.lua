@@ -1,3 +1,7 @@
+-----------------------------------------------------------
+-- Fuzzy Finder Configuration
+-----------------------------------------------------------
+
 local telescope = require('telescope')
 
 telescope.setup {

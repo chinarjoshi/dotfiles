@@ -1,3 +1,6 @@
+-----------------------------------------------------------
+-- Other Plugin Configs
+-----------------------------------------------------------
 
 require('nvim-autopairs').setup { fast_wrap = {} }
 cmp_autopairs = require('nvim-autopairs.completion.cmp')
