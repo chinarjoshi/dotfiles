@@ -31,7 +31,7 @@ done
 for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
-[[ -f $ZDOTDIR/passwd.sh ]] && . $ZDOTDIR/passwd.sh
+[[ -f $HOME/passwd.sh ]] && . $HOME/passwd.sh
 
 # Load theme configuration (Goes last)
 . $ZDOTDIR/theme/.p10k.zsh
