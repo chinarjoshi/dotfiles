@@ -12,7 +12,7 @@ end
 
 -- returns a table of colors for given or current theme
 M.get = function(theme)
-   return require("hl_themes." .. vim.g.theme)
+   return require("hl_themes.onedark")
 end
 
 return M

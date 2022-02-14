@@ -1,9 +1,3 @@
-local present, nvimtree = pcall(require, "nvim-tree")
-
-if not present then
-   return
-end
-
 local g = vim.g
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
@@ -46,7 +40,7 @@ g.nvim_tree_icons = {
    },
 }
 
-local default = {
+require('nvim_tree').setup {
    filters = {
       dotfiles = false,
    },
@@ -72,14 +66,3 @@ local default = {
       ignore = false,
    },
 }
-
-local M = {}
-
-M.setup = function(override_flag)
-   if override_flag then
-      default = require("core.utils").tbl_override_req("nvim_tree", default)
-   end
-   nvimtree.setup(default)
-end
-
-return M

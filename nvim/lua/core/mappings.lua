@@ -1,8 +1,5 @@
-require('which-key').register({
-
-
-
-}, { prefix = '<leader>' })
+--require('which-key').register({
+--}, { prefix = '<leader>' })
 local cmd = vim.cmd
 
 local M = {}

@@ -1,10 +1,12 @@
-local present, cmp = pcall(require, "cmp")
+-----------------------------------------------------------
+-- Autocompletion configuration file
+-----------------------------------------------------------
 
-if not present then
-   return
-end
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 
-local default = {
+cmp.setup {
    completion = {
       completeopt = "menuone,noselect",
    },
@@ -15,7 +17,7 @@ local default = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
       end,
-   }
+   },
    formatting = {
       format = function(entry, vim_item)
          local icons = require "plugins.configs.lspkind_icons"
@@ -69,13 +71,3 @@ local default = {
       { name = "path" },
    },
 }
-
-local M = {}
-M.setup = function(override_flag)
-   if override_flag then
-      default = require("core.utils").tbl_override_req("nvim_cmp", default)
-   end
-   cmp.setup(default)
-end
-
-return M

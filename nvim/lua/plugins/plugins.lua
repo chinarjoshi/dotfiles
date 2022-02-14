@@ -1,35 +1,14 @@
 -----------------------------------------------------------
--- Plugin manager configuration file
+-- Plugin manager configuration
 -----------------------------------------------------------
 
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-local packer = require 'packer'
-vim.cmd [[packadd packer.nvim]]
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
-packer.init {
-  display = {
-    open_fn = function()
-      return require('packer.util').float { border = 'rounded' }
-    end,
-  },
-}
-
-return packer.startup(function()
+return require('packer').startup(function()
   config = {
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
   },
   -------------------------------- Base
   use { 'wbthomason/packer.nvim', event = 'VimEnter', }
-  use { 'nvim-treesitter/nvim-treesitter', event = 'BufRead', run=':TSUpdate'},
+  use { 'nvim-treesitter/nvim-treesitter', event = 'BufRead', run=':TSUpdate'}
   use 'lewis6991/impatient.nvim'
   use 'nvim-lua/plenary.nvim'
   use { 'kyazdani42/nvim-tree.lua',
@@ -92,7 +71,6 @@ return packer.startup(function()
 
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
-  use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'folke/todo-comments.nvim'
