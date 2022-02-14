@@ -1,3 +1,6 @@
+-----------------------------------------------------------
+-- File Manager Configuration
+-----------------------------------------------------------
 local g = vim.g
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names

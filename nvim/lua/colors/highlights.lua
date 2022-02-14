@@ -23,15 +23,15 @@ local yellow = colors.yellow
 local orange = colors.orange
 local one_bg3 = colors.one_bg3
 
-function bg(group, col)
+local function bg(group, col)
    cmd("hi " .. group .. " guibg=" .. col)
 end
 
-function fg(group, col)
+local function fg(group, col)
    cmd("hi " .. group .. " guifg=" .. col)
 end
 
-function fg_bg(group, fgcol, bgcol)
+local function fg_bg(group, fgcol, bgcol)
    cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
