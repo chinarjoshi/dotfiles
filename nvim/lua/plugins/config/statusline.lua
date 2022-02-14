@@ -398,14 +398,14 @@ M.setup = function(override_flag)
       default = require("core.utils").tbl_override_req("feline", default)
    end
    -- components are divided in 3 sections
-   default.left = {}
    default.middle = {}
    default.right = {}
 
    -- left
-   add_table(default.left, default.main_icon)
-   add_table(default.left, default.file_name)
-   add_table(default.left, default.dir_name)
+   default.left = {
+    default.main_icon,
+    default.file_name,
+		default.dir_name,
    add_table(default.left, default.diff.add)
    add_table(default.left, default.diff.change)
    add_table(default.left, default.diff.remove)
