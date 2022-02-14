@@ -9,7 +9,6 @@ for _, option in ipairs({
    hidden = true,
    ignorecase = true,
    smartcase = true,
-   mapleader = " ",
    mouse = "a",
    number = true,
    numberwidth = 2,
@@ -39,7 +38,7 @@ end
 
 vim.opt.shortmess:append "sI"
 vim.opt.whichwrap:append "<>[]hl"
-vim.g.mapleader = options.mapleader
+vim.g.mapleader = ' '
 
 -- disable some builtin vim plugins
 for _, plugin in ipairs({
@@ -62,7 +61,7 @@ for _, plugin in ipairs({
    "zip",
    "zipPlugin",
 }) do
-   g["loaded_" .. plugin] = 1
+   vim.g["loaded_" .. plugin] = 1
 end
 
 plugins = {

@@ -1,5 +1,4 @@
---require('impatient').enable_profile()
-require('core.mappings').misc()
+require('impatient').enable_profile()
 
 for _, module in ipairs({
    'core.options',

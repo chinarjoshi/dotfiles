@@ -1,4 +1,5 @@
 local cmd = vim.cmd
+local exec = vim.api.nvim_exec
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
@@ -34,15 +35,12 @@ cmd [[
     autocmd BufLeave term://* stopinsert
 ]]
 
--- Don't show any numbers inside terminals
-cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
-
 -- Don't show status line on certain windows
-cmd [[ autocmd BufEnter,BufRead,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
+--cmd [[ autocmd BufEnter,BufRead,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
 
---Defer loading shada until after startup_
+-- Defer loading shada until after startup_
 vim.opt.shadafile = "NONE"
 vim.schedule(function()
-   vim.opt.shadafile = vim.opt.shadafile
-   vim.cmd [[ silent! rsh ]]
+  vim.opt.shadafile = vim.opt.shadafile
+  vim.cmd [[ silent! rsh ]]
 end)
