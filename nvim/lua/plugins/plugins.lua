@@ -3,9 +3,9 @@
 -----------------------------------------------------------
 
 return require('packer').startup(function()
-  config = {
-    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
-  },
+  --config = {
+    --compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+  --},
   -------------------------------- Base
   use { 'wbthomason/packer.nvim', event = 'VimEnter', }
   use { 'nvim-treesitter/nvim-treesitter', event = 'BufRead', run=':TSUpdate'}
@@ -13,16 +13,10 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use { 'kyazdani42/nvim-tree.lua',
      after = 'nvim-web-devicons', --cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }, --if lazyload
-     setup = function()
-        require('core.mappings').nvimtree()
-     end,
   }
   use { 'nvim-telescope/telescope.nvim',
      module = 'telescope',
      cmd = 'Telescope',
-     setup = function()
-        require('core.mappings').telescope()
-     end,
   }
   use 'ahmedkhalf/project.nvim'
   use 'nathom/filetype.nvim'
@@ -86,12 +80,7 @@ return require('packer').startup(function()
   use { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'}
   use { 'NvChad/nvim-colorizer.lua', event = 'BufRead', }
   use { 'yamatsum/nvim-cursorline' }
-  use { 'akinsho/bufferline.nvim',
-     after = 'nvim-web-devicons',
-     setup = function()
-        require('core.mappings').bufferline()
-     end,
-  }
+  use { 'akinsho/bufferline.nvim', after = 'nvim-web-devicons' }
 
   --------------------------------- Etc.
   use { 'nvim-orgmode/orgmode', ft = 'org' }

@@ -1,9 +1,10 @@
-require('impatient').enable_profile()
+--require('impatient').enable_profile()
 
 for _, module in ipairs({
    'core.options',
    'core.autocmds',
-   'core.mappings',
+	 'colors.highlights',
+   'plugins',
 }) do
     require(module)
 end
