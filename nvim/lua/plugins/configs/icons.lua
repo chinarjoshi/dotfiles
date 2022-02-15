@@ -2,7 +2,7 @@
 -- Icon Definitions
 -----------------------------------------------------------
 
-colors = require('colors').get()
+colors = require('colors')
 
 require('nvim-web-devicons').setup {
    override = {

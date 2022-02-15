@@ -1,28 +1,43 @@
------------------------------------------------------------
--- Plugin manager initialization
------------------------------------------------------------
+vim.cmd "packadd packer.nvim"
 
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+local present, packer = pcall(require, "packer")
+
+if not present then
+   local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+
+   print "Cloning packer.."
+   -- remove the dir before cloning
+   vim.fn.delete(packer_path, "rf")
+   vim.fn.system {
+      "git",
+      "clone",
+      "https://github.com/wbthomason/packer.nvim",
+      packer_path
+   }
+
+   vim.cmd "packadd packer.nvim"
+   present, packer = pcall(require, "packer")
+
+   if present then
+      print "Packer cloned successfully."
+   else
+      error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+   end
 end
-vim.cmd [[packadd packer.nvim]]
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
 
-require('packer').init {
-  display = {
-    open_fn = function()
-      return require('packer.util').float { border = 'rounded' }
-    end,
-  },
+packer.init {
+   display = {
+      open_fn = function()
+         return require("packer.util").float { border = "single" }
+      end,
+      prompt_border = "single",
+   },
+   git = {
+      clone_timeout = 6000, -- seconds
+   },
+   auto_clean = true,
+   compile_on_sync = true,
 }
-
-require('plugins.plugins')
 
 for _, module in ipairs({
 	'bufferline',
@@ -38,3 +53,5 @@ for _, module in ipairs({
 }) do
   require('plugins.config.' .. module)
 end
+
+require('plugins.plugins')

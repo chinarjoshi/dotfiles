@@ -1,19 +1,13 @@
-feline = require('feline')
+local present, feline = pcall(require, "feline")
+if not present then
+   return
+end
 
 local default = {
    colors = require("colors").get(),
    lsp = require "feline.providers.lsp",
    lsp_severity = vim.diagnostic.severity,
-   config = {
-      hidden = {
-         "help",
-         "dashboard",
-         "NvimTree",
-         "terminal",
-      },
-      shortline = true,
-      style = "default", -- default, round , slant , block , arrow
-   },
+   config = require("core.utils").load_config().plugins.options.statusline,
 }
 
 default.icon_styles = {
@@ -392,20 +386,16 @@ local function add_table(a, b)
    table.insert(a, b)
 end
 
-local M = {}
-M.setup = function(override_flag)
-   if override_flag then
-      default = require("core.utils").tbl_override_req("feline", default)
-   end
+require('feline').setup {
    -- components are divided in 3 sections
+   default.left = {}
    default.middle = {}
    default.right = {}
 
    -- left
-   default.left = {
-    default.main_icon,
-    default.file_name,
-		default.dir_name,
+   add_table(default.left, default.main_icon)
+   add_table(default.left, default.file_name)
+   add_table(default.left, default.dir_name)
    add_table(default.left, default.diff.add)
    add_table(default.left, default.diff.change)
    add_table(default.left, default.diff.remove)
@@ -439,6 +429,4 @@ M.setup = function(override_flag)
       },
       components = default.components,
    }
-end
-
-return M
+}

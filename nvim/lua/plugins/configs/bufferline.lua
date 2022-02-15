@@ -1,7 +1,8 @@
 -----------------------------------------------------------
 -- Bufferline config
 -----------------------------------------------------------
-colors = require('colors').get()
+
+colors = require('colors')
 require('bufferline').setup {
    options = {
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },

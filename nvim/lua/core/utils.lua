@@ -1,13 +1,28 @@
+-----------------------------------------------------------
+-- Utility Functions
+-----------------------------------------------------------
+
 local M = {}
 
 local cmd = vim.cmd
 M.close_buffer = function(force)
+   -- This is a modification of a NeoVim plugin from
+   -- Author: ojroques - Olivier Roques
+   -- Src: https://github.com/ojroques/nvim-bufdel
+   -- (Author has okayed copy-paste)
+
    -- Options
    local opts = {
       next = "cycle", -- how to retrieve the next buffer
       quit = false, -- exit when last buffer is deleted
+      --TODO make this a chadrc flag/option
    }
 
+   -- ----------------
+   -- Helper functions
+   -- ----------------
+
+   -- Switch to buffer 'buf' on each window from list 'windows'
    local function switch_buffer(windows, buf)
       local cur_win = vim.fn.winnr()
       for _, winid in ipairs(windows) do
@@ -18,6 +33,7 @@ M.close_buffer = function(force)
       vim.cmd(string.format("%d wincmd w", cur_win)) -- return to original window
    end
 
+   -- Select the first buffer with a number greater than given buffer
    local function get_next_buf(buf)
       local next = vim.fn.bufnr "#"
       if opts.next == "alternate" and vim.fn.buflisted(next) == 1 then
@@ -30,6 +46,10 @@ M.close_buffer = function(force)
          end
       end
    end
+
+   -- ----------------
+   -- End helper functions
+   -- ----------------
 
    local buf = vim.fn.bufnr()
    if vim.fn.buflisted(buf) == 0 then -- exit if buffer number is invalid
@@ -100,9 +120,11 @@ M.close_buffer = function(force)
    end
 end
 
+-- hide statusline
+-- tables fetched from load_config function
 M.hide_statusline = function()
-   local hidden = {'help', 'NvimTree', 'terminal'}
-   local shown = {}
+   local hidden = require("core.utils").load_config().plugins.options.statusline.hidden
+   local shown = require("core.utils").load_config().plugins.options.statusline.shown
    local api = vim.api
    local buftype = api.nvim_buf_get_option(0, "ft")
 
@@ -120,57 +142,6 @@ M.hide_statusline = function()
    api.nvim_set_option("laststatus", 2)
 end
 
-
-M.map = function(mode, keys, command, opt)
-   local options = { noremap = true, silent = true }
-   if opt then
-      options = vim.tbl_extend("force", options, opt)
-   end
-
-   -- all valid modes allowed for mappings
-   -- :h map-modes
-   local valid_modes = {
-      [""] = true,
-      ["n"] = true,
-      ["v"] = true,
-      ["s"] = true,
-      ["x"] = true,
-      ["o"] = true,
-      ["!"] = true,
-      ["i"] = true,
-      ["l"] = true,
-      ["c"] = true,
-      ["t"] = true,
-   }
-
-   -- helper function for M.map
-   -- can gives multiple modes and keys
-   local function map_wrapper(sub_mode, lhs, rhs, sub_options)
-      if type(lhs) == "table" then
-         for _, key in ipairs(lhs) do
-            map_wrapper(sub_mode, key, rhs, sub_options)
-         end
-      else
-         if type(sub_mode) == "table" then
-            for _, m in ipairs(sub_mode) do
-               map_wrapper(m, lhs, rhs, sub_options)
-            end
-         else
-            if valid_modes[sub_mode] and lhs and rhs then
-               vim.api.nvim_set_keymap(sub_mode, lhs, rhs, sub_options)
-            else
-               sub_mode, lhs, rhs = sub_mode or "", lhs or "", rhs or ""
-               print(
-                  "Cannot set mapping [ mode = '" .. sub_mode .. "' | key = '" .. lhs .. "' | cmd = '" .. rhs .. "' ]"
-               )
-            end
-         end
-      end
-   end
-
-   map_wrapper(mode, keys, command, options)
-end
-
 -- load plugin after entering vim ui
 M.packer_lazy_load = function(plugin, timer)
    if plugin then
@@ -179,4 +150,13 @@ M.packer_lazy_load = function(plugin, timer)
          require("packer").loader(plugin)
       end, timer)
    end
+end
+
+--provide labels to plugins instead of integers
+M.label_plugins = function(plugins)
+   plugins_labeled = {}
+   for _, plugin in ipairs(plugins) do
+      plugins_labeled[plugin[1]] = plugin
+   end
+   return plugins_labeled
 end

@@ -1,8 +1,10 @@
+-----------------------------------------------------------
+-- Highlighters
+-----------------------------------------------------------
+
 local cmd = vim.cmd
 
-local colors = require("colors").get()
-local transparency = false
-
+local colors = require('colors')
 local black = colors.black
 local black2 = colors.black2
 local blue = colors.blue
@@ -35,11 +37,8 @@ local function fg_bg(group, fgcol, bgcol)
    cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
--- Comments
 fg("Comment", grey_fg .. " gui=italic")
 
--- Disable cursor line
-cmd "hi clear CursorLine"
 -- Line number
 fg("cursorlinenr", white)
 
@@ -69,7 +68,7 @@ fg("LineNr", grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
-if transparency then
+if false then
    bg("Normal", "NONE")
    bg("Folded", "NONE")
    fg("Folded", "NONE")
@@ -93,9 +92,9 @@ fg_bg("DiffDelete", red, "NONE")
 
 -- Indent blankline plugin
 fg("IndentBlanklineChar", line)
+fg("IndentBlanklineSpaceChar", line)
 
 -- Lsp diagnostics
-
 fg("DiagnosticHint", purple)
 fg("DiagnosticError", red)
 fg("DiagnosticWarn", yellow)
@@ -131,27 +130,8 @@ fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 
 bg("TelescopeSelection", black2)
 
--- keybinds cheatsheet
-
-fg_bg("CheatsheetBorder", black, black)
-bg("CheatsheetSectionContent", black)
-fg("CheatsheetHeading", white)
-
-local section_title_colors = {
-   white,
-   blue,
-   red,
-   green,
-   yellow,
-   purple,
-   orange,
-}
-for i, color in ipairs(section_title_colors) do
-   vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
-end
-
 -- Disable some highlight in nvim tree if transparency enabled
-if transparency then
+if false then
    bg("NormalFloat", "NONE")
    bg("NvimTreeNormal", "NONE")
    bg("NvimTreeNormalNC", "NONE")
