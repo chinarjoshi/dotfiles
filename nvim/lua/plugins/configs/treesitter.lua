@@ -1,7 +1,7 @@
 require('nvim-treesitter.configs').setup {
    ensure_installed = {
-      "lua",
-      "vim",
+      'lua',
+      'vim',
    },
    highlight = {
       enable = true,

@@ -1,11 +1,11 @@
 for key, option in pairs({
    cul = true,
-   clipboard = "unnamedplus",
+   clipboard = 'unnamedplus',
    title = true,
    hidden = true,
    ignorecase = true,
    smartcase = true,
-   mouse = "a",
+   mouse = 'a',
    number = true,
    numberwidth = 2,
    expandtab = true,
@@ -14,7 +14,7 @@ for key, option in pairs({
    tabstop = 4,
    timeoutlen = 400,
    undofile = true,
-   fillchars = { eob = " " },
+   fillchars = { eob = ' ' },
    signcolumn = 'yes',
    splitbelow = true,
    splitright = true,
@@ -32,30 +32,30 @@ for key, option in pairs({
     vim.opt[key] = option
 end
 
-vim.opt.shortmess:append "sI"
-vim.opt.whichwrap:append "<>[]hl"
+vim.opt.shortmess:append 'sI'
+vim.opt.whichwrap:append '<>[]hl'
 vim.g.mapleader = ' '
 
 -- disable some builtin vim plugins
 for _, plugin in ipairs({
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
+   '2html_plugin',
+   'getscript',
+   'getscriptPlugin',
+   'gzip',
+   'logipat',
+   'netrw',
+   'netrwPlugin',
+   'netrwSettings',
+   'netrwFileHandlers',
+   'matchit',
+   'tar',
+   'tarPlugin',
+   'rrhelper',
+   'spellfile_plugin',
+   'vimball',
+   'vimballPlugin',
+   'zip',
+   'zipPlugin',
 }) do
-   vim.g["loaded_" .. plugin] = 1
+   vim.g['loaded_' .. plugin] = 1
 end

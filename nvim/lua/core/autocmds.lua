@@ -8,7 +8,7 @@ cmd [[au BufWritePre * :%s/\s\+$//e]]
 exec([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}
   augroup end
 ]], false)
 
@@ -36,10 +36,10 @@ cmd [[
 ]]
 
 -- Don't show status line on certain windows
---cmd [[ autocmd BufEnter,BufRead,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
+--cmd [[ autocmd BufEnter,BufRead,BufWinEnter,FileType,WinEnter * lua require('core.utils').hide_statusline() ]]
 
 -- Defer loading shada until after startup_
-vim.opt.shadafile = "NONE"
+vim.opt.shadafile = 'NONE'
 vim.schedule(function()
   vim.opt.shadafile = vim.opt.shadafile
   vim.cmd [[ silent! rsh ]]
