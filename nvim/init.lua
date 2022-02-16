@@ -11,6 +11,6 @@ for _, module in ipairs({
 }) do
   local present, err = pcall(require, module)
   if not present then
-    error("Error loading " .. module .. "\n\n" .. err)
+    error('Error loading ' .. module .. '\n\n' .. err)
   end
 end

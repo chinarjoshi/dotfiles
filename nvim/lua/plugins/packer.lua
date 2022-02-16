@@ -55,7 +55,7 @@ for _, file in ipairs({
 }) do
   local present, err = pcall(require, 'plugins.configs.' .. file)
   if not present then
-    error("Error loading " .. file .. "\n\n" .. err)
+    error('Error loading ' .. file .. '\n\n' .. err)
   end
 end
 

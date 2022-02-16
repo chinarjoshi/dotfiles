@@ -73,8 +73,8 @@ require('plugins.packer').startup(function()
      config = function()
        base16 = require('base16')
        base16(base16.themes('onedark'), true)
-       package.loaded["core.highlights" or false] = nil
-       require "core.highlights"
+       package.loaded['core.highlights' or false] = nil
+       require 'core.highlights'
      end,
   }
   use { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', }
