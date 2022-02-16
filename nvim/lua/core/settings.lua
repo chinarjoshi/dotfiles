@@ -1,3 +1,7 @@
+local opt = vim.opt
+local cmd = vim.cmd
+local g = vim.g
+
 for key, option in pairs({
    cul = true,
    clipboard = 'unnamedplus',
@@ -29,12 +33,32 @@ for key, option in pairs({
    synmaxcol = 240,
    completeopt = 'menuone,noselect',
 }) do
-    vim.opt[key] = option
+    opt[key] = option
 end
 
-vim.opt.shortmess:append 'sI'
-vim.opt.whichwrap:append '<>[]hl'
-vim.g.mapleader = ' '
+for _, module in ipairs({
+  [[au BufWritePre * :%s/\s\+$//e]],
+  "autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}",
+  "au BufEnter * set fo-=c fo-=r fo-=o",
+  "autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0",
+  "autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2",
+  "command Term :botright vsplit term://$SHELL",
+  "autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline",
+  "autocmd TermOpen * startinsert",
+  "autocmd BufLeave term://* stopinsert",
+}) do
+  cmd(module)
+end
+
+-- Defer loading shada until after startup_
+opt.shadafile = 'NONE'
+vim.schedule(function()
+  opt.shadafile = vim.opt.shadafile
+  cmd [[ silent! rsh ]]
+end)
+opt.shortmess:append 'sI'
+opt.whichwrap:append '<>[]hl'
+g.mapleader = ' '
 
 -- disable some builtin vim plugins
 for _, plugin in ipairs({
@@ -57,5 +81,5 @@ for _, plugin in ipairs({
    'zip',
    'zipPlugin',
 }) do
-   vim.g['loaded_' .. plugin] = 1
+   g['loaded_' .. plugin] = 1
 end
