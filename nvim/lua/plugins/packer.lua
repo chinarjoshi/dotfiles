@@ -1,4 +1,4 @@
-vim.cmd 'packadd packer.nvim'
+vim.cmd('packadd packer.nvim')
 
 local present, packer = pcall(require, 'packer')
 
@@ -42,18 +42,21 @@ packer.init {
 }
 
 for _, file in ipairs({
-  'treesitter',
-  'bufferline',
-  'cmp',
-  'icons',
-  'lspconfig',
   'lspkind_icons',
+  'bufferline',
+  'statusline',
+  'treesitter',
+  'lspconfig',
+  'telescope',
   'nvimtree',
   'others',
-  'statusline',
-  'telescope',
+  'icons',
+  'cmp',
 }) do
-  require('plugins.configs.' .. file)
+  local present, err = pcall(require, 'plugins.configs.' .. file)
+  if not present then
+    error("Error loading " .. file .. "\n\n" .. err)
+  end
 end
 
 return packer

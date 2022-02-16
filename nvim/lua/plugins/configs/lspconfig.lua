@@ -1,4 +1,4 @@
-local nvim_lsp = require 'lspconfig'
+local nvim_lsp = require('lspconfig')
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -54,14 +54,6 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'bashls', 'pyright', 'clangd', 'html', 'tsserver' }
-
--- Set settings for language servers below
---
--- tsserver settings
-local ts_settings = function(client)
-  client.resolved_capabilities.document_formatting = false
-  ts_settings(client)
-end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {

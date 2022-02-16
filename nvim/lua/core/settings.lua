@@ -2,6 +2,7 @@ local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
 
+-- Global options
 for key, option in pairs({
    cul = true,
    clipboard = 'unnamedplus',
@@ -36,7 +37,8 @@ for key, option in pairs({
     opt[key] = option
 end
 
-for _, module in ipairs({
+-- Autocommands
+for _, autocmd in ipairs({
   [[au BufWritePre * :%s/\s\+$//e]],
   "autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}",
   "au BufEnter * set fo-=c fo-=r fo-=o",
@@ -44,23 +46,17 @@ for _, module in ipairs({
   "autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2",
   "command Term :botright vsplit term://$SHELL",
   "autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline",
+  "autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()",
   "autocmd TermOpen * startinsert",
   "autocmd BufLeave term://* stopinsert",
+  "let g:vista#renderer#enable_icon = 1",
+  [[let g:vista#renderer#icons = { "function": "\u0192", "variable": "\uf00d",
+  \   "prototype": "\uf013", "macro": "\uf00b" }]],
 }) do
-  cmd(module)
+  cmd(autocmd)
 end
 
--- Defer loading shada until after startup_
-opt.shadafile = 'NONE'
-vim.schedule(function()
-  opt.shadafile = vim.opt.shadafile
-  cmd [[ silent! rsh ]]
-end)
-opt.shortmess:append 'sI'
-opt.whichwrap:append '<>[]hl'
-g.mapleader = ' '
-
--- disable some builtin vim plugins
+-- Builtin plugins to disable
 for _, plugin in ipairs({
    '2html_plugin',
    'getscript',
@@ -83,3 +79,15 @@ for _, plugin in ipairs({
 }) do
    g['loaded_' .. plugin] = 1
 end
+
+g.mapleader = ' '
+g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
+g.vista_default_executive = 'ctags'
+opt.shortmess:append 'sI'
+opt.whichwrap:append '<>[]hl'
+-- Defer loading shada until after startup_
+opt.shadafile = 'NONE'
+vim.schedule(function()
+  opt.shadafile = vim.opt.shadafile
+  cmd('silent! rsh')
+end)
