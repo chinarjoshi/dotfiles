@@ -63,4 +63,3 @@ for _, plugin in ipairs({
 }) do
    vim.g["loaded_" .. plugin] = 1
 end
-
