@@ -3,7 +3,7 @@ local M = {}
 -- if theme given, load given theme if given, otherwise nvchad_theme
 M.init = function(theme)
    if not theme then
-      theme = require("core.utils").load_config().ui.theme
+      theme = 'onedark'
    end
 
    -- set the global theme, used at various places like theme switcher, highlights

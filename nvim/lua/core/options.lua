@@ -1,54 +1,47 @@
-local opt = vim.opt
-local g = vim.g
+-----------------------------------------------------------
+-- Settings
+-----------------------------------------------------------
 
-local options = require("core.utils").load_config().options
+for key, option in pairs({
+   cul = true,
+   clipboard = "unnamedplus",
+   title = true,
+   hidden = true,
+   ignorecase = true,
+   smartcase = true,
+   mouse = "a",
+   number = true,
+   numberwidth = 2,
+   expandtab = true,
+   shiftwidth = 4,
+   smartindent = true,
+   tabstop = 4,
+   timeoutlen = 400,
+   undofile = true,
+   fillchars = { eob = " " },
+   signcolumn = 'yes',
+   splitbelow = true,
+   splitright = true,
+   termguicolors = true,
+   swapfile = false,
+   showmatch = true,
+   foldmethod = 'marker',
+   linebreak = true,
+   history = 100,
+   lazyredraw = true,
+   shadafile = vim.opt.shadafile,
+   synmaxcol = 240,
+   completeopt = 'menuone,noselect',
+}) do
+    vim.opt[key] = option
+end
 
-opt.title = true
-opt.clipboard = options.clipboard
-opt.cmdheight = options.cmdheight
-opt.cul = true -- cursor line
-
--- Indentline
-opt.expandtab = options.expandtab
-opt.shiftwidth = options.shiftwidth
-opt.smartindent = options.smartindent
-
--- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-opt.fillchars = options.fillchars
-
-opt.hidden = options.hidden
-opt.ignorecase = options.ignorecase
-opt.smartcase = options.smartcase
-opt.mouse = options.mouse
-
--- Numbers
-opt.number = options.number
-opt.numberwidth = options.numberwidth
-opt.relativenumber = options.relativenumber
-opt.ruler = options.ruler
-
--- disable nvim intro
-opt.shortmess:append "sI"
-
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
-opt.tabstop = options.tabstop
-opt.termguicolors = true
-opt.timeoutlen = options.timeoutlen
-opt.undofile = options.undofile
-
--- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = options.updatetime
-
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
-
-g.mapleader = options.mapleader
+vim.opt.shortmess:append "sI"
+vim.opt.whichwrap:append "<>[]hl"
+vim.g.mapleader = ' '
 
 -- disable some builtin vim plugins
-local disabled_built_ins = {
+for _, plugin in ipairs({
    "2html_plugin",
    "getscript",
    "getscriptPlugin",
@@ -67,15 +60,7 @@ local disabled_built_ins = {
    "vimballPlugin",
    "zip",
    "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-   g["loaded_" .. plugin] = 1
+}) do
+   vim.g["loaded_" .. plugin] = 1
 end
 
---Defer loading shada until after startup_
-vim.opt.shadafile = "NONE"
-vim.schedule(function()
-   vim.opt.shadafile = require("core.utils").load_config().options.shadafile
-   vim.cmd [[ silent! rsh ]]
-end)
