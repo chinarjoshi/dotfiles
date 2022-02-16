@@ -1,7 +1,3 @@
------------------------------------------------------------
--- Bufferline config
------------------------------------------------------------
-
 colors = require('hl_themes.onedark')
 require('bufferline').setup {
    options = {

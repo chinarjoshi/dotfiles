@@ -1,7 +1,3 @@
------------------------------------------------------------
--- Plugin manager configuration
------------------------------------------------------------
-
 require('plugins.packer').startup(function()
   config = {
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'

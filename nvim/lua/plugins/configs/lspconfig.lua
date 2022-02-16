@@ -1,7 +1,3 @@
------------------------------------------------------------
--- Neovim LSP configuration file
------------------------------------------------------------
-
 local nvim_lsp = require 'lspconfig'
 
 -- Add additional capabilities supported by nvim-cmp
