@@ -51,7 +51,7 @@ for _, file in ipairs({
   'nvimtree',
   'others',
   'statusline',
-  --'telescope',
+  'telescope',
 }) do
   require('plugins.configs.' .. file)
 end

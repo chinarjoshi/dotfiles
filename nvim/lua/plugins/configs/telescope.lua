@@ -2,9 +2,7 @@
 -- Fuzzy Finder Config
 -----------------------------------------------------------
 
-local telescope = require('telescope')
-
-telescope.setup {
+require('telescope').setup {
    defaults = {
       vimgrep_arguments = {
          "rg",
@@ -52,5 +50,3 @@ telescope.setup {
       buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
    },
 }
-
-telescope.load_extension({'themes', 'terms'})

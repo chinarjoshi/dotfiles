@@ -235,7 +235,7 @@ _G.packer_plugins = {
   },
   ["nvim-base16.lua"] = {
     after = { "nvim-web-devicons" },
-    config = { "\27LJ\1\0023\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\tinit\vcolors\frequire\0" },
+    config = { "\27LJ\1\2œ\1\0\0\3\0\a\0\0224\0\0\0%\1\1\0>\0\2\0025\0\1\0004\0\1\0004\1\1\0007\1\2\1%\2\3\0>\1\2\2)\2\2\0>\0\3\0014\0\4\0007\0\5\0%\1\6\0T\2\1€)\1\1\0)\2\0\0009\2\1\0004\0\0\0%\1\6\0>\0\2\1G\0\1\0\20core.highlights\vloaded\fpackage\fonedark\vthemes\vbase16\frequire\0" },
     load_after = {
       ["packer.nvim"] = true
     },

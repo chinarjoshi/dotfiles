@@ -75,7 +75,10 @@ require('plugins.packer').startup(function()
   use { 'NvChad/nvim-base16.lua',
      after = 'packer.nvim',
      config = function()
-        require('colors').init()
+       base16 = require('base16')
+       base16(base16.themes('onedark'), true)
+       package.loaded["core.highlights" or false] = nil
+       require "core.highlights"
      end,
   }
   use { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', }

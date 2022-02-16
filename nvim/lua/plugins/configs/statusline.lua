@@ -4,7 +4,7 @@ if not present then
 end
 
 local default = {
-   colors = require("colors").get(),
+   colors = require('hl_themes.onedark'),
    lsp = require("feline.providers.lsp"),
    lsp_severity = vim.diagnostic.severity,
    config = {

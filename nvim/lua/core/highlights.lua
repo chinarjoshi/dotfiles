@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-local colors = require("colors").get()
+local colors = require('hl_themes.onedark')
 local transparent = false
 
 local black = colors.black

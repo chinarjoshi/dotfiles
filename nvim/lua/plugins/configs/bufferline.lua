@@ -2,7 +2,7 @@
 -- Bufferline config
 -----------------------------------------------------------
 
-colors = require("colors").get()
+colors = require('hl_themes.onedark')
 require('bufferline').setup {
    options = {
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
