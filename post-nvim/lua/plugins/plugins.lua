@@ -3,9 +3,9 @@
 -----------------------------------------------------------
 
 return require('packer').startup(function()
-  --config = {
-    --compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
-  --},
+  config = {
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+  },
   -------------------------------- Base
   use { 'wbthomason/packer.nvim', event = 'VimEnter', }
   use { 'nvim-treesitter/nvim-treesitter', event = 'BufRead', run=':TSUpdate'}
@@ -24,10 +24,11 @@ return require('packer').startup(function()
  -------------------------------- LSP
   use { 'neovim/nvim-lspconfig',
      module = 'lspconfig',
+     opt = true,
      setup = function()
         require('core.utils').packer_lazy_load 'nvim-lspconfig'
         vim.defer_fn(function()
-           vim.cmd 'if &ft == 'packer' | echo '' | else | silent! e %'
+            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
         end, 0)
      end,
   }
@@ -40,8 +41,8 @@ return require('packer').startup(function()
 
   -------------------------------- Completion
   use { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', }
+  use { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip', }
   use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua', }
-  use { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip' or 'nvim-cmp', }
   use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp', }
   use { 'hrsh7th/cmp-path', after = 'cmp-buffer', }
   use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip', }
@@ -52,11 +53,12 @@ return require('packer').startup(function()
   }
   use { 'rafamadriz/friendly-snippets',
      module = 'cmp_nvim_lsp',
-     event = 'InsertEnter',
+     event = 'InsertCharPre',
   }
 
   --------------------------------- Git
   use { 'lewis6991/gitsigns.nvim',
+     opt = true,
      setup = function()
         require('core.utils').packer_lazy_load 'gitsigns.nvim'
      end,
@@ -89,6 +91,7 @@ return require('packer').startup(function()
   use 'ellisonleao/glow.nvim'
   use { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } }
   use { 'andymass/vim-matchup',
+     opt = true,
      setup = function()
         require('core.utils').packer_lazy_load 'vim-matchup'
      end,

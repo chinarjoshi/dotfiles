@@ -5,19 +5,9 @@ end
 
 local default = {
    colors = require("colors").get(),
-   lsp = require("feline.providers.lsp"),
+   lsp = require "feline.providers.lsp",
    lsp_severity = vim.diagnostic.severity,
-   config = {
-     hidden = {
-        "help",
-        "dashboard",
-        "NvimTree",
-        "terminal",
-     },
-     shown = {},
-     shortline = true,
-     style = "default",
-  },
+   config = require("core.utils").load_config().plugins.options.statusline,
 }
 
 default.icon_styles = {
@@ -396,45 +386,47 @@ local function add_table(a, b)
    table.insert(a, b)
 end
 
--- components are divided in 3 sections
-default.left = {}
-default.middle = {}
-default.right = {}
-
--- left
-add_table(default.left, default.main_icon)
-add_table(default.left, default.file_name)
-add_table(default.left, default.dir_name)
-add_table(default.left, default.diff.add)
-add_table(default.left, default.diff.change)
-add_table(default.left, default.diff.remove)
-add_table(default.left, default.diagnostic.error)
-add_table(default.left, default.diagnostic.warning)
-add_table(default.left, default.diagnostic.hint)
-add_table(default.left, default.diagnostic.info)
-
-add_table(default.middle, default.lsp_progress)
-
--- right
-add_table(default.right, default.lsp_icon)
-add_table(default.right, default.git_branch)
-add_table(default.right, default.empty_space)
-add_table(default.right, default.empty_spaceColored)
-add_table(default.right, default.mode_icon)
-add_table(default.right, default.empty_space2)
-add_table(default.right, default.separator_right)
-add_table(default.right, default.separator_right2)
-add_table(default.right, default.position_icon)
-add_table(default.right, default.current_line)
-
-default.components.active[1] = default.left
-default.components.active[2] = default.middle
-default.components.active[3] = default.right
-
 require('feline').setup {
-  theme = {
-     bg = default.colors.statusline_bg,
-     fg = default.colors.fg,
-  },
-  components = default.components,
+   -- components are divided in 3 sections
+   default.left = {}
+   default.middle = {}
+   default.right = {}
+
+   -- left
+   add_table(default.left, default.main_icon)
+   add_table(default.left, default.file_name)
+   add_table(default.left, default.dir_name)
+   add_table(default.left, default.diff.add)
+   add_table(default.left, default.diff.change)
+   add_table(default.left, default.diff.remove)
+   add_table(default.left, default.diagnostic.error)
+   add_table(default.left, default.diagnostic.warning)
+   add_table(default.left, default.diagnostic.hint)
+   add_table(default.left, default.diagnostic.info)
+
+   add_table(default.middle, default.lsp_progress)
+
+   -- right
+   add_table(default.right, default.lsp_icon)
+   add_table(default.right, default.git_branch)
+   add_table(default.right, default.empty_space)
+   add_table(default.right, default.empty_spaceColored)
+   add_table(default.right, default.mode_icon)
+   add_table(default.right, default.empty_space2)
+   add_table(default.right, default.separator_right)
+   add_table(default.right, default.separator_right2)
+   add_table(default.right, default.position_icon)
+   add_table(default.right, default.current_line)
+
+   default.components.active[1] = default.left
+   default.components.active[2] = default.middle
+   default.components.active[3] = default.right
+
+   feline.setup {
+      theme = {
+         bg = default.colors.statusline_bg,
+         fg = default.colors.fg,
+      },
+      components = default.components,
+   }
 }

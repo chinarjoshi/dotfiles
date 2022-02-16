@@ -7,9 +7,9 @@ require('nvim-autopairs').setup {
 }
 
 cmp_autopairs = require('nvim-autopairs.completion.cmp')
-require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
+require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done()
 
-require('indent_blankline').setup {
+require('blankline').setup {
   indentLine_enabled = 1,
   char = "▏",
   filetype_exclude = {
@@ -28,18 +28,18 @@ require('indent_blankline').setup {
   show_first_indent_level = false,
 }
 
---require('colorizer').setup({'*'}, {
-  --RGB = true,
-  --RRGGBB = true,
-  --names = false,
-  --RRGGBBAA = false,
-  --rgb_fn = false,
-  --hsl_fn = false,
-  --css = false,
-  --css_fn = false,
-  --mode = "background",
---})
---vim.cmd "ColorizerReloadAllBuffers"
+require('colorizer').setup({'*'}, {
+  RGB = true,
+  RRGGBB = true,
+  names = false,
+  RRGGBBAA = false,
+  rgb_fn = false,
+  hsl_fn = false,
+  css = false,
+  css_fn = false,
+  mode = "background",
+})
+vim.cmd "ColorizerReloadAllBuffers"
 
 require('luasnip.loaders.from_vscode').load()
 require('luasnip').config.set_config({

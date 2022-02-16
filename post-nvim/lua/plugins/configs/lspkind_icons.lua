@@ -29,4 +29,3 @@ return {
    Operator = "",
    TypeParameter = "",
 }
-

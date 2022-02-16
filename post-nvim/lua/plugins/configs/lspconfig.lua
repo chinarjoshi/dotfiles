@@ -83,7 +83,7 @@ for key, icon in pairs({
   Hint='',
   Warn=''
 }) do
-  local hl = "DiagnosticSign" .. key
+  local hl = "DiagnosticSign" .. name
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 

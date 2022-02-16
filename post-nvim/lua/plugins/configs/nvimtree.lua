@@ -44,7 +44,7 @@ g.nvim_tree_icons = {
    },
 }
 
-require('nvim-tree').setup {
+require('nvim_tree').setup {
    filters = {
       dotfiles = false,
    },

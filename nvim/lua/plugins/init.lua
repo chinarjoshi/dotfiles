@@ -1,57 +1,101 @@
-vim.cmd "packadd packer.nvim"
+-----------------------------------------------------------
+-- Plugin manager configuration
+-----------------------------------------------------------
 
-local present, packer = pcall(require, "packer")
+require('plugins.packer').startup(function()
+  config = {
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+  },
+  -------------------------------- Base
+  use { 'wbthomason/packer.nvim', event = 'VimEnter', }
+  use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+  use 'lewis6991/impatient.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use { 'kyazdani42/nvim-tree.lua',
+     after = 'nvim-web-devicons', --cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }, --if lazyload
+  }
+  use { 'nvim-telescope/telescope.nvim',
+     module = 'telescope',
+     cmd = 'Telescope',
+  }
+  use 'ahmedkhalf/project.nvim'
+  use 'nathom/filetype.nvim'
 
-if not present then
-   local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+ -------------------------------- LSP
+  use { 'neovim/nvim-lspconfig',
+     module = 'lspconfig',
+     opt = true,
+     setup = function()
+        require('core.utils').packer_lazy_load 'nvim-lspconfig'
+        vim.defer_fn(function()
+            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+        end, 0)
+     end,
+  }
+  use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', }
+  use 'folke/lsp-colors.nvim'
+  use 'folke/trouble.nvim'
+  use 'kosayoda/nvim-lightbulb'
+  use 'liuchengxu/vista.vim'
+  use 'onsails/lspkind-nvim'
 
-   print "Cloning packer.."
-   -- remove the dir before cloning
-   vim.fn.delete(packer_path, "rf")
-   vim.fn.system {
-      "git",
-      "clone",
-      "https://github.com/wbthomason/packer.nvim",
-      packer_path
-   }
+  -------------------------------- Completion
+  use { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', }
+  use { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip', }
+  use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua', }
+  use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp', }
+  use { 'hrsh7th/cmp-path', after = 'cmp-buffer', }
+  use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip', }
 
-   vim.cmd "packadd packer.nvim"
-   present, packer = pcall(require, "packer")
+  --------------------------------- Snippets
+  use { 'L3MON4D3/LuaSnip',
+     after = 'nvim-cmp',
+  }
+  use { 'rafamadriz/friendly-snippets',
+     module = 'cmp_nvim_lsp',
+     event = 'InsertCharPre',
+  }
 
-   if present then
-      print "Packer cloned successfully."
-   else
-      error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
-   end
-end
+  --------------------------------- Git
+  use { 'lewis6991/gitsigns.nvim',
+     opt = true,
+     setup = function()
+        require('core.utils').packer_lazy_load 'gitsigns.nvim'
+     end,
+  }
+  use 'TimUntersberger/neogit'
 
-packer.init {
-   display = {
-      open_fn = function()
-         return require("packer.util").float { border = "single" }
-      end,
-      prompt_border = "single",
-   },
-   git = {
-      clone_timeout = 6000, -- seconds
-   },
-   auto_clean = true,
-   compile_on_sync = true,
-}
+  --------------------------------- Editing
+  use 'ggandor/lightspeed.nvim'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'folke/todo-comments.nvim'
 
-for _, module in ipairs({
-	'bufferline',
-	'cmp',
-	'icons',
-	'lspconfig',
-	'lspkind_icons',
-	'nvimtree',
-	'others',
-	'statusline',
-	'telescope',
-	'treesitter',
-}) do
-  require('plugins.config.' .. module)
-end
+  --------------------------------- Aesthetic
+  use { 'NvChad/nvim-base16.lua',
+     after = 'packer.nvim',
+     config = function()
+        require('colors').init()
+     end,
+  }
+  use { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', }
+  use { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'}
+  use { 'NvChad/nvim-colorizer.lua', event = 'BufRead', }
+  use { 'yamatsum/nvim-cursorline' }
+  use { 'akinsho/bufferline.nvim', after = 'nvim-web-devicons' }
 
-require('plugins.plugins')
+  --------------------------------- Etc.
+  use { 'nvim-orgmode/orgmode', ft = 'org' }
+  use 'folke/which-key.nvim'
+  use { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', }
+  use 'ellisonleao/glow.nvim'
+  use { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } }
+  use { 'andymass/vim-matchup',
+     opt = true,
+     setup = function()
+        require('core.utils').packer_lazy_load 'vim-matchup'
+     end,
+  }
+  use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }
+
+end)

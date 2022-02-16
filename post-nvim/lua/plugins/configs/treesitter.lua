@@ -3,12 +3,9 @@
 -----------------------------------------------------------
 
 require('nvim-treesitter.configs').setup {
-   ensure_installed = {
-      "lua",
-      "vim",
-   },
-   highlight = {
-      enable = true,
-      use_languagetree = true,
-   },
+  ensure_installed = "maintained",
+  highlight = { enable = true, },
+  autopairs = { enable = true, },
+  indent = { enable = true },
+  autotag = { enable = true },
 }

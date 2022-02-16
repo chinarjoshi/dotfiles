@@ -2,9 +2,17 @@
 -- Autocompletion configuration file
 -----------------------------------------------------------
 
-local cmp = require('cmp')
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 
 cmp.setup {
+   completion = {
+      completeopt = "menuone,noselect",
+   },
+   documentation = {
+      border = "single",
+   },
    snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
@@ -16,9 +24,10 @@ cmp.setup {
          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
 
          vim_item.menu = ({
+            buffer = "[BUF]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
-            buffer = "[BUF]",
+            path = "[Path]",
          })[entry.source.name]
 
          return vim_item
@@ -35,24 +44,24 @@ cmp.setup {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
       },
-      ["<Tab>"] = function(fallback)
+      ["<Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
          elseif require("luasnip").expand_or_jumpable() then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+            require("luasnip").expand_or_jump()
          else
             fallback()
          end
-      end,
-      ["<S-Tab>"] = function(fallback)
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
          if cmp.visible() then
             cmp.select_prev_item()
          elseif require("luasnip").jumpable(-1) then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+            require("luasnip").jump(-1)
          else
             fallback()
          end
-      end,
+      end, { "i", "s" }),
    },
    sources = {
       { name = "nvim_lsp" },
