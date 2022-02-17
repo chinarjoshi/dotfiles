@@ -7,10 +7,10 @@ end
 for _, module in ipairs({
    'core.settings',
    'core.mappings',
-   'plugins'
+   'plugins',
 }) do
   local present, err = pcall(require, module)
   if not present then
-    error('Error loading ' .. module .. '\n\n' .. err)
+    error('\n\nError loading \'' .. module .. '\' in init.lua\n\n' .. err)
   end
 end

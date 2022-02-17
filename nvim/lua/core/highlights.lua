@@ -1,165 +1,93 @@
-local cmd = vim.cmd
-
 local colors = require('hl_themes.onedark')
-local transparent = false
+vim.cmd [[hi clear CursorLine]]
 
-local black = colors.black
-local black2 = colors.black2
-local blue = colors.blue
-local darker_black = colors.darker_black
-local folder_bg = colors.folder_bg
-local green = colors.green
-local grey = colors.grey
-local grey_fg = colors.grey_fg
-local line = colors.line
-local nord_blue = colors.nord_blue
-local one_bg = colors.one_bg
-local one_bg2 = colors.one_bg2
-local pmenu_bg = colors.pmenu_bg
-local purple = colors.purple
-local red = colors.red
-local white = colors.white
-local yellow = colors.yellow
-local orange = colors.orange
-local one_bg3 = colors.one_bg3
-
--- functions for setting highlights
-local fg = require('core.utils').fg
-local fg_bg = require('core.utils').fg_bg
-local bg = require('core.utils').bg
-
--- Comments
-fg('Comment', grey_fg .. ' gui=italic')
-
--- Disable cursor line
-cmd 'hi clear CursorLine'
--- Line number
-fg('cursorlinenr', white)
-
--- same it bg, so it doesn't appear
-fg('EndOfBuffer', black)
-
--- For floating windows
-fg('FloatBorder', blue)
-bg('NormalFloat', darker_black)
-
--- Pmenu
-bg('Pmenu', one_bg)
-bg('PmenuSbar', one_bg2)
-bg('PmenuSel', pmenu_bg)
-bg('PmenuThumb', nord_blue)
-fg('CmpItemAbbr', white)
-fg('CmpItemAbbrMatch', white)
-fg('CmpItemKind', white)
-fg('CmpItemMenu', white)
-
--- misc
-
--- inactive statuslines as thin lines
-fg('StatusLineNC', one_bg3 .. ' gui=underline')
-
-fg('LineNr', grey)
-fg('NvimInternalError', red)
-fg('VertSplit', one_bg2)
-
-if transparent then
-   bg('Normal', 'NONE')
-   bg('Folded', 'NONE')
-   fg('Folded', 'NONE')
-   fg('Comment', grey)
+-- Foreground colors
+for foreground, color in pairs({
+  Comment = 'grey_fg',
+  cursorlinenr = 'white',
+  EndOfBuffer = 'black',
+  FloatBorder = 'blue',
+  CmpItemAbbr = 'white',
+  CmpItemAbbrMatch = 'white',
+  CmpItemKind = 'white',
+  CmpItemMenu = 'white',
+  StatusLineNC = 'one_bg3',
+  LineNr = 'grey',
+  NvimInternalError = 'red',
+  VertSplit = 'one_bg2',
+  DashboardCenter = 'grey_fg',
+  DashboardFooter = 'grey_fg',
+  DashboardHeader = 'grey_fg',
+  DashboardShortcut = 'grey_fg',
+  IndentBlanklineChar = 'line',
+  IndentBlanklineSpaceChar = 'line',
+  DiagnosticHint = 'purple',
+  DiagnosticError = 'red',
+  DiagnosticWarn = 'yellow',
+  DiagnosticInformation = 'green',
+  NvimTreeEmptyFolderName = 'folder_bg',
+  NvimTreeEndOfBuffer = 'darker_black',
+  NvimTreeFolderIcon = 'folder_bg',
+  NvimTreeFolderName = 'folder_bg',
+  NvimTreeGitDirty = 'red',
+  NvimTreeIndentMarker = 'one_bg2',
+  NvimTreeOpenedFolderName = 'folder_bg',
+}) do
+  vim.cmd("hi " .. foreground .. " guifg=" .. colors[color])
 end
 
--- [[ Plugin Highlights
-
--- Dashboard
-fg('DashboardCenter', grey_fg)
-fg('DashboardFooter', grey_fg)
-fg('DashboardHeader', grey_fg)
-fg('DashboardShortcut', grey_fg)
-
--- Git signs
-fg_bg('DiffAdd', blue, 'NONE')
-fg_bg('DiffChange', grey_fg, 'NONE')
-fg_bg('DiffChangeDelete', red, 'NONE')
-fg_bg('DiffModified', red, 'NONE')
-fg_bg('DiffDelete', red, 'NONE')
-
--- Indent blankline plugin
-fg('IndentBlanklineChar', line)
-fg('IndentBlanklineSpaceChar', line)
-
--- Lsp diagnostics
-
-fg('DiagnosticHint', purple)
-fg('DiagnosticError', red)
-fg('DiagnosticWarn', yellow)
-fg('DiagnosticInformation', green)
-
--- NvimTree
-fg('NvimTreeEmptyFolderName', folder_bg)
-fg('NvimTreeEndOfBuffer', darker_black)
-fg('NvimTreeFolderIcon', folder_bg)
-fg('NvimTreeFolderName', folder_bg)
-fg('NvimTreeGitDirty', red)
-fg('NvimTreeIndentMarker', one_bg2)
-bg('NvimTreeNormal', darker_black)
-bg('NvimTreeNormalNC', darker_black)
-fg('NvimTreeOpenedFolderName', folder_bg)
-fg('NvimTreeRootFolder', red .. ' gui=underline') -- enable underline for root folder in nvim tree
-fg_bg('NvimTreeStatuslineNc', darker_black, darker_black)
-fg_bg('NvimTreeVertSplit', darker_black, darker_black)
-fg_bg('NvimTreeWindowPicker', red, black2)
-
--- Telescope
-fg_bg('TelescopeBorder', darker_black, darker_black)
-fg_bg('TelescopePromptBorder', black2, black2)
-
-fg_bg('TelescopePromptNormal', white, black2)
-fg_bg('TelescopePromptPrefix', red, black2)
-
-bg('TelescopeNormal', darker_black)
-
-fg_bg('TelescopePreviewTitle', black, green)
-fg_bg('TelescopePromptTitle', black, red)
-fg_bg('TelescopeResultsTitle', darker_black, darker_black)
-
-bg('TelescopeSelection', black2)
-
--- keybinds cheatsheet
-
-fg_bg('CheatsheetBorder', black, black)
-bg('CheatsheetSectionContent', black)
-fg('CheatsheetHeading', white)
-
-local section_title_colors = {
-   white,
-   blue,
-   red,
-   green,
-   yellow,
-   purple,
-   orange,
-}
-for i, color in ipairs(section_title_colors) do
-   vim.cmd('highlight CheatsheetTitle' .. i .. ' guibg = ' .. color .. ' guifg=' .. black)
+-- Background colors
+for background, color in pairs({
+  NormalFloat = 'darker_black',
+  Pmenu = 'one_bg',
+  PmenuSbar = 'pmenu_bg',
+  PmenuSel = 'nord_blue',
+  PmenuThumb = 'darker_black',
+  NvimTreeNormalNC = 'darker_black',
+  TelescopeNormal = 'darker_black',
+  TelescopeSelection = 'black2',
+}) do
+  vim.cmd("hi " .. background .. " guibg=" .. colors[color])
 end
 
--- Disable some highlight in nvim tree if transparency enabled
-if transparent then
-   bg('NormalFloat', 'NONE')
-   bg('NvimTreeNormal', 'NONE')
-   bg('NvimTreeNormalNC', 'NONE')
-   bg('NvimTreeStatusLineNC', 'NONE')
-   fg_bg('NvimTreeVertSplit', grey, 'NONE')
+-- Both background and foreground colors
+for both, color in pairs({
+  DiffAdd = {'blue', 'NONE'},
+  DiffChange = {'grey_fg', 'NONE'},
+  DiffChangeDelete = {'red', 'NONE'},
+  DiffModified = {'red', 'NONE'},
+  DiffDelete= {'red', 'NONE'},
+  NvimTreeStatuslineNc = {'darker_black', 'darker_black'},
+  NvimTreeVertSplit = {'darker_black', 'darker_black'},
+  NvimTreeWindowPicker = {'red', 'black2'},
+  TelescopeBorder = {'darker_black', 'darker_black'},
+  TelescopePromptBorder = {'black2', 'black2'},
+  TelescopePromptNormal = {'white', 'black2'},
+  TelescopePromptPrefix = {'red', 'black2'},
+  TelescopePreviewTitle = {'black', 'green'},
+  TelescopePromptTitle = {'black', 'red'},
+  TelescopeResultsTitle = {'darker_black', 'darker_black'},
+}) do
+  vim.cmd("hi " .. both .. " guifg=" .. colors[color[1]] .. " guibg=" .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
+end
 
-   -- telescope
-   bg('TelescopeBorder', 'NONE')
-   bg('TelescopePrompt', 'NONE')
-   bg('TelescopeResults', 'NONE')
-   bg('TelescopePromptBorder', 'NONE')
-   bg('TelescopePromptNormal', 'NONE')
-   bg('TelescopeNormal', 'NONE')
-   bg('TelescopePromptPrefix', 'NONE')
-   fg('TelescopeBorder', one_bg)
-   fg_bg('TelescopeResultsTitle', black, blue)
+if false then
+   bg("Normal", "NONE")
+   bg("Folded", "NONE")
+   fg("Folded", "NONE")
+   fg("Comment", grey)
+   bg("NormalFloat", "NONE")
+   bg("NvimTreeNormal", "NONE")
+   bg("NvimTreeNormalNC", "NONE")
+   bg("NvimTreeStatusLineNC", "NONE")
+   fg_bg("NvimTreeVertSplit", grey, "NONE")
+   bg("TelescopeBorder", "NONE")
+   bg("TelescopePrompt", "NONE")
+   bg("TelescopeResults", "NONE")
+   bg("TelescopePromptBorder", "NONE")
+   bg("TelescopePromptNormal", "NONE")
+   bg("TelescopeNormal", "NONE")
+   bg("TelescopePromptPrefix", "NONE")
+   fg("TelescopeBorder", one_bg)
+   fg_bg("TelescopeResultsTitle", black, blue)
 end

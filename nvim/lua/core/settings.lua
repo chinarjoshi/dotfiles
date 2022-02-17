@@ -85,6 +85,8 @@ g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 g.vista_default_executive = 'ctags'
 opt.shortmess:append 'sI'
 opt.whichwrap:append '<>[]hl'
+opt.listchars:append("space:⋅")
+opt.listchars:append("eol:↴")
 -- Defer loading shada until after startup_
 opt.shadafile = 'NONE'
 vim.schedule(function()
