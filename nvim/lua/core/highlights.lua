@@ -1,6 +1,5 @@
 local cmd = vim.cmd
 local colors = require('hl_themes.onedark')
-vim.cmd [[hi clear CursorLine]]
 
 -- Foreground colors
 for foreground, color in pairs({

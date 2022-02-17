@@ -1,3 +1,12 @@
+function lazy_load(plugin, timer)
+   if plugin then
+      timer = timer or 0
+      vim.defer_fn(function()
+         require("packer").loader(plugin)
+      end, timer)
+   end
+end
+
 require('plugins.packer').startup(function()
   config = {
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
@@ -22,7 +31,7 @@ require('plugins.packer').startup(function()
      module = 'lspconfig',
      opt = true,
      setup = function()
-        require('core.utils').packer_lazy_load 'nvim-lspconfig'
+        lazy_load('nvim-lspconfig')
         vim.defer_fn(function()
             vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
         end, 0)
@@ -56,7 +65,7 @@ require('plugins.packer').startup(function()
   use { 'lewis6991/gitsigns.nvim',
      opt = true,
      setup = function()
-        require('core.utils').packer_lazy_load 'gitsigns.nvim'
+        lazy_load('gitsigns.nvim')
      end,
   }
   use 'TimUntersberger/neogit'
@@ -92,7 +101,7 @@ require('plugins.packer').startup(function()
   use { 'andymass/vim-matchup',
      opt = true,
      setup = function()
-        require('core.utils').packer_lazy_load 'vim-matchup'
+        lazy_load('vim-matchup')
      end,
   }
   use { 'windwp/nvim-autopairs', after = 'nvim-cmp' }
