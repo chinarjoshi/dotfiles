@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local colors = require('hl_themes.onedark')
 vim.cmd [[hi clear CursorLine]]
 
@@ -33,7 +34,7 @@ for foreground, color in pairs({
   NvimTreeIndentMarker = 'one_bg2',
   NvimTreeOpenedFolderName = 'folder_bg',
 }) do
-  vim.cmd("hi " .. foreground .. " guifg=" .. colors[color])
+  cmd('hi ' .. foreground .. ' guifg=' .. colors[color])
 end
 
 -- Background colors
@@ -47,7 +48,7 @@ for background, color in pairs({
   TelescopeNormal = 'darker_black',
   TelescopeSelection = 'black2',
 }) do
-  vim.cmd("hi " .. background .. " guibg=" .. colors[color])
+  cmd('hi ' .. background .. ' guibg=' .. colors[color])
 end
 
 -- Both background and foreground colors
@@ -68,26 +69,26 @@ for both, color in pairs({
   TelescopePromptTitle = {'black', 'red'},
   TelescopeResultsTitle = {'darker_black', 'darker_black'},
 }) do
-  vim.cmd("hi " .. both .. " guifg=" .. colors[color[1]] .. " guibg=" .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
+  cmd('hi ' .. both .. ' guifg=' .. colors[color[1]] .. ' guibg=' .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
 end
 
 if false then
-   bg("Normal", "NONE")
-   bg("Folded", "NONE")
-   fg("Folded", "NONE")
-   fg("Comment", grey)
-   bg("NormalFloat", "NONE")
-   bg("NvimTreeNormal", "NONE")
-   bg("NvimTreeNormalNC", "NONE")
-   bg("NvimTreeStatusLineNC", "NONE")
-   fg_bg("NvimTreeVertSplit", grey, "NONE")
-   bg("TelescopeBorder", "NONE")
-   bg("TelescopePrompt", "NONE")
-   bg("TelescopeResults", "NONE")
-   bg("TelescopePromptBorder", "NONE")
-   bg("TelescopePromptNormal", "NONE")
-   bg("TelescopeNormal", "NONE")
-   bg("TelescopePromptPrefix", "NONE")
-   fg("TelescopeBorder", one_bg)
-   fg_bg("TelescopeResultsTitle", black, blue)
+   bg('Normal', 'NONE')
+   bg('Folded', 'NONE')
+   bg('NormalFloat', 'NONE')
+   bg('NvimTreeNormal', 'NONE')
+   bg('NvimTreeNormalNC', 'NONE')
+   bg('NvimTreeStatusLineNC', 'NONE')
+   bg('TelescopeBorder', 'NONE')
+   bg('TelescopePrompt', 'NONE')
+   bg('TelescopeResults', 'NONE')
+   bg('TelescopePromptBorder', 'NONE')
+   bg('TelescopePromptNormal', 'NONE')
+   bg('TelescopeNormal', 'NONE')
+   bg('TelescopePromptPrefix', 'NONE')
+   fg('Folded', 'NONE')
+   fg('Comment', grey)
+   fg('TelescopeBorder', one_bg)
+   fg_bg('TelescopeResultsTitle', black, blue)
+   fg_bg('NvimTreeVertSplit', grey, 'NONE')
 end
