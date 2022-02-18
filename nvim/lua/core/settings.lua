@@ -52,6 +52,7 @@ for _, autocmd in ipairs({
   "au BufEnter * set fo-=c fo-=r fo-=o",
   [[au BufWritePre * :%s/\s\+$//e]],
   "autocmd TermOpen * startinsert",
+  "hi Comment gui=italic",
   "hi clear CursorLine",
 }) do
     cmd(autocmd)
@@ -84,9 +85,8 @@ end
 g.mapleader = ' '
 g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 g.vista_default_executive = 'ctags'
---g.cursorline_timeout = 1
-opt.shortmess:append 'sI'
-opt.whichwrap:append '<>[]hl'
+opt.shortmess:append('sI')
+opt.whichwrap:append('<>[]hl')
 opt.listchars:append("space:⋅")
 opt.listchars:append("eol:↴")
 -- Defer loading shada until after startup_
