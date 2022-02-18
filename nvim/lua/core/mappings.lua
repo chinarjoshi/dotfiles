@@ -1,4 +1,4 @@
-mappings = {
+require('which-key').register({
   q = {'<cmd>wqa<cr>', 'Quit'},
   Q = {'<cmd>qa!<cr>', 'Force Quit'},
   f = {
@@ -26,7 +26,4 @@ mappings = {
   w = {
     name = 'Window',
   },
-}
-
-
-require('which-key').register(mappings, {prefix = 'leader'})
+}, { prefix = '<leader>' })
