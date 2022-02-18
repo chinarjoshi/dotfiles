@@ -4,14 +4,11 @@ if not present then
    local packer_path = vim.fn.stdpath 'data' .. '/site/pack/packer/opt/packer.nvim'
 
    print 'Cloning packer..'
-   -- remove the dir before cloning
    vim.fn.delete(packer_path, 'rf')
    vim.fn.system {
       'git',
       'clone',
       'https://github.com/wbthomason/packer.nvim',
-      '--depth',
-      '20',
       packer_path,
    }
 
@@ -33,7 +30,7 @@ packer.init {
       prompt_border = 'single',
    },
    git = {
-      clone_timeout = 6000, -- seconds
+      clone_timeout = 6000,
    },
    auto_clean = true,
    compile_on_sync = true,

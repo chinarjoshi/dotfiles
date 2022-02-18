@@ -41,9 +41,7 @@ g.nvim_tree_icons = {
 }
 
 require('nvim-tree').setup {
-   filters = {
-      dotfiles = false,
-   },
+  open_on_setup = true,
    disable_netrw = true,
    hijack_netrw = true,
    auto_close = false,

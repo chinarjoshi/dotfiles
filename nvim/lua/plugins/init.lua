@@ -57,8 +57,8 @@ require('plugins.packer').startup(function()
   { 'akinsho/bufferline.nvim', after = 'nvim-web-devicons' },
 
   --------------------------------- Etc.
-  { 'nvim-orgmode/orgmode', ft = 'org' },
-  { 'AckslD/nvim-whichkey-setup.lua', requires = 'liuchengxu/vim-which-key' },
+  { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim' },
+  { 'folke/which-key.nvim' },
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },

@@ -53,7 +53,6 @@ for _, autocmd in ipairs({
   [[au BufWritePre * :%s/\s\+$//e]],
   "autocmd TermOpen * startinsert",
   "hi Comment gui=italic",
-  "hi clear CursorLine",
 }) do
     cmd(autocmd)
 end

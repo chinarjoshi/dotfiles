@@ -1,28 +1,32 @@
-require('whichkey_setup').register_keymap('leader', {
-  q = {},
+mappings = {
+  q = {'<cmd>wqa<cr>', 'Quit'},
+  Q = {'<cmd>qa!<cr>', 'Force Quit'},
   f = {
     name = 'File',
-    f = { '<cmd>Telescope<cr>', 'Find'},
-
-    t = { '<cmd>NvimTreeToggle<cr>', 'Tree' },
-
+    f = {'<cmd>Telescope<cr>', 'Find'},
+    s = {'<cmd>w<cr>', 'Save'},
+    t = {'<cmd>NvimTreeToggle<cr>', 'Tree'},
   },
-
   n = {
     name = 'Notes',
   },
-
-  t = {
-    name = 'Terminals',
-    t = { '<cmd>Term<cr>', 'Terminal' },
+  s = {
+    name = 'Search',
   },
-
-  p = {
-    name = 'Projects'
+  t = {'<cmd>Term<cr>', 'Terminal'},
+  p = {'<cmd>Telescope projects<cr>', 'Project'},
+  c = {'<cmd>noh<cr>', 'Clear'},
+  g = {'<cmd>Neogit<cr>', 'Git'},
+  b = {
+    name = 'Buffer',
+    d = {'<cmd>bd<cr>', 'Delete'},
+    n = {'<cmd>bn<cr>', 'Next' },
+    p = {'<cmd>bp<cr>', 'Previous' },
   },
+  w = {
+    name = 'Window',
+  },
+}
 
-  c = { '<cmd>noh<cr>', 'Clear' },
 
-  g = {},
-
-})
+require('which-key').register(mappings, {prefix = 'leader'})
