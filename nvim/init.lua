@@ -6,7 +6,7 @@ end
 
 for _, module in ipairs({
    'core.settings',
-   --'core.mappings',
+   'core.mappings',
    'plugins',
 }) do
   local present, err = pcall(require, module)

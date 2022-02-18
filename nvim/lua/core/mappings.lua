@@ -1,4 +1,5 @@
 require('whichkey_setup').register_keymap('leader', {
+  q = {},
   f = {
     name = 'File',
     f = { '<cmd>Telescope<cr>', 'Find'},
@@ -20,9 +21,8 @@ require('whichkey_setup').register_keymap('leader', {
     name = 'Projects'
   },
 
-  c = { '<cmd>noh<cr>', 'Clear' }
+  c = { '<cmd>noh<cr>', 'Clear' },
 
-
-
+  g = {},
 
 })

@@ -72,7 +72,7 @@ for both, color in pairs({
   cmd('hi ' .. both .. ' guifg=' .. colors[color[1]] .. ' guibg=' .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
 end
 
-if false then
+if false then -- Transparency effects
    bg('Normal', 'NONE')
    bg('Folded', 'NONE')
    bg('NormalFloat', 'NONE')
