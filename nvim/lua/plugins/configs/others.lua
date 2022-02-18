@@ -69,7 +69,3 @@ require('gitsigns').setup {
     changedelete = { hl = 'DiffChangeDelete', text = '~', numhl = 'GitSignsChangeNr' },
   },
 }
-
-require('project_nvim').setup()
-require('trouble').setup()
-require('neogit').setup()

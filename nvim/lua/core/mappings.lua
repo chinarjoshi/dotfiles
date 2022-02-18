@@ -1,4 +1,4 @@
-require('which-key').register({
+require('whichkey_setup').register_keymap('leader', {
   f = {
     name = 'File',
     f = { '<cmd>Telescope<cr>', 'Find'},
@@ -25,4 +25,4 @@ require('which-key').register({
 
 
 
-}, { prefix = '<leader>'})
+})

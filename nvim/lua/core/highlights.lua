@@ -39,6 +39,7 @@ end
 -- Background colors
 for background, color in pairs({
   NormalFloat = 'darker_black',
+  CursorLine = 'darker_black',
   Pmenu = 'one_bg',
   PmenuSbar = 'pmenu_bg',
   PmenuSel = 'nord_blue',

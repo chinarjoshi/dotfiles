@@ -23,7 +23,7 @@ require('plugins.packer').startup(function()
      module = 'telescope',
      cmd = 'Telescope',
   }
-  use 'ahmedkhalf/project.nvim'
+  use { 'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup() end }
   use 'nathom/filetype.nvim'
 
  -------------------------------- LSP
@@ -39,9 +39,9 @@ require('plugins.packer').startup(function()
   }
   use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', }
   use 'folke/lsp-colors.nvim'
-  use 'folke/trouble.nvim'
+  use { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, config = function() require('trouble').setup() end }
   use 'kosayoda/nvim-lightbulb'
-  use 'liuchengxu/vista.vim'
+  use { 'liuchengxu/vista.vim', cmd = 'Vista' }
   use 'onsails/lspkind-nvim'
 
   -------------------------------- Completion
@@ -68,13 +68,13 @@ require('plugins.packer').startup(function()
         lazy_load('gitsigns.nvim')
      end,
   }
-  use 'TimUntersberger/neogit'
+  use { 'TimUntersberger/neogit', cmd = 'Neogit', config = function() require('neogit').setup() end }
 
   --------------------------------- Editing
   use 'ggandor/lightspeed.nvim'
   use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'folke/todo-comments.nvim'
+  use {'tpope/vim-commentary', event = 'BufRead'}
+  use { 'folke/todo-comments.nvim', config = function() require('todo-comments').setup() end }
 
   --------------------------------- Aesthetic
   use { 'NvChad/nvim-base16.lua',
@@ -89,14 +89,16 @@ require('plugins.packer').startup(function()
   use { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', }
   use { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'}
   use { 'NvChad/nvim-colorizer.lua', event = 'BufRead', }
-  use { 'yamatsum/nvim-cursorline' }
   use { 'akinsho/bufferline.nvim', after = 'nvim-web-devicons' }
 
   --------------------------------- Etc.
   use { 'nvim-orgmode/orgmode', ft = 'org' }
-  use 'folke/which-key.nvim'
+  use { 'liuchengxu/vim-which-key',
+    cmd = {'WhichKey', 'WhichKey!'},
+    requires = 'AckslD/nvim-whichkey-setup.lua'
+  }
   use { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', }
-  use 'ellisonleao/glow.nvim'
+  use { 'ellisonleao/glow.nvim', cmd = 'Glow' }
   use { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } }
   use { 'andymass/vim-matchup',
      opt = true,

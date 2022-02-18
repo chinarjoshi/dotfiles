@@ -84,6 +84,7 @@ end
 g.mapleader = ' '
 g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 g.vista_default_executive = 'ctags'
+--g.cursorline_timeout = 1
 opt.shortmess:append 'sI'
 opt.whichwrap:append '<>[]hl'
 opt.listchars:append("space:⋅")

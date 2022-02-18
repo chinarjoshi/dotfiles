@@ -1,5 +1,3 @@
-vim.cmd('packadd packer.nvim')
-
 local present, packer = pcall(require, 'packer')
 
 if not present then
@@ -41,19 +39,8 @@ packer.init {
    compile_on_sync = true,
 }
 
-for _, file in ipairs({
-  'lspkind_icons',
-  'bufferline',
-  'statusline',
-  'treesitter',
-  'lspconfig',
-  'telescope',
-  'nvimtree',
-  'others',
-  'icons',
-  'cmp',
-}) do
-  local present, err = pcall(require, 'plugins.configs.' .. file)
+for _, file in ipairs(require('plenary.scandir').scan_dir('/home/c/dotfiles/nvim/lua/plugins/configs')) do
+  local present, err = pcall(dofile, file)
   if not present then
     error('Error loading ' .. file .. '\n\n' .. err)
   end
