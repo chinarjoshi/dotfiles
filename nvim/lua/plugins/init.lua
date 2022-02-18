@@ -1,4 +1,4 @@
-require('plugins.packer').startup(function(use)
+require('plugins.packer').startup(function()
   for _, plugin in ipairs({
   -------------------------------- Base
   { 'wbthomason/packer.nvim', event = 'VimEnter', },
@@ -58,7 +58,7 @@ require('plugins.packer').startup(function(use)
 
   --------------------------------- Etc.
   { 'nvim-orgmode/orgmode', ft = 'org' },
-  { 'liuchengxu/vim-which-key', requires = 'AckslD/nvim-whichkey-setup.lua' },
+  { 'AckslD/nvim-whichkey-setup.lua', requires = 'liuchengxu/vim-which-key' },
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },
