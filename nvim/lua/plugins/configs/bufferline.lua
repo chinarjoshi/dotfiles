@@ -1,4 +1,4 @@
-colors = require('hl_themes.onedark')
+local colors = require('hl_themes.onedark')
 require('bufferline').setup {
    options = {
       offsets = { { filetype = 'NvimTree', text = '', padding = 1 } },

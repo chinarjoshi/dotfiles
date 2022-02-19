@@ -46,7 +46,7 @@ require('plugins.packer').startup(function()
   { 'NvChad/nvim-base16.lua',
      after = 'packer.nvim',
      config = function()
-       base16 = require('base16')
+       local base16 = require('base16')
        base16(base16.themes('onedark'), true)
        package.loaded['core.highlights' or false] = nil
        require 'core.highlights'

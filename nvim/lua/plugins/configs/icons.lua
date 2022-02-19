@@ -1,4 +1,4 @@
-colors = require('hl_themes.onedark')
+local colors = require('hl_themes.onedark')
 require('nvim-web-devicons').setup {
    override = {
       c = {

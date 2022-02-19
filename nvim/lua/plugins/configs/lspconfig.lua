@@ -61,9 +61,7 @@ for key, icon in pairs({
 end
 
 vim.diagnostic.config {
-  virtual_text = {
-	    prefix = '',
-  },
+  virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = false,

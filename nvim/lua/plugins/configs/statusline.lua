@@ -1,8 +1,3 @@
-local present, feline = pcall(require, 'feline')
-if not present then
-   return
-end
-
 local default = {
    colors = require('hl_themes.onedark'),
    lsp = require('feline.providers.lsp'),
