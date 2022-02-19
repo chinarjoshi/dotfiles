@@ -14,8 +14,9 @@ require('plugins.packer').startup(function()
   { 'neovim/nvim-lspconfig', module = 'lspconfig' },
   { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', },
   { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' },
+  { 'williamboman/nvim-lsp-installer' },
   { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, config = function() require('trouble').setup() end },
-  { 'kosayoda/nvim-lightbulb' },
+  { 'kosayoda/nvim-lightbulb', after = 'nvim-lspconfig' },
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
 

@@ -2,7 +2,7 @@ require('nvim-autopairs').setup {
   fast_wrap = {}
 }
 
-cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 require('indent_blankline').setup {
@@ -86,3 +86,7 @@ require('orgmode').setup {
   org_agenda_files = {'~/my-orgs/**/*'},
   org_default_notes_file = '~/org/notes.org',
 }
+
+require('nvim-lsp-installer').on_server_ready(function(server)
+    server:setup({})
+end)

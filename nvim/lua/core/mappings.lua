@@ -26,4 +26,5 @@ require('which-key').register({
   w = {
     name = 'Window',
   },
+  v = { ':Vista<cr>', 'Vista' }
 }, { prefix = '<leader>' })

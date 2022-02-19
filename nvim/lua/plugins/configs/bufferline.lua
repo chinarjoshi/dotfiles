@@ -16,7 +16,7 @@ require('bufferline').setup {
       view = 'multiwindow',
       show_buffer_close_icons = true,
       separator_style = 'thin',
-      always_show_bufferline = true,
+      always_show_bufferline = false,
       diagnostics = false,
       custom_filter = function(buf_number)
          -- Func to filter out our managed/persistent split terms
