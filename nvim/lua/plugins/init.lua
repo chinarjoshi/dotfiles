@@ -43,6 +43,12 @@ require('plugins.packer').startup(function()
   { 'tpope/vim-commentary', event = 'BufRead' },
   { 'folke/todo-comments.nvim', event = 'BufRead' },
 
+  --------------------------------- Windows and Splits,
+  { 'beauwilliams/focus.nvim', event = 'BufRead' },
+  { 'luukvbaal/stabilize.nvim', event = 'BufRead' },
+  { 'sindrets/winshift.nvim', cmd = 'WinShift' },
+  { 'https://gitlab.com/yorickpeterse/nvim-window.git', module = 'nvim-window' },
+
   --------------------------------- Aesthetic,
   { 'NvChad/nvim-base16.lua', after = 'packer.nvim' },
   { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', },

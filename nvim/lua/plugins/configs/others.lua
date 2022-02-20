@@ -115,3 +115,11 @@ require('todo-comments').setup {
 }
 require('neogit').setup()
 require('project_nvim').setup()
+require('stabilize').setup()
+require('focus').setup()
+require('winshift').setup()
+require('nvim-window').setup {
+  chars = { 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';' },
+  normal_hl = 'RedOnBlack',
+  border = 'none'
+}

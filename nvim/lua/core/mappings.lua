@@ -1,8 +1,11 @@
+local map = vim.api.nvim_set_keymap
+local default_opts = { noremap = true, silent = true }
+
 function rep(table)
   if type(table[1]) == 'string' then
     table[1] = '<cmd>' .. table[1] .. '<cr>'
   elseif type(table) == 'table' then
-    for k, v in pairs(table) do
+    for _, v in pairs(table) do
       rep(v)
     end
   end
@@ -18,14 +21,15 @@ mappings = {
   ['.'] = {'Telescope find_files', 'Find file'},
   ['*'] = {'Telescope grep_string', 'Search word under cursor'},
   [';'] = {'NvimTreeToggle', 'File-tree'},
+  ['\\'] = {'noh', 'Clear search'},
   -- Quitting
-  q = { name = 'Quit',
+  q = { name = 'quit',
     q = {'wqa', 'Quit'},
     f = {'qa!', 'Force quit'},
     r = {'Restart'},
   },
   -- Files
-  f = { name = 'File',
+  f = { name = 'file',
     f = {'Telescope find_files', 'Find'},
     s = {'w', 'Save'},
     p = {'Telescope projects', 'Projects'},
@@ -33,20 +37,36 @@ mappings = {
     c = {'y+', 'Copy file'},
   },
   -- TODO: Org notes
-  n = { name = 'Notes',
+  n = { name = 'notes',
   },
   -- Search
-  s = { name = 'Search',
-    s = {'TodoTelescope', 'Search TODOs'},
+  s = { name = 'search',
+    s = {'TodoTelescope', 'TODOs'},
+    t = {'Vista', 'Tags'},
   },
   -- Open terminal
   t = {'Term', 'Terminal'},
   -- Plugin manager
-  p = {'Telescope projects', 'Project'},
-  c = {'noh', 'Clear'},
-  g = {'Neogit', 'Git'},
+  p = { name = 'plugins',
+    p = {'PackerSync', 'Sync'},
+    s = {'PackerStatus', 'Status'},
+    c = {'PackerCompile', 'Compile'},
+    r = {'PackerProfile', 'Profile'},
+    u = {'PackerUpdate', 'Update'},
+    i = {'PackerInstall', 'Install'},
+    l = {'PackerClean', 'Clean'},
+  },
+  g = { name = 'git',
+    g = {'Neogit', 'Magit'},
+    c = {'Telescope git_commits', 'Commits'},
+    b = {'Telescope git_branches', 'Branches'},
+    s = {'Telescope git_status', 'Status'},
+    t = {'Telescope git_stash', 'Stash'},
+    f = {'Telescope git_bcommits', 'Commits in current file'},
+  },
   -- Buffers
-  b = { name = 'Buffer',
+  b = { name = 'buffer',
+    b = {'Telescope buffers', 'Pick buffer'},
     d = {'bd', 'Delete'},
     n = {'bn', 'Next' },
     p = {'bp', 'Previous' },
@@ -55,15 +75,11 @@ mappings = {
   w = { name = 'window',
   },
   -- Tag viewer
-  v = { ':Vista', 'Vista tags' },
-  l = { name = 'LSP',
+  c = { name = 'code',
     d = {'diagnostic'},
     h = {'hover'},
     i = {'impl'},
     s = {'sig'},
-  },
-  c = { name = 'code'
-
   },
 }
 

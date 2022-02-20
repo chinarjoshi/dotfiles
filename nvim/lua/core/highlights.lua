@@ -21,7 +21,7 @@ for foreground, color in pairs({
   DiagnosticError = 'red',
   DiagnosticWarn = 'yellow',
   DiagnosticInformation = 'green',
-  DiagnosticInfo = 'green',
+  DiagnosticInfo = 'blue',
   NvimTreeEmptyFolderName = 'folder_bg',
   NvimTreeEndOfBuffer = 'darker_black',
   NvimTreeFolderIcon = 'folder_bg',
@@ -50,6 +50,7 @@ end
 
 -- Both background and foreground colors
 for both, color in pairs({
+  RedOnBlack = {'red', 'one_bg2'},
   DiffAdd = {'blue', 'NONE'},
   DiffChange = {'grey_fg', 'NONE'},
   DiffChangeDelete = {'red', 'NONE'},
