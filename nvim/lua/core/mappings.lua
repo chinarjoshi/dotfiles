@@ -1,41 +1,71 @@
-key = require('which-key')
+function rep(table)
+  if type(table[1]) == 'string' then
+    table[1] = '<cmd>' .. table[1] .. '<cr>'
+  elseif type(table) == 'table' then
+    for k, v in pairs(table) do
+      rep(v)
+    end
+  end
+end
 
-key.register({
-  q = {'<cmd>wqa<cr>', 'Quit'},
-  Q = {'<cmd>qa!<cr>', 'Force Quit'},
-  f = { name = 'File',
-    f = {'<cmd>Telescope<cr>', 'Find'},
-    s = {'<cmd>w<cr>', 'Save'},
-    t = {'<cmd>NvimTreeToggle<cr>', 'Tree'},
+mappings = {
+  -- Hotkeys
+  ['<space>'] = {'Telescope git_files', 'Find file in project'},
+  ['<cr>'] = {'Term', 'Open terminal'},
+  ['<tab>'] = {'Telescope projects', 'Projects'},
+  ['/'] = {'Telescope live_grep', 'Search project'},
+  [','] = {'Telescope buffers', 'Switch buffer'},
+  ['.'] = {'Telescope find_files', 'Find file'},
+  ['*'] = {'Telescope grep_string', 'Search word under cursor'},
+  [';'] = {'NvimTreeToggle', 'File-tree'},
+  -- Quitting
+  q = { name = 'Quit',
+    q = {'wqa', 'Quit'},
+    f = {'qa!', 'Force quit'},
+    r = {'Restart'},
   },
+  -- Files
+  f = { name = 'File',
+    f = {'Telescope find_files', 'Find'},
+    s = {'w', 'Save'},
+    p = {'Telescope projects', 'Projects'},
+    t = {'NvimTreeToggle', 'Tree'},
+    c = {'y+', 'Copy file'},
+  },
+  -- TODO: Org notes
   n = { name = 'Notes',
   },
+  -- Search
   s = { name = 'Search',
+    s = {'TodoTelescope', 'Search TODOs'},
   },
-  t = {'<cmd>Term<cr>', 'Terminal'},
-  p = {'<cmd>Telescope projects<cr>', 'Project'},
-  c = {'<cmd>noh<cr>', 'Clear'},
-  g = {'<cmd>Neogit<cr>', 'Git'},
+  -- Open terminal
+  t = {'Term', 'Terminal'},
+  -- Plugin manager
+  p = {'Telescope projects', 'Project'},
+  c = {'noh', 'Clear'},
+  g = {'Neogit', 'Git'},
+  -- Buffers
   b = { name = 'Buffer',
-    d = {'<cmd>bd<cr>', 'Delete'},
-    n = {'<cmd>bn<cr>', 'Next' },
-    p = {'<cmd>bp<cr>', 'Previous' },
+    d = {'bd', 'Delete'},
+    n = {'bn', 'Next' },
+    p = {'bp', 'Previous' },
   },
-  w = { name = 'Window',
+  -- Windows
+  w = { name = 'window',
   },
-  v = { ':Vista<cr>', 'Vista' },
+  -- Tag viewer
+  v = { ':Vista', 'Vista tags' },
   l = { name = 'LSP',
     d = {'diagnostic'},
     h = {'hover'},
     i = {'impl'},
     s = {'sig'},
+  },
+  c = { name = 'code'
 
   },
-}, { prefix = '<leader>' })
+}
 
-key.register({
-  d = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration'},
-  D = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition'},
-
-
-}, { prefix = 'g' })
+rep(mappings)
+require('which-key').register(mappings, { prefix = '<leader>' })

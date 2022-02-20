@@ -80,6 +80,12 @@ require('which-key').setup {
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
   },
+  key_labels = {
+    ['<space>'] = 'SPC',
+    ['<CR>'] = 'RET',
+    ['<tab>'] = 'TAB',
+  },
+  spelling = { enabled = true},
 }
 
 require('orgmode').setup {
@@ -90,3 +96,22 @@ require('orgmode').setup {
 require('nvim-lsp-installer').on_server_ready(function(server)
     server:setup({})
 end)
+
+require('trouble').setup {
+  height = 20,
+  width = 50
+}
+
+
+local base16 = require('base16')
+base16(base16.themes('onedark'), true)
+package.loaded['core.highlights' or false] = nil
+require('core.highlights')
+
+require('todo-comments').setup {
+  highlight = {
+    keyword = 'wide'
+  }
+}
+require('neogit').setup()
+require('project_nvim').setup()

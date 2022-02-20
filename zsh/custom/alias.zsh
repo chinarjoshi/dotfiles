@@ -80,6 +80,7 @@ declare -A etc=(
     'chrome'   'google-chrome-stable'
     'einit?'   "$EDITOR $DOTFILES/emacs/init.el"
     'github'   'search github'
+    'sleep'    'sudo systemctl suspend'
     'google'   'search google'
     'econfig?' "$EDITOR $DOTFILES/emacs/config.el"
     'gesture?' "$EDITOR $DOTFILES/libinput/libinput-gestures.conf" )

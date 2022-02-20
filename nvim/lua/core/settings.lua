@@ -46,7 +46,7 @@ for _, autocmd in ipairs({
   "autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0",
   [[let g:vista#renderer#icons = { "function": "\u0192", "variable":
   \ "uf00d", "prototype": "\uf013", "macro": "\uf00b" }]],
-  "command Term :botright vsplit term://$SHELL",
+  "command Term :botright split term://$SHELL",
   "autocmd BufLeave term://* stopinsert",
   "let g:vista#renderer#enable_icon = 1",
   "au BufEnter * set fo-=c fo-=r fo-=o",
@@ -91,6 +91,6 @@ opt.listchars:append("eol:↴")
 -- Defer loading shada until after startup_
 opt.shadafile = 'NONE'
 vim.schedule(function()
-    opt.shadafile = vim.opt.shadafile
+    opt.shadafile = opt.shadafile
     cmd('silent! rsh')
 end)

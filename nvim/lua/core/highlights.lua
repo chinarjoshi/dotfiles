@@ -11,20 +11,17 @@ for foreground, color in pairs({
   CmpItemAbbrMatch = 'white',
   CmpItemKind = 'white',
   CmpItemMenu = 'white',
-  StatusLineNC = 'one_bg3',
   LineNr = 'grey',
   NvimInternalError = 'red',
   VertSplit = 'one_bg2',
-  DashboardCenter = 'grey_fg',
-  DashboardFooter = 'grey_fg',
-  DashboardHeader = 'grey_fg',
-  DashboardShortcut = 'grey_fg',
+  StatusLineNC = 'one_bg2',
   IndentBlanklineChar = 'line',
   IndentBlanklineSpaceChar = 'line',
   DiagnosticHint = 'purple',
   DiagnosticError = 'red',
   DiagnosticWarn = 'yellow',
   DiagnosticInformation = 'green',
+  DiagnosticInfo = 'green',
   NvimTreeEmptyFolderName = 'folder_bg',
   NvimTreeEndOfBuffer = 'darker_black',
   NvimTreeFolderIcon = 'folder_bg',
@@ -73,22 +70,26 @@ for both, color in pairs({
 end
 
 if false then -- Transparency effects
-   bg('Normal', 'NONE')
-   bg('Folded', 'NONE')
-   bg('NormalFloat', 'NONE')
-   bg('NvimTreeNormal', 'NONE')
-   bg('NvimTreeNormalNC', 'NONE')
-   bg('NvimTreeStatusLineNC', 'NONE')
-   bg('TelescopeBorder', 'NONE')
-   bg('TelescopePrompt', 'NONE')
-   bg('TelescopeResults', 'NONE')
-   bg('TelescopePromptBorder', 'NONE')
-   bg('TelescopePromptNormal', 'NONE')
-   bg('TelescopeNormal', 'NONE')
-   bg('TelescopePromptPrefix', 'NONE')
-   fg('Folded', 'NONE')
-   fg('Comment', grey)
-   fg('TelescopeBorder', one_bg)
-   fg_bg('TelescopeResultsTitle', black, blue)
-   fg_bg('NvimTreeVertSplit', grey, 'NONE')
+  for _, color in ipairs({
+    'Normal',
+    'Folded',
+    'NormalFloat',
+    'NvimTreeNormal',
+    'NvimTreeNormalNC',
+    'NvimTreeStatusLineNC',
+    'TelescopeBorder',
+    'TelescopePrompt',
+    'TelescopeResults',
+    'TelescopePromptBorder',
+    'TelescopePromptNormal',
+    'TelescopeNormal',
+    'TelescopePromptPrefix',
+  }) do
+    cmd('hi ' .. color .. ' guibg=NONE')
+  end
+  cmd('hi Folded guifg=NONE')
+  cmd('hi Comment guifg=' .. colors['grey'])
+  cmd('hi TelescopeBorder guifg=' .. colors['one_bg'])
+  cmd('hi TelescopeResultsTitle guifg=' .. colors['black'] .. ' guibg=' .. colors['blue'])
+  cmd('hi NvimTreeVertSplit guifg=' .. colors['grey'] .. ' guibg=NONE')
 end

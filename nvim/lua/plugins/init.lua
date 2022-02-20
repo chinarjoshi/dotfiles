@@ -5,9 +5,10 @@ require('plugins.packer').startup(function()
   { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate'},
   { 'kyazdani42/nvim-tree.lua', after = 'nvim-web-devicons', },
   { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope', },
-  { 'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup() end },
+  { 'ahmedkhalf/project.nvim', after = 'telescope.nvim' },
   { 'lewis6991/impatient.nvim' },
   { 'nvim-lua/plenary.nvim' },
+  { 'folke/which-key.nvim' },
   { 'nathom/filetype.nvim' },
 
  -------------------------------- LSP,
@@ -15,7 +16,7 @@ require('plugins.packer').startup(function()
   { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', },
   { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' },
   { 'williamboman/nvim-lsp-installer' },
-  { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' }, config = function() require('trouble').setup() end },
+  { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' } },
   { 'kosayoda/nvim-lightbulb', after = 'nvim-lspconfig' },
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
@@ -34,24 +35,16 @@ require('plugins.packer').startup(function()
 
   --------------------------------- Git,
   { 'lewis6991/gitsigns.nvim', opt = true, },
-  { 'TimUntersberger/neogit', cmd = 'Neogit', config = function() require('neogit').setup() end },
+  { 'TimUntersberger/neogit', cmd = 'Neogit' },
 
   --------------------------------- Editing,
   { 'ggandor/lightspeed.nvim', event = 'BufRead' },
   { 'tpope/vim-surround', event = 'BufRead' },
   { 'tpope/vim-commentary', event = 'BufRead' },
-  { 'folke/todo-comments.nvim', event = 'BufRead', config = function() require('todo-comments').setup() end },
+  { 'folke/todo-comments.nvim', event = 'BufRead' },
 
   --------------------------------- Aesthetic,
-  { 'NvChad/nvim-base16.lua',
-     after = 'packer.nvim',
-     config = function()
-       local base16 = require('base16')
-       base16(base16.themes('onedark'), true)
-       package.loaded['core.highlights' or false] = nil
-       require 'core.highlights'
-     end
-  },
+  { 'NvChad/nvim-base16.lua', after = 'packer.nvim' },
   { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', },
   { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'},
   { 'NvChad/nvim-colorizer.lua', event = 'BufRead', },
@@ -59,7 +52,6 @@ require('plugins.packer').startup(function()
 
   --------------------------------- Etc.
   { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim' },
-  { 'folke/which-key.nvim' },
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },

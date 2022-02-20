@@ -34,7 +34,7 @@ output eDP-1 scale 1.6
     #timeout 300 'swaylock -f -c 000000' \
     #timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     #before-sleep 'swaylock -f -c 000000'
-    
+
 # Launcher
 bindsym $mod+Space exec alacritty --class 'launcher' #--command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
@@ -110,7 +110,7 @@ bindsym XF86Search exec bemenu-run
 # Power keybindngs
 bindsym $mod+Ctrl+r exec sudo systemctl reboot, mode "default"
 bindsym $mod+Ctrl+q exec sudo systemctl poweroff -i, mode "default"
-bindsym $mod+Ctrl+s exec sudo systemctl suspend
+bindsym $mod+Ctrl+s exec sleep
 bindsym $mod+Ctrl+l exec swaylock
 bindsym $mod+Ctrl+b exec sudo systemctl reboot --firmware-setup
 bindsym $mod+Ctrl+w exec sudo systemctl reboot --boot-loader-entry=windows.conf
