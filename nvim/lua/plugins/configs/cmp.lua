@@ -7,14 +7,16 @@ cmp.setup {
       end,
    },
    formatting = {
+      fields = { 'kind', 'abbr', 'menu' },
       format = function(entry, vim_item)
          local icons = require 'plugins.configs.lspkind_icons'
          vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
 
          vim_item.menu = ({
+            luasnip = '[Snip]',
+            buffer = '[BUF]',
             nvim_lsp = '[LSP]',
             nvim_lua = '[Lua]',
-            buffer = '[BUF]',
          })[entry.source.name]
 
          return vim_item
@@ -57,4 +59,7 @@ cmp.setup {
       { name = 'nvim_lua' },
       { name = 'path' },
    },
+   experimental = {
+     ghost_text = true
+   }
 }

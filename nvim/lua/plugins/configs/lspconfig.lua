@@ -1,4 +1,8 @@
-local nvim_lsp = require('lspconfig')
+local present1, nvim_lsp = pcall(require, 'lspconfig')
+local present2, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not present1 and present2 then
+  return
+end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -50,6 +54,18 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
+
+lsp_installer.on_server_ready(function(server)
+  local opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+  if server.name == 'sumneko_lua' then
+    sumneko = { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
+    opts = vim.tbl_deep_extend('force', sumneko, opts)
+  end
+    server:setup(opts)
+end)
 
 for key, icon in pairs({
   Error='',

@@ -20,6 +20,7 @@ require('plugins.packer').startup(function()
   { 'kosayoda/nvim-lightbulb', after = 'nvim-lspconfig' },
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
+  { 'jose-elias-alvarez/null-ls.nvim' },
 
   -------------------------------- Completion,
   { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', },
@@ -31,7 +32,8 @@ require('plugins.packer').startup(function()
 
   --------------------------------- Snippets,
   { 'L3MON4D3/LuaSnip', after = 'nvim-cmp', },
-  { 'rafamadriz/friendly-snippets', module = 'cmp_nvim_lsp', event = 'InsertCharPre', },
+  { 'rafamadriz/friendly-snippets', module = 'cmp_nvim_lsp', event = 'BufRead', },
+  { 'michaelb/sniprun', cmd = 'SnipRun' },
 
   --------------------------------- Git,
   { 'lewis6991/gitsigns.nvim', opt = true, },
@@ -61,6 +63,7 @@ require('plugins.packer').startup(function()
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },
+  { 'akinsho/toggleterm.nvim' },
   { 'andymass/vim-matchup', opt = true, },
   { 'windwp/nvim-autopairs', after = 'nvim-cmp' },
 }) do

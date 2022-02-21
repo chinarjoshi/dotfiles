@@ -30,10 +30,10 @@ output * {
 output eDP-1 scale 1.6
 
 # Lock screen: 5 mins, Sleep: 10 mins
-#exec swayidle -w \
-    #timeout 300 'swaylock -f -c 000000' \
-    #timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    #before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
 
 # Launcher
 bindsym $mod+Space exec alacritty --class 'launcher' #--command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'

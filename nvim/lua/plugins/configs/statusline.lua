@@ -65,6 +65,7 @@ default.shortline = default.config.shortline == false and true
 -- Initialize the components table
 default.components = {
    active = {},
+   inactive = {}
 }
 
 default.main_icon = {
@@ -79,6 +80,23 @@ default.main_icon = {
       str = default.statusline_style.right,
       hl = {
          fg = default.colors.nord_blue,
+         bg = default.colors.lightbg,
+      },
+   },
+}
+
+default.inactive_main_icon = {
+   provider = default.statusline_style.main_icon,
+
+   hl = {
+      fg = default.colors.white,
+      bg = default.colors.lightbg,
+   },
+
+   right_sep = {
+      str = default.statusline_style.right,
+      hl = {
+         fg = default.colors.one_bg2,
          bg = default.colors.lightbg,
       },
    },
@@ -313,6 +331,16 @@ default.empty_spaceColored = {
    end,
 }
 
+default.inactive_empty_spaceColored = {
+   provider = default.statusline_style.left,
+   hl = function()
+      return {
+         fg = default.colors.grey_fg2,
+         bg = default.colors.one_bg2,
+      }
+   end,
+}
+
 default.mode_icon = {
    provider = default.statusline_style.vi_mode_icon,
    hl = function()
@@ -323,11 +351,28 @@ default.mode_icon = {
    end,
 }
 
+default.inactive_mode_icon = {
+   provider = default.statusline_style.vi_mode_icon,
+   hl = function()
+      return {
+         fg = default.colors.statusline_bg,
+         bg = default.colors.one_bg,
+      }
+   end,
+}
+
 default.empty_space2 = {
    provider = function()
       return ' ' .. default.mode_colors[vim.fn.mode()][1] .. ' '
    end,
    hl = default.chad_mode_hl,
+}
+
+default.inactive_empty_space2 = {
+   provider = function()
+      return ' ' .. default.mode_colors[vim.fn.mode()][1] .. ' '
+   end,
+   hl = default.colors.one_bg,
 }
 
 default.separator_right = {
@@ -352,6 +397,17 @@ default.separator_right2 = {
    },
 }
 
+default.inactive_separator_right2 = {
+   provider = default.statusline_style.left,
+   enabled = default.shortline or function(winid)
+      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+   end,
+   hl = {
+      fg = default.colors.one_bg,
+      bg = default.colors.grey,
+   },
+}
+
 default.position_icon = {
    provider = default.statusline_style.position_icon,
    enabled = default.shortline or function(winid)
@@ -360,6 +416,17 @@ default.position_icon = {
    hl = {
       fg = default.colors.black,
       bg = default.colors.green,
+   },
+}
+
+default.inactive_position_icon = {
+   provider = default.statusline_style.position_icon,
+   enabled = default.shortline or function(winid)
+      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+   end,
+   hl = {
+      fg = default.colors.black,
+      bg = default.colors.one_bg2,
    },
 }
 
@@ -387,6 +454,30 @@ default.current_line = {
    },
 }
 
+default.inactive_current_line = {
+   provider = function()
+      local current_line = vim.fn.line '.'
+      local total_line = vim.fn.line '$'
+
+      if current_line == 1 then
+         return ' Top '
+      elseif current_line == vim.fn.line '$' then
+         return ' Bot '
+      end
+      local result, _ = math.modf((current_line / total_line) * 100)
+      return ' ' .. result .. '%% '
+   end,
+
+   enabled = default.shortline or function(winid)
+      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+   end,
+
+   hl = {
+      fg = default.colors.grey_fg2,
+      bg = default.colors.one_bg,
+   },
+}
+
 local function add_table(a, b)
    table.insert(a, b)
 end
@@ -395,6 +486,10 @@ end
 default.left = {}
 default.middle = {}
 default.right = {}
+
+default.inactive_left = {}
+default.inactive_middle = {}
+default.inactive_right = {}
 
 -- left
 add_table(default.left, default.main_icon)
@@ -408,6 +503,7 @@ add_table(default.left, default.diagnostic.warning)
 add_table(default.left, default.diagnostic.hint)
 add_table(default.left, default.diagnostic.info)
 
+-- Middle
 add_table(default.middle, default.lsp_progress)
 
 -- right
@@ -422,14 +518,46 @@ add_table(default.right, default.separator_right2)
 add_table(default.right, default.position_icon)
 add_table(default.right, default.current_line)
 
+
+-- left
+add_table(default.inactive_left, default.inactive_main_icon)
+add_table(default.inactive_left, default.file_name)
+add_table(default.inactive_left, default.dir_name)
+add_table(default.inactive_left, default.diff.add)
+add_table(default.inactive_left, default.diff.change)
+add_table(default.inactive_left, default.diff.remove)
+add_table(default.inactive_left, default.diagnostic.error)
+add_table(default.inactive_left, default.diagnostic.warning)
+add_table(default.inactive_left, default.diagnostic.hint)
+add_table(default.inactive_left, default.diagnostic.info)
+
+-- Middle
+add_table(default.inactive_middle, default.lsp_progress)
+
+-- right
+add_table(default.inactive_right, default.lsp_icon)
+add_table(default.inactive_right, default.git_branch)
+add_table(default.inactive_right, default.empty_space)
+add_table(default.inactive_right, default.inactive_empty_spaceColored)
+add_table(default.inactive_right, default.inactive_mode_icon)
+add_table(default.inactive_right, default.inactive_empty_space2)
+add_table(default.inactive_right, default.separator_right)
+add_table(default.inactive_right, default.inactive_separator_right2)
+add_table(default.inactive_right, default.inactive_position_icon)
+add_table(default.inactive_right, default.inactive_current_line)
+
 default.components.active[1] = default.left
 default.components.active[2] = default.middle
 default.components.active[3] = default.right
 
+default.components.inactive[1] = default.inactive_left
+default.components.inactive[2] = default.inactive_middle
+default.components.inactive[3] = default.inactive_right
+
 require('feline').setup {
-  theme = {
-     bg = default.colors.statusline_bg,
-     fg = default.colors.fg,
-  },
+   theme = {
+      bg = default.colors.statusline_bg,
+      fg = default.colors.fg,
+   },
   components = default.components,
 }
