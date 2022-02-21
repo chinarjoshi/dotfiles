@@ -1,12 +1,11 @@
-local ok, null = pcall(require, 'null-ls')
-if not ok then return end
+local ok, null_ls = pcall(require, 'null-ls')
+if not ok then
+  return
+end
 
-null.setup({
+null_ls.setup({
     sources = {
-        null.builtins.formatting.stylua,
-        null.builtins.diagnostics.eslint,
-        null.builtins.completion.spell,
-        null.builtins.completion.spell,
-        null.builtins.completion.spell,
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.diagnostics.eslint,
     },
 })

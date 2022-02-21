@@ -74,7 +74,10 @@ require('todo-comments').setup {
 require('neogit').setup()
 require('project_nvim').setup()
 require('stabilize').setup()
-require('focus').setup()
+require('focus').setup {
+  excluded_filetypes = {"toggleterm", 'NvimTree'},
+  excluded_buftypes = {"NvimTree"}
+}
 require('winshift').setup()
 require('nvim-window').setup {
   chars = { 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';' },

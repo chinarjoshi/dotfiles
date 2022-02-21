@@ -18,9 +18,8 @@ require('plugins.packer').startup(function()
   { 'williamboman/nvim-lsp-installer' },
   { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' } },
   { 'kosayoda/nvim-lightbulb', after = 'nvim-lspconfig' },
-  { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
-  { 'jose-elias-alvarez/null-ls.nvim' },
+  { 'jose-elias-alvarez/null-ls.nvim', after = 'nvim-cmp' },
 
   -------------------------------- Completion,
   { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', },
@@ -46,7 +45,7 @@ require('plugins.packer').startup(function()
   { 'folke/todo-comments.nvim', event = 'BufRead' },
 
   --------------------------------- Windows and Splits,
-  { 'beauwilliams/focus.nvim', event = 'BufRead' },
+  { 'beauwilliams/focus.nvim', module = 'focus' },
   { 'luukvbaal/stabilize.nvim', event = 'BufRead' },
   { 'sindrets/winshift.nvim', cmd = 'WinShift' },
   { 'https://gitlab.com/yorickpeterse/nvim-window.git', module = 'nvim-window' },
@@ -61,6 +60,7 @@ require('plugins.packer').startup(function()
   --------------------------------- Etc.
   { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim' },
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
+  { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },
   { 'akinsho/toggleterm.nvim' },

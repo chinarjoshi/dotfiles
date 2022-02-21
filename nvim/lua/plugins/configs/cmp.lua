@@ -10,11 +10,11 @@ cmp.setup {
       fields = { 'kind', 'abbr', 'menu' },
       format = function(entry, vim_item)
          local icons = require 'plugins.configs.lspkind_icons'
-         vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
+         vim_item.kind = string.format('%s', icons[vim_item.kind])
 
          vim_item.menu = ({
             luasnip = '[Snip]',
-            buffer = '[BUF]',
+            buffer = '[File]',
             nvim_lsp = '[LSP]',
             nvim_lua = '[Lua]',
          })[entry.source.name]

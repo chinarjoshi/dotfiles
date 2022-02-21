@@ -9,6 +9,8 @@ M.file_ignore_patterns = {
   'highlighters/*',
 }
 
+M.statusline_theme = 'default' -- default, arrow, block, round, slant
+
 
 
 return M

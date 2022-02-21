@@ -1,4 +1,8 @@
 local g = vim.g
+local ok, nvim_tree = pcall(require, 'nvim-tree')
+if not ok then
+  return
+end
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 g.nvim_tree_git_hl = 0
@@ -29,7 +33,7 @@ g.nvim_tree_icons = {
    },
 }
 
-require('nvim-tree').setup {
+nvim_tree.setup {
    open_on_setup = true,
    disable_netrw = true,
    hijack_netrw = true,
