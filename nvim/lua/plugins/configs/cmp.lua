@@ -53,7 +53,7 @@ cmp.setup {
       end,
    },
    sources = {
-      { name = 'nvim_lsp' },
+      { name = 'nvim_lsp', max_item_count = 10 },
       { name = 'luasnip' },
       { name = 'buffer' },
       { name = 'nvim_lua' },

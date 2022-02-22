@@ -6,7 +6,8 @@ local statusline_style = {
   left = '',
   right = ' ',
   main_icon = '  ',
-  locked_icon = ' ',
+  locked_icon = '  ',
+  -- locked_icon = ' ',
   vi_mode_icon = ' ',
   position_icon = ' ',
 }
@@ -66,10 +67,7 @@ local file_name = {
       local filename = vim.fn.expand '%:t'
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       local extension = vim.fn.expand '%:e'
-      local icon = require('nvim-web-devicons').get_icon(filename, extension)
-      if icon == nil then
-         return ' '
-      end
+      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)
@@ -91,10 +89,7 @@ local file_name = {
       local filename = vim.fn.expand '%:t'
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       local extension = vim.fn.expand '%:e'
-      local icon = require('nvim-web-devicons').get_icon(filename, extension)
-      if icon == nil then
-         return ' '
-      end
+      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)
@@ -290,10 +285,12 @@ local empty_space = {
      provider = function()
         return ' ' .. mode_colors[vim.fn.mode()][1] .. ' '
      end,
-     hl = {
-        fg = mode_colors[vim.fn.mode()][2],
-        bg = colors.one_bg,
-     }
+     hl = function()
+       return {
+          fg = mode_colors[vim.fn.mode()][2],
+          bg = colors.one_bg,
+       }
+    end,
   },
 }
 
