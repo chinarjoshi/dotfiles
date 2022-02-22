@@ -38,7 +38,7 @@ require('which-key').setup {
   spelling = { enabled = true},
 }
 
-mappings = {
+local mappings = {
   -- Hotkeys
   ['<space>'] = {'Telescope git_files', 'Find file in project'},
   ['<cr>'] = {'Term', 'Open terminal'},

@@ -61,7 +61,7 @@ lsp_installer.on_server_ready(function(server)
     capabilities = capabilities,
   }
   if server.name == 'sumneko_lua' then
-    sumneko = { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
+    local sumneko = { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
     opts = vim.tbl_deep_extend('force', sumneko, opts)
   end
     server:setup(opts)
