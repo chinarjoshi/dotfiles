@@ -17,26 +17,6 @@ local function rep(table)
   end
 end
 
-require('which-key').setup {
-  ignore_missing = true,
-  window = {
-    margin = { 0, 0, 0, 0 }, -- margin [top, right, bottom, left]
-    padding = { 0, 0, 0, 0 }, -- padding [top, right, bottom, left]
-    winblend = 0,
-    border = 'single'
-  },
-  layout = {
-    height = { min = 1, max = 25 }, -- min and max height of the columns
-    width = { min = 1, max = 50 }, -- min and max width of the columns
-    spacing = 1, -- spacing between columns
-  },
-  key_labels = {
-    ['<space>'] = 'SPC',
-    ['<CR>'] = 'RET',
-    ['<Tab>'] = 'TAB',
-  },
-  spelling = { enabled = true},
-}
 
 local mappings = {
   -- Hotkeys
@@ -126,6 +106,44 @@ local mappings = {
   },
 }
 
+  -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf_set_keymap('n', '<space>ci', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  -- buf_set_keymap('n', '<space>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  -- buf_set_keymap('n', '<space>cl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  -- buf_set_keymap('n', '<space>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+require('which-key').setup {
+  ignore_missing = true,
+  window = {
+    margin = { 0, 0, 0, 0 },
+    padding = { 0, 0, 0, 0 },
+    winblend = 0,
+    border = 'single'
+  },
+  layout = {
+    height = { min = 1, max = 15 }, -- min and max height of the columns
+    width = { min = 1, max = 50 }, -- min and max width of the columns
+    spacing = 1, -- spacing between columns
+  },
+  key_labels = {
+    ['<space>'] = 'SPC',
+    ['<CR>'] = 'RET',
+    ['<Tab>'] = 'TAB',
+  },
+  spelling = { enabled = true},
+}
 
 rep(mappings)
 key.register(mappings, { prefix = '<leader>' })
