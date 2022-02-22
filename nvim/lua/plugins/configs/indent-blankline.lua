@@ -1,6 +1,6 @@
-ok, blankline = pcall(require, 'indent_blankline')
+local ok, blankline = pcall(require, 'indent_blankline')
 if not ok then
-  return
+    return
 end
 
 blankline.setup {

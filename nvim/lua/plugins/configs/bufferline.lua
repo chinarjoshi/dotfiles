@@ -1,6 +1,11 @@
+local ok, bufferline = pcall(require, 'bufferline')
+if not ok then
+    return
+end
+
 local colors = require('hl_themes.onedark')
 
-require('bufferline').setup {
+bufferline.setup {
    options = {
       offsets = { { filetype = 'NvimTree', text = '', padding = 1 } },
       buffer_close_icon = '',

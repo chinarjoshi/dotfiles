@@ -1,22 +1,8 @@
-local key = require('which-key')
-
-local function map(key, command)
-  vim.api.nvim_set_keymap('n', key, command, { noremap = true, silent = true })
+---@diagnostic disable: redefined-local
+local ok, key = pcall(require, 'which-key')
+if not ok then
+    return
 end
-
-local function rep(table)
-  if type(table[1]) == 'string' then
-    if string.find(table[1], 'Telescope') then
-      table[1] = table[1] .. ' theme=ivy'
-    end
-    table[1] = '<cmd>' .. table[1] .. '<cr>'
-  elseif type(table) == 'table' then
-    for _, v in pairs(table) do
-      rep(v)
-    end
-  end
-end
-
 
 local mappings = {
   -- Hotkeys
@@ -115,9 +101,9 @@ local mappings = {
 local lsp = {
     d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition'},
     D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration'},
-    e = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'Diagnostic'},
-    ['['] = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
-    [']'] = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic'},
+    e = {'<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', 'Diagnostic'},
+    ['['] = {'<cmd>lua vim.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
+    [']'] = {'<cmd>lua vim.diagnostic.goto_next()<CR>', 'Next diagnostic'},
     i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementaiton'},
     s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature'},
     w = { name = 'workspace',
@@ -131,7 +117,6 @@ local lsp = {
     r = {'<cmd>lua vim.lsp.buf.references()<CR>', 'References'},
     f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format'},
 }
-map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
   -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -143,38 +128,33 @@ map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   -- buf_set_keymap('n', '<space>cl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   -- buf_set_keymap('n', '<space>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-key.setup {
-  ignore_missing = true,
-  window = {
-    margin = { 0, 0, 0, 0 },
-    padding = { 0, 0, 0, 0 },
-    winblend = 0,
-    border = 'single'
-  },
-  layout = {
-    height = { min = 1, max = 15 }, -- min and max height of the columns
-    width = { min = 1, max = 50 }, -- min and max width of the columns
-    spacing = 1, -- spacing between columns
-  },
-  key_labels = {
-    ['<space>'] = 'SPC',
-    ['<CR>'] = 'RET',
-    ['<Tab>'] = 'TAB',
-  },
-  spelling = { enabled = true},
-}
+
+local function rep(table)
+  if type(table[1]) == 'string' then
+    if string.find(table[1], 'Telescope') then
+      table[1] = table[1] .. ' theme=ivy'
+    end
+    table[1] = '<cmd>' .. table[1] .. '<cr>'
+  elseif type(table) == 'table' then
+    for _, v in pairs(table) do
+      rep(v)
+    end
+  end
+end
 
 rep(mappings)
 key.register(mappings, { prefix = '<leader>' })
 key.register(lsp, { prefix = 'g' })
-key.register({r = {'SnipRun', 'Run snippet'}}, { mode = 'v', prefix = '<leader>' })
 
+local function map(key, command)
+  vim.api.nvim_set_keymap('n', key, command, { noremap = true, silent = true })
+end
+map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 for _, dir in ipairs({'up', 'down', 'left', 'right'}) do
   map('<'..dir..'>', '<cmd>WinShift '.. dir ..'<cr>')
 end
-map('<C-h>', '<C-w>h')
-map('<C-j>', '<C-w>j')
-map('<C-k>', '<C-w>k')
-map('<C-l>', '<C-w>l')
+for _, letter in ipairs({'h', 'j', 'k', 'l'}) do
+    map('<C-'..letter..'>', '<C-w>'..letter)
+end
 vim.cmd('nnoremap ; :')
 vim.cmd('nnoremap : ;')
