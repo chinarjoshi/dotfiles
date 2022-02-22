@@ -13,7 +13,7 @@ local statusline_style = {
 local shortline = false
 
 local function severity_color()
-  local color = 'blue'
+  local color = 'nord_blue'
   local exists = function(sev) return vim.tbl_count(vim.diagnostic.get(0, {severity = sev})) end
   if exists('Error') > 0 then
     color = 'red'
@@ -22,7 +22,7 @@ local function severity_color()
   elseif exists('Info') > 0 then
     color = 'white'
   elseif exists('Hint') > 0 then
-    color = 'green'
+    color = 'blue'
   end
   return color
 end
@@ -508,7 +508,6 @@ add_table(right, separator[1])
 add_table(right, separator[2])
 add_table(right, position_icon)
 add_table(right, current_line)
-
 
 -- left
 add_table(inactive_left, inactive_main_icon)
