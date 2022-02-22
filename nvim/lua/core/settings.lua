@@ -41,7 +41,6 @@ end
 for _, autocmd in ipairs({
   "autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}",
   "autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2",
-  "autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()",
   "autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline",
   "autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0",
   [[let g:vista#renderer#icons = { "function": "\u0192", "variable":

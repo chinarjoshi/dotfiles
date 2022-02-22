@@ -17,7 +17,6 @@ require('plugins.packer').startup(function()
   { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' },
   { 'williamboman/nvim-lsp-installer' },
   { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' } },
-  { 'kosayoda/nvim-lightbulb', after = 'nvim-lspconfig' },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
   { 'jose-elias-alvarez/null-ls.nvim', after = 'nvim-cmp' },
 
@@ -42,6 +41,8 @@ require('plugins.packer').startup(function()
   { 'ggandor/lightspeed.nvim', event = 'BufRead' },
   { 'tpope/vim-surround', event = 'BufRead' },
   { 'tpope/vim-commentary', event = 'BufRead' },
+  { 'tpope/vim-repeat', event = 'BufRead' },
+  { 'wellle/targets.vim' },
   { 'folke/todo-comments.nvim', event = 'BufRead' },
 
   --------------------------------- Windows and Splits,

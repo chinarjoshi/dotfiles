@@ -99,12 +99,24 @@ local mappings = {
   },
   -- Tag viewer
   c = { name = 'code',
-    d = {'diagnostic'},
-    h = {'hover'},
-    i = {'impl'},
-    s = {'sig'},
+    c = {'TroubleToggle', 'Trouble'},
+    d = {'lua vim.lsp.diagnostic.show_line_diagnostics()', 'Diagnostic'},
+    D = {'lua vim.lsp.buf.type_definition()', 'Definition'},
+    i = {'lua vim.lsp.buf.implementation()', 'Implementation'},
+    s = {'lua vim.lsp.buf.signature_help()', 'Signature help'},
+    n = {'lua vim.lsp.diagnostic.goto_next()', 'Signature help'},
+    p = {'lua vim.lsp.diagnostic.goto_prev()', 'Signature help'},
+    r = {'lua vim.lsp.buf.references()', 'References'},
+
   },
 }
+map('gd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+map('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+map('gn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+map('gp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
   -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -124,7 +136,7 @@ local mappings = {
   -- buf_set_keymap('n', '<space>cl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   -- buf_set_keymap('n', '<space>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-require('which-key').setup {
+key.setup {
   ignore_missing = true,
   window = {
     margin = { 0, 0, 0, 0 },
