@@ -1,3 +1,8 @@
+local ok, feline = pcall(require, 'feline')
+if not ok then
+  return
+end
+
 local colors = require('hl_themes.onedark')
 local lsp = require('feline.providers.lsp')
 local lsp_severity = vim.diagnostic.severity
@@ -5,11 +10,9 @@ local lsp_severity = vim.diagnostic.severity
 local statusline_style = {
   left = '',
   right = ' ',
-  main_icon = '  ',
-  locked_icon = '  ',
-  -- locked_icon = ' ',
+  main_icon = '  ',
+  locked_icon = '  ',
   vi_mode_icon = ' ',
-  position_icon = ' ',
 }
 local shortline = false
 
@@ -466,87 +469,67 @@ local inactive_current_line = {
    },
 }
 
-local function add_table(a, b)
-   table.insert(a, b)
-end
-
 -- components are divided in 3 sections
-local left = {}
-local middle = {}
-local right = {}
 
-local inactive_left = {}
-local inactive_middle = {}
-local inactive_right = {}
-
--- left
-add_table(left, main_icon)
-add_table(left, file_name)
-add_table(left, diff.add)
-add_table(left, diff.change)
-add_table(left, diff.remove)
-add_table(left, diff.separator)
-add_table(left, diagnostic.error)
-add_table(left, diagnostic.warning)
-add_table(left, diagnostic.hint)
-add_table(left, diagnostic.info)
-
--- Middle
-add_table(middle, lsp_progress)
-
--- right
-add_table(right, lsp_icon)
-add_table(right, git_branch)
-add_table(right, empty_space[1])
-add_table(right, empty_space[2])
-add_table(right, mode_icon)
-add_table(right, empty_space[3])
-add_table(right, separator[1])
-add_table(right, separator[2])
-add_table(right, position_icon)
-add_table(right, current_line)
-
--- left
-add_table(inactive_left, inactive_main_icon)
-add_table(inactive_left, inactive_file_name)
-add_table(inactive_left, diff.add)
-add_table(inactive_left, diff.change)
-add_table(inactive_left, diff.remove)
-add_table(inactive_left, diff.separator)
-add_table(inactive_left, diagnostic.error)
-add_table(inactive_left, diagnostic.warning)
-add_table(inactive_left, diagnostic.hint)
-add_table(inactive_left, diagnostic.info)
-
--- Middle
-add_table(inactive_middle, lsp_progress)
-
--- right
-add_table(inactive_right, lsp_icon)
-add_table(inactive_right, git_branch)
-add_table(inactive_right, inactive_empty_space[1])
-add_table(inactive_right, inactive_empty_space[2])
-add_table(inactive_right, inactive_mode_icon)
-add_table(inactive_right, inactive_empty_space[3])
-add_table(inactive_right, inactive_separator[1])
-add_table(inactive_right, inactive_separator[2])
-add_table(inactive_right, inactive_position_icon)
-add_table(inactive_right, inactive_current_line)
 
 local components = {
-   active = {},
-   inactive = {}
+  active = {
+    {
+      main_icon,
+      file_name,
+      diff.add,
+      diff.change,
+      diff.remove,
+      diff.separator,
+      diagnostic.error,
+      diagnostic.warning,
+      diagnostic.hint,
+      diagnostic.info,
+    },
+    { lsp_progress },
+    {
+      lsp_icon,
+      git_branch,
+      empty_space[1],
+      empty_space[2],
+      mode_icon,
+      empty_space[3],
+      separator[1],
+      separator[2],
+    }
+  },
+  inactive = {
+    {
+      inactive_main_icon,
+      inactive_file_name,
+      diff.add,
+      diff.change,
+      diff.remove,
+      diff.separator,
+      diagnostic.error,
+      diagnostic.warning,
+      diagnostic.hint,
+      diagnostic.info,
+    },
+    { lsp_progress },
+    {
+      lsp_icon,
+      git_branch,
+      inactive_empty_space[1],
+      inactive_empty_space[2],
+      inactive_mode_icon,
+      inactive_empty_space[3],
+      inactive_separator[1],
+      inactive_separator[2],
+      inactive_position_icon,
+      inactive_current_line,
+    }
+  }
 }
+table.insert(components.active[3], position_icon)
+table.insert(components.active[3], current_line)
 
-components.active[1] = left
-components.active[2] = middle
-components.active[3] = right
-
-components.inactive[1] = inactive_left
-components.inactive[2] = inactive_middle
-components.inactive[3] = inactive_right
-
-require('feline').setup {
+feline.setup {
    theme = {
       bg = colors.statusline_bg,
       fg = colors.fg,
