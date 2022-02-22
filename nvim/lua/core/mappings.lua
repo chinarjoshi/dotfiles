@@ -29,6 +29,7 @@ local mappings = {
   ['*'] = {'Telescope grep_string', 'Search word under cursor'},
   [';'] = {'NvimTreeToggle', 'File-tree'},
   ['\\'] = {'noh', 'Clear search'},
+  ['-'] = {[[%s/\s\+$//e]], 'Clear whitespace'},
   -- Quitting
   q = { name = 'quit',
     q = {'wqa', 'Quit'},
@@ -110,22 +111,28 @@ local mappings = {
 
   },
 }
-map('gd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-map('gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
-map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-map('gn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-map('gp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-  -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
-  -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', '<space>ci', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+local lsp = {
+    d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition'},
+    D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration'},
+    e = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'Diagnostic'},
+    ['['] = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
+    [']'] = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic'},
+    i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementaiton'},
+    s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature'},
+    w = { name = 'workspace',
+        a = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add'},
+        r = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove'},
+        l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List'},
+    },
+    t = {'<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type'},
+    n = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Name'},
+    a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', 'Action'},
+    r = {'<cmd>lua vim.lsp.buf.references()<CR>', 'References'},
+    f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format'},
+}
+map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
   -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
@@ -159,6 +166,7 @@ key.setup {
 
 rep(mappings)
 key.register(mappings, { prefix = '<leader>' })
+key.register(lsp, { prefix = 'g' })
 key.register({r = {'SnipRun', 'Run snippet'}}, { mode = 'v', prefix = '<leader>' })
 
 for _, dir in ipairs({'up', 'down', 'left', 'right'}) do
