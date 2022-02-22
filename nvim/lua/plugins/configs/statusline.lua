@@ -112,38 +112,38 @@ local file_name = {
 
 local diff = {
    add = {
-      provider = 'git_diff_added',
-      hl = {
-         fg = colors.grey_fg2,
-         bg = colors.lightbg2,
-      },
-      icon = ' ',
+    provider = 'git_diff_added',
+    hl = {
+       fg = colors.grey_fg2,
+       bg = colors.lightbg2,
+    },
+    icon = ' ',
    },
 
    change = {
-      provider = 'git_diff_changed',
-      hl = {
-         fg = colors.grey_fg2,
-         bg = colors.lightbg2,
-      },
-      icon = ' 柳',
+    provider = 'git_diff_changed',
+    hl = {
+       fg = colors.grey_fg2,
+       bg = colors.lightbg2,
+    },
+    icon = ' 柳',
    },
    remove = {
-      provider = 'git_diff_removed',
-      hl = {
-         fg = colors.grey_fg2,
-         bg = colors.lightbg2,
-      },
-      icon = '  ',
+    provider = 'git_diff_removed',
+    hl = {
+       fg = colors.grey_fg2,
+       bg = colors.lightbg2,
+    },
+    icon = '  ',
    },
-  separator = {
-    provider = statusline_style.right,
-      hl = {
-         fg = colors.lightbg2,
-         bg = colors.statusline_bg,
-      },
+   separator = {
+     provider = statusline_style.right,
+     hl = {
+        fg = colors.lightbg2,
+        bg = colors.statusline_bg,
      },
-   }
+   },
+}
 
 local git_branch = {
    provider = 'git_branch',
