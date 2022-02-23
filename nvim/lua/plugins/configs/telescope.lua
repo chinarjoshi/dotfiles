@@ -42,4 +42,4 @@ telescope.setup {
    },
 }
 
-telescope.load_extension('projects')
+pcall(telescope.load_extension, 'projects')
