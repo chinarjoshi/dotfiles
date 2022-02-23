@@ -13,12 +13,13 @@ telescope.setup {
           ['<esc>'] = actions.close
         }
       },
+      preview = false,
       prompt_prefix = '   ',
       selection_caret = '  ',
       entry_prefix = '  ',
       selection_strategy = 'reset',
       sorting_strategy = 'ascending',
-      layout_strategy = 'horizontal',
+      --layout_strategy = 'horizontal',
       layout_config = {
          horizontal = {
             prompt_position = 'top',
@@ -29,7 +30,6 @@ telescope.setup {
             mirror = false,
          },
          width = 0.87,
-         height = 0.80,
          preview_cutoff = 120,
       },
       file_ignore_patterns = require('vars').file_ignore_patterns,

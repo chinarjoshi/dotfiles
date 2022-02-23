@@ -75,7 +75,7 @@ require('neogit').setup()
 require('project_nvim').setup()
 require('stabilize').setup()
 require('focus').setup {
-  excluded_filetypes = { "toggleterm", 'NvimTree' },
+  excluded_filetypes = { "toggleterm", 'NvimTree', 'Trouble' },
   excluded_buftypes = { "NvimTree", 'prompt' },
 }
 require('winshift').setup()

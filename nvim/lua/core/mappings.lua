@@ -5,13 +5,13 @@ end
 
 local mappings = {
   -- Hotkeys
-  ['<space>'] = {'Telescope git_files', 'Find file in project'},
+  ['<space>'] = {'Telescope git_files theme=ivy layout_config={height=15}', 'Find file in project'},
+  ['<tab>'] = {'Telescope projects theme=ivy layout_config={height=15}', 'Projects'},
+  ['/'] = {'Telescope live_grep theme=ivy layout_config={height=15}', 'Search project'},
+  [','] = {'Telescope buffers theme=ivy layout_config={height=15}', 'Switch buffer'},
+  ['.'] = {'Telescope find_files theme=ivy layout_config={height=15}', 'Find file'},
+  ['*'] = {'Telescope grep_string theme=ivy layout_config={height=15}', 'Search word under cursor'},
   ['<cr>'] = {'Term', 'Open terminal'},
-  ['<tab>'] = {'Telescope projects', 'Projects'},
-  ['/'] = {'Telescope live_grep', 'Search project'},
-  [','] = {'Telescope buffers', 'Switch buffer'},
-  ['.'] = {'Telescope find_files', 'Find file'},
-  ['*'] = {'Telescope grep_string', 'Search word under cursor'},
   [';'] = {'NvimTreeToggle', 'File-tree'},
   ['\\'] = {'noh', 'Clear search'},
   ['-'] = {[[%s/\s\+$//e]], 'Clear whitespace'},
@@ -23,18 +23,18 @@ local mappings = {
   },
   -- Files
   f = { name = 'file',
-    f = {'Telescope find_files', 'Find'},
+    f = {'Telescope find_files theme=ivy layout_config={height=15}', 'Find'},
     s = {'w', 'Save'},
-    p = {'Telescope projects', 'Projects'},
+    p = {'Telescope projects theme=ivy layout_config={height=15}', 'Projects'},
     t = {'NvimTreeToggle', 'Tree'},
     c = {'y+', 'Copy file'},
-    o = {'Telescope oldfiles', 'Opened files'},
+    o = {'Telescope oldfiles theme=ivy layout_config={height=15}', 'Opened files'},
   },
   n = { name = 'notes',
   },
   -- Search
   s = { name = 'search',
-    s = {'Telescope current_buffer_fuzzy_find', 'Current buffer'},
+    s = {'Telescope current_buffer_fuzzy_find theme=ivy layout_config={height=15}', 'Current buffer'},
     t = {'TodoTelescope', 'TODOs'},
     v = {'Vista', 'Vista'},
   },
@@ -53,15 +53,15 @@ local mappings = {
   },
   g = { name = 'git',
     g = {'Neogit', 'Magit'},
-    c = {'Telescope git_commits', 'Commits'},
-    b = {'Telescope git_branches', 'Branches'},
-    s = {'Telescope git_status', 'Status'},
-    t = {'Telescope git_stash', 'Stash'},
-    f = {'Telescope git_bcommits', 'Commits in current file'},
+    c = {'Telescope git_commits theme=ivy layout_config={height=15}', 'Commits'},
+    b = {'Telescope git_branches theme=ivy layout_config={height=15}', 'Branches'},
+    s = {'Telescope git_status theme=ivy layout_config={height=15}', 'Status'},
+    t = {'Telescope git_stash theme=ivy layout_config={height=15}', 'Stash'},
+    f = {'Telescope git_bcommits theme=ivy layout_config={height=15}', 'Commits in current file'},
   },
   -- Buffers
   b = { name = 'buffer',
-    b = {'Telescope buffers', 'Pick buffer'},
+    b = {'Telescope buffers theme=ivy layout_config={height=15}', 'Pick buffer'},
     d = {'bd', 'Delete'},
     n = {'bn', 'Next' },
     p = {'bp', 'Previous' },
@@ -118,9 +118,6 @@ local lsp = {
 
 local function rep(table)
   if type(table[1]) == 'string' then
-    if string.find(table[1], 'Telescope') then
-      table[1] = table[1] .. ' theme=ivy'
-    end
     table[1] = '<cmd>' .. table[1] .. '<cr>'
   elseif type(table) == 'table' then
     for _, v in pairs(table) do
