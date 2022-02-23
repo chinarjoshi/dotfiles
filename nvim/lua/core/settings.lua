@@ -44,6 +44,7 @@ for _, autocmd in ipairs({
   "autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0",
   [[let g:vista#renderer#icons = { "function": "\u0192", "variable":
   \ "uf00d", "prototype": "\uf013", "macro": "\uf00b" }]],
+  "au BufWritePost <buffer> lua require('lint').try_lint()",
   "command Term :botright split term://$SHELL",
   "autocmd BufLeave term://* stopinsert",
   "let g:vista#renderer#enable_icon = 1",

@@ -36,12 +36,13 @@ packer.init {
    compile_on_sync = true,
 }
 
-scan = require('plenary.scandir').scan_dir
+local scan = require('plenary.scandir').scan_dir
 for _, file in ipairs(scan('/home/c/dotfiles/nvim/lua/plugins/configs')) do
   local ok, err = pcall(dofile, file)
   if not ok then
     error('Error loading ' .. file .. '\n\n' .. err)
   end
 end
+
 
 return packer

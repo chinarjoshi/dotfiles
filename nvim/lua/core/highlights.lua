@@ -42,8 +42,8 @@ for background, color in pairs({
   PmenuSel = 'nord_blue',
   PmenuThumb = 'darker_black',
   NvimTreeNormalNC = 'darker_black',
-  TelescopeNormal = 'darker_black',
-  TelescopeSelection = 'black2',
+  -- TelescopeNormal = 'darker_black',
+  -- TelescopeSelection = 'black2',
 }) do
   cmd('hi ' .. background .. ' guibg=' .. colors[color])
 end
@@ -59,13 +59,13 @@ for both, color in pairs({
   NvimTreeStatuslineNc = {'darker_black', 'darker_black'},
   NvimTreeVertSplit = {'darker_black', 'darker_black'},
   NvimTreeWindowPicker = {'red', 'black2'},
-  TelescopeBorder = {'darker_black', 'darker_black'},
-  TelescopePromptBorder = {'black2', 'black2'},
-  TelescopePromptNormal = {'white', 'black2'},
-  TelescopePromptPrefix = {'red', 'black2'},
-  TelescopePreviewTitle = {'black', 'green'},
-  TelescopePromptTitle = {'black', 'red'},
-  TelescopeResultsTitle = {'darker_black', 'darker_black'},
+  -- TelescopeBorder = {'darker_black', 'darker_black'},
+  -- TelescopePromptBorder = {'black2', 'black2'},
+  -- TelescopePromptNormal = {'white', 'black2'},
+  -- TelescopePromptPrefix = {'red', 'black2'},
+  -- TelescopePreviewTitle = {'black', 'green'},
+  -- TelescopePromptTitle = {'black', 'red'},
+  -- TelescopeResultsTitle = {'darker_black', 'darker_black'},
 }) do
   cmd('hi ' .. both .. ' guifg=' .. colors[color[1]] .. ' guibg=' .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
 end
