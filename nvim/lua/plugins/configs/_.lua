@@ -122,5 +122,8 @@ require('lint').linters_by_ft = {
     lua = { 'luacheck' },
     cpp = { 'clangtidy' },
 }
+require('lint.linters.luacheck').args = {
+    '--formatter', 'plain', '--codes', '--globals', 'vim', '--ranges', '-'
+}
 
 require('toggleterm').setup()

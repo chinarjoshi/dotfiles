@@ -1,6 +1,5 @@
-local ok, nvim_lsp = pcall(require, 'lspconfig')
-local present, lsp_installer = pcall(require, 'nvim-lsp-installer')
-if not (ok and present) then
+local ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not ok then
   return
 end
 
@@ -36,7 +35,8 @@ end)
 for key, icon in pairs({
   Error='',
   Hint='',
-  Warn=''
+  Warn='',
+  Info='',
 }) do
   local hl = 'DiagnosticSign' .. key
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
