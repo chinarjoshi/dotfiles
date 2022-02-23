@@ -30,8 +30,7 @@ local mappings = {
     c = {'%y+', 'Copy file'},
     o = {'Telescope oldfiles theme=ivy layout_config={height=15}', 'Opened files'},
   },
-  n = { name = 'notes',
-  },
+  n = { name = 'notes', },
   -- Search
   s = { name = 'search',
     s = {'Telescope current_buffer_fuzzy_find theme=ivy layout_config={height=15}', 'Current buffer'},
@@ -63,8 +62,8 @@ local mappings = {
   b = { name = 'buffer',
     b = {'Telescope buffers theme=ivy layout_config={height=15}', 'Pick buffer'},
     d = {'bd', 'Delete'},
-    n = {'bn', 'Next' },
-    p = {'bp', 'Previous' },
+    [']'] = {'bn', 'Next' },
+    ['['] = {'bp', 'Previous' },
   },
   -- Windows
   w = { name = 'window',

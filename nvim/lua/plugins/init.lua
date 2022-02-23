@@ -65,7 +65,7 @@ require('plugins.packer').startup(function()
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },
-  { 'akinsho/toggleterm.nvim' },
+  { 'akinsho/toggleterm.nvim', cmd = 'ToggleTerm' },
   { 'andymass/vim-matchup', opt = true, },
   { 'windwp/nvim-autopairs', after = 'nvim-cmp' },
 }) do
