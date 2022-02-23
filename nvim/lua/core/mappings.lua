@@ -11,7 +11,7 @@ local mappings = {
   [','] = {'Telescope buffers theme=ivy layout_config={height=15}', 'Switch buffer'},
   ['.'] = {'Telescope find_files theme=ivy layout_config={height=15}', 'Find file'},
   ['*'] = {'Telescope grep_string theme=ivy layout_config={height=15}', 'Search word under cursor'},
-  ['<cr>'] = {'Term', 'Open terminal'},
+  ['<cr>'] = {'ToggleTerm', 'Open terminal'},
   [';'] = {'NvimTreeToggle', 'File-tree'},
   ['\\'] = {'noh', 'Clear search'},
   ['-'] = {[[%s/\s\+$//e]], 'Clear whitespace'},
