@@ -27,7 +27,7 @@ local mappings = {
     s = {'w', 'Save'},
     p = {'Telescope projects theme=ivy layout_config={height=15}', 'Projects'},
     t = {'NvimTreeToggle', 'Tree'},
-    c = {'y+', 'Copy file'},
+    c = {'%y+', 'Copy file'},
     o = {'Telescope oldfiles theme=ivy layout_config={height=15}', 'Opened files'},
   },
   n = { name = 'notes',
@@ -35,11 +35,11 @@ local mappings = {
   -- Search
   s = { name = 'search',
     s = {'Telescope current_buffer_fuzzy_find theme=ivy layout_config={height=15}', 'Current buffer'},
-    t = {'TodoTelescope', 'TODOs'},
+    t = {'TodoTelescope theme=ivy preview=10', 'TODOs'},
     v = {'Vista', 'Vista'},
   },
   -- Open terminal
-  t = {'Term', 'Terminal'},
+  t = {'ToggleTerm', 'Terminal'},
   r = {'SnipRun', 'Run snippet'},
   -- Plugin manager
   p = { name = 'plugins',
@@ -53,11 +53,11 @@ local mappings = {
   },
   g = { name = 'git',
     g = {'Neogit', 'Magit'},
-    c = {'Telescope git_commits theme=ivy layout_config={height=15}', 'Commits'},
-    b = {'Telescope git_branches theme=ivy layout_config={height=15}', 'Branches'},
-    s = {'Telescope git_status theme=ivy layout_config={height=15}', 'Status'},
-    t = {'Telescope git_stash theme=ivy layout_config={height=15}', 'Stash'},
-    f = {'Telescope git_bcommits theme=ivy layout_config={height=15}', 'Commits in current file'},
+    c = {'Telescope git_commits preview=10', 'Commits'},
+    b = {'Telescope git_branches preview=10', 'Branches'},
+    s = {'Telescope git_status preview=10', 'Status'},
+    t = {'Telescope git_stash preview=10', 'Stash'},
+    f = {'Telescope git_bcommits preview=10', 'Commits in current file'},
   },
   -- Buffers
   b = { name = 'buffer',
@@ -82,17 +82,14 @@ local mappings = {
     K = { "WinShift up", 'Shift down' },
     L = { "WinShift right", 'Shift down' },
   },
-  -- Tag viewer
+  -- Code actions
   c = { name = 'code',
-    c = {'TroubleToggle', 'Trouble'},
-    d = {'lua vim.lsp.diagnostic.show_line_diagnostics()', 'Diagnostic'},
-    D = {'lua vim.lsp.buf.type_definition()', 'Definition'},
-    i = {'lua vim.lsp.buf.implementation()', 'Implementation'},
-    s = {'lua vim.lsp.buf.signature_help()', 'Signature help'},
-    n = {'lua vim.lsp.diagnostic.goto_next()', 'Signature help'},
-    p = {'lua vim.lsp.diagnostic.goto_prev()', 'Signature help'},
-    r = {'lua vim.lsp.buf.references()', 'References'},
-
+    c = {'TroubleToggle document_diagnostics', 'Document diagnostics'},
+    w = {'TroubleToggle workspace_diagnostics', 'Workspace diagnostics'},
+    r = {'TroubleToggle lsp_references', 'References'},
+    d = {'TroubleToggle lsp_definitions', 'Definitions'},
+    t = {'TroubleToggle lsp_type_definitions', 'Type definitions'},
+    a = {'Telescope lsp_code_actions theme=ivy layout_config={height=15}', 'Actions'},
   },
 }
 
