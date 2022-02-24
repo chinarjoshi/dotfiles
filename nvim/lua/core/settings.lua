@@ -11,7 +11,7 @@ for key, option in pairs({
    foldmethod = 'marker',
    termguicolors = true,
    smartindent = true,
-   signcolumn = 'number',
+   signcolumn = 'yes:1',
    lazyredraw = true,
    splitbelow = true,
    splitright = true,
@@ -42,16 +42,16 @@ for _, autocmd in ipairs({
   "autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}",
   "autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline",
   "autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0",
+  "autocmd FileType NvimTree set statusline=_",
   [[let g:vista#renderer#icons = { "function": "\u0192", "variable":
   \ "uf00d", "prototype": "\uf013", "macro": "\uf00b" }]],
   "au BufWritePost <buffer> lua require('lint').try_lint()",
-  "command Term :botright split term://$SHELL",
   "autocmd BufLeave term://* stopinsert",
   "let g:vista#renderer#enable_icon = 1",
   "au BufEnter * set fo-=c fo-=r fo-=o",
   "autocmd TermOpen * startinsert",
-  "hi Comment gui=italic",
   "hi StatusLineNC gui=underline",
+  "hi Comment gui=italic",
 }) do
     cmd(autocmd)
 end
