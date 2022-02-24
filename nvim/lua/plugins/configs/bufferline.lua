@@ -53,14 +53,14 @@ bufferline.setup {
       buffer_selected = {
          guifg = colors.white,
          guibg = colors.black,
-         gui = 'bold',
+         gui = "bold",
       },
       buffer_visible = {
          guifg = colors.light_grey,
          guibg = colors.black2,
       },
 
-      -- for diagnostics = 'nvim_lsp'
+      -- for diagnostics = "nvim_lsp"
       error = {
          guifg = colors.light_grey,
          guibg = colors.black2,

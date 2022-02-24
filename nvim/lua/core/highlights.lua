@@ -14,7 +14,7 @@ for foreground, color in pairs({
   LineNr = 'grey',
   NvimInternalError = 'red',
   VertSplit = 'one_bg2',
-  StatusLineNC = 'one_bg2',
+  StatusLineNC = 'one_bg3',
   IndentBlanklineChar = 'line',
   IndentBlanklineSpaceChar = 'line',
   DiagnosticHint = 'purple',

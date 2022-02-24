@@ -51,6 +51,7 @@ for _, autocmd in ipairs({
   "au BufEnter * set fo-=c fo-=r fo-=o",
   "autocmd TermOpen * startinsert",
   "hi Comment gui=italic",
+  "hi StatusLineNC gui=underline",
 }) do
     cmd(autocmd)
 end
