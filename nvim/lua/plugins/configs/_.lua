@@ -38,6 +38,9 @@ local configs = {
       highlight = {
         keyword = 'wide'
       }
+    },
+    toggleterm = {
+        size = 15
     }
 }
 
