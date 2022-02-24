@@ -50,7 +50,7 @@ nvim_tree.setup {
       width = 25,
    },
    git = {
-      enable = true,
+      enable = false,
       ignore = true,
    },
 }
