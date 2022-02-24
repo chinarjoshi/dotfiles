@@ -47,12 +47,10 @@ nvim_tree.setup {
    },
    view = {
       allow_resize = true,
-      side = 'left',
       width = 25,
-      hide_root_folder = false,
    },
    git = {
-      enable = false,
-      ignore = false,
+      enable = true,
+      ignore = true,
    },
 }
