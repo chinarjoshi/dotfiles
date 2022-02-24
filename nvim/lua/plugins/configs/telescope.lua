@@ -38,7 +38,7 @@ telescope.setup {
       borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
       color_devicons = true,
       use_less = true,
-      set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+      set_env = { ['COLORTERM'] = 'truecolor' },
    },
 }
 

@@ -1,4 +1,9 @@
-require('which-key').setup {
+local ok, which_key = pcall(require, 'which-key')
+if not ok then
+    return
+end
+
+which_key.setup {
   ignore_missing = true,
   window = {
     margin = { 0, 0, 0, 0 },
@@ -8,9 +13,9 @@ require('which-key').setup {
     border = 'single'
   },
   layout = {
-    height = { min = 1, max = 15 }, -- min and max height of the columns
-    width = { min = 1, max = 50 }, -- min and max width of the columns
-    spacing = 1, -- spacing between columns
+    height = { min = 1, max = 15 },
+    width = { min = 1, max = 50 },
+    spacing = 1,
   },
   key_labels = {
     ['<space>'] = 'SPC',
