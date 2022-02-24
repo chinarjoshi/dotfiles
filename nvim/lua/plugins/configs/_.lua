@@ -57,7 +57,7 @@ for _, name in ipairs({
     if not ok then
         return
     end
-    plugin.setup(configs[name] or nil)
+    plugin.setup(configs[name] or {})
 end
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
