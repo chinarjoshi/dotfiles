@@ -15,6 +15,10 @@ local mappings = {
   [';'] = {'NvimTreeToggle', 'File-tree'},
   ['\\'] = {'noh', 'Clear search'},
   ['-'] = {[[%s/\s\+$//e]], 'Clear whitespace'},
+  [']'] = {'bn', 'Next buffer'},
+  ['['] = {'bp', 'Previous buffer'},
+  ['}'] = {'tabnext', 'Next tab'},
+  ['{'] = {'tabprevious', 'Previous tab'},
   -- Quitting
   q = { name = 'quit',
     q = {'wqa', 'Quit'},
