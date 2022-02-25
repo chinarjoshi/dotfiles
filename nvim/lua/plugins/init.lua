@@ -3,7 +3,7 @@ require('plugins.packer').startup(function()
   -------------------------------- Base
   { 'wbthomason/packer.nvim', event = 'VimEnter', },
   { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate'},
-  { 'kyazdani42/nvim-tree.lua', after = 'nvim-web-devicons', },
+  { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }},
   { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope', },
   { 'ahmedkhalf/project.nvim', after = 'telescope.nvim' },
   { 'nvim-lua/plenary.nvim', module = 'plenary' },
@@ -18,7 +18,7 @@ require('plugins.packer').startup(function()
   { 'williamboman/nvim-lsp-installer', module = 'nvim-lsp-installer' },
   { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' } },
   { 'onsails/lspkind-nvim', after = 'nvim-cmp' },
-  { 'jose-elias-alvarez/null-ls.nvim', after = 'nvim-cmp' },
+  { 'mfussenegger/nvim-lint', module = 'lint' },
 
   -------------------------------- Completion,
   { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', },
@@ -44,7 +44,6 @@ require('plugins.packer').startup(function()
   { 'tpope/vim-repeat', event = 'BufRead' },
   { 'wellle/targets.vim', event = 'BufRead'},
   { 'folke/todo-comments.nvim', module = 'todo-comments' },
-  { 'mfussenegger/nvim-lint', module = 'lint' },
 
   --------------------------------- Windows and Splits,
   { 'beauwilliams/focus.nvim', module = 'focus' },

@@ -40,12 +40,9 @@ end
 -- Autocommands
 for _, auto in ipairs({
   "au TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=200}",
-  --"au TermOpen * setlocal listchars= nonumber norelativenumber nocursorline",
-  --"au FileType text,markdown,html,xhtml,javascript setlocal cc=0",
-  --"au BufEnter * set fo-=c fo-=r fo-=o",
   [[let g:vista#renderer#icons = { "function": "\u0192", "variable":
     \ "uf00d", "prototype": "\uf013", "macro": "\uf00b" }]],
-  [[au BufWinEnter,WinEnter,TermEnter * if (bufname('%') == "NvimTree" || 
+  [[au BufWinEnter,WinEnter,TermEnter * if (bufname('%') == "NvimTree" ||
     \ stridx(bufname('%'), "term") != -1) | set laststatus=0 | else | set laststatus=2 | endif]],
   "au BufWritePost <buffer> lua require('lint').try_lint()",
   "au BufLeave term://* stopinsert",
