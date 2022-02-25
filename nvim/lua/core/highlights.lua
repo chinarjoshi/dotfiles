@@ -49,10 +49,9 @@ end
 -- Both background and foreground colors
 for both, color in pairs({
   RedOnBlack = {'red', 'one_bg2'},
-  DiffAdd = {'blue', 'NONE'},
-  DiffChange = {'grey_fg', 'NONE'},
+  DiffAdd = {'green', 'NONE'},
+  DiffChange = {'blue', 'NONE'},
   DiffChangeDelete = {'red', 'NONE'},
-  DiffModified = {'red', 'NONE'},
   DiffDelete= {'red', 'NONE'},
   NvimTreeStatuslineNc = {'darker_black', 'darker_black'},
   NvimTreeVertSplit = {'darker_black', 'darker_black'},

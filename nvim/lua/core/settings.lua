@@ -11,7 +11,7 @@ for key, option in pairs({
    foldmethod = 'marker',
    termguicolors = true,
    smartindent = true,
-   signcolumn = 'number',
+   signcolumn = 'yes',
    lazyredraw = true,
    splitbelow = true,
    splitright = true,

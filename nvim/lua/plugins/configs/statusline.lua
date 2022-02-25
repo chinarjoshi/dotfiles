@@ -70,7 +70,7 @@ local file_name = {
       local filename = vim.fn.expand '%:t'
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       local extension = vim.fn.expand '%:e'
-      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
+      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)
@@ -92,7 +92,7 @@ local file_name = {
       local filename = vim.fn.expand '%:t'
       local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       local extension = vim.fn.expand '%:e'
-      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
+      local icon = require('nvim-web-devicons').get_icon(filename, extension) or ' '
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)

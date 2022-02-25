@@ -56,7 +56,6 @@ require('plugins.packer').startup(function()
   { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', },
   { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'},
   { 'NvChad/nvim-colorizer.lua', event = 'BufRead', },
-  { 'akinsho/bufferline.nvim', after = 'nvim-web-devicons' },
 
   --------------------------------- Etc.
   { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim' },
