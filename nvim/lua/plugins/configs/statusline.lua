@@ -234,7 +234,7 @@ local lsp_icon = {
         for _, client in pairs(vim.lsp.buf_get_clients(0)) do
             clients[#clients + 1] = client.name
         end
-         return '  ' .. clients[1]
+         return '  LSP'
       else
          return ''
       end
@@ -247,16 +247,19 @@ local lsp_icon = {
 
 local buffers = {
    provider = function()
-        -- local len = 0
-        -- for buffer = 1, vim.fn.bufnr('$') do
-        --     if vim.fn.buflisted(buffer) ~= 1 then
-        --         len = len + 1
-        --     end
-        -- end
-        -- return ' '..api.nvim_buf_get_number(0)..'/'..len .. ' '
-        return ''
+        local count = 0
+        for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+            if api.nvim_buf_is_loaded(buffer) then
+                count = count + 1
+            end
+        end
+        if count > 1 then
+            return '  ' .. count
+        else
+            return ''
+        end
     end,
-   hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+    hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
 }
 
 local tabpages = {
@@ -264,7 +267,7 @@ local tabpages = {
       if api.nvim_list_tabpages()[2] ~= nil then
         local length = 0
         for _ in ipairs(api.nvim_list_tabpages()) do length = length + 1 end
-         return '  '..api.nvim_tabpage_get_number(0)..'/'..length ..' '
+         return '    '..api.nvim_tabpage_get_number(0)..'/'..length
       else
          return ''
       end
@@ -515,10 +518,12 @@ local components = {
       diagnostic.hint,
       diagnostic.info,
     },
-    { lsp_progress },
     {
-      buffers,
-      tabpages,
+        lsp_progress,
+        buffers,
+        tabpages,
+    },
+    {
       lsp_icon,
       git_branch,
       empty_space[1],
@@ -542,10 +547,12 @@ local components = {
       diagnostic.hint,
       diagnostic.info,
     },
-    { lsp_progress },
     {
-      -- buffers,
-      -- tabpages,
+        lsp_progress,
+        buffers,
+        tabpages,
+    },
+    {
       lsp_icon,
       git_branch,
       inactive_empty_space[1],
