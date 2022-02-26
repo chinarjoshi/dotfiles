@@ -6,6 +6,7 @@ end
 local colors = require('hl_themes.onedark')
 local lsp = require('feline.providers.lsp')
 local lsp_severity = vim.diagnostic.severity
+local api = vim.api
 
 local statusline_style = {
   left = '',
@@ -74,7 +75,7 @@ local file_name = {
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 70
    end,
    hl = function()
       return {
@@ -96,7 +97,7 @@ local file_name = {
       return ' ' .. icon .. ' ' .. dir_name .. '/'.. filename .. ' '
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 70
    end,
    hl = {
     fg = colors.grey_fg2,
@@ -146,7 +147,7 @@ local diff = {
 local git_branch = {
    provider = 'git_branch',
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 70
    end,
    hl = {
       fg = colors.grey_fg2,
@@ -180,7 +181,7 @@ local diagnostic = {
       enabled = function()
          return lsp.diagnostics_exist(lsp_severity.HINT)
       end,
-      hl = { fg = colors.grey_fg2 },
+      hl = { fg = colors.blue },
       icon = '  ',
    },
 
@@ -221,7 +222,7 @@ local lsp_progress = {
       return ''
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 80
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 80
    end,
    hl = { fg = colors.green },
 }
@@ -239,8 +240,36 @@ local lsp_icon = {
       end
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 70
    end,
+   hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+}
+
+local buffers = {
+   provider = function()
+        -- local len = 0
+        -- for buffer = 1, vim.fn.bufnr('$') do
+        --     if vim.fn.buflisted(buffer) ~= 1 then
+        --         len = len + 1
+        --     end
+        -- end
+        -- return ' '..api.nvim_buf_get_number(0)..'/'..len .. ' '
+        return ''
+    end,
+   hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
+}
+
+local tabpages = {
+   provider = function()
+      if api.nvim_list_tabpages()[2] ~= nil then
+        local length = 0
+        for _ in ipairs(api.nvim_list_tabpages()) do length = length + 1 end
+         return '  '..api.nvim_tabpage_get_number(0)..'/'..length ..' '
+      else
+         return ''
+      end
+   end,
+
    hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
 }
 
@@ -310,7 +339,7 @@ local mode_icon = {
 local separator = {
    provider = statusline_style.left,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 90
    end,
    hl = {
       fg = colors.grey,
@@ -319,7 +348,7 @@ local separator = {
    {
      provider = statusline_style.left,
      enabled = shortline or function(winid)
-        return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+        return api.nvim_win_get_width(tonumber(winid) or 0) > 90
      end,
      hl = {
         fg = colors.black,
@@ -331,12 +360,12 @@ local separator = {
 local position_icon = {
    provider = function()
      local scroll_bar_blocks = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
-     local curr_line = vim.api.nvim_win_get_cursor(0)[1]
-     local lines = vim.api.nvim_buf_line_count(0)
+     local curr_line = api.nvim_win_get_cursor(0)[1]
+     local lines = api.nvim_buf_line_count(0)
      return string.rep(scroll_bar_blocks[math.floor(curr_line / lines * 7) + 1], 2)
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 90
    end,
    hl = {
       fg = colors.green,
@@ -359,7 +388,7 @@ local current_line = {
    end,
 
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 90
    end,
 
    hl = {
@@ -410,7 +439,7 @@ local inactive_separator = {
   {
      provider = statusline_style.left,
      enabled = shortline or function(winid)
-        return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+        return api.nvim_win_get_width(tonumber(winid) or 0) > 90
      end,
      hl = {
         fg = colors.one_bg,
@@ -420,7 +449,7 @@ local inactive_separator = {
   {
      provider = statusline_style.left,
      enabled = shortline or function(winid)
-        return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+        return api.nvim_win_get_width(tonumber(winid) or 0) > 90
      end,
      hl = {
         fg = colors.black,
@@ -432,12 +461,12 @@ local inactive_separator = {
 local inactive_position_icon = {
    provider = function()
      local scroll_bar_blocks = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
-     local curr_line = vim.api.nvim_win_get_cursor(0)[1]
-     local lines = vim.api.nvim_buf_line_count(0)
+     local curr_line = api.nvim_win_get_cursor(0)[1]
+     local lines = api.nvim_buf_line_count(0)
      return string.rep(scroll_bar_blocks[math.floor(curr_line / lines * 7) + 1], 2)
    end,
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 90
    end,
    hl = {
       fg = colors.grey_fg2,
@@ -460,7 +489,7 @@ local inactive_current_line = {
    end,
 
    enabled = shortline or function(winid)
-      return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+      return api.nvim_win_get_width(tonumber(winid) or 0) > 90
    end,
 
    hl = {
@@ -488,6 +517,8 @@ local components = {
     },
     { lsp_progress },
     {
+      buffers,
+      tabpages,
       lsp_icon,
       git_branch,
       empty_space[1],
@@ -513,6 +544,8 @@ local components = {
     },
     { lsp_progress },
     {
+      -- buffers,
+      -- tabpages,
       lsp_icon,
       git_branch,
       inactive_empty_space[1],

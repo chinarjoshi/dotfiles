@@ -45,10 +45,11 @@ for _, auto in ipairs({
   [[au BufWinEnter,WinEnter,TermEnter * if (bufname('%') == "NvimTree" ||
     \ stridx(bufname('%'), "term") != -1) | set laststatus=0 | else | set laststatus=2 | endif]],
   "au BufWritePost <buffer> lua require('lint').try_lint()",
-  "au BufLeave term://* stopinsert",
   "let g:vista#renderer#enable_icon = 1",
-  "au TermOpen * startinsert",
+  "au BufEnter * set fo-=c fo-=r fo-=o",
+  "au BufLeave term://* stopinsert",
   "hi StatusLineNC gui=underline",
+  "au TermOpen * startinsert",
   "hi Comment gui=italic",
 }) do
     cmd(auto)
@@ -85,9 +86,3 @@ opt.shortmess:append('sI')
 opt.whichwrap:append('<>[]hl')
 opt.listchars:append("space:⋅")
 opt.listchars:append("eol:↴")
--- Defer loading shada until after startup_
-opt.shadafile = 'NONE'
-vim.schedule(function()
-    opt.shadafile = opt.shadafile
-    cmd('silent! rsh')
-end)

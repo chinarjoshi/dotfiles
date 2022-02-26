@@ -1,10 +1,10 @@
 require('plugins.packer').startup(function()
   for _, plugin in ipairs({
   -------------------------------- Base
-  { 'wbthomason/packer.nvim', event = 'VimEnter', },
-  { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate'},
-  { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }},
-  { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope', },
+  { 'wbthomason/packer.nvim', event = 'VimEnter' },
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+  { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFocus' } },
+  { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope' },
   { 'ahmedkhalf/project.nvim', after = 'telescope.nvim' },
   { 'nvim-lua/plenary.nvim', module = 'plenary' },
   { 'folke/which-key.nvim', module = 'which-key' },
@@ -13,7 +13,7 @@ require('plugins.packer').startup(function()
 
  -------------------------------- LSP,
   { 'neovim/nvim-lspconfig', module = 'lspconfig' },
-  { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', },
+  { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig' },
   { 'folke/lsp-colors.nvim', after = 'nvim-lspconfig' },
   { 'williamboman/nvim-lsp-installer', module = 'nvim-lsp-installer' },
   { 'folke/trouble.nvim', cmd = { 'Trouble', 'TroubleToggle' } },
@@ -21,20 +21,20 @@ require('plugins.packer').startup(function()
   { 'mfussenegger/nvim-lint', module = 'lint' },
 
   -------------------------------- Completion,
-  { 'hrsh7th/nvim-cmp', after = 'friendly-snippets', },
-  { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip', },
-  { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua', },
-  { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp', },
-  { 'hrsh7th/cmp-path', after = 'cmp-buffer', },
-  { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip', },
+  { 'hrsh7th/nvim-cmp', after = 'friendly-snippets' },
+  { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip' },
+  { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' },
+  { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-path', after = 'cmp-buffer' },
+  { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' },
 
   --------------------------------- Snippets,
-  { 'L3MON4D3/LuaSnip', after = 'nvim-cmp', },
-  { 'rafamadriz/friendly-snippets', module = 'cmp_nvim_lsp', event = 'BufRead', },
+  { 'L3MON4D3/LuaSnip', after = 'nvim-cmp' },
+  { 'rafamadriz/friendly-snippets', module = 'cmp_nvim_lsp', event = 'BufRead' },
   { 'michaelb/sniprun', cmd = 'SnipRun' },
 
   --------------------------------- Git,
-  { 'lewis6991/gitsigns.nvim', opt = true, },
+  { 'lewis6991/gitsigns.nvim', opt = true },
   { 'TimUntersberger/neogit', cmd = 'Neogit' },
 
   --------------------------------- Editing,
@@ -42,7 +42,7 @@ require('plugins.packer').startup(function()
   { 'tpope/vim-surround', event = 'BufRead' },
   { 'tpope/vim-commentary', event = 'BufRead' },
   { 'tpope/vim-repeat', event = 'BufRead' },
-  { 'wellle/targets.vim', event = 'BufRead'},
+  { 'wellle/targets.vim', event = 'BufRead' },
   { 'folke/todo-comments.nvim', module = 'todo-comments' },
 
   --------------------------------- Windows and Splits,
@@ -53,13 +53,13 @@ require('plugins.packer').startup(function()
 
   --------------------------------- Aesthetic,
   { 'NvChad/nvim-base16.lua', after = 'packer.nvim' },
-  { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons', },
-  { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua'},
-  { 'NvChad/nvim-colorizer.lua', event = 'BufRead', },
+  { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons' },
+  { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua' },
+  { 'NvChad/nvim-colorizer.lua', event = 'BufRead' },
 
   --------------------------------- Etc.
   { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim' },
-  { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', },
+  { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead' },
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },

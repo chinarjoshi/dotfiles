@@ -4,6 +4,8 @@ if present then
   impatient.enable_profile()
 end
 
+vim.opt.shadafile = 'NONE'
+
 for _, module in ipairs({
    'core.settings',
    'core.mappings',
@@ -14,3 +16,5 @@ for _, module in ipairs({
     error('\n\nError loading \'' .. module .. '\' in init.lua\n\n' .. err)
   end
 end
+
+vim.opt.shadafile = ''
