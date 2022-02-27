@@ -1,8 +1,7 @@
-# Adds all files to staging area, commits files with date and time, pulls
-# changes from remote repository, then pushes changes to remote
+# Quick and dirty push changes for solo project
 g() {
     git add --all
-    git commit -m "$([[ $# -eq 0 ]] && $(date +%m-%d) || $@)"
+    git commit -m "$(date +%m-%d)"
     git pull origin
     git push origin
 }
