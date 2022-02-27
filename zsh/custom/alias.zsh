@@ -1,7 +1,8 @@
 # Declares git aliases of the form:
 #     alias g{letter} = {command}
 declare -A git=(
-    'a'    'add --all'
+    'a'    'add'
+    'A'    'add --all'
     'b'    'branch'
     'c'    'commit -m'
     'd'    'diff'
@@ -16,8 +17,6 @@ declare -A git=(
     'rs'   'reset --soft'
     'st'   'stash'
     'chb'  'checkout -b'
-    'rea'  'rebase --abort'
-    'rec'  'rebase --continue'
     'sta'  'stash apply'
     'stc'  'stash clear'
     'std'  'stash drop'

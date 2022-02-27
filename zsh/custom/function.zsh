@@ -2,7 +2,7 @@
 # changes from remote repository, then pushes changes to remote
 g() {
     git add --all
-    git commit -m "$(date)"
+    git commit -m [[ $# -eq 0 ]] && "$(date +%m-%d)" || $1
     git pull origin
     git push origin
 }
