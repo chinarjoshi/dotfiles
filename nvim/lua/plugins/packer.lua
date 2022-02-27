@@ -36,7 +36,7 @@ packer.init {
    compile_on_sync = true,
 }
 
--- Testing comment
+-- continue to test commitCharactersSupport
 local scan = require('plenary.scandir').scan_dir
 for _, file in ipairs(scan('/home/c/dotfiles/nvim/lua/plugins/configs')) do
   local ok, err = pcall(dofile, file)
