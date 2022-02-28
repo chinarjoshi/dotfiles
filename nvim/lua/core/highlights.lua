@@ -61,7 +61,7 @@ for both, color in pairs({
   cmd('hi ' .. both .. ' guifg=' .. colors[color[1]] .. ' guibg=' .. (color[2] == 'NONE' and 'NONE' or colors[color[2]]))
 end
 
-if require('vars').transparent then -- Transparency effects
+if require('core.utils').vars.transparent then -- Transparency effects
   for _, color in ipairs({
     'Normal',
     'Folded',
