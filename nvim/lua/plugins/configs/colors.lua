@@ -16,6 +16,6 @@ colorizer.setup({ '*' }, {
   mode = 'background',
 })
 
-base16(base16.themes(require('core.utils').vars.theme), true)
+base16(base16.themes(require('vars').theme), true)
 package.loaded['core.highlights' or false] = nil
 require('core.highlights')

@@ -24,13 +24,4 @@ M.loadall = function()
     end
 end
 
-M.vars = {
-    theme = 'onedark',
-    transparent = false,
-    file_ignore_patterns = {
-      'theme/*',
-      'highlighters/*',
-    },
-}
-
 return M
