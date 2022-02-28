@@ -24,6 +24,14 @@ M.loadall = function()
     end
 end
 
+M.setup = function(name, dependent)
+    if not dependent then
+        return require('plugins.configs.' .. name)
+    else
+        return require('plugins.configs._').name
+    end
+end
+
 M.vars = {
     theme = 'onedark',
     transparent = false,

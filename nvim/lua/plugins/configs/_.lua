@@ -1,23 +1,23 @@
-local configs = {
-    ['nvim-autopairs'] = { fast_wrap = {} },
-    lsp_signature = {
-      bind = true,
-      --doc_lines = 1,
-      floating_window = false,
-      fix_pos = true,
-      hint_enable = true,
-      hint_prefix = ' ',
-      hint_scheme = 'String',
-      hi_parameter = 'Search',
-      max_height = 22,
-      max_width = 120,
-      handler_opts = {
-        border = 'single',
-      },
-      zindex = 200,
-      padding = '',
-    },
-    gitsigns = {
+return {
+    ['nvim-autopairs'] = require('nvim-autopairs').setup{fast_wrap = {}},
+    lsp_signature = require('lsp_signature').setup{
+          bind = true,
+          --doc_lines = 1,
+          floating_window = false,
+          fix_pos = true,
+          hint_enable = true,
+          hint_prefix = ' ',
+          hint_scheme = 'String',
+          hi_parameter = 'Search',
+          max_height = 22,
+          max_width = 120,
+          handler_opts = {
+            border = 'single',
+          },
+          zindex = 200,
+          padding = '',
+        },
+    gitsigns = require('gitsigns').setup {
       signs = {
         add = { hl = 'DiffAdd', text = '│', numhl = 'GitSignsAddNr' },
         change = { hl = 'DiffChange', text = '│', numhl = 'GitSignsChangeNr' },
@@ -27,21 +27,28 @@ local configs = {
       },
     },
     orgmode = {
-      org_agenda_files = { '~/my-orgs/**/*' },
-      org_default_notes_file = '~/org/notes.org',
+        require('orgmode').setup {
+          org_agenda_files = { '~/my-orgs/**/*' },
+          org_default_notes_file = '~/org/notes.org',
+        },
     },
     trouble = {
+        require('trouble').setup {
       height = 20,
       width = 50
     },
+    },
     ['todo-comments'] = {
+        require('todo-comments').setup {
       highlight = {
         keyword = 'wide'
       }
     },
-    toggleterm = {
-        size = 15
-    }
+    },
+    toggleterm = require('toggleterm').setup { size = 15 },
+    neogit = require('neogit').setup(),
+    project_nvim = require('project_nvim').setup()
+    sniprun = require('sniprun').setup()
 }
 
 for _, name in ipairs({
