@@ -1,10 +1,10 @@
-# Quick and dirty push changes for solo project
-g() {
-    git add --all
-    git commit -m "$(date +%m-%d)"
-    git pull origin
-    git push origin
-}
+# Quick and dirty push changes for solo project, too easy to abuse
+# g() {
+#     git add --all
+#     git commit -m "$(date +%m-%d)"
+#     git pull origin
+#     git push origin
+# }
 
 # If dhcpcd.service is active
 connect() {

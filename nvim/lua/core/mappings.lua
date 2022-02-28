@@ -3,6 +3,8 @@ if not ok then
     return
 end
 
+local utils = require('core.utils')
+
 local mappings = {
   -- Hotkeys
   ['<space>'] = {'Telescope git_files theme=ivy layout_config={height=15}', 'Find file in project'},
@@ -116,29 +118,17 @@ local lsp = {
     f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format'},
 }
 
-local function rep(table)
-  if type(table[1]) == 'string' then
-    table[1] = '<cmd>' .. table[1] .. '<cr>'
-  elseif type(table) == 'table' then
-    for _, v in pairs(table) do
-      rep(v)
-    end
-  end
-end
 
-rep(mappings)
+utils.rep(mappings)
 key.register(mappings, { prefix = '<leader>' })
 key.register(lsp, { prefix = 'g' })
 
-local function map(key, command)
-  vim.api.nvim_set_keymap('n', key, command, { noremap = true, silent = true })
-end
-map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+utils.map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 for _, dir in ipairs({'up', 'down', 'left', 'right'}) do
-  map('<'..dir..'>', '<cmd>WinShift '.. dir ..'<cr>')
+  utils.map('<'..dir..'>', '<cmd>WinShift '.. dir ..'<cr>')
 end
 for _, letter in ipairs({'h', 'j', 'k', 'l'}) do
-    map('<C-'..letter..'>', '<C-w>'..letter)
+    utils.map('<C-'..letter..'>', '<C-w>'..letter)
 end
 vim.cmd('nnoremap ; :')
 vim.cmd('nnoremap : ;')
