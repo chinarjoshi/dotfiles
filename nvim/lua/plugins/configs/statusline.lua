@@ -15,7 +15,7 @@ local statusline_style = {
   locked_icon = '  ',
   vi_mode_icon = ' ',
 }
-local shortline = false
+local shortline = true
 
 local function severity_color()
   local color = 'nord_blue'
@@ -249,23 +249,6 @@ local lsp_icon = {
   end,
   enabled = shortline or function(winid)
     return api.nvim_win_get_width(tonumber(winid) or 0) > 70
-  end,
-  hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
-}
-
-local buffers = {
-  provider = function()
-    local count = 0
-    for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-      if api.nvim_buf_is_loaded(buffer) then
-        count = count + 1
-      end
-    end
-    if count > 1 then
-      return '  ' .. count
-    else
-      return ''
-    end
   end,
   hl = { fg = colors.grey_fg2, bg = colors.statusline_bg },
 }
@@ -529,7 +512,6 @@ local components = {
     },
     {
       lsp_progress,
-      buffers,
       tabpages,
     },
     {
@@ -558,7 +540,6 @@ local components = {
     },
     {
       lsp_progress,
-      buffers,
       tabpages,
     },
     {
