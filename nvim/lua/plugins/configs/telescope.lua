@@ -31,7 +31,7 @@ telescope.setup {
          width = 0.87,
          preview_cutoff = 120,
       },
-      file_ignore_patterns = require('core.utils').vars.file_ignore_patterns,
+      file_ignore_patterns = require('vars').file_ignore_patterns,
       path_display = { 'truncate' },
       winblend = 0,
       border = {},
