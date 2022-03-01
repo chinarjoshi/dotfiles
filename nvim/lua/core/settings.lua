@@ -12,7 +12,7 @@ for key, option in
     foldmethod = 'marker',
     termguicolors = true,
     smartindent = true,
-    signcolumn = 'yes',
+    signcolumn = 'yes:1',
     lazyredraw = true,
     splitbelow = true,
     splitright = true,
