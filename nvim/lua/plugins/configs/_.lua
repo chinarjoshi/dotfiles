@@ -2,21 +2,12 @@ local M = {}
 
 M.nvim_autopairs = require('nvim-autopairs').setup { fast_wrap = {} }
 M.lsp_signature = require('lsp_signature').setup {
-  bind = true,
-  --doc_lines = 1,
   floating_window = false,
   fix_pos = true,
   hint_enable = true,
   hint_prefix = ' ',
   hint_scheme = 'String',
   hi_parameter = 'Search',
-  max_height = 22,
-  max_width = 120,
-  handler_opts = {
-    border = 'single',
-  },
-  zindex = 200,
-  padding = '',
 }
 M.gitsigns = require('gitsigns').setup {
   signs = {
