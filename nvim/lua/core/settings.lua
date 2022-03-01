@@ -84,6 +84,7 @@ do
   g['loaded_' .. plugin] = 1
 end
 
+g.python3_host_prog = '/usr/bin/python3'
 g.mapleader = ' '
 g.vista_icon_indent = '["╰─▸ ", "├─▸ "]'
 g.vista_default_executive = 'ctags'
