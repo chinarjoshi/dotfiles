@@ -6,7 +6,7 @@ declare -A git=(
     'b'    'branch'
     'c'    'commit -m'
     'd'    'diff'
-    'l'    'log --graph --pretty=oneline --decorate --all'
+    'l'    'log --graph --oneline --decorate'
     'm'    'merge'
     'r'    'reset'
     's'    'status --short --branch --show-stash'
