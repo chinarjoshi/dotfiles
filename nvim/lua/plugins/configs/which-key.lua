@@ -1,6 +1,6 @@
 local ok, which_key = pcall(require, 'which-key')
 if not ok then
-    return
+  return
 end
 
 which_key.setup {
@@ -10,7 +10,7 @@ which_key.setup {
     padding = { 0, 0, 0, 0 },
 
     winblend = 0,
-    border = 'single'
+    border = 'single',
   },
   layout = {
     height = { min = 1, max = 15 },
@@ -30,5 +30,5 @@ which_key.setup {
     windows = false,
     nav = false,
     g = false,
-  }
+  },
 }

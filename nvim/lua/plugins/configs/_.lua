@@ -33,17 +33,17 @@ M.orgmode = require('orgmode').setup {
 }
 M.trouble = require('trouble').setup {
   height = 20,
-  width = 50
+  width = 50,
 }
 M.todo_comments = require('todo-comments').setup {
   highlight = {
-    keyword = 'wide'
-  }
+    keyword = 'wide',
+  },
 }
 M.toggleterm = require('toggleterm').setup { size = 15 }
 M.neogit = require('neogit').setup()
 M.project_nvim = require('project_nvim').setup()
 M.sniprun = require('sniprun').setup()
-M.luasnip = require('luasnip').config.set_config({ history = true, updateevents = 'TextChanged,TextChangedI' })
+M.luasnip = require('luasnip').config.set_config { history = true, updateevents = 'TextChanged,TextChangedI' }
 
 return M

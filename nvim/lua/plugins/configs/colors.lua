@@ -1,7 +1,7 @@
 local ok, colorizer = pcall(require, 'colorizer')
 local present, base16 = pcall(require, 'base16')
 if not (ok and present) then
-    return
+  return
 end
 
 colorizer.setup({ '*' }, {
@@ -18,4 +18,4 @@ colorizer.setup({ '*' }, {
 
 base16(base16.themes(require('core.utils').vars.theme), true)
 package.loaded['core.highlights' or false] = nil
-require('core.highlights')
+require 'core.highlights'

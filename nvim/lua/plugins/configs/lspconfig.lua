@@ -21,23 +21,32 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   },
 }
 
+local on_attach = function(client, bufnr)
+  if client.name == 'sumneko_lua' then
+    client.resolved_capabilities.document_formatting = false
+  end
+end
+
 lsp_installer.on_server_ready(function(server)
   local opts = {
+    on_attach = on_attach,
     capabilities = capabilities,
   }
   if server.name == 'sumneko_lua' then
     local sumneko = { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
     opts = vim.tbl_deep_extend('force', sumneko, opts)
   end
-    server:setup(opts)
+  server:setup(opts)
 end)
 
-for key, icon in pairs({
-  Error='',
-  Hint='',
-  Warn='',
-  Info='',
-}) do
+for key, icon in
+  pairs {
+    Error = '',
+    Hint = '',
+    Warn = '',
+    Info = '',
+  }
+do
   local hl = 'DiagnosticSign' .. key
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end

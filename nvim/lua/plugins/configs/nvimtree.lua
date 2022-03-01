@@ -12,45 +12,45 @@ g.nvim_tree_quit_on_open = 1 -- closes tree when file's opened
 g.nvim_tree_root_folder_modifier = table.concat { ':t:gs?$?/..', string.rep(' ', 1000), '?:gs?^??' }
 
 g.nvim_tree_icons = {
-   default = '',
-   symlink = '',
-   git = {
-      deleted = '',
-      ignored = '◌',
-      renamed = '➜',
-      staged = '✓',
-      unmerged = '',
-      unstaged = '✗',
-      untracked = '★',
-   },
-   folder = {
-      default = '',
-      empty = '',
-      empty_open = '',
-      open = '',
-      symlink = '',
-      symlink_open = '',
-   },
+  default = '',
+  symlink = '',
+  git = {
+    deleted = '',
+    ignored = '◌',
+    renamed = '➜',
+    staged = '✓',
+    unmerged = '',
+    unstaged = '✗',
+    untracked = '★',
+  },
+  folder = {
+    default = '',
+    empty = '',
+    empty_open = '',
+    open = '',
+    symlink = '',
+    symlink_open = '',
+  },
 }
 
 nvim_tree.setup {
-   open_on_setup = false,
-   disable_netrw = true,
-   hijack_netrw = true,
-   auto_close = true,
-   open_on_tab = false,
-   hijack_cursor = true,
-   update_cwd = true,
-   update_focused_file = {
-      enable = true,
-      update_cwd = false,
-   },
-   view = {
-      allow_resize = true,
-      width = 25,
-   },
-   git = {
-      enable = false,
-      ignore = true,
-   },
+  open_on_setup = false,
+  disable_netrw = true,
+  hijack_netrw = true,
+  auto_close = true,
+  open_on_tab = false,
+  hijack_cursor = true,
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = false,
+  },
+  view = {
+    allow_resize = true,
+    width = 25,
+  },
+  git = {
+    enable = false,
+    ignore = true,
+  },
 }
