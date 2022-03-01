@@ -118,7 +118,6 @@ local lsp = {
     f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format'},
 }
 
-
 utils.rep(mappings)
 key.register(mappings, { prefix = '<leader>' })
 key.register(lsp, { prefix = 'g' })
@@ -140,5 +139,4 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

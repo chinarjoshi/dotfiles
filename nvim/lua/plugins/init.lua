@@ -8,8 +8,8 @@ require('plugins.packer').startup(function()
   { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }, config = setup('nvimtree') },
   { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope', config = setup('telescope') },
   { 'ahmedkhalf/project.nvim', after = 'telescope.nvim', config = setup('project_nvim', true) },
-  { 'nvim-lua/plenary.nvim', module = 'plenary' },
   { 'folke/which-key.nvim', module = 'which-key', config = setup('which-key') },
+  { 'nvim-lua/plenary.nvim', module = 'plenary' },
   { 'lewis6991/impatient.nvim' },
   { 'nathom/filetype.nvim' },
 
@@ -48,10 +48,10 @@ require('plugins.packer').startup(function()
   { 'folke/todo-comments.nvim', module = 'todo-comments', config = setup('todo_comments', true) },
 
   --------------------------------- Windows and Splits,
-  { 'beauwilliams/focus.nvim', module = 'focus' },
   { 'luukvbaal/stabilize.nvim', event = 'BufRead', config = setup('windows') },
-  { 'sindrets/winshift.nvim', cmd = 'WinShift' },
   { 'https://gitlab.com/yorickpeterse/nvim-window.git', module = 'nvim-window' },
+  { 'beauwilliams/focus.nvim', module = 'focus' },
+  { 'sindrets/winshift.nvim', cmd = 'WinShift' },
 
   --------------------------------- Aesthetic,
   { 'NvChad/nvim-base16.lua', after = 'packer.nvim', config = setup('colors') },
@@ -60,14 +60,14 @@ require('plugins.packer').startup(function()
   { 'NvChad/nvim-colorizer.lua', event = 'BufRead' },
 
   --------------------------------- Etc.
-  { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim', config = setup('orgmode', true) },
+  { 'windwp/nvim-autopairs', after = 'nvim-cmp', config = setup('nvim_autopairs', true) },
+  { 'akinsho/toggleterm.nvim', cmd = 'ToggleTerm', config = setup('toggleterm', true) },
   { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', config = setup('indent-blankline') },
+  { 'nvim-orgmode/orgmode', ft = 'org', require = 'akinsho/org-bullets.nvim', config = setup('orgmode', true) },
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   { 'ellisonleao/glow.nvim', cmd = 'Glow' },
   { 'mizlan/iswap.nvim', cmd = { 'ISwap', 'ISwapWith' } },
-  { 'akinsho/toggleterm.nvim', cmd = 'ToggleTerm', config = setup('toggleterm', true) },
   { 'andymass/vim-matchup', opt = true, },
-  { 'windwp/nvim-autopairs', after = 'nvim-cmp', config = setup('nvim_autopairs', true) },
 }) do
     use(plugin)
   end
