@@ -6,4 +6,3 @@ INSTALL_DISK=/dev/sda
 SWAP_SIZE=10G
 CPU_TYPE=amd
 FDISK_CMD='g\nn\n1\n\n+300MiB\nn\n2\n\n\nt\n1\n1\nt\n2\n20\nw\n'
-

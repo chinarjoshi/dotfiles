@@ -63,6 +63,11 @@ cronie
 bluez
 bluez-utils
 blueman
+
+ruby
+composer
+php
+julia
 '
 
 LAPTOP_PKG='
