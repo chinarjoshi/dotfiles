@@ -36,7 +36,4 @@ packer.init {
    compile_on_sync = true,
 }
 
-require('core.utils').loadall()
-
-
 return packer

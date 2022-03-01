@@ -1,10 +1,6 @@
 local M = {}
 
-M['nvim-autopairs'] = function()
-    require('nvim-autopairs').setup { fast_wrap = {} }
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
-end
+M.nvim_autopairs = require('nvim-autopairs').setup { fast_wrap = {} }
 M.lsp_signature = require('lsp_signature').setup {
   bind = true,
   --doc_lines = 1,
@@ -39,7 +35,7 @@ M.trouble = require('trouble').setup {
   height = 20,
   width = 50
 }
-M['todo-comments'] = require('todo-comments').setup {
+M.todo_comments = require('todo-comments').setup {
   highlight = {
     keyword = 'wide'
   }
@@ -48,9 +44,6 @@ M.toggleterm = require('toggleterm').setup { size = 15 }
 M.neogit = require('neogit').setup()
 M.project_nvim = require('project_nvim').setup()
 M.sniprun = require('sniprun').setup()
-M.luasnip = function()
-    require('luasnip.loaders.from_vscode').load()
-    require('luasnip').config.set_config({ history = true, updateevents = 'TextChanged,TextChangedI' })
-end
+M.luasnip = require('luasnip').config.set_config({ history = true, updateevents = 'TextChanged,TextChangedI' })
 
 return M

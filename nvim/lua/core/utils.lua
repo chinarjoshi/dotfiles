@@ -25,10 +25,11 @@ M.loadall = function()
 end
 
 M.setup = function(name, dependent)
-    if not dependent then
-        return require('plugins.configs.' .. name)
-    else
+    dependent = dependent or false
+    if dependent then
         return require('plugins.configs._').name
+    else
+        return require('plugins.configs.' .. name)
     end
 end
 
