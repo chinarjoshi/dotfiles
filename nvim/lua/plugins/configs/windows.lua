@@ -1,6 +1,7 @@
 local args = {
   focus = {
-    excluded_filetypes = { 'toggleterm', 'NvimTree', 'Trouble' },
+    signcolumn = false,
+    excluded_filetypes = { 'NvimTree', 'Trouble' },
     excluded_buftypes = { 'NvimTree', 'prompt' },
   },
   ['nvim-window'] = {
