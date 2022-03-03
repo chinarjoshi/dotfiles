@@ -1,6 +1,6 @@
 local setup = require('core.utils').setup
 
-require('plugins.packer').startup(function()
+require('plugins.packer').startup(function(use)
   for _, plugin in
     ipairs {
       -------------------------------- Base
