@@ -45,7 +45,6 @@ require('plugins.packer').startup(function()
       { 'tpope/vim-surround', event = 'BufRead' },
       { 'tpope/vim-commentary', event = 'BufRead' },
       { 'tpope/vim-repeat', event = 'BufRead' },
-      { 'wellle/targets.vim', event = 'BufRead' },
       { 'folke/todo-comments.nvim', module = 'todo-comments', config = setup('todo_comments', true) },
 
       --------------------------------- Windows and Splits,
