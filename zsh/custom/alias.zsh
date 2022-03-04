@@ -6,6 +6,7 @@ declare -A git=(
     'b'    'branch'
     'c'    'commit -m'
     'd'    'diff'
+    'f'    'fetch'
     'l'    'log --graph --oneline --decorate'
     'm'    'merge'
     'r'    'reset'
@@ -72,6 +73,7 @@ declare -A etc=(
     'wn'       'systemctl reboot --boot-loader-entry=windows.conf'
     'dup'      "$HOME/.emacs.d/bin/doom upgrade"
     'lll'      'ls --color=auto -Al'
+    'red'      'redshift -P -O 4000'
     'rem'      'killall emacs && emacs --daemon'
     'syn'      'aiksaurus'
     'top'      'htop'
