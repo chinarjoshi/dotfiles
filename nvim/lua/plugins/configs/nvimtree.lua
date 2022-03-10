@@ -47,7 +47,7 @@ nvim_tree.setup {
   },
   view = {
     allow_resize = true,
-    width = 25,
+    width = 30,
   },
   git = {
     enable = false,
