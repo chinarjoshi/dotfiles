@@ -203,38 +203,6 @@ local diagnostic = {
   },
 }
 
-local lsp_progress = {
-  provider = function()
-    local Lsp = vim.lsp.util.get_progress_messages()[1]
-    if Lsp then
-      local msg = Lsp.message or ''
-      local percentage = Lsp.percentage or 0
-      local title = Lsp.title or ''
-      local spinners = {
-        '',
-        '',
-        '',
-      }
-      local success_icon = {
-        '',
-        '',
-        '',
-      }
-      local ms = vim.loop.hrtime() / 1000000
-      local frame = math.floor(ms / 120) % #spinners
-      if percentage >= 70 then
-        return string.format(' %%<%s %s %s (%s%%%%) ', success_icon[frame + 1], title, msg, percentage)
-      end
-      return string.format(' %%<%s %s %s (%s%%%%) ', spinners[frame + 1], title, msg, percentage)
-    end
-    return ''
-  end,
-  enabled = shortline or function(winid)
-    return api.nvim_win_get_width(tonumber(winid) or 0) > 80
-  end,
-  hl = { fg = colors.green },
-}
-
 local lsp_icon = {
   provider = function()
     if next(vim.lsp.buf_get_clients()) ~= nil then
@@ -511,7 +479,6 @@ local components = {
       diagnostic.info,
     },
     {
-      lsp_progress,
       tabpages,
     },
     {
@@ -539,7 +506,6 @@ local components = {
       diagnostic.info,
     },
     {
-      lsp_progress,
       tabpages,
     },
     {
