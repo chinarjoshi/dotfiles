@@ -54,7 +54,7 @@ require('plugins.packer').startup(function(use)
       { 'sindrets/winshift.nvim', cmd = 'WinShift' },
 
       --------------------------------- Aesthetic,
-      { 'NvChad/nvim-base16.lua', after = 'packer.nvim' },
+      { 'NvChad/nvim-base16.lua' },
       { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons' },
       { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua' },
       { 'NvChad/nvim-colorizer.lua', event = 'BufRead' },

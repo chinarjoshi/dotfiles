@@ -1,7 +1,5 @@
-local M = {}
-
-M.nvim_autopairs = require('nvim-autopairs').setup { fast_wrap = {} }
-M.lsp_signature = require('lsp_signature').setup {
+require('nvim-autopairs').setup { fast_wrap = {} }
+require('lsp_signature').setup {
   floating_window = false,
   fix_pos = true,
   hint_enable = true,
@@ -9,7 +7,7 @@ M.lsp_signature = require('lsp_signature').setup {
   hint_scheme = 'String',
   hi_parameter = 'Search',
 }
-M.gitsigns = require('gitsigns').setup {
+require('gitsigns').setup {
   signs = {
     add = { hl = 'DiffAdd', text = '│', numhl = 'GitSignsAddNr' },
     change = { hl = 'DiffChange', text = '│', numhl = 'GitSignsChangeNr' },
@@ -18,23 +16,23 @@ M.gitsigns = require('gitsigns').setup {
     changedelete = { hl = 'DiffChangeDelete', text = '~', numhl = 'GitSignsChangeNr' },
   },
 }
-M.orgmode = require('orgmode').setup {
+require('orgmode').setup {
   org_agenda_files = { '~/my-orgs/**/*' },
   org_default_notes_file = '~/org/notes.org',
 }
-M.trouble = require('trouble').setup {
+require('trouble').setup {
   height = 20,
   width = 50,
 }
-M.todo_comments = require('todo-comments').setup {
+require('todo-comments').setup {
   highlight = {
     keyword = 'wide',
   },
 }
-M.toggleterm = require('toggleterm').setup { size = 15 }
-M.neogit = require('neogit').setup()
-M.project_nvim = require('project_nvim').setup()
-M.sniprun = require('sniprun').setup()
-M.luasnip = require('luasnip').config.set_config { history = true, updateevents = 'TextChanged,TextChangedI' }
+require('toggleterm').setup { size = 15 }
+require('neogit').setup()
+require('project_nvim').setup()
+require('sniprun').setup()
+require('luasnip').config.set_config { history = true, updateevents = 'TextChanged,TextChangedI' }
 
 return M
