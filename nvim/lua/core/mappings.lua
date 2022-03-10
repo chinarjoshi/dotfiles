@@ -41,8 +41,12 @@ local mappings = {
     t = { 'TodoTelescope theme=ivy preview=10', 'TODOs' },
     v = { 'Vista', 'Vista' },
   },
-  -- Open terminal
-  t = { 'ToggleTerm', 'Terminal' },
+  -- Tabs
+  t = { name = 'tab',
+    n = { 'tabnew', 'New' },
+    c = { 'tabclose', 'Close' },
+    m = { 'tabmove', 'Move' },
+  },
   r = { 'SnipRun', 'Run snippet' },
   -- Plugin manager
   p = {
@@ -63,14 +67,6 @@ local mappings = {
     s = { 'Telescope git_status preview=10', 'Status' },
     t = { 'Telescope git_stash preview=10', 'Stash' },
     f = { 'Telescope git_bcommits preview=10', 'Commits in current file' },
-  },
-  -- Buffers
-  b = {
-    name = 'buffer',
-    b = { 'Telescope buffers theme=ivy layout_config={height=15}', 'Pick buffer' },
-    d = { 'bd', 'Delete' },
-    [']'] = { 'bn', 'Next' },
-    ['['] = { 'bp', 'Previous' },
   },
   -- Windows
   w = {
