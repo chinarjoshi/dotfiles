@@ -8,7 +8,6 @@ which_key.setup {
   window = {
     margin = { 0, 0, 0, 0 },
     padding = { 0, 0, 0, 0 },
-
     winblend = 0,
     border = 'single',
   },
