@@ -4,14 +4,14 @@ require('plugins.packer').startup(function(use)
   for _, plugin in
     ipairs {
       -------------------------------- Base
-      { 'wbthomason/packer.nvim', event = 'VimEnter' },
+      { 'wbthomason/packer.nvim', cmd = { 'PackerSync', 'PackerStatus' } },
       { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
       { 'kyazdani42/nvim-tree.lua', cmd = { 'NvimTreeToggle', 'NvimTreeFocus' } },
       { 'nvim-telescope/telescope.nvim', module = 'telescope', cmd = 'Telescope' },
-      { 'ahmedkhalf/project.nvim', after = 'telescope.nvim' },
+      { 'ahmedkhalf/project.nvim', cmd = 'Telescope projects' },
       { 'folke/which-key.nvim', module = 'which-key' },
-      { 'nvim-lua/plenary.nvim', module = 'plenary' },
       { 'lewis6991/impatient.nvim' },
+      { 'nvim-lua/plenary.nvim' },
       { 'nathom/filetype.nvim' },
 
       -------------------------------- LSP,
@@ -55,8 +55,8 @@ require('plugins.packer').startup(function(use)
 
       --------------------------------- Aesthetic,
       { 'NvChad/nvim-base16.lua' },
-      { 'feline-nvim/feline.nvim', after = 'nvim-web-devicons' },
-      { 'kyazdani42/nvim-web-devicons', after = 'nvim-base16.lua' },
+      { 'feline-nvim/feline.nvim' },
+      { 'kyazdani42/nvim-web-devicons' },
       { 'NvChad/nvim-colorizer.lua', event = 'BufRead' },
 
       --------------------------------- Etc.
