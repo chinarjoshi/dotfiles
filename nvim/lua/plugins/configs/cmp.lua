@@ -14,19 +14,10 @@ cmp.setup {
     end,
   },
   formatting = {
-    fields = { 'kind', 'abbr', 'menu' },
+    fields = { 'kind', 'abbr' },
     format = function(entry, vim_item)
       local icons = require 'plugins.configs.lspkind_icons'
       vim_item.kind = string.format('%s', icons[vim_item.kind])
-
-      vim_item.menu = ({
-        nvim_lsp = '[LSP]',
-        luasnip = '[Snip]',
-        path = '[Path]',
-        nvim_lua = '[Lua]',
-        buffer = '[Buf]',
-      })[entry.source.name]
-
       return vim_item
     end,
   },
@@ -61,8 +52,8 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = 'nvim_lsp', max_item_count = 15 },
     { name = 'luasnip' },
+    { name = 'nvim_lsp', max_item_count = 15 },
     { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'buffer' },

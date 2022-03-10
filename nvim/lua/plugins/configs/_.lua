@@ -34,5 +34,3 @@ require('neogit').setup()
 require('project_nvim').setup()
 require('sniprun').setup()
 require('luasnip').config.set_config { history = true, updateevents = 'TextChanged,TextChangedI' }
-
-return M
