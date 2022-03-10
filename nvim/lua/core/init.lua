@@ -1,4 +1,5 @@
-for _, plugin in ipairs({
+for _, plugin in
+  ipairs {
     'packer',
     'nvim-tree',
     'telescope',
@@ -32,6 +33,7 @@ for _, plugin in ipairs({
     'orgmode',
     'glow',
     'iswap',
-}) do
-    require(plugin)
+  }
+do
+  require(plugin)
 end
