@@ -50,6 +50,7 @@ require('plugins.packer').startup(function(use)
       { 'https://gitlab.com/yorickpeterse/nvim-window.git', module = 'nvim-window' },
       { 'beauwilliams/focus.nvim', module = 'focus' },
       { 'sindrets/winshift.nvim', cmd = 'WinShift' },
+      { 'alvarosevilla95/luatab.nvim' },
 
       --------------------------------- Aesthetic,
       { 'NvChad/nvim-base16.lua' },
