@@ -13,7 +13,7 @@ strength="$((${strength:23 :-27} * 100 / 70 / 10 * 10))"
 network="${ssid:30 :-3} (${strength}%)  "
 
 # Volume
-volume="$(pamixer Master --get-volume-human) 墳"
+volume="$(pamixer Master --get-volume-human) 墳 "
 
 # Battery if laptop
 if [ $(cat /etc/hostname) != "Desktop" ]; then
