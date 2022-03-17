@@ -127,12 +127,9 @@ bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 for_window [class="ksnip"] floating enable
 for_window [class="discord"] floating disable
 
-# Gaps
+# Border
 default_border pixel 1
 hide_edge_borders smart
-smart_gaps on
-gaps inner 10
-gaps outer 0
 
 # Resizing (3px)
 mode "resize" {
@@ -146,7 +143,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    swaybar_command waybar
+    position bottom
+    font Noto Sans Mono Nerd Font 9
+    status_command while $DOTFILES/sway/bar.sh; do sleep 1; done
+    colors {
+        background #0c0c0c
+        focused_workspace #111111 #212223 #dddddd
+        inactive_workspace #111111 #121314 #dddddd
+    }
 }
 
 # etc
