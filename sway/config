@@ -144,8 +144,8 @@ bindsym $mod+r mode "resize"
 
 bar {
     position bottom
-    font Noto Sans Mono Nerd Font 9
-    status_command while $DOTFILES/sway/bar.sh; do sleep 1; done
+    font Noto Sans Mono Nerd Font 10
+    status_command while $DOTFILES/sway/bar.sh; do sleep .1; done
     colors {
         background #0c0c0c
         focused_workspace #111111 #212223 #dddddd
