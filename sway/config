@@ -23,7 +23,7 @@ input type:touchpad {
     scroll_factor .5
 }
 
-output * bg #000000 solid_color
+output * bg #0c0c0c solid_color
 output eDP-1 scale 1.6
 
 # Lock screen: 5 mins, Sleep: 10 mins
@@ -122,10 +122,11 @@ bindsym $mod+Shift+b exec blender
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 # Tilings (fibbonaci tiling)
-#for_window [app_id=".*"] split toggle
-#for_window [class=".*"] split toggle
-for_window [class="ksnip"] floating enable
-for_window [class="discord"] floating disable
+for_window [app_id=".*"] split toggle
+for_window [class=".*"] split toggle
+
+client.focused #404060 #404060 #000000 #666699
+client.focused_inactive #333333 #222222 #000000
 
 # Border
 default_border pixel 1
@@ -143,13 +144,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    position bottom
-    font Noto Sans Mono Nerd Font 10
+    position top
+    font Noto Sans Mono Nerd Font 9
     status_command while $DOTFILES/sway/bar.sh; do sleep .1; done
+    height 24
     colors {
         background #0c0c0c
-        focused_workspace #111111 #212223 #dddddd
-        inactive_workspace #111111 #121314 #dddddd
+        statusline #b3b3b3
+        focused_workspace #111111 #212223 #b3b3b3
+        inactive_workspace #111111 #121314 #b3b3b3
     }
 }
 
