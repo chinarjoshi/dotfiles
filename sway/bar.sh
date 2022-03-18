@@ -16,8 +16,12 @@ weather=$(cat $DOTFILES/sway/weather.txt)
 # Network
 ssid=$(iwconfig wlan0 | rg ESSID)
 strength=$(sudo iwconfig wlan0 | rg Quality)
-strength="$((${strength:23 :-27} * 100 / 70 / 10 * 10))"
-network="${ssid:30 :-3} (${strength}%)  "
+if [[ ! -z $strength ]]; then
+    strength="$((${strength:23 :-27} * 100 / 70 / 10 * 10))"
+    network="${ssid:30 :-3} (${strength}%)  "
+else
+    network="Disconnected (0%) 睊"
+fi
 
 # Volume
 volume="$(pamixer Master --get-volume-human) 墳"
