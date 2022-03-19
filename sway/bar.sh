@@ -5,10 +5,10 @@ artist=$(playerctl metadata artist 2>/dev/null)
 title=$(playerctl metadata title 2>/dev/null)
 album=$(playerctl metadata album 2>/dev/null)
 if [[ ! -z $album ]]; then
-    album=" - $album"
+    album="- $album "
 fi
 
-music="$title$album ($artist) ▏"
+music="$title ﱘ $album ($artist ﴁ)  ▏"
 
 # Weather
 weather=$(cat $DOTFILES/sway/weather.txt)
