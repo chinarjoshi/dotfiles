@@ -11,7 +11,7 @@ fi
 music="$title ﱘ $album ($artist ﴁ)  ▏"
 
 # Weather
-weather=$(cat $DOTFILES/sway/weather.txt)
+weather=$(cat $DOTFILES/sway/weather.txt | xargs)
 
 # Network
 ssid=$(iwconfig wlan0 | rg ESSID)
