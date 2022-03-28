@@ -16,7 +16,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 1px;
+    padding: 0 2px;
     background-color: #121314;
     color: #b3b3b3;
 }
@@ -29,6 +29,11 @@ window#waybar {
     background: #a32131;
     padding: 0 4px;
 }
+
+#clock, #battery, #backlight, #network, #tray, #mode {
+    padding: 0 10px;
+}
+
 
 #battery.charging {
     color: white;
