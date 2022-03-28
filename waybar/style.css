@@ -1,24 +1,33 @@
 * {
-    border: none;
-    border-radius: 0;
+    border-radius: 1px;
     font-family: "Noto Sans Mono Nerd Font";
     font-size: 12px;
     min-height: 0;
+}
+
+window#waybar {
     background: #0c0c14;
     color: #b3b3b3;
-    padding: 0px 2px;
+}
+
+#workspaces {
+    margin-left: 0;
+    padding-left: 0;
 }
 
 #workspaces button {
-    background: #121314;
+    padding: 0 1px;
+    background-color: #121314;
+    color: #b3b3b3;
 }
 
 #workspaces button.focused {
-    background: #212223;
+    background-color: #212223;
 }
 
 #mode {
-    background: #ff4151;
+    background: #a32131;
+    padding: 0 4px;
 }
 
 #battery.charging {
