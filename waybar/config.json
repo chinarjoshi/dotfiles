@@ -16,7 +16,8 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format": "{:%a, %b %d, %I:%M %p}",
+        "format-alt": "{:%a, %d. %b  %H:%M}",
     },
 
     "network": {
