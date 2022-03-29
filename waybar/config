@@ -5,12 +5,12 @@
     "spacing": 4,
 
     "modules-left": ["sway/workspaces", "custom/weather", "custom/github", "custom/vpn", "sway/mode"],
-    "modules-center": ["mpd"],
-    "modules-right": ["network", "pulseaudio", "battery", "clock", "tray"],
-
+    "modules-center": ["custom/media"],
+    "modules-right": ["network", "custom/volume", "battery", "clock", "tray"],
     "sway/window": {
         "max-length": 50
     },
+
     "battery": {
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -35,12 +35,19 @@
         "format": "{} ",
         "return-type": "json",
         "interval": 60,
-        "exec": "$HOME/.config/waybar/github.sh",
-        "on-click": "xdg-open https://github.com/notifications"
+        "exec": "~/dotfiles/waybar/modules/github.sh",
+        "on-click": "firefox https://github.com/notifications"
     },
     "custom/weather": {
         "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
-        "interval": 3600
+        "interval": 3600,
     },
-
+    "custom/volume": {
+        "exec": "echo $(pamixer Master --get-volume-human)",
+        "interval": 1,
+    },
+    "custom/media": {
+        "exec": "~/dotfiles/waybar/modules/media.sh",
+        "interval": 1,
+    }
 }
