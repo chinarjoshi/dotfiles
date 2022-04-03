@@ -25,6 +25,7 @@ input type:touchpad {
 
 output * bg #0c0c14 solid_color
 output eDP-1 scale 1.6
+output HDMI-A-1 transform 270
 
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
