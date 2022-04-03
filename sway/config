@@ -149,7 +149,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
     font Noto Sans Mono Nerd Font 9
-    status_command while $DOTFILES/sway/bar.sh; do sleep .1; done
+    status_command waybar
     height 24
     colors {
         background #0c0c14
