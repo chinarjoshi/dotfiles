@@ -15,9 +15,15 @@ broadcom-wl
 iwd
 reflector
 
-xf86-video-nouveau
+nvidia
 sway
 swaylock
+libxcb
+mesa
+libglvnd
+egl-wayland
+libdrm
+mako
 waybar
 xorg-xwayland
 noto-fonts
@@ -35,8 +41,8 @@ alacritty
 bat
 fzf
 fd
+lf
 ripgrep
-ranger
 tree
 tldr
 bat
@@ -76,6 +82,8 @@ light
 ydotool'
 
 AUR_PKG='
+sway-git
+wlroots-eglstreams-git
 interception-caps2esc
 nerd-fonts-noto
 teams-for-linux

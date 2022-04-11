@@ -1,13 +1,13 @@
 * {
     border-radius: 1px;
-    font-family: "Noto Sans Mono Nerd Font";
-    font-size: 12px;
+    font-family: "Noto Sans Nerd Font";
+    font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
     background: #0c0c14;
-    color: #b3b3b3;
+    color: #a9a9a9;
 }
 
 #workspaces {
@@ -26,8 +26,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
+    background: #dddddd
 }
 
 #mode {
@@ -38,7 +37,6 @@ window#waybar {
 #clock, #battery, #backlight, #network, #tray, #mode {
     padding: 0 10px;
 }
-
 
 #battery.charging {
     color: white;

@@ -4,9 +4,9 @@
     "height": 24,
     "spacing": 4,
 
-    "modules-left": ["sway/workspaces", "custom/weather", "custom/github", "custom/vpn", "sway/mode"],
+    "modules-left": ["sway/workspaces", "custom/github", "custom/vpn", "sway/mode"],
     "modules-center": ["custom/media"],
-    "modules-right": ["network", "custom/volume", "battery", "custom/clock", "tray"],
+    "modules-right": ["custom/weather", "network", "custom/volume", "battery", "custom/clock", "tray"],
     "sway/window": {
         "max-length": 50
     },
@@ -16,18 +16,20 @@
         "format-icons": ["", "", "", "", ""]
     },
     "custom/clock": {
-        "exec": "date +'%a, %b %d, %I:%M %p'"
+        "format": "  {}",
+        "exec": "date +'%a, %b %d, %I:%M %p'",
+        "interval": 60
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-disconnected": "睊 Disconnected"
     },
     "custom/vpn": {
         "format": "VPN ",
         "exec": "echo '{\"class\": \"connected\"}'",
         "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
         "return-type": "json",
-        "interval": 5
+        "interval": 10
     },
     "custom/github": {
         "format": "{} ",
@@ -38,15 +40,16 @@
     },
     "custom/weather": {
         "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
-        "interval": 3600,
+        "interval": 900
     },
     "custom/volume": {
-        "format": "{} 墳",
+        "format": "墳 {}   ",
         "exec": "echo $(pamixer Master --get-volume-human)",
         "interval": 1,
+        "on-click": "amixer set Master toggle"
     },
     "custom/media": {
         "exec": "[[ $(playerctl -l 2>/dev/null) == 'spotify' ]] && echo \"$(playerctl metadata title) ﱘ | $(playerctl metadata album)  | $(playerctl metadata artist) ﴁ\"",
-        "interval": 1,
+        "interval": 1
     }
 }

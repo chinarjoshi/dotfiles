@@ -32,6 +32,7 @@ make_filesystems() {
 }
 
 install_packages() {
+    sed -i '93,94s/#//' /mnt/etc/pacman.conf # Include multilib repo
     echo $MAIN_PKG | xargs pacstrap /mnt
     genfstab -U /mnt >> /mnt/etc/fstab
     cp /root/**/$0 /mnt/$0
