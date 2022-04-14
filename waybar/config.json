@@ -12,7 +12,7 @@
     },
 
     "battery": {
-        "format": "{capacity}% {icon}  ▏",
+        "format": "{capacity}% {icon}  ",
         "format-icons": ["", "", "", "", ""]
     },
     "custom/clock": {
@@ -43,7 +43,7 @@
         "interval": 900
     },
     "custom/volume": {
-        "format": "墳 {}   ",
+        "format": "墳 {}",
         "exec": "echo $(pamixer Master --get-volume-human)",
         "interval": 1,
         "on-click": "amixer set Master toggle"
