@@ -22,7 +22,6 @@
     "max-length": 50
   },
 
-<<<<<<< HEAD
   "custom/s": {
     "format": "|"
   },
@@ -119,89 +118,4 @@
       "⏽⏽⏽⏽⏽⏽⏽⏽⏽⏽"
     ]
   }
-||||||| 0a4e747
-    "battery": {
-        "format": "{capacity}% {icon}  ▏",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "custom/clock": {
-        "format": "  {}",
-        "exec": "date +'%a, %b %d, %I:%M %p'",
-        "interval": 60
-    },
-    "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-disconnected": "睊 Disconnected"
-    },
-    "custom/vpn": {
-        "format": "VPN ",
-        "exec": "echo '{\"class\": \"connected\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
-        "return-type": "json",
-        "interval": 10
-    },
-    "custom/github": {
-        "format": "{} ",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "~/dotfiles/waybar/modules/github.sh",
-        "on-click": "firefox https://github.com/notifications"
-    },
-    "custom/weather": {
-        "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
-        "interval": 900
-    },
-    "custom/volume": {
-        "format": "墳 {}   ",
-        "exec": "echo $(pamixer Master --get-volume-human)",
-        "interval": 1,
-        "on-click": "amixer set Master toggle"
-    },
-    "custom/media": {
-        "exec": "[[ $(playerctl -l 2>/dev/null) == 'spotify' ]] && echo \"$(playerctl metadata title) ﱘ | $(playerctl metadata album)  | $(playerctl metadata artist) ﴁ\"",
-        "interval": 1
-    }
-=======
-    "battery": {
-        "format": "{capacity}% {icon}  ",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "custom/clock": {
-        "format": "  {}",
-        "exec": "date +'%a, %b %d, %I:%M %p'",
-        "interval": 60
-    },
-    "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-disconnected": "睊 Disconnected"
-    },
-    "custom/vpn": {
-        "format": "VPN ",
-        "exec": "echo '{\"class\": \"connected\"}'",
-        "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
-        "return-type": "json",
-        "interval": 10
-    },
-    "custom/github": {
-        "format": "{} ",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "~/dotfiles/waybar/modules/github.sh",
-        "on-click": "firefox https://github.com/notifications"
-    },
-    "custom/weather": {
-        "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
-        "interval": 900
-    },
-    "custom/volume": {
-        "format": "墳 {}",
-        "exec": "echo $(pamixer Master --get-volume-human)",
-        "interval": 1,
-        "on-click": "amixer set Master toggle"
-    },
-    "custom/media": {
-        "exec": "[[ $(playerctl -l 2>/dev/null) == 'spotify' ]] && echo \"$(playerctl metadata title) ﱘ | $(playerctl metadata album)  | $(playerctl metadata artist) ﴁ\"",
-        "interval": 1
-    }
->>>>>>> 774287bd06304fc82b180ac12fd3801bcb80453f
 }
