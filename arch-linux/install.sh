@@ -1,7 +1,7 @@
 set -e
 
-source pkg.sh
-source var.sh
+. pkg.sh
+. var.sh
 
 wifi() {
     # Disable all network modules and reenable broadcom-wl
@@ -32,7 +32,7 @@ make_filesystems() {
 }
 
 install_packages() {
-    sed -i '93,94s/#//' /mnt/etc/pacman.conf # Include multilib repo
+    sed -i '93,94s/#//' /mnt/etc/pacman.conf # Uncomment multilib repo
     echo $MAIN_PKG | xargs pacstrap /mnt
     genfstab -U /mnt >> /mnt/etc/fstab
     cp /root/**/$0 /mnt/$0
@@ -63,20 +63,16 @@ EOF
     echo 'root:fdsa' | chpasswd
 }
 
-users_systemd() {
+users_systemd_yay() {
     useradd -m c
     echo 'c ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
-    systemctl enable systemd-networkd systemd-resolved systemd-timesyncd bluetooth iwd
-    systemctl set-environment XDG_CURRENT_DESKTOP=sway
-}
-
-yay_install() {
-    su c -c "git clone https://aur.archlinux.org/yay /home/c/yay \
-	       && cd /home/c/yay && makepkg -si --noconfirm && echo $AUR_PKG | xargs yay -S --noconfirm"
-    if $IS_LAPTOP; then
-        su c -c "echo $LAPTOP_PKG | xargs yay -S --noconfirm"
-    fi
+    git clone https://aur.archlinux.org/yay /home/c/yay
+    /home/c/yay
+    su c -c "makepkg -si --noconfirm && echo $AUR_PKG | xargs yay -S --noconfirm"
     su c -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+
+    systemctl enable --now NetworkManager systemd-timesyncd bluetooth
+    systemctl set-environment XDG_CURRENT_DESKTOP=sway
 }
 
 boot() {
@@ -122,9 +118,6 @@ symlinks() {
 }
 
 alsa_config() {
-    #amixer sset Master unmute
-    #amixer sset Speaker unmute
-    #amixer sset Headphone unmute
     mkdir -p /home/c/.config/pulse/
     cat <<- EOF > /home/c/.config/pulse/daemon.conf
 	default-sample-format = float32le
@@ -167,8 +160,7 @@ EOF
 case $1 in
     -chroot)
       time_lang
-      users_systemd
-      yay_install
+      users_systemd_yay
       boot
       symlinks
       alsa_config

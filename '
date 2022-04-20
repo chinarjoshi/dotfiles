@@ -37,10 +37,10 @@
     "format": " {usage}%"
   },
   "clock": {
-    "format": " {:%a, %b %d, %I:%M %p}"
+    "format": " {:%a, %b %d, %I:%M %p}"
   },
   "disk": {
-    "format": " {percentage_free}%"
+    "format": " {free} GB/{used} GB"
   },
   "network": {
     "format-wifi": " {essid}",
@@ -54,7 +54,7 @@
     "on-click": "firefox https://github.com/notifications"
   },
   "custom/weather": {
-    "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
+    "exec": "curl 'https://wttr.in/Alpharetta?format=3'",
     "interval": 900
   },
   "battery": {
