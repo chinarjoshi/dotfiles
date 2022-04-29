@@ -5,46 +5,60 @@
   "spacing": 12,
 
   "modules-left": ["sway/workspaces", "tray", "sway/mode"],
-  "modules-center": ["mpd", "clock", "custom/weather"],
+  "modules-center": [],
   "modules-right": [
+    "custom/weather",
     "network",
-    "cpu",
+    "custom/s",
+    "memory",
     "disk",
+    "cpu",
     "custom/s",
     "pulseaudio",
     "battery",
     "backlight",
-    "memory",
     "custom/s",
-    "custom/power"
+    "clock",
   ],
+
   "sway/window": {
     "max-length": 50
   },
-
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
   "custom/s": {
     "format": "|"
   },
-  "custom/power": {
-    "format": " ",
-    "on-double-click": ""
-  },
-  "mpd": {
-    "format-stopped": "",
-    "format-disconnected": ""
-  },
   "cpu": {
-    "format": " {usage}%"
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "states": {
+      "warning": 70,
+      "critical": 90,
+    },
+  },
+  "memory": {
+    "format": " {avail:0.1f} GB",
+    "states": {
+      "warning": 80,
+      "critical": 90,
+    },
   },
   "clock": {
     "format": " {:%a, %b %d, %I:%M %p}"
   },
   "disk": {
-    "format": " {percentage_free}%"
+    "format": " {percentage_free}%",
+    "states": {
+      "warning": 90,
+      "critical": 95,
+    },
   },
   "network": {
     "format-wifi": " {essid}",
-    "format-disconnected": "睊 Disconnected"
+    "format-disconnected": "睊Disconnected"
   },
   "custom/github": {
     "format": "{} ",
@@ -58,64 +72,67 @@
     "interval": 900
   },
   "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
     "format": " {icon}",
     "format-icons": [
-      "⏽---------",
-      "⏽⏽--------",
-      "⏽⏽⏽-------",
-      "⏽⏽⏽⏽------",
-      "⏽⏽⏽⏽⏽-----",
-      "⏽⏽⏽⏽⏽⏽----",
-      "⏽⏽⏽⏽⏽⏽⏽---",
-      "⏽⏽⏽⏽⏽⏽⏽⏽--",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽-",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽⏽"
+      "|---------",
+      "||--------",
+      "|||-------",
+      "||||------",
+      "|||||-----",
+      "||||||----",
+      "|||||||---",
+      "||||||||--",
+      "|||||||||-",
+      "||||||||||"
     ]
   },
   "backlight": {
     "format": "{icon}",
     "format-icons": [
-      "⏽---------",
-      "⏽⏽--------",
-      "⏽⏽⏽-------",
-      "⏽⏽⏽⏽------",
-      "⏽⏽⏽⏽⏽-----",
-      "⏽⏽⏽⏽⏽⏽----",
-      "⏽⏽⏽⏽⏽⏽⏽---",
-      "⏽⏽⏽⏽⏽⏽⏽⏽--",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽-",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽⏽"
+      "|---------",
+      "||--------",
+      "|||-------",
+      "||||------",
+      "|||||-----",
+      "||||||----",
+      "|||||||---",
+      "||||||||--",
+      "|||||||||-",
+      "||||||||||"
     ]
   },
   "pulseaudio": {
+    "states": {
+      "warning": 40,
+      "critical": 50,
+    },
     "format-icons": [
       "----------",
-      "⏽---------",
-      "⏽⏽--------",
-      "⏽⏽⏽-------",
-      "⏽⏽⏽⏽------",
-      "⏽⏽⏽⏽⏽-----",
-      "⏽⏽⏽⏽⏽⏽----",
-      "⏽⏽⏽⏽⏽⏽⏽---",
-      "⏽⏽⏽⏽⏽⏽⏽⏽--",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽-"
+      "+---------",
+      "|---------",
+      "|+--------",
+      "||--------",
+      "||+-------",
+      "|||-------",
+      "|||+------",
+      "||||------",
+      "||||+-----",
+      "|||||-----",
+      "|||||+----",
+      "||||||----",
+      "||||||+---",
+      "|||||||---",
+      "|||||||+--",
+      "||||||||--",
+      "||||||||+-",
+      "|||||||||-",
+      "|||||||||+"
     ],
     "format": " {icon}",
     "format-muted": " ----------"
   },
-  "memory": {
-    "format": " {icon} {avail:0.1f} GB",
-    "format-icons": [
-      "⏽---------",
-      "⏽⏽--------",
-      "⏽⏽⏽-------",
-      "⏽⏽⏽⏽------",
-      "⏽⏽⏽⏽⏽-----",
-      "⏽⏽⏽⏽⏽⏽----",
-      "⏽⏽⏽⏽⏽⏽⏽---",
-      "⏽⏽⏽⏽⏽⏽⏽⏽--",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽-",
-      "⏽⏽⏽⏽⏽⏽⏽⏽⏽⏽"
-    ]
-  }
 }

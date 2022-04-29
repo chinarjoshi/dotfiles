@@ -6,7 +6,7 @@ base-devel
 '
 
 MAIN_PKG='
-amd-ucode
+intel-ucode
 gcc
 git
 git-delta
@@ -23,18 +23,13 @@ network-manager-applet
 reflector
 
 nvidia
-cuda
-sway-git
-wlroots-eglstreams-git
+opencl-nvidia
+sway
 libinput-gestures
 swaylock
 clipman
 qt6-base
-libxcb
 mesa
-libglvnd
-egl-wayland
-libdrm
 mako
 waybar
 xorg-xwayland
@@ -46,12 +41,8 @@ nerd-fonts-noto
 pipewire
 pipewire-alsa
 pipewire-pulse
-pipewire-docs
 alsa-utils
 playerctl
-bluez
-bluez-utils
-blueman
 
 alacritty
 bat
@@ -73,7 +64,7 @@ exfat-utils
 dosfstools
 usbutils
 light
-redshift-wayland-git
+wlsunset
 cups
 cups-pdf
 npm
