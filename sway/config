@@ -30,7 +30,7 @@ output * bg #0c0c14 solid_color
 output $monitor1 scale 1.6
 output DP-1 pos 0 0
 output $monitor2 {
-    pos 2560 500
+    # pos 2560 500
     transform 270
 }
 

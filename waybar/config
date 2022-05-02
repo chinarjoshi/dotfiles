@@ -5,20 +5,19 @@
   "spacing": 12,
 
   "modules-left": ["sway/workspaces", "tray", "sway/mode"],
-  "modules-center": [],
+  "modules-center": ["custom/media"],
   "modules-right": [
     "custom/weather",
-    "network",
     "custom/s",
+    "battery",
     "memory",
     "disk",
     "cpu",
     "custom/s",
-    "pulseaudio",
-    "battery",
     "backlight",
+    "pulseaudio",
     "custom/s",
-    "clock",
+    "clock"
   ],
 
   "sway/window": {
@@ -26,25 +25,30 @@
   },
   "tray": {
     "icon-size": 20,
-    "spacing": 10,
+    "spacing": 10
   },
   "custom/s": {
     "format": "|"
+  },
+  "custom/media": {
+    "exec": "~/dotfiles/waybar/modules/media.sh",
+    "exec-if": "[[ $(playerctl status) == 'Playing' ]]",
+    "interval": 1
   },
   "cpu": {
     "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "states": {
       "warning": 70,
-      "critical": 90,
-    },
+      "critical": 90
+    }
   },
   "memory": {
     "format": " {avail:0.1f} GB",
     "states": {
       "warning": 80,
-      "critical": 90,
-    },
+      "critical": 90
+    }
   },
   "clock": {
     "format": " {:%a, %b %d, %I:%M %p}"
@@ -53,8 +57,8 @@
     "format": " {percentage_free}%",
     "states": {
       "warning": 90,
-      "critical": 95,
-    },
+      "critical": 95
+    }
   },
   "network": {
     "format-wifi": " {essid}",
@@ -68,13 +72,13 @@
     "on-click": "firefox https://github.com/notifications"
   },
   "custom/weather": {
-    "exec": "curl 'https://wttr.in/Alpharetta?format=1'",
+    "exec": "curl 'wttr.in/Alpharetta?format=%c+%t'",
     "interval": 900
   },
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": " {icon}",
     "format-icons": [
@@ -108,7 +112,7 @@
   "pulseaudio": {
     "states": {
       "warning": 40,
-      "critical": 50,
+      "critical": 50
     },
     "format-icons": [
       "----------",
@@ -134,5 +138,5 @@
     ],
     "format": " {icon}",
     "format-muted": " ----------"
-  },
+  }
 }
