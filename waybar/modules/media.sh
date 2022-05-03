@@ -1,11 +1,7 @@
 if [[ -z $(playerctl metadata album) ]]; then
-    text=$(playerctl metadata --format '  {{ artist }} - {{ title }}')
-    tooltip="Playing on youtube"
+    echo $(playerctl metadata --format '  {{ artist }} - {{ title }}')
+    echo 'Playing on youtube'
 else
-    text=$(playerctl metadata --format ' {{ artist }} - {{ title }} ({{ album }})')
-    tooltip="Playing music"
+    echo $(playerctl metadata --format ' {{ artist }} - {{ title }} ({{ album }})')
+    echo 'Playing music'
 fi
-
-echo $text
-echo $tooltip
-echo media

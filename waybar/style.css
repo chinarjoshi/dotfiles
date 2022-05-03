@@ -59,6 +59,10 @@ window#waybar {
   animation-direction: alternate;
 }
 
+#custom-media {
+  color: #9292a0;
+}
+
 #battery {
   color: #b48ead;
   background: #01060a;
@@ -75,8 +79,8 @@ window#waybar {
 }
 
 #cpu {
-  color: #bfb0b0;
-  background: #090505;
+  color: #b0b0b0;
+  background: #090909;
 }
 
 #backlight {
@@ -90,8 +94,7 @@ window#waybar {
 }
 
 #clock {
-  color: #a9a9a9;
-  background: #0d0c0c;
+  color: #9292a0;
   padding-right: 15px;
   font-style: oblique;
 }

@@ -6,16 +6,13 @@ base-devel
 '
 
 MAIN_PKG='
-intel-ucode
 gcc
 git
-git-delta
 zsh
-man-db
-curl
-wget
-cronie
-neovim
+grub
+efibootmgr
+intel-ucode
+acpi
 
 broadcom-wl
 networkmanager
@@ -25,45 +22,59 @@ reflector
 nvidia
 opencl-nvidia
 sway
+xorg-xwayland
+xf86-video-intel
 libinput-gestures
+interception-caps2esc
 swaylock
 clipman
 qt6-base
 mesa
 mako
 waybar
-xorg-xwayland
+
 noto-fonts
 ttf-dejavu
-interception-caps2esc
+gnu-free-fonts
 nerd-fonts-noto
 
 pipewire
 pipewire-alsa
 pipewire-pulse
+wireplumber
 alsa-utils
 playerctl
 
 alacritty
+neovim
 bat
 fzf
 fd
 lf
+jq
 ripgrep
 tree
 tldr
+curl
+wget
+cronie
+man-db
+git-delta
 
 grim
 slurp
 wf-recorder
 xdg-desktop-portal
 xdg-desktop-portal-wlr
+autotiling-rs-git
 
+tlp
 ntfs-3g
 exfat-utils
 dosfstools
 usbutils
 light
+acpilight
 wlsunset
 cups
 cups-pdf
@@ -72,7 +83,7 @@ ctags
 
 firefox
 google-chrome
-discord_arch_electron
+discord
 spotify
 ydotool
 

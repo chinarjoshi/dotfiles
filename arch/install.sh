@@ -19,12 +19,13 @@ EOF
 }
 
 make_filesystems() {
-    echo $FDISK_CMD | fdisk $INSTALL_DISK
-    mkfs.fat -F 32 ${INSTALL_DISK}1
-    mkfs.ext4 ${INSTALL_DISK}2
-    mount ${INSTALL_DISK}2 /mnt
-    mkdir /mnt/boot
-    mount ${INSTALL_DISK}1 /mnt/boot
+    fdisk /dev/sda <<< $FDISK_CMD
+    mkfs.fat -F 32 /dev/sda1
+    mkfs.ext4 /dev/sda2 /dev/sda3
+    mount /dev/sda3 /mnt
+    mkdir /mnt/boot /mnt/home
+    mount /dev/sda1 /mnt/boot
+    mount /dev/sda2 /mnt/home
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
     chmod 600 /mnt/swapfile
@@ -32,7 +33,6 @@ make_filesystems() {
 }
 
 install_packages() {
-    sed -i '93,94s/#//' /mnt/etc/pacman.conf # Uncomment multilib repo
     echo $MAIN_PKG | xargs pacstrap /mnt
     genfstab -U /mnt >> /mnt/etc/fstab
     cp /root/**/$0 /mnt/$0
@@ -47,18 +47,6 @@ time_lang() {
     locale-gen
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf
     echo $HOSTNAME > /etc/hostname
-    mkdir -p /var/lib/iwd/
-    cat <<- EOF > /var/lib/iwd/${NETWORK_SSID}.psk
-	[Security]
-	Passphrase=$NETWORK_PASSWD
-EOF
-    cat <<- EOF > /etc/systemd/network/wireless.network
-	[Match]
-	Name=wlan0
-
-	[Network]
-	DHCP=yes
-EOF
     mkinitcpio -P
     echo 'root:fdsa' | chpasswd
 }
@@ -71,11 +59,11 @@ users_systemd_yay() {
     su c -c "makepkg -si --noconfirm && echo $AUR_PKG | xargs yay -S --noconfirm"
     su c -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
-    systemctl enable --now NetworkManager systemd-timesyncd bluetooth
+    systemctl enable --now NetworkManager systemd-timesyncd
     systemctl set-environment XDG_CURRENT_DESKTOP=sway
 }
 
-boot() {
+boot() { # NOT FOR MAC
     bootctl install
     cat <<- EOF > /boot/loader/loader.conf
 	default arch.conf
@@ -88,7 +76,7 @@ EOF
 	linux /vmlinuz-linux
 	initrd /${CPU_TYPE}-ucode.img
 	initrd /initramfs-linux.img
-	options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda2) rw quiet $($IS_LAPTOP && echo acpi_osi=!Darwin)
+	options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw quiet
 EOF
     mkdir -p /etc/systemd/system/getty@tty1.service.d/
     cat <<- EOF > /etc/systemd/system/getty@tty1.service.d/override.conf
@@ -96,6 +84,61 @@ EOF
 	ExecStart=
 	ExecStart=-/usr/bin/agetty --autologin c --noclear %I $TERM
 EOF
+}
+
+mac_specific() { # ONLY FOR MAC
+    grub-install --target=x86_64-efi --efi-directory=/dev/sda1 --bootloader-id=GRUB
+    grub-mkconfig -o /boot/grub/grub.cfg
+
+    cat <<- EOF > /etc/udev/rules.d/90-cardreader.rules
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="8406", RUN+="/usr/local/sbin/remove_ignore_usb-device.sh 05ac 8406"
+EOF
+    cat <<- EOF > /etc/udev/rules.d/99-bluetooth.rules
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="8289", RUN+="/usr/local/sbin/remove_ignore_usb-device.sh 05ac 8289"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0a5c", ATTRS{idProduct}=="4500", RUN+="/usr/local/sbin/remove_ignore_usb-device.sh 0a5c 4500"
+EOF
+
+    cat <<- EOF > /usr/local/sbin/remove_ignore_usb-device.sh 
+    #!/bin/bash
+    # shellcheck.net: 4 warnings
+
+    logger -p info "$0 executed."
+
+    if [ "$#" -eq 2 ];then
+        
+        removevendorid=$1
+        removeproductid=$2
+        
+        usbpath="/sys/bus/usb/devices/"
+        devicerootdirs=`ls -1 $usbpath`
+        
+        for devicedir in $devicerootdirs; do
+        
+            if [ -f "$usbpath$devicedir/product" ]; then
+                product=`cat "$usbpath$devicedir/product"`
+                productid=`cat "$usbpath$devicedir/idProduct"`
+                vendorid=`cat "$usbpath$devicedir/idVendor"`
+                if [ "$removevendorid" == "$vendorid" ] && [ "$removeproductid" == "$productid" ];    then
+                    if [ -f "$usbpath$devicedir/remove" ]; then
+                        logger -p info "$0 removing $product ($vendorid:$productid)"
+                    echo 1 > "$usbpath$devicedir/remove"
+                        exit 0
+            else
+                        logger -p info "$0 already removed $product ($vendorid:$productid)"
+                        exit 0
+            fi
+                fi
+            fi
+        
+        
+        done
+        
+    else
+        logger -p err "$0 needs 2 args vendorid and productid"
+        exit 1
+    fi
+EOF
+
 }
 
 symlinks() {
@@ -112,7 +155,6 @@ symlinks() {
     done
     ln -sv $DOTFILES/zsh/.zshenv $HOME/.zshenv
     ln -sv $DOTFILES/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
-    ln -sv $DOTFILES/.doom.d $HOME/.doom.d
 
     chsh -s /bin/zsh c
 }
@@ -134,9 +176,7 @@ case $1 in
       users_systemd_yay
       boot
       symlinks
-      alsa_config
       caps_to_escape
-      xdg-wlr
       echo "\n---------------------------\nDone :)"
     ;;
     *)
