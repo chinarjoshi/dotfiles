@@ -165,6 +165,7 @@ bar swaybar_command waybar
 exec wlsunset -l 34.0 -L -84.2
 exec libinput-gestures-setup start
 exec ydotoold
+exec mako
 exec sudo light -S 70
 exec sudo pacman --noconfirm -Syu
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

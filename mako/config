@@ -1,0 +1,16 @@
+sort=-time
+layer=overlay
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=Noto Sans 10
+background-color=#00010A
+border-color=#4C566A
+border-radius=15
+
+[urgency=low]
+background-color=#3B4252
+
+[urgency=high]
+background-color=#FF4151
+default-timeout=0

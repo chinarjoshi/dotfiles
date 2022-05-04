@@ -61,6 +61,13 @@ window#waybar {
 
 #custom-media {
   color: #9292a0;
+  font-style: oblique;
+}
+
+#custom-prev,
+#custom-pause,
+#custom-next {
+  font-size: 16px;
 }
 
 #battery {
@@ -99,20 +106,20 @@ window#waybar {
   font-style: oblique;
 }
 
-/* #pulseaudio.warning */
-/*   #disk.warning */
-/*   #cpu.warning */
-/*   #memory.warning */
-/*   #battery.warning { */
-/*   color: "#000000"; */
-/*   background: "#c9ae26"; */
-/* } */
+#pulseaudio.warning,
+#disk.warning,
+#cpu.warning,
+#memory.warning,
+#battery.warning {
+  color: #000000;
+  background: #c9ae26;
+}
 
-/* #pulseaudio.critical */
-/*   #disk.critical */
-/*   #cpu.critical */
-/*   #memory.critical */
-/*   #battery.critical { */
-/*   color: "#000000"; */
-/*   background: "#e01227"; */
-/* } */
+#pulseaudio.critical,
+#disk.critical,
+#cpu.critical,
+#memory.critical,
+#battery.critical {
+  color: #000000;
+  background: #e01227;
+}

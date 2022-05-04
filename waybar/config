@@ -5,7 +5,12 @@
   "spacing": 12,
 
   "modules-left": ["sway/workspaces", "tray", "sway/mode"],
-  "modules-center": ["custom/media"],
+  "modules-center": [
+    "custom/media",
+    "custom/prev",
+    "custom/pause",
+    "custom/next"
+  ],
   "modules-right": [
     "custom/weather",
     "custom/s",
@@ -32,7 +37,25 @@
   },
   "custom/media": {
     "exec": "~/dotfiles/waybar/modules/media.sh",
-    "exec-if": "[[ $(playerctl status) == 'Playing' ]]",
+    "exec-if": "playerctl status",
+    "interval": 1
+  },
+  "custom/prev": {
+    "exec": "echo 玲",
+    "exec-if": "playerctl metadata artist",
+    "on-click": "playerctl previous",
+    "interval": 1
+  },
+  "custom/pause": {
+    "exec": "[[ $(playerctl status) == 'Playing' ]] && echo '' || echo '契'",
+    "exec-if": "playerctl status",
+    "on-click": "playerctl play-pause",
+    "interval": 1
+  },
+  "custom/next": {
+    "exec": "echo 怜",
+    "exec-if": "playerctl metadata artist",
+    "on-click": "playerctl next",
     "interval": 1
   },
   "cpu": {
@@ -60,10 +83,6 @@
       "critical": 95
     }
   },
-  "network": {
-    "format-wifi": " {essid}",
-    "format-disconnected": "睊Disconnected"
-  },
   "custom/github": {
     "format": "{} ",
     "return-type": "json",
@@ -80,33 +99,32 @@
       "warning": 30,
       "critical": 15
     },
-    "format": " {icon}",
-    "format-icons": [
-      "|---------",
-      "||--------",
-      "|||-------",
-      "||||------",
-      "|||||-----",
-      "||||||----",
-      "|||||||---",
-      "||||||||--",
-      "|||||||||-",
-      "||||||||||"
-    ]
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
   },
   "backlight": {
     "format": "{icon}",
     "format-icons": [
+      "----------",
+      "+---------",
       "|---------",
+      "|+--------",
       "||--------",
+      "||+-------",
       "|||-------",
+      "|||+------",
       "||||------",
+      "||||+-----",
       "|||||-----",
+      "|||||+----",
       "||||||----",
+      "||||||+---",
       "|||||||---",
+      "|||||||+--",
       "||||||||--",
+      "||||||||+-",
       "|||||||||-",
-      "||||||||||"
+      "|||||||||+"
     ]
   },
   "pulseaudio": {

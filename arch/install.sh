@@ -33,7 +33,7 @@ make_filesystems() {
 }
 
 install_packages() {
-    echo $MAIN_PKG | xargs pacstrap /mnt
+    xargs pacstrap /mnt <<< $MAIN_PKG
     genfstab -U /mnt >> /mnt/etc/fstab
     cp /root/**/$0 /mnt/$0
     arch-chroot /mnt /bin/bash /$0 -chroot       ### NEW SYSTEM
@@ -48,16 +48,17 @@ time_lang() {
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf
     echo $HOSTNAME > /etc/hostname
     mkinitcpio -P
-    echo 'root:fdsa' | chpasswd
+    chpasswd <<< 'root:fdsa' 
 }
 
 users_systemd_yay() {
     useradd -m c
-    echo 'c ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
-    git clone https://aur.archlinux.org/yay /home/c/yay
-    /home/c/yay
-    su c -c "makepkg -si --noconfirm && echo $AUR_PKG | xargs yay -S --noconfirm"
-    su c -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    EDITOR='tee -a' visudo <<< 'c ALL=(ALL) NOPASSWD: ALL'
+    su c -c "git clone https://aur.archlinux.org/yay ~/yay && 
+            ~/yay &&
+            makepkg -si --noconfirm &&
+            xargs yay -S --noconfirm <<< $AUR_PKG &&
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
     systemctl enable --now NetworkManager systemd-timesyncd
     systemctl set-environment XDG_CURRENT_DESKTOP=sway
@@ -150,8 +151,8 @@ symlinks() {
     git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
     chown -R c $DOTFILES
 
-    for dir in $(ls -d $DOTFILES/*/ | xargs -n 1 basename); do
-        ln -sv $DOTFILES/$dir $XDG_CONFIG_HOME/$dir
+    for dir in $DOTFILES/*/ do
+        ln -sv $dir $XDG_CONFIG_HOME/$(basename $dir)
     done
     ln -sv $DOTFILES/zsh/.zshenv $HOME/.zshenv
     ln -sv $DOTFILES/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
