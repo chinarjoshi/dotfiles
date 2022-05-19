@@ -65,7 +65,7 @@ libinput-gestures
 interception-caps2esc
 swaylock
 clipman
-qt6-base
+qt6-wayland
 mesa
 mako
 waybar
@@ -120,7 +120,7 @@ ctags
 
 firefox
 google-chrome
-discord
+discord-qt-appimage
 spotify
 ydotool
 

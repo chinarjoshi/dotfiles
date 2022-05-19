@@ -1,4 +1,4 @@
-if [[ -z $(playerctl metadata artist) ]]; then
+if $(playerctl metadata artist); then
     if [[ $(playerctl metadata title) == *'Hulu'* ]]; then
         echo 'ﴧ  Hulu'
         echo 'Playing on Hulu'
@@ -8,7 +8,7 @@ if [[ -z $(playerctl metadata artist) ]]; then
     else
         echo $(playerctl metadata --format 'ﳲ  {{ title }}')
     fi
-elif [[ -z $(playerctl metadata album) ]]; then
+elif $(playerctl metadata album); then
     echo $(playerctl metadata --format '  {{ artist }} - {{ title }}')
     echo 'Playing on youtube'
 else
