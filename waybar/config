@@ -17,7 +17,6 @@
     "battery",
     "memory",
     "disk",
-    "cpu",
     "custom/s",
     "backlight",
     "pulseaudio",
@@ -57,14 +56,6 @@
     "exec-if": "playerctl metadata artist",
     "on-click": "playerctl next",
     "interval": 1
-  },
-  "cpu": {
-    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "states": {
-      "warning": 70,
-      "critical": 90
-    }
   },
   "memory": {
     "format": " {avail:0.1f} GB",

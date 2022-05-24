@@ -111,8 +111,9 @@ window#waybar {
 #cpu.warning,
 #memory.warning,
 #battery.warning {
+  padding: 0px 5px;
   color: #000000;
-  background: #c9ae26;
+  background: #a18c25;
 }
 
 #pulseaudio.critical,
@@ -120,6 +121,7 @@ window#waybar {
 #cpu.critical,
 #memory.critical,
 #battery.critical {
+  padding: 0px 5px;
   color: #000000;
   background: #e01227;
 }
