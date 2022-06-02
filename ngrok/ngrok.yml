@@ -1,0 +1,4 @@
+version: "2"
+authtoken: 29aCM6sBh3HUcN8pKGInOnszLOf_6T4nQAWhPZ3Z2WfZZefBf
+log_level: error
+log: stderr

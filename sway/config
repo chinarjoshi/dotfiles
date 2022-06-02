@@ -22,8 +22,9 @@ input type:keyboard {
 # Touchpad config
 input type:touchpad {
     tap enabled
-    pointer_accel .15
-    scroll_factor .5
+    pointer_accel .12
+    scroll_factor .20
+    natural_scroll enabled
 }
 
 output * bg #0c0c14 solid_color
