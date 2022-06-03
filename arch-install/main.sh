@@ -94,6 +94,7 @@ symlinks() {
     done
     ln -sv $DOTFILES/zsh/.zshenv $HOME/.zshenv
     ln -sv $DOTFILES/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
+    ln -sv /run/media/c /home/c/mnt
 
     chsh -s /bin/zsh c
 }

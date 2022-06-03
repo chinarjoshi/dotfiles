@@ -70,6 +70,8 @@ exfatprogs
 dosfstools
 e2fsprogs
 usbutils
+udisks2
+udiskie
 
 firefox
 google-chrome

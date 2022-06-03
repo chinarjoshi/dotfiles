@@ -141,17 +141,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar swaybar_command waybar
-
-# Applications
-exec wlsunset -l 34.0 -L -84.2
-exec libinput-gestures-setup start
-exec ydotoold
-exec mako
-exec sudo light -S 70
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec nm-applet --indicator
-exec autotiling-rs
 workspace 1
 
-include $HOME/dotfiles/sway/bindings.conf
+include $HOME/dotfiles/sway/custom/bindings.conf
+include $HOME/dotfiles/sway/custom/applications.conf
 include /etc/sway/config.d/*
