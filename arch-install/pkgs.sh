@@ -3,16 +3,11 @@ linux
 linux-firmware
 base
 base-devel
+git
+zsh
 '
 
 MAIN_PKG='
-git
-zsh
-acpi
-man-db
-cronie
-intel-ucode
-
 broadcom-wl
 networkmanager
 network-manager-applet
@@ -20,10 +15,11 @@ reflector
 curl
 wget
 
+mesa
 nvidia
 nvidia-prime
+nvidia-settings
 opencl-nvidia
-mesa
 qt6-wayland
 
 sway
@@ -60,6 +56,8 @@ fzf
 ripgrep
 tree
 tldr
+man-db
+cronie
 
 grim
 slurp
@@ -82,6 +80,8 @@ ydotool
 python
 python-pip
 flake8
+rust
+rustup
 lua
 luacheck
 luarocks
@@ -95,6 +95,7 @@ isort
 tlp
 cups
 cups-pdf
+intel-ucode
 git-delta
 nvim-packer-git
 clipman
