@@ -91,6 +91,7 @@ window#waybar {
 }
 
 #backlight {
+  font-family: Noto Sans Mono Nerd Font;
   color: #ebcb8b;
 }
 
@@ -103,7 +104,6 @@ window#waybar {
 #clock {
   color: #9292a0;
   padding-right: 15px;
-  font-style: oblique;
 }
 
 #pulseaudio.warning,

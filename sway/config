@@ -22,18 +22,18 @@ input type:keyboard {
 # Touchpad config
 input type:touchpad {
     tap enabled
-    pointer_accel .12
+    pointer_accel .15
     scroll_factor .20
     natural_scroll enabled
 }
 
 output * bg #0c0c14 solid_color
-output $monitor1 scale 1.6
-output DP-1 pos 0 0
-output $monitor2 {
+# output $monitor1 scale 1.6
+# output DP-1 pos 0 0
+# output $monitor2 {
     # pos 2560 500
-    transform 270
-}
+    # transform 270
+# }
 
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \

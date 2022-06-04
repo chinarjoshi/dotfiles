@@ -82,21 +82,20 @@ ydotool
 python
 python-pip
 flake8
-rust
-rustup
 lua
 luacheck
 luarocks
 stylua
+rustup
 npm
 jdk-openjdk
 ruby
-black
-isort
 
-tlp
 cups
 cups-pdf
+system-config-printer
+
+tlp
 intel-ucode
 git-delta
 nvim-packer-git

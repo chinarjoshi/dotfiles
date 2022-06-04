@@ -1,27 +1,21 @@
 set -e
 
 wifi() {
-    # Disable all network modules and reenable broadcom-wl
-    # Then restart iwd and connect to wifi
-    modprobe -r wl b43 ssb bcma
-    modprobe wl
     [[ $(ip link | grep -c wlan) ]] # CHECK IF WIFI INTERFACE IS ACTIVE
-    cat <<- EOF > /var/lib/iwd/${NETWORK_SSID}.psk
-	[Security]
-	Passphrase=$NETWORK_PASSWD
-EOF
-    systemctl restart iwd
     iwctl station wlan0 scan
     iwctl station wlan0 connect $NETWORK_SSID
     echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1 # CHECK IF CONNECTED
 }
 
 make_filesystems() {
-    fdisk <<< $FDISK_CMD
-    mount /dev/sda3 /mnt
+    fdisk /dev/nvme0n1 <<< $FDISK_CMD
+    mkfs.fat -F32 /dev/nvme0n1p1
+    mkfs.ext4 /dev/nvme0n1p2
+    mkfs.ext4 /dev/nvme0n1p3
+    mount /dev/nvme0n1p3 /mnt
     mkdir -p /mnt/boot /mnt/home
-    mount /dev/sda1 /mnt/boot
-    mount /dev/sda2 /mnt/home
+    mount /dev/nvme0n1p1 /mnt/boot
+    mount /dev/nvme0n1p2 /mnt/home
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
     chmod 0600 /mnt/swapfile
@@ -52,9 +46,10 @@ users_systemd_yay() {
     EDITOR='tee -a' visudo <<< 'c ALL=(ALL) NOPASSWD: ALL'
     git clone https://aur.archlinux.org/yay /home/c/yay
     chown -R c /home/c/yay
-    su c -c "~/yay && makepkg -si --noconfirm"
+    # Install rustup and toolchain
+    su c -c "cd ~/yay && makepkg -si --noconfirm"
     xargs yay -S --noconfirm <<< $MAIN_PKG
-    systemctl enable --now NetworkManager systemd-timesyncd tlp
+    systemctl enable --now NetworkManager systemd-timesyncd tlp cups.socket
 }
 
 boot() {
@@ -70,7 +65,7 @@ EOF
 	linux /vmlinuz-linux
 	initrd /intel-ucode.img
 	initrd /initramfs-linux.img
-	options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw quiet nvidia-drm.modeset=1
+	options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw quiet nvidia-drm.modeset=1
 EOF
     mkdir -p /etc/systemd/system/getty@tty1.service.d/
     cat <<- EOF > /etc/systemd/system/getty@tty1.service.d/override.conf
@@ -86,7 +81,10 @@ symlinks() {
     XDG_CONFIG_HOME=$HOME/.config
     mkdir -p $HOME/.config
 
-    git clone https://github.com/chinarjoshi/dotfiles.git $DOTFILES
+    git clone https://github.com/chinarjoshi/dotfiles $DOTFILES
+    rm -rf $DOTFILES/zsh $DOTFILESS/nvim
+    git clone https://github.com/chinarjoshi/zshconf $DOTFILES/zsh
+    git clone https://github.com/chinarjoshi/nvdev $DOTFILES/nvim
     chown -R c $DOTFILES
 
     for dir in $DOTFILES/*/; do
@@ -102,7 +100,7 @@ symlinks() {
 caps_to_escape() {
     mkdir -p /etc/interception/udevmon.d/
     cat <<- EOF > /etc/interception/udevmon.d/caps2esc.yaml
-	- JOB: \"intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE\"
+	- JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
 	  DEVICE:
 	    EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
@@ -112,14 +110,18 @@ EOF
 
 case $1 in
     -chroot)
+      . /arch-install/pkgs.sh
+      . /arch-install/vars.sh
       time_lang
       users_systemd_yay
-      mac_specific
+      boot
       symlinks
       caps_to_escape
       echo "\n---------------------------\nDone :)"
     ;;
     *)
+      . /root/arch-install/pkgs.sh
+      . /root/arch-install/vars.sh
       wifi
       make_filesystems
       install_packages
