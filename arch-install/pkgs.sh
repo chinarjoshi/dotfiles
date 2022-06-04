@@ -25,6 +25,7 @@ qt6-wayland
 sway
 mako
 waybar
+swaybg
 swaylock
 wluma
 wlsunset
@@ -44,7 +45,6 @@ pipewire-alsa
 pipewire-pulse
 wireplumber
 alsa-utils
-playerctl
 
 alacritty
 neovim
@@ -94,6 +94,7 @@ ruby
 cups
 cups-pdf
 system-config-printer
+brother-mfc-j870dw
 
 tlp
 intel-ucode

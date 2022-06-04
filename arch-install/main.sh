@@ -43,6 +43,8 @@ time_lang() {
 
 users_systemd_yay() {
     useradd -m c
+    usermod -a -G input c
+    usermod -a -G video c
     EDITOR='tee -a' visudo <<< 'c ALL=(ALL) NOPASSWD: ALL'
     git clone https://aur.archlinux.org/yay /home/c/yay
     chown -R c /home/c/yay
