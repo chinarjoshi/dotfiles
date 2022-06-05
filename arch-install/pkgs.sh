@@ -22,6 +22,15 @@ nvidia-settings
 opencl-nvidia
 qt6-wayland
 
+# Hardware acceleration
+intel-media-driver
+libva-intel-driver
+libva-intel-driver-g43-h264
+intel-hybrid-codec-driver
+libva-nvidia-driver
+libva-vdpau-driver
+libvdpau-va-gl
+
 sway
 mako
 waybar
@@ -44,7 +53,9 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 wireplumber
-alsa-utils
+playerctl
+blueman
+bluez
 
 alacritty
 neovim
@@ -101,4 +112,11 @@ intel-ucode
 git-delta
 nvim-packer-git
 clipman
+'
+PIP_PKG='
+jupyter
+jupyterlab
+torch
+numpy
+pandas
 '

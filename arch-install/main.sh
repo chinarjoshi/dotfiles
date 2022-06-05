@@ -110,6 +110,14 @@ EOF
     systemctl enable udevmon
 }
 
+optimize_power() {
+
+}
+
+bluetooth() {
+
+}
+
 case $1 in
     -chroot)
       . /arch-install/pkgs.sh

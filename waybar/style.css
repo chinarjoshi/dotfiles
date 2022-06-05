@@ -37,33 +37,6 @@ window#waybar {
   font-style: oblique;
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: black;
-  }
-}
-
-#battery.charging {
-  color: white;
-  background-color: #26a65b;
-}
-
-#battery.warning:not(.charging) {
-  background: #f53c3c;
-  color: white;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#custom-media {
-  color: #9292a0;
-  font-style: oblique;
-}
-
 #custom-prev,
 #custom-pause,
 #custom-next {
@@ -104,24 +77,4 @@ window#waybar {
 #clock {
   color: #9292a0;
   padding-right: 15px;
-}
-
-#pulseaudio.warning,
-#disk.warning,
-#cpu.warning,
-#memory.warning,
-#battery.warning {
-  padding: 0px 5px;
-  color: #000000;
-  background: #a18c25;
-}
-
-#pulseaudio.critical,
-#disk.critical,
-#cpu.critical,
-#memory.critical,
-#battery.critical {
-  padding: 0px 5px;
-  color: #000000;
-  background: #e01227;
 }
