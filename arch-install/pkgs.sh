@@ -5,6 +5,7 @@ base
 base-devel
 git
 zsh
+rustup
 '
 
 MAIN_PKG='
@@ -18,17 +19,16 @@ wget
 mesa
 nvidia
 nvidia-prime
-nvidia-settings
 opencl-nvidia
 qt6-wayland
 
-# Hardware acceleration
+cpupower
+thermald
 intel-media-driver
-libva-intel-driver
-libva-intel-driver-g43-h264
 intel-hybrid-codec-driver
+libva-intel-driver
 libva-nvidia-driver
-libva-vdpau-driver
+libva-utils
 libvdpau-va-gl
 
 sway
@@ -113,10 +113,14 @@ git-delta
 nvim-packer-git
 clipman
 '
+
 PIP_PKG='
 jupyter
 jupyterlab
 torch
 numpy
 pandas
+pillow
+black
+isort
 '

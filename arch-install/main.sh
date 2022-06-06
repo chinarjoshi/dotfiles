@@ -8,14 +8,14 @@ wifi() {
 }
 
 make_filesystems() {
-    fdisk /dev/nvme0n1 <<< $FDISK_CMD
-    mkfs.fat -F32 /dev/nvme0n1p1
-    mkfs.ext4 /dev/nvme0n1p2
-    mkfs.ext4 /dev/nvme0n1p3
-    mount /dev/nvme0n1p3 /mnt
+    fdisk $DISK <<< $FDISK_CMD
+    mkfs.fat -F32 $BOOT
+    mkfs.ext4 $HOME
+    mkfs.ext4 $ROOT
+    mount $ROOT /mnt
     mkdir -p /mnt/boot /mnt/home
-    mount /dev/nvme0n1p1 /mnt/boot
-    mount /dev/nvme0n1p2 /mnt/home
+    mount $BOOT /mnt/boot
+    mount $HOME /mnt/home
     fallocate -l $SWAP_SIZE /mnt/swapfile
     mkswap /mnt/swapfile
     chmod 0600 /mnt/swapfile
@@ -37,85 +37,70 @@ time_lang() {
     locale-gen
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf
     echo $HOSTNAME > /etc/hostname
+    cp files/mkinitcpio.conf > /etc/mkinitcpio.conf
     mkinitcpio -P
     chpasswd <<< 'root:fdsa' 
 }
 
 users_systemd_yay() {
     useradd -m c
-    usermod -a -G input c
-    usermod -a -G video c
+    usermod -a -G input,video c
     EDITOR='tee -a' visudo <<< 'c ALL=(ALL) NOPASSWD: ALL'
     git clone https://aur.archlinux.org/yay /home/c/yay
     chown -R c /home/c/yay
-    # Install rustup and toolchain
+    rustup install stable
     su c -c "cd ~/yay && makepkg -si --noconfirm"
     xargs yay -S --noconfirm <<< $MAIN_PKG
-    systemctl enable --now NetworkManager systemd-timesyncd tlp cups.socket
+    systemctl enable --now NetworkManager chronyd tlp cups.socket udevmon bluetooth
 }
 
-boot() {
+bootloader() {
     bootctl install
-    cat <<- EOF > /boot/loader/loader.conf
-	default arch.conf
-	timeout false
-	console-mode max
-	editor no
-EOF
-    cat <<- EOF > /boot/loader/entries/arch.conf
-	title Arch Linux
-	linux /vmlinuz-linux
-	initrd /intel-ucode.img
-	initrd /initramfs-linux.img
-	options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw quiet nvidia-drm.modeset=1
-EOF
+    cp files/loader.conf /boot/loader/
+    cp files/arch.conf /boot/loader/entries
+    PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3)
+    OFFSET=$(sudo filefrag -v /swapfile | rg '(\d{5,})\.' -or '$1' | head -n1)
+    echo "options root=PARTUUID=$PARTUUID resume=PARTUUID=$PARTUUID resume_offset=$OFFSET rw quiet nvidia-drm.modeset=1 module_blacklist=r8169" >> /boot/loader/entries/arch.conf
     mkdir -p /etc/systemd/system/getty@tty1.service.d/
-    cat <<- EOF > /etc/systemd/system/getty@tty1.service.d/override.conf
-	[Service]
-	ExecStart=
-	ExecStart=-/usr/bin/agetty --autologin c --noclear %I $TERM
-EOF
+    cp files/override.conf /etc/systemd/system/getty@tty1.service.d/
 }
 
-symlinks() {
+dotfiles() {
     HOME=/home/c
-    DOTFILES=$HOME/dotfiles
-    XDG_CONFIG_HOME=$HOME/.config
+    d=$HOME/dotfiles
+    c=$HOME/.config
     mkdir -p $HOME/.config
 
-    git clone https://github.com/chinarjoshi/dotfiles $DOTFILES
-    rm -rf $DOTFILES/zsh $DOTFILESS/nvim
-    git clone https://github.com/chinarjoshi/zshconf $DOTFILES/zsh
-    git clone https://github.com/chinarjoshi/nvdev $DOTFILES/nvim
-    chown -R c $DOTFILES
+    git clone https://github.com/chinarjoshi/dotfiles $d
+    rm -rf $d/zsh $d/nvim
+    git clone https://github.com/chinarjoshi/zshconf $d/zsh
+    git clone https://github.com/chinarjoshi/nvdev $d/nvim
+    chown -R c $d
 
-    for dir in $DOTFILES/*/; do
-        ln -sv $dir $XDG_CONFIG_HOME/$(basename $dir)
+    for dir in $d/*/; do
+        ln -sv $dir $c/$(basename $dir)
     done
-    ln -sv $DOTFILES/zsh/.zshenv $HOME/.zshenv
-    ln -sv $DOTFILES/libinput-gestures.conf $XDG_CONFIG_HOME/libinput-gestures.conf
-    ln -sv /run/media/c /home/c/mnt
+    ln -sv $d/zsh/.zshenv $HOME/.zshenv
+    ln -sv $d/libinput-gestures.conf $c/libinput-gestures.conf
+    ln -sv /run/media/c /home/c/usb
 
     chsh -s /bin/zsh c
 }
 
 caps_to_escape() {
     mkdir -p /etc/interception/udevmon.d/
-    cat <<- EOF > /etc/interception/udevmon.d/caps2esc.yaml
-	- JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
-	  DEVICE:
-	    EVENTS:
-      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-EOF
-    systemctl enable udevmon
+    cp files/caps2esc.yaml /etc/interception/udevmon.d/
 }
 
-optimize_power() {
-
-}
-
-bluetooth() {
-
+optimizations() {
+    cp -r files/modprobe.d /etc
+    cp -r files/rules.d /etc/udev/
+    cpupower frequency-set -g powersave
+    cpupower set -b 8
+    cp /usr/share/pipewire/client.conf /etc/pipewire/
+    cp /usr/share/pipewire/pipewire-pulse.conf /etc/pipewire
+    sed -i '73s/.*/    resample.quality = 10/' /etc/pipewire/client.conf
+    sed -i '59s/.*/    resample.quality = 10/' /etc/pipewire/pipewire-pulse.conf
 }
 
 case $1 in
@@ -124,9 +109,10 @@ case $1 in
       . /arch-install/vars.sh
       time_lang
       users_systemd_yay
-      boot
-      symlinks
+      bootloader
+      dotfiles
       caps_to_escape
+      optimizations
       echo "\n---------------------------\nDone :)"
     ;;
     *)
