@@ -1,6 +1,7 @@
 HOSTNAME=MSI
 NETWORK_SSID=ATT-phanas
 NETWORK_PASSWD=6080700101
+SYSTEMD_UNITS=(bluetooth chronyd cups.socket NetworkManager thermald tlp udevmon)
 
 DISK=/dev/nvme0n1
 BOOT=${DISK}p1

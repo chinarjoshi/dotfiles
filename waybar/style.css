@@ -1,5 +1,5 @@
 * {
-  border-radius: 8px;
+  border-radius: 5px;
   font-family: Noto Sans Nerd Font;
   font-size: 13px;
   min-height: 0;
@@ -32,9 +32,8 @@ window#waybar {
 }
 
 #mode {
-  background: #a32131;
+  background: #0f275e;
   padding: 0 4px;
-  font-style: oblique;
 }
 
 #custom-prev,

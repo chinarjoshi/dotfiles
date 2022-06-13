@@ -24,19 +24,20 @@ qt6-wayland
 
 cpupower
 thermald
+powertop
 intel-media-driver
 intel-hybrid-codec-driver
-libva-intel-driver
 libva-nvidia-driver
-libva-utils
 libvdpau-va-gl
+libva-utils
+vdpauinfo
 
 sway
 mako
 waybar
 swaybg
 swaylock
-wluma
+light
 wlsunset
 xorg-xwayland
 libinput-gestures
@@ -45,7 +46,8 @@ autotiling-rs-git
 
 noto-fonts
 noto-fonts-emoji
-nerd-fonts-noto
+nerd-fonts-noto-sans-mono
+nerd-fonts-noto-sans-regular-complete
 ttf-dejavu
 gnu-free-fonts
 
@@ -64,11 +66,21 @@ fd
 jq
 bat
 fzf
+htop
 ripgrep
 tree
 tldr
 man-db
 cronie
+chrony
+expect
+
+steam
+proton-ge-custom-bin
+lutris
+cemu
+dolphin-emu
+yuzu-mainline-bin
 
 grim
 slurp
@@ -86,7 +98,7 @@ udiskie
 
 firefox
 google-chrome
-discord
+discord_arch_electron
 spotify
 ydotool
 
@@ -111,7 +123,7 @@ tlp
 intel-ucode
 git-delta
 nvim-packer-git
-clipman
+wl-clipboard
 '
 
 PIP_PKG='

@@ -37,7 +37,7 @@ time_lang() {
     locale-gen
     echo 'LANG=en_US.UTF-8' > /etc/locale.conf
     echo $HOSTNAME > /etc/hostname
-    cp files/mkinitcpio.conf > /etc/mkinitcpio.conf
+    cp /root/arch-install/files/mkinitcpio.conf > /etc/mkinitcpio.conf
     mkinitcpio -P
     chpasswd <<< 'root:fdsa' 
 }
@@ -46,23 +46,25 @@ users_systemd_yay() {
     useradd -m c
     usermod -a -G input,video c
     EDITOR='tee -a' visudo <<< 'c ALL=(ALL) NOPASSWD: ALL'
-    git clone https://aur.archlinux.org/yay /home/c/yay
-    chown -R c /home/c/yay
+    git clone https://aur.archlinux.org/yay-bin /home/c/yay-bin
+    chown -R c /home/c/yay-bin
     rustup install stable
-    su c -c "cd ~/yay && makepkg -si --noconfirm"
+    su c -c "cd ~/yay-bin && makepkg -si --noconfirm"
     xargs yay -S --noconfirm <<< $MAIN_PKG
-    systemctl enable --now NetworkManager chronyd tlp cups.socket udevmon bluetooth
+    for unit in $SYSTEMD_UNITS; do
+        systemctl enable --now $unit
+    done
 }
 
 bootloader() {
     bootctl install
-    cp files/loader.conf /boot/loader/
-    cp files/arch.conf /boot/loader/entries
+    cp /arch-install/files/loader.conf /boot/loader/
+    cp /arch-install/files/arch.conf /boot/loader/entries
     PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3)
     OFFSET=$(sudo filefrag -v /swapfile | rg '(\d{5,})\.' -or '$1' | head -n1)
     echo "options root=PARTUUID=$PARTUUID resume=PARTUUID=$PARTUUID resume_offset=$OFFSET rw quiet nvidia-drm.modeset=1 module_blacklist=r8169" >> /boot/loader/entries/arch.conf
     mkdir -p /etc/systemd/system/getty@tty1.service.d/
-    cp files/override.conf /etc/systemd/system/getty@tty1.service.d/
+    cp /arch-install/files/override.conf /etc/systemd/system/getty@tty1.service.d/
 }
 
 dotfiles() {
@@ -89,12 +91,12 @@ dotfiles() {
 
 caps_to_escape() {
     mkdir -p /etc/interception/udevmon.d/
-    cp files/caps2esc.yaml /etc/interception/udevmon.d/
+    cp /arch-install/files/caps2esc.yaml /etc/interception/udevmon.d/
 }
 
 optimizations() {
-    cp -r files/modprobe.d /etc
-    cp -r files/rules.d /etc/udev/
+    cp -r /arch-install/files/modprobe.d /etc
+    cp -r /arch-install/files/rules.d /etc/udev/
     cpupower frequency-set -g powersave
     cpupower set -b 8
     cp /usr/share/pipewire/client.conf /etc/pipewire/
