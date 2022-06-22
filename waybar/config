@@ -3,6 +3,7 @@
   "position": "top",
   "height": 24,
   "spacing": 12,
+  "ipc": true,
 
   "modules-left": ["sway/workspaces", "tray", "sway/mode"],
   "modules-right": [

@@ -64,12 +64,12 @@ window#waybar {
 
 #backlight {
   font-family: Noto Sans Mono Nerd Font;
-  color: #ebcb8b;
+  color: #af90d4;
 }
 
 #pulseaudio {
   font-family: Noto Sans Mono Nerd Font;
-  color: #ff707f;
+  color: #a372ab;
   background: #0a0405;
 }
 

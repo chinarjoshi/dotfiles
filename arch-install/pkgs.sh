@@ -22,6 +22,7 @@ nvidia-prime
 opencl-nvidia
 qt6-wayland
 
+isw
 cpupower
 thermald
 powertop

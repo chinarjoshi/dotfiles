@@ -27,7 +27,7 @@ input type:touchpad {
     scroll_method two_finger
 }
 
-output * bg #0c0c14 solid_color
+output * bg #000000 solid_color
 
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
@@ -38,7 +38,6 @@ exec swayidle -w \
 # Rudimentary bindings
 floating_modifier $mod normal
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+Space exec $menu
 bindsym $mod+Ctrl+c reload
@@ -119,7 +118,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bar swaybar_command waybar
+bar {
+    swaybar_command waybar
+    hidden_state hide
+    mode hide
+    modifier $mod
+}
 
 include $HOME/dotfiles/sway/custom/*.conf
 include /etc/sway/config.d/*
