@@ -68,7 +68,7 @@ cpupower frequency-set -g powersave
 cpupower set -b 8
 cp /usr/share/pipewire/client.conf /etc/pipewire/
 cp /usr/share/pipewire/pipewire-pulse.conf /etc/pipewire
-sed -i '73s/.*/    resample.quality = 10/' /etc/pipewire/client.conf
-sed -i '59s/.*/    resample.quality = 10/' /etc/pipewire/pipewire-pulse.conf
+sed -i '73s/#//' /etc/pipewire/client.conf
+sed -i '59s/#//' /etc/pipewire/pipewire-pulse.conf
 
 echo "\n---------------------------\nDone :)"

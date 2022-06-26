@@ -20,18 +20,24 @@ mesa
 nvidia
 nvidia-prime
 opencl-nvidia
-qt6-wayland
+xorg-xwayland
+qt5-wayland
 
-isw
 cpupower
 thermald
 powertop
 intel-media-driver
-intel-hybrid-codec-driver
-libva-nvidia-driver
+vulkan-icd-loader
+vulkan-intel
 libvdpau-va-gl
+libva-vdpau-driver
 libva-utils
 vdpauinfo
+
+dolphin-emu
+yuzu-mainline-bin
+joycond-git
+joycond-cemuhook-git
 
 sway
 mako
@@ -40,7 +46,6 @@ swaybg
 swaylock
 light
 wlsunset
-xorg-xwayland
 libinput-gestures
 interception-caps2esc
 autotiling-rs-git
@@ -75,13 +80,6 @@ man-db
 cronie
 chrony
 expect
-
-steam
-proton-ge-custom-bin
-lutris
-cemu
-dolphin-emu
-yuzu-mainline-bin
 
 grim
 slurp

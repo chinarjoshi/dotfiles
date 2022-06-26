@@ -24,4 +24,4 @@ swapon /mnt/swapfile
 xargs pacstrap /mnt <<< $BASE_PKG
 genfstab -U /mnt >> /mnt/etc/fstab
 cp /root/arch-install /mnt -r
-arch-chroot /mnt /bin/bash /arch-install/$0 -chroot       ### NEW SYSTEM
+arch-chroot /mnt /bin/bash /arch-install/post-chroot.sh
