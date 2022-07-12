@@ -19,6 +19,7 @@ wget
 mesa
 nvidia
 nvidia-prime
+lib32-nvidia-utils
 opencl-nvidia
 xorg-xwayland
 qt5-wayland
@@ -27,14 +28,19 @@ cpupower
 thermald
 powertop
 intel-media-driver
-vulkan-icd-loader
 vulkan-intel
+vulkan-icd-loader
+lib32-vulkan-icd-loader
 libvdpau-va-gl
 libva-vdpau-driver
 libva-utils
 vdpauinfo
 
+wine
+proton-ge-custom-bin
+lutris
 dolphin-emu
+cemu
 yuzu-mainline-bin
 joycond-git
 joycond-cemuhook-git
@@ -134,4 +140,5 @@ pandas
 pillow
 black
 isort
+neovim
 '

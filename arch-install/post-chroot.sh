@@ -21,6 +21,7 @@ chown -R c /home/c/yay-bin
 rustup install stable
 su c -c "cd ~/yay-bin && makepkg -si --noconfirm"
 xargs yay -S --noconfirm <<< $MAIN_PKG
+xargs pip install <<< $MAIN_PKG
 for unit in $SYSTEMD_UNITS; do
     systemctl enable --now $unit
 done
@@ -41,10 +42,7 @@ d=$HOME/dotfiles
 c=$HOME/.config
 mkdir -p $HOME/.config
 
-git clone https://github.com/chinarjoshi/dotfiles $d
-rm -rf $d/zsh $d/nvim
-git clone https://github.com/chinarjoshi/zshconf $d/zsh
-git clone https://github.com/chinarjoshi/nvdev $d/nvim
+git clone https://github.com/chinarjoshi/dotfiles $d --recursive
 chown -R c $d
 
 for dir in $d/*/; do

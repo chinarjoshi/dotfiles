@@ -10,7 +10,10 @@ set $up k
 set $right l
 
 # Terminal and launcher
-set $term __NV_PRIME_RENDER_OFFLOAD=0 alacritty
+set $term alacritty
+
+for_window [class="Alacritty"] opacity .7
+for_window [app_id="Alacritty"] opacity .7
 
 # Typematic delay
 input type:keyboard {
@@ -26,8 +29,6 @@ input type:touchpad {
     natural_scroll enabled
     scroll_method two_finger
 }
-
-output * bg #000000 solid_color
 
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
@@ -126,4 +127,5 @@ bar {
 }
 
 include $HOME/dotfiles/sway/custom/*.conf
+include $HOME/dotfiles/sway/custom/wallpaper.conf
 include /etc/sway/config.d/*
