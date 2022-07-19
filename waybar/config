@@ -55,7 +55,7 @@
     "on-click": "firefox https://github.com/notifications"
   },
   "custom/weather": {
-    "exec": "curl 'wttr.in/Alpharetta?format=%c+%t'",
+    "exec": "curl 'wttr.in/Atlanta?format=%c+%t'",
     "interval": 900
   },
   "battery": {

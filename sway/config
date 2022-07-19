@@ -12,8 +12,8 @@ set $right l
 # Terminal and launcher
 set $term alacritty
 
-for_window [class="Alacritty"] opacity .7
-for_window [app_id="Alacritty"] opacity .7
+# for_window [class="Alacritty"] opacity .7
+# for_window [app_id="Alacritty"] opacity .7
 
 # Typematic delay
 input type:keyboard {
@@ -25,7 +25,7 @@ input type:keyboard {
 input type:touchpad {
     tap enabled
     pointer_accel .15
-    scroll_factor .20
+    scroll_factor .40
     natural_scroll enabled
     scroll_method two_finger
 }
