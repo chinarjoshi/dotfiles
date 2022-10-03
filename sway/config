@@ -12,8 +12,8 @@ set $right l
 # Terminal and launcher
 set $term alacritty
 
-# for_window [class="Alacritty"] opacity .7
-# for_window [app_id="Alacritty"] opacity .7
+for_window [class="Alacritty"] opacity .7
+for_window [app_id="Alacritty"] opacity .7
 
 # Typematic delay
 input type:keyboard {
@@ -98,6 +98,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
+
+bindsym Ctrl+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ 0%
+bindsym Ctrl+XF86MonBrightnessUp exec sudo light -S 100
+bindsym Ctrl+XF86MonBrightnessDown exec sudo light -S 0
 
 # Disable floating discord
 for_window [class="discord"] floating disable
