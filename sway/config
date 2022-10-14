@@ -12,9 +12,6 @@ set $right l
 # Terminal and launcher
 set $term alacritty
 
-for_window [class="Alacritty"] opacity .7
-for_window [app_id="Alacritty"] opacity .7
-
 # Typematic delay
 input type:keyboard {
     repeat_delay 200
@@ -88,8 +85,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Audio and brightness control
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessUp exec sudo light -A 5
@@ -123,13 +120,5 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bar {
-    swaybar_command waybar
-    hidden_state hide
-    mode hide
-    modifier $mod
-}
-
 include $HOME/dotfiles/sway/custom/*.conf
-include $HOME/dotfiles/sway/custom/wallpaper.conf
 include /etc/sway/config.d/*
