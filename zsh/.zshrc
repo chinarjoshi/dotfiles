@@ -22,3 +22,6 @@ done
 
 # Load theme configuration (Goes last)
 . $ZDOTDIR/theme/.p10k.zsh
+
+source /home/c/.cache/yay/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/path.zsh.inc
+export GOOGLE_APPLICATION_CREDENTIALS=~/key.json

@@ -1,0 +1,5 @@
+label: gpt
+device: /dev/nvme0n1
+
+size=100MiB, type=1, bootable
+type=20

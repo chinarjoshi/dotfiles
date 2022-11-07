@@ -19,9 +19,16 @@ input type:keyboard {
 }
 
 # Touchpad config
+# input type:touchpad {
+#     tap enabled
+#     pointer_accel .15
+#     scroll_factor .40
+#     natural_scroll enabled
+#     scroll_method two_finger
+# }
 input type:touchpad {
     tap enabled
-    pointer_accel .15
+    pointer_accel .06
     scroll_factor .40
     natural_scroll enabled
     scroll_method two_finger

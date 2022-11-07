@@ -1,6 +1,0 @@
-Fully encrypted filesystem
-Sudo needs fingerprint scan only once
-Plymouth to show boot progress
-Complete power optimization
-btrfs
-efistub

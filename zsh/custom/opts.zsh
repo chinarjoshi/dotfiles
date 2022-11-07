@@ -1,5 +1,4 @@
 export HISTFILE=~/.histfile
-export KEYTIMEOUT=40
 setopt appendhistory
 setopt INC_APPEND_HISTORY  
 setopt SHARE_HISTORY

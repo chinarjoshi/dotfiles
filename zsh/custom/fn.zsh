@@ -31,6 +31,8 @@ f() {
         fi
     fi
 }
+zle -N f
+bindkey '^f' f
 
 command_not_found_handler() {
     if [[ -o interactive && -w $1 ]]; then
@@ -54,5 +56,8 @@ collab() {
     node ~/projects/discord.js $link
 }
 
-zle -N f
-bindkey '^f' f
+_fix_cursor() {
+   echo -ne '\e[6 q'
+}
+
+precmd_functions+=(_fix_cursor)
