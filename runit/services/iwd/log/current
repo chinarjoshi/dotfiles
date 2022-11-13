@@ -1,0 +1,1919 @@
+2022-11-13_02:55:39.40698 Wireless daemon version 1.30
+2022-11-13_02:55:39.40711 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:39.40819 Wiphy: 0, Name: phy0
+2022-11-13_02:55:39.40820 	Permanent Address: 3c:e9:f7:45:33:82
+2022-11-13_02:55:39.40821 	2.4Ghz Band:
+2022-11-13_02:55:39.40822 		Bitrates (non-HT):
+2022-11-13_02:55:39.40822 			 1.0 Mbps
+2022-11-13_02:55:39.40822 			 2.0 Mbps
+2022-11-13_02:55:39.40822 			 5.5 Mbps
+2022-11-13_02:55:39.40822 			11.0 Mbps
+2022-11-13_02:55:39.40822 			 6.0 Mbps
+2022-11-13_02:55:39.40822 			 9.0 Mbps
+2022-11-13_02:55:39.40822 			12.0 Mbps
+2022-11-13_02:55:39.40822 			18.0 Mbps
+2022-11-13_02:55:39.40822 			24.0 Mbps
+2022-11-13_02:55:39.40823 			36.0 Mbps
+2022-11-13_02:55:39.40823 			48.0 Mbps
+2022-11-13_02:55:39.40823 			54.0 Mbps
+2022-11-13_02:55:39.40823 		HT Capabilities:
+2022-11-13_02:55:39.40823 			HT40
+2022-11-13_02:55:39.40823 			Short GI for 20Mhz
+2022-11-13_02:55:39.40823 			Short GI for 40Mhz
+2022-11-13_02:55:39.40823 		HT RX MCS indexes:
+2022-11-13_02:55:39.40823 			0-15
+2022-11-13_02:55:39.40823 		HE Capabilities
+2022-11-13_02:55:39.40823 			Interface Types: ap
+2022-11-13_02:55:39.40824 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40824 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40824 			Interface Types: station
+2022-11-13_02:55:39.40824 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40824 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40824 	5Ghz Band:
+2022-11-13_02:55:39.40824 		Bitrates (non-HT):
+2022-11-13_02:55:39.40824 			 6.0 Mbps
+2022-11-13_02:55:39.40825 			 9.0 Mbps
+2022-11-13_02:55:39.40825 			12.0 Mbps
+2022-11-13_02:55:39.40825 			18.0 Mbps
+2022-11-13_02:55:39.40825 			24.0 Mbps
+2022-11-13_02:55:39.40825 			36.0 Mbps
+2022-11-13_02:55:39.40825 			48.0 Mbps
+2022-11-13_02:55:39.40825 			54.0 Mbps
+2022-11-13_02:55:39.40825 		HT Capabilities:
+2022-11-13_02:55:39.40825 			HT40
+2022-11-13_02:55:39.40825 			Short GI for 20Mhz
+2022-11-13_02:55:39.40825 			Short GI for 40Mhz
+2022-11-13_02:55:39.40826 		HT RX MCS indexes:
+2022-11-13_02:55:39.40826 			0-15
+2022-11-13_02:55:39.40826 		VHT Capabilities:
+2022-11-13_02:55:39.40826 			160 Mhz operation
+2022-11-13_02:55:39.40826 			Short GI for 80Mhz
+2022-11-13_02:55:39.40826 			Short GI for 160 and 80 + 80 Mhz
+2022-11-13_02:55:39.40826 			Max RX MCS: 0-9 for NSS: 2
+2022-11-13_02:55:39.40826 			Max TX MCS: 0-9 for NSS: 2
+2022-11-13_02:55:39.40826 		HE Capabilities
+2022-11-13_02:55:39.40826 			Interface Types: ap
+2022-11-13_02:55:39.40826 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 			Interface Types: station
+2022-11-13_02:55:39.40827 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 			Max HE RX <= 160MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 			Max HE TX <= 160MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40827 	6GHz Band:
+2022-11-13_02:55:39.40827 		Bitrates (non-HT):
+2022-11-13_02:55:39.40827 			 6.0 Mbps
+2022-11-13_02:55:39.40827 			 9.0 Mbps
+2022-11-13_02:55:39.40828 			12.0 Mbps
+2022-11-13_02:55:39.40828 			18.0 Mbps
+2022-11-13_02:55:39.40828 			24.0 Mbps
+2022-11-13_02:55:39.40828 			36.0 Mbps
+2022-11-13_02:55:39.40828 			48.0 Mbps
+2022-11-13_02:55:39.40828 			54.0 Mbps
+2022-11-13_02:55:39.40828 		HE Capabilities
+2022-11-13_02:55:39.40828 			Interface Types: ap
+2022-11-13_02:55:39.40828 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 			Interface Types: station
+2022-11-13_02:55:39.40829 			Max HE RX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 			Max HE TX <= 80MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 			Max HE RX <= 160MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 			Max HE TX <= 160MHz MCS: 0-11 for NSS: 2
+2022-11-13_02:55:39.40829 	Ciphers: CCMP TKIP BIP
+2022-11-13_02:55:39.40829 	Supported iftypes: ad-hoc station ap p2p-client p2p-go p2p-device
+2022-11-13_02:55:40.39218 Wireless daemon version 1.30
+2022-11-13_02:55:40.39220 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:40.39308 Name request failed
+2022-11-13_02:55:40.39312 D-Bus disconnected, quitting...
+2022-11-13_02:55:41.39523 Wireless daemon version 1.30
+2022-11-13_02:55:41.39525 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:41.39616 Name request failed
+2022-11-13_02:55:41.39617 D-Bus disconnected, quitting...
+2022-11-13_02:55:42.39867 Wireless daemon version 1.30
+2022-11-13_02:55:42.39869 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:42.39961 Name request failed
+2022-11-13_02:55:42.39963 D-Bus disconnected, quitting...
+2022-11-13_02:55:43.40204 Wireless daemon version 1.30
+2022-11-13_02:55:43.40206 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:43.40280 Name request failed
+2022-11-13_02:55:43.40282 D-Bus disconnected, quitting...
+2022-11-13_02:55:44.40509 Wireless daemon version 1.30
+2022-11-13_02:55:44.40511 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:44.40610 Name request failed
+2022-11-13_02:55:44.40612 D-Bus disconnected, quitting...
+2022-11-13_02:55:45.40877 Wireless daemon version 1.30
+2022-11-13_02:55:45.40879 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:45.40974 Name request failed
+2022-11-13_02:55:45.40976 D-Bus disconnected, quitting...
+2022-11-13_02:55:46.41333 Wireless daemon version 1.30
+2022-11-13_02:55:46.41335 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:46.41482 Name request failed
+2022-11-13_02:55:46.41484 D-Bus disconnected, quitting...
+2022-11-13_02:55:47.41727 Wireless daemon version 1.30
+2022-11-13_02:55:47.41729 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:47.41859 Name request failed
+2022-11-13_02:55:47.41861 D-Bus disconnected, quitting...
+2022-11-13_02:55:48.42223 Wireless daemon version 1.30
+2022-11-13_02:55:48.42225 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:48.42340 Name request failed
+2022-11-13_02:55:48.42342 D-Bus disconnected, quitting...
+2022-11-13_02:55:49.42547 Wireless daemon version 1.30
+2022-11-13_02:55:49.42549 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:49.42625 Name request failed
+2022-11-13_02:55:49.42626 D-Bus disconnected, quitting...
+2022-11-13_02:55:50.42913 Wireless daemon version 1.30
+2022-11-13_02:55:50.42915 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:50.43002 Name request failed
+2022-11-13_02:55:50.43004 D-Bus disconnected, quitting...
+2022-11-13_02:55:51.43210 Wireless daemon version 1.30
+2022-11-13_02:55:51.43212 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:51.43283 Name request failed
+2022-11-13_02:55:51.43285 D-Bus disconnected, quitting...
+2022-11-13_02:55:52.43504 Wireless daemon version 1.30
+2022-11-13_02:55:52.43506 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:52.43590 Name request failed
+2022-11-13_02:55:52.43592 D-Bus disconnected, quitting...
+2022-11-13_02:55:53.43971 Wireless daemon version 1.30
+2022-11-13_02:55:53.43975 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:53.44102 Name request failed
+2022-11-13_02:55:53.44104 D-Bus disconnected, quitting...
+2022-11-13_02:55:54.44277 Wireless daemon version 1.30
+2022-11-13_02:55:54.44279 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:54.44378 Name request failed
+2022-11-13_02:55:54.44380 D-Bus disconnected, quitting...
+2022-11-13_02:55:55.44605 Wireless daemon version 1.30
+2022-11-13_02:55:55.44607 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:55.44707 Name request failed
+2022-11-13_02:55:55.44708 D-Bus disconnected, quitting...
+2022-11-13_02:55:56.44860 Wireless daemon version 1.30
+2022-11-13_02:55:56.44863 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:56.44949 Name request failed
+2022-11-13_02:55:56.44952 D-Bus disconnected, quitting...
+2022-11-13_02:55:57.45384 Wireless daemon version 1.30
+2022-11-13_02:55:57.45387 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:57.45540 Name request failed
+2022-11-13_02:55:57.45542 D-Bus disconnected, quitting...
+2022-11-13_02:55:58.45738 Wireless daemon version 1.30
+2022-11-13_02:55:58.45740 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:58.45879 Name request failed
+2022-11-13_02:55:58.45881 D-Bus disconnected, quitting...
+2022-11-13_02:55:59.46201 Wireless daemon version 1.30
+2022-11-13_02:55:59.46203 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:55:59.46321 Name request failed
+2022-11-13_02:55:59.46323 D-Bus disconnected, quitting...
+2022-11-13_02:56:00.46696 Wireless daemon version 1.30
+2022-11-13_02:56:00.46699 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:00.46852 Name request failed
+2022-11-13_02:56:00.46854 D-Bus disconnected, quitting...
+2022-11-13_02:56:01.47147 Wireless daemon version 1.30
+2022-11-13_02:56:01.47150 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:01.47277 Name request failed
+2022-11-13_02:56:01.47279 D-Bus disconnected, quitting...
+2022-11-13_02:56:02.47669 Wireless daemon version 1.30
+2022-11-13_02:56:02.47672 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:02.47830 Name request failed
+2022-11-13_02:56:02.47832 D-Bus disconnected, quitting...
+2022-11-13_02:56:03.48181 Wireless daemon version 1.30
+2022-11-13_02:56:03.48184 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:03.48314 Name request failed
+2022-11-13_02:56:03.48316 D-Bus disconnected, quitting...
+2022-11-13_02:56:04.48716 Wireless daemon version 1.30
+2022-11-13_02:56:04.48719 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:04.48873 Name request failed
+2022-11-13_02:56:04.48876 D-Bus disconnected, quitting...
+2022-11-13_02:56:05.49126 Wireless daemon version 1.30
+2022-11-13_02:56:05.49129 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:05.49257 Name request failed
+2022-11-13_02:56:05.49259 D-Bus disconnected, quitting...
+2022-11-13_02:56:06.49512 Wireless daemon version 1.30
+2022-11-13_02:56:06.49514 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:06.49611 Name request failed
+2022-11-13_02:56:06.49613 D-Bus disconnected, quitting...
+2022-11-13_02:56:07.49852 Wireless daemon version 1.30
+2022-11-13_02:56:07.49855 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:07.49936 Name request failed
+2022-11-13_02:56:07.49937 D-Bus disconnected, quitting...
+2022-11-13_02:56:08.50283 Wireless daemon version 1.30
+2022-11-13_02:56:08.50286 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:08.50422 Name request failed
+2022-11-13_02:56:08.50424 D-Bus disconnected, quitting...
+2022-11-13_02:56:09.50748 Wireless daemon version 1.30
+2022-11-13_02:56:09.50751 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:09.50897 Name request failed
+2022-11-13_02:56:09.50899 D-Bus disconnected, quitting...
+2022-11-13_02:56:10.51091 Wireless daemon version 1.30
+2022-11-13_02:56:10.51094 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:10.51218 Name request failed
+2022-11-13_02:56:10.51219 D-Bus disconnected, quitting...
+2022-11-13_02:56:11.51451 Wireless daemon version 1.30
+2022-11-13_02:56:11.51453 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:11.51585 Name request failed
+2022-11-13_02:56:11.51587 D-Bus disconnected, quitting...
+2022-11-13_02:56:12.51888 Wireless daemon version 1.30
+2022-11-13_02:56:12.51890 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:12.51997 Name request failed
+2022-11-13_02:56:12.51999 D-Bus disconnected, quitting...
+2022-11-13_02:56:13.52326 Wireless daemon version 1.30
+2022-11-13_02:56:13.52329 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:13.52469 Name request failed
+2022-11-13_02:56:13.52471 D-Bus disconnected, quitting...
+2022-11-13_02:56:14.52795 Wireless daemon version 1.30
+2022-11-13_02:56:14.52797 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:14.52940 Name request failed
+2022-11-13_02:56:14.52942 D-Bus disconnected, quitting...
+2022-11-13_02:56:15.53227 Wireless daemon version 1.30
+2022-11-13_02:56:15.53229 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:15.53340 Name request failed
+2022-11-13_02:56:15.53344 D-Bus disconnected, quitting...
+2022-11-13_02:56:16.53772 Wireless daemon version 1.30
+2022-11-13_02:56:16.53777 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:16.53933 Name request failed
+2022-11-13_02:56:16.53935 D-Bus disconnected, quitting...
+2022-11-13_02:56:17.54334 Wireless daemon version 1.30
+2022-11-13_02:56:17.54339 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:17.54493 Name request failed
+2022-11-13_02:56:17.54495 D-Bus disconnected, quitting...
+2022-11-13_02:56:18.54849 Wireless daemon version 1.30
+2022-11-13_02:56:18.54852 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:18.54978 Name request failed
+2022-11-13_02:56:18.54980 D-Bus disconnected, quitting...
+2022-11-13_02:56:19.55233 Wireless daemon version 1.30
+2022-11-13_02:56:19.55236 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:19.55304 Name request failed
+2022-11-13_02:56:19.55306 D-Bus disconnected, quitting...
+2022-11-13_02:56:20.55780 Wireless daemon version 1.30
+2022-11-13_02:56:20.55783 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:20.55920 Name request failed
+2022-11-13_02:56:20.55922 D-Bus disconnected, quitting...
+2022-11-13_02:56:21.56159 Wireless daemon version 1.30
+2022-11-13_02:56:21.56162 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:21.56278 Name request failed
+2022-11-13_02:56:21.56280 D-Bus disconnected, quitting...
+2022-11-13_02:56:22.56427 Wireless daemon version 1.30
+2022-11-13_02:56:22.56429 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:22.56550 Name request failed
+2022-11-13_02:56:22.56552 D-Bus disconnected, quitting...
+2022-11-13_02:56:23.56946 Wireless daemon version 1.30
+2022-11-13_02:56:23.56948 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:23.57103 Name request failed
+2022-11-13_02:56:23.57105 D-Bus disconnected, quitting...
+2022-11-13_02:56:24.57319 Wireless daemon version 1.30
+2022-11-13_02:56:24.57322 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:24.57460 Name request failed
+2022-11-13_02:56:24.57462 D-Bus disconnected, quitting...
+2022-11-13_02:56:25.57646 Wireless daemon version 1.30
+2022-11-13_02:56:25.57648 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:25.57773 Name request failed
+2022-11-13_02:56:25.57774 D-Bus disconnected, quitting...
+2022-11-13_02:56:26.58130 Wireless daemon version 1.30
+2022-11-13_02:56:26.58133 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:26.58274 Name request failed
+2022-11-13_02:56:26.58276 D-Bus disconnected, quitting...
+2022-11-13_02:56:27.58623 Wireless daemon version 1.30
+2022-11-13_02:56:27.58626 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:27.58778 Name request failed
+2022-11-13_02:56:27.58780 D-Bus disconnected, quitting...
+2022-11-13_02:56:28.59020 Wireless daemon version 1.30
+2022-11-13_02:56:28.59022 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:28.59164 Name request failed
+2022-11-13_02:56:28.59166 D-Bus disconnected, quitting...
+2022-11-13_02:56:29.59480 Wireless daemon version 1.30
+2022-11-13_02:56:29.59483 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:29.59614 Name request failed
+2022-11-13_02:56:29.59616 D-Bus disconnected, quitting...
+2022-11-13_02:56:30.59972 Wireless daemon version 1.30
+2022-11-13_02:56:30.59974 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:30.60127 Name request failed
+2022-11-13_02:56:30.60129 D-Bus disconnected, quitting...
+2022-11-13_02:56:31.60483 Wireless daemon version 1.30
+2022-11-13_02:56:31.60486 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:31.60621 Name request failed
+2022-11-13_02:56:31.60624 D-Bus disconnected, quitting...
+2022-11-13_02:56:32.60842 Wireless daemon version 1.30
+2022-11-13_02:56:32.60845 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:32.60940 Name request failed
+2022-11-13_02:56:32.60942 D-Bus disconnected, quitting...
+2022-11-13_02:56:33.61291 Wireless daemon version 1.30
+2022-11-13_02:56:33.61294 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:33.61440 Name request failed
+2022-11-13_02:56:33.61442 D-Bus disconnected, quitting...
+2022-11-13_02:56:34.61799 Wireless daemon version 1.30
+2022-11-13_02:56:34.61802 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:34.61934 Name request failed
+2022-11-13_02:56:34.61936 D-Bus disconnected, quitting...
+2022-11-13_02:56:35.62305 Wireless daemon version 1.30
+2022-11-13_02:56:35.62308 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:35.62461 Name request failed
+2022-11-13_02:56:35.62463 D-Bus disconnected, quitting...
+2022-11-13_02:56:36.62743 Wireless daemon version 1.30
+2022-11-13_02:56:36.62746 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:36.62896 Name request failed
+2022-11-13_02:56:36.62898 D-Bus disconnected, quitting...
+2022-11-13_02:56:37.63187 Wireless daemon version 1.30
+2022-11-13_02:56:37.63190 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:37.63303 Name request failed
+2022-11-13_02:56:37.63305 D-Bus disconnected, quitting...
+2022-11-13_02:56:38.63587 Wireless daemon version 1.30
+2022-11-13_02:56:38.63590 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:38.63703 Name request failed
+2022-11-13_02:56:38.63705 D-Bus disconnected, quitting...
+2022-11-13_02:56:39.63923 Wireless daemon version 1.30
+2022-11-13_02:56:39.63925 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:39.64013 Name request failed
+2022-11-13_02:56:39.64015 D-Bus disconnected, quitting...
+2022-11-13_02:56:40.64275 Wireless daemon version 1.30
+2022-11-13_02:56:40.64277 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:40.64382 Name request failed
+2022-11-13_02:56:40.64383 D-Bus disconnected, quitting...
+2022-11-13_02:56:41.64707 Wireless daemon version 1.30
+2022-11-13_02:56:41.64710 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:41.64853 Name request failed
+2022-11-13_02:56:41.64855 D-Bus disconnected, quitting...
+2022-11-13_02:56:42.65125 Wireless daemon version 1.30
+2022-11-13_02:56:42.65128 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:42.65251 Name request failed
+2022-11-13_02:56:42.65253 D-Bus disconnected, quitting...
+2022-11-13_02:56:43.65564 Wireless daemon version 1.30
+2022-11-13_02:56:43.65566 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:43.65651 Name request failed
+2022-11-13_02:56:43.65653 D-Bus disconnected, quitting...
+2022-11-13_02:56:44.66100 Wireless daemon version 1.30
+2022-11-13_02:56:44.66103 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:44.66256 Name request failed
+2022-11-13_02:56:44.66258 D-Bus disconnected, quitting...
+2022-11-13_02:56:45.66522 Wireless daemon version 1.30
+2022-11-13_02:56:45.66524 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:45.66636 Name request failed
+2022-11-13_02:56:45.66638 D-Bus disconnected, quitting...
+2022-11-13_02:56:46.66943 Wireless daemon version 1.30
+2022-11-13_02:56:46.66946 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:46.67082 Name request failed
+2022-11-13_02:56:46.67084 D-Bus disconnected, quitting...
+2022-11-13_02:56:47.67406 Wireless daemon version 1.30
+2022-11-13_02:56:47.67409 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:47.67556 Name request failed
+2022-11-13_02:56:47.67558 D-Bus disconnected, quitting...
+2022-11-13_02:56:48.67819 Wireless daemon version 1.30
+2022-11-13_02:56:48.67821 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:48.67947 Name request failed
+2022-11-13_02:56:48.67949 D-Bus disconnected, quitting...
+2022-11-13_02:56:49.68275 Wireless daemon version 1.30
+2022-11-13_02:56:49.68278 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:49.68403 Name request failed
+2022-11-13_02:56:49.68405 D-Bus disconnected, quitting...
+2022-11-13_02:56:50.68688 Wireless daemon version 1.30
+2022-11-13_02:56:50.68691 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:50.68829 Name request failed
+2022-11-13_02:56:50.68830 D-Bus disconnected, quitting...
+2022-11-13_02:56:51.69224 Wireless daemon version 1.30
+2022-11-13_02:56:51.69229 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:51.69380 Name request failed
+2022-11-13_02:56:51.69382 D-Bus disconnected, quitting...
+2022-11-13_02:56:52.69752 Wireless daemon version 1.30
+2022-11-13_02:56:52.69755 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:52.69895 Name request failed
+2022-11-13_02:56:52.69897 D-Bus disconnected, quitting...
+2022-11-13_02:56:53.70277 Wireless daemon version 1.30
+2022-11-13_02:56:53.70280 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:53.70441 Name request failed
+2022-11-13_02:56:53.70443 D-Bus disconnected, quitting...
+2022-11-13_02:56:54.70806 Wireless daemon version 1.30
+2022-11-13_02:56:54.70809 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:54.70929 Name request failed
+2022-11-13_02:56:54.70932 D-Bus disconnected, quitting...
+2022-11-13_02:56:55.71233 Wireless daemon version 1.30
+2022-11-13_02:56:55.71236 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:55.71334 Name request failed
+2022-11-13_02:56:55.71336 D-Bus disconnected, quitting...
+2022-11-13_02:56:56.71585 Wireless daemon version 1.30
+2022-11-13_02:56:56.71587 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:56.71672 Name request failed
+2022-11-13_02:56:56.71674 D-Bus disconnected, quitting...
+2022-11-13_02:56:57.71847 Wireless daemon version 1.30
+2022-11-13_02:56:57.71849 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:57.71966 Name request failed
+2022-11-13_02:56:57.71968 D-Bus disconnected, quitting...
+2022-11-13_02:56:58.72237 Wireless daemon version 1.30
+2022-11-13_02:56:58.72239 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:58.72349 Name request failed
+2022-11-13_02:56:58.72351 D-Bus disconnected, quitting...
+2022-11-13_02:56:59.72656 Wireless daemon version 1.30
+2022-11-13_02:56:59.72659 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:56:59.72824 Name request failed
+2022-11-13_02:56:59.72826 D-Bus disconnected, quitting...
+2022-11-13_02:57:00.73043 Wireless daemon version 1.30
+2022-11-13_02:57:00.73045 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:00.73211 Name request failed
+2022-11-13_02:57:00.73213 D-Bus disconnected, quitting...
+2022-11-13_02:57:01.73500 Wireless daemon version 1.30
+2022-11-13_02:57:01.73503 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:01.73640 Name request failed
+2022-11-13_02:57:01.73642 D-Bus disconnected, quitting...
+2022-11-13_02:57:02.73915 Wireless daemon version 1.30
+2022-11-13_02:57:02.73918 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:02.74069 Name request failed
+2022-11-13_02:57:02.74071 D-Bus disconnected, quitting...
+2022-11-13_02:57:03.74168 Wireless daemon version 1.30
+2022-11-13_02:57:03.74169 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:03.74265 Name request failed
+2022-11-13_02:57:03.74266 D-Bus disconnected, quitting...
+2022-11-13_02:57:04.74694 Wireless daemon version 1.30
+2022-11-13_02:57:04.74697 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:04.74874 Name request failed
+2022-11-13_02:57:04.74877 D-Bus disconnected, quitting...
+2022-11-13_02:57:05.75228 Wireless daemon version 1.30
+2022-11-13_02:57:05.75231 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:05.75383 Name request failed
+2022-11-13_02:57:05.75386 D-Bus disconnected, quitting...
+2022-11-13_02:57:06.75739 Wireless daemon version 1.30
+2022-11-13_02:57:06.75742 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:06.75928 Name request failed
+2022-11-13_02:57:06.75930 D-Bus disconnected, quitting...
+2022-11-13_02:57:07.76166 Wireless daemon version 1.30
+2022-11-13_02:57:07.76169 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:07.76301 Name request failed
+2022-11-13_02:57:07.76303 D-Bus disconnected, quitting...
+2022-11-13_02:57:08.76710 Wireless daemon version 1.30
+2022-11-13_02:57:08.76713 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:08.76901 Name request failed
+2022-11-13_02:57:08.76903 D-Bus disconnected, quitting...
+2022-11-13_02:57:09.77236 Wireless daemon version 1.30
+2022-11-13_02:57:09.77241 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:09.77365 Name request failed
+2022-11-13_02:57:09.77367 D-Bus disconnected, quitting...
+2022-11-13_02:57:10.77757 Wireless daemon version 1.30
+2022-11-13_02:57:10.77760 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:10.77941 Name request failed
+2022-11-13_02:57:10.77943 D-Bus disconnected, quitting...
+2022-11-13_02:57:11.78266 Wireless daemon version 1.30
+2022-11-13_02:57:11.78269 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:11.78415 Name request failed
+2022-11-13_02:57:11.78417 D-Bus disconnected, quitting...
+2022-11-13_02:57:12.78604 Wireless daemon version 1.30
+2022-11-13_02:57:12.78606 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:12.78737 Name request failed
+2022-11-13_02:57:12.78739 D-Bus disconnected, quitting...
+2022-11-13_02:57:13.78964 Wireless daemon version 1.30
+2022-11-13_02:57:13.78966 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:13.79127 Name request failed
+2022-11-13_02:57:13.79128 D-Bus disconnected, quitting...
+2022-11-13_02:57:14.79396 Wireless daemon version 1.30
+2022-11-13_02:57:14.79398 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:14.79566 Name request failed
+2022-11-13_02:57:14.79568 D-Bus disconnected, quitting...
+2022-11-13_02:57:15.79803 Wireless daemon version 1.30
+2022-11-13_02:57:15.79806 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:15.79931 Name request failed
+2022-11-13_02:57:15.79932 D-Bus disconnected, quitting...
+2022-11-13_02:57:16.80219 Wireless daemon version 1.30
+2022-11-13_02:57:16.80222 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:16.80314 Name request failed
+2022-11-13_02:57:16.80316 D-Bus disconnected, quitting...
+2022-11-13_02:57:17.80641 Wireless daemon version 1.30
+2022-11-13_02:57:17.80645 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:17.80773 Name request failed
+2022-11-13_02:57:17.80775 D-Bus disconnected, quitting...
+2022-11-13_02:57:18.81092 Wireless daemon version 1.30
+2022-11-13_02:57:18.81095 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:18.81252 Name request failed
+2022-11-13_02:57:18.81254 D-Bus disconnected, quitting...
+2022-11-13_02:57:19.81493 Wireless daemon version 1.30
+2022-11-13_02:57:19.81496 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:19.81613 Name request failed
+2022-11-13_02:57:19.81615 D-Bus disconnected, quitting...
+2022-11-13_02:57:20.82018 Wireless daemon version 1.30
+2022-11-13_02:57:20.82021 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:20.82192 Name request failed
+2022-11-13_02:57:20.82194 D-Bus disconnected, quitting...
+2022-11-13_02:57:21.82410 Wireless daemon version 1.30
+2022-11-13_02:57:21.82413 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:21.82550 Name request failed
+2022-11-13_02:57:21.82552 D-Bus disconnected, quitting...
+2022-11-13_02:57:22.82865 Wireless daemon version 1.30
+2022-11-13_02:57:22.82868 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:22.82973 Name request failed
+2022-11-13_02:57:22.82975 D-Bus disconnected, quitting...
+2022-11-13_02:57:23.83364 Wireless daemon version 1.30
+2022-11-13_02:57:23.83367 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:23.83510 Name request failed
+2022-11-13_02:57:23.83512 D-Bus disconnected, quitting...
+2022-11-13_02:57:24.83889 Wireless daemon version 1.30
+2022-11-13_02:57:24.83892 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:24.84028 Name request failed
+2022-11-13_02:57:24.84031 D-Bus disconnected, quitting...
+2022-11-13_02:57:25.84395 Wireless daemon version 1.30
+2022-11-13_02:57:25.84398 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:25.84540 Name request failed
+2022-11-13_02:57:25.84542 D-Bus disconnected, quitting...
+2022-11-13_02:57:26.84860 Wireless daemon version 1.30
+2022-11-13_02:57:26.84863 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:26.85013 Name request failed
+2022-11-13_02:57:26.85015 D-Bus disconnected, quitting...
+2022-11-13_02:57:27.85404 Wireless daemon version 1.30
+2022-11-13_02:57:27.85407 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:27.85582 Name request failed
+2022-11-13_02:57:27.85585 D-Bus disconnected, quitting...
+2022-11-13_02:57:28.85834 Wireless daemon version 1.30
+2022-11-13_02:57:28.85837 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:28.85973 Name request failed
+2022-11-13_02:57:28.85977 D-Bus disconnected, quitting...
+2022-11-13_02:57:29.86323 Wireless daemon version 1.30
+2022-11-13_02:57:29.86327 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:29.86477 Name request failed
+2022-11-13_02:57:29.86480 D-Bus disconnected, quitting...
+2022-11-13_02:57:30.86774 Wireless daemon version 1.30
+2022-11-13_02:57:30.86777 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:30.86934 Name request failed
+2022-11-13_02:57:30.86936 D-Bus disconnected, quitting...
+2022-11-13_02:57:31.87138 Wireless daemon version 1.30
+2022-11-13_02:57:31.87140 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:31.87266 Name request failed
+2022-11-13_02:57:31.87268 D-Bus disconnected, quitting...
+2022-11-13_02:57:32.87594 Wireless daemon version 1.30
+2022-11-13_02:57:32.87597 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:32.87705 Name request failed
+2022-11-13_02:57:32.87708 D-Bus disconnected, quitting...
+2022-11-13_02:57:33.88064 Wireless daemon version 1.30
+2022-11-13_02:57:33.88067 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:33.88201 Name request failed
+2022-11-13_02:57:33.88203 D-Bus disconnected, quitting...
+2022-11-13_02:57:34.88505 Wireless daemon version 1.30
+2022-11-13_02:57:34.88508 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:34.88613 Name request failed
+2022-11-13_02:57:34.88615 D-Bus disconnected, quitting...
+2022-11-13_02:57:35.88956 Wireless daemon version 1.30
+2022-11-13_02:57:35.88958 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:35.89108 Name request failed
+2022-11-13_02:57:35.89110 D-Bus disconnected, quitting...
+2022-11-13_02:57:36.89455 Wireless daemon version 1.30
+2022-11-13_02:57:36.89458 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:36.89597 Name request failed
+2022-11-13_02:57:36.89599 D-Bus disconnected, quitting...
+2022-11-13_02:57:37.89882 Wireless daemon version 1.30
+2022-11-13_02:57:37.89884 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:37.89982 Name request failed
+2022-11-13_02:57:37.89984 D-Bus disconnected, quitting...
+2022-11-13_02:57:38.90231 Wireless daemon version 1.30
+2022-11-13_02:57:38.90233 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:38.90313 Name request failed
+2022-11-13_02:57:38.90315 D-Bus disconnected, quitting...
+2022-11-13_02:57:39.90624 Wireless daemon version 1.30
+2022-11-13_02:57:39.90627 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:39.90761 Name request failed
+2022-11-13_02:57:39.90763 D-Bus disconnected, quitting...
+2022-11-13_02:57:40.91090 Wireless daemon version 1.30
+2022-11-13_02:57:40.91092 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:40.91242 Name request failed
+2022-11-13_02:57:40.91244 D-Bus disconnected, quitting...
+2022-11-13_02:57:41.91612 Wireless daemon version 1.30
+2022-11-13_02:57:41.91615 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:41.91762 Name request failed
+2022-11-13_02:57:41.91765 D-Bus disconnected, quitting...
+2022-11-13_02:57:42.92054 Wireless daemon version 1.30
+2022-11-13_02:57:42.92056 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:42.92189 Name request failed
+2022-11-13_02:57:42.92191 D-Bus disconnected, quitting...
+2022-11-13_02:57:43.92576 Wireless daemon version 1.30
+2022-11-13_02:57:43.92579 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:43.92695 Name request failed
+2022-11-13_02:57:43.92698 D-Bus disconnected, quitting...
+2022-11-13_02:57:44.93118 Wireless daemon version 1.30
+2022-11-13_02:57:44.93121 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:44.93268 Name request failed
+2022-11-13_02:57:44.93273 D-Bus disconnected, quitting...
+2022-11-13_02:57:45.93553 Wireless daemon version 1.30
+2022-11-13_02:57:45.93555 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:45.93665 Name request failed
+2022-11-13_02:57:45.93667 D-Bus disconnected, quitting...
+2022-11-13_02:57:46.94054 Wireless daemon version 1.30
+2022-11-13_02:57:46.94057 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:46.94198 Name request failed
+2022-11-13_02:57:46.94200 D-Bus disconnected, quitting...
+2022-11-13_02:57:47.94418 Wireless daemon version 1.30
+2022-11-13_02:57:47.94420 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:47.94558 Name request failed
+2022-11-13_02:57:47.94560 D-Bus disconnected, quitting...
+2022-11-13_02:57:48.94874 Wireless daemon version 1.30
+2022-11-13_02:57:48.94877 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:48.95015 Name request failed
+2022-11-13_02:57:48.95017 D-Bus disconnected, quitting...
+2022-11-13_02:57:49.95247 Wireless daemon version 1.30
+2022-11-13_02:57:49.95249 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:49.95335 Name request failed
+2022-11-13_02:57:49.95336 D-Bus disconnected, quitting...
+2022-11-13_02:57:50.95601 Wireless daemon version 1.30
+2022-11-13_02:57:50.95603 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:50.95708 Name request failed
+2022-11-13_02:57:50.95709 D-Bus disconnected, quitting...
+2022-11-13_02:57:51.96107 Wireless daemon version 1.30
+2022-11-13_02:57:51.96110 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:51.96238 Name request failed
+2022-11-13_02:57:51.96240 D-Bus disconnected, quitting...
+2022-11-13_02:57:52.96528 Wireless daemon version 1.30
+2022-11-13_02:57:52.96530 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:52.96640 Name request failed
+2022-11-13_02:57:52.96643 D-Bus disconnected, quitting...
+2022-11-13_02:57:53.96951 Wireless daemon version 1.30
+2022-11-13_02:57:53.96953 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:53.97064 Name request failed
+2022-11-13_02:57:53.97066 D-Bus disconnected, quitting...
+2022-11-13_02:57:54.97406 Wireless daemon version 1.30
+2022-11-13_02:57:54.97408 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:54.97536 Name request failed
+2022-11-13_02:57:54.97539 D-Bus disconnected, quitting...
+2022-11-13_02:57:55.97929 Wireless daemon version 1.30
+2022-11-13_02:57:55.97932 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:55.98074 Name request failed
+2022-11-13_02:57:55.98077 D-Bus disconnected, quitting...
+2022-11-13_02:57:56.98372 Wireless daemon version 1.30
+2022-11-13_02:57:56.98375 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:56.98511 Name request failed
+2022-11-13_02:57:56.98513 D-Bus disconnected, quitting...
+2022-11-13_02:57:57.98689 Wireless daemon version 1.30
+2022-11-13_02:57:57.98692 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:57.98816 Name request failed
+2022-11-13_02:57:57.98818 D-Bus disconnected, quitting...
+2022-11-13_02:57:58.99059 Wireless daemon version 1.30
+2022-11-13_02:57:58.99061 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:58.99123 Name request failed
+2022-11-13_02:57:58.99126 D-Bus disconnected, quitting...
+2022-11-13_02:57:59.99443 Wireless daemon version 1.30
+2022-11-13_02:57:59.99446 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:57:59.99583 Name request failed
+2022-11-13_02:57:59.99585 D-Bus disconnected, quitting...
+2022-11-13_02:58:00.99730 Wireless daemon version 1.30
+2022-11-13_02:58:00.99732 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:00.99838 Name request failed
+2022-11-13_02:58:00.99839 D-Bus disconnected, quitting...
+2022-11-13_02:58:02.00075 Wireless daemon version 1.30
+2022-11-13_02:58:02.00077 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:02.00201 Name request failed
+2022-11-13_02:58:02.00203 D-Bus disconnected, quitting...
+2022-11-13_02:58:03.00462 Wireless daemon version 1.30
+2022-11-13_02:58:03.00465 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:03.00581 Name request failed
+2022-11-13_02:58:03.00583 D-Bus disconnected, quitting...
+2022-11-13_02:58:04.00744 Wireless daemon version 1.30
+2022-11-13_02:58:04.00746 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:04.00853 Name request failed
+2022-11-13_02:58:04.00854 D-Bus disconnected, quitting...
+2022-11-13_02:58:05.01106 Wireless daemon version 1.30
+2022-11-13_02:58:05.01108 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:05.01180 Name request failed
+2022-11-13_02:58:05.01181 D-Bus disconnected, quitting...
+2022-11-13_02:58:06.01393 Wireless daemon version 1.30
+2022-11-13_02:58:06.01394 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:06.01456 Name request failed
+2022-11-13_02:58:06.01458 D-Bus disconnected, quitting...
+2022-11-13_02:58:07.01602 Wireless daemon version 1.30
+2022-11-13_02:58:07.01604 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:07.01663 Name request failed
+2022-11-13_02:58:07.01665 D-Bus disconnected, quitting...
+2022-11-13_02:58:08.02086 Wireless daemon version 1.30
+2022-11-13_02:58:08.02089 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:08.02170 Name request failed
+2022-11-13_02:58:08.02172 D-Bus disconnected, quitting...
+2022-11-13_02:58:09.02363 Wireless daemon version 1.30
+2022-11-13_02:58:09.02364 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:09.02479 Name request failed
+2022-11-13_02:58:09.02480 D-Bus disconnected, quitting...
+2022-11-13_02:58:10.02711 Wireless daemon version 1.30
+2022-11-13_02:58:10.02714 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:10.02844 Name request failed
+2022-11-13_02:58:10.02847 D-Bus disconnected, quitting...
+2022-11-13_02:58:11.03100 Wireless daemon version 1.30
+2022-11-13_02:58:11.03104 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:11.03239 Name request failed
+2022-11-13_02:58:11.03242 D-Bus disconnected, quitting...
+2022-11-13_02:58:12.03434 Wireless daemon version 1.30
+2022-11-13_02:58:12.03436 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:12.03559 Name request failed
+2022-11-13_02:58:12.03560 D-Bus disconnected, quitting...
+2022-11-13_02:58:13.03732 Wireless daemon version 1.30
+2022-11-13_02:58:13.03734 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:13.03858 Name request failed
+2022-11-13_02:58:13.03859 D-Bus disconnected, quitting...
+2022-11-13_02:58:14.04236 Wireless daemon version 1.30
+2022-11-13_02:58:14.04239 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:14.04364 Name request failed
+2022-11-13_02:58:14.04366 D-Bus disconnected, quitting...
+2022-11-13_02:58:15.04507 Wireless daemon version 1.30
+2022-11-13_02:58:15.04509 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:15.04615 Name request failed
+2022-11-13_02:58:15.04617 D-Bus disconnected, quitting...
+2022-11-13_02:58:16.04806 Wireless daemon version 1.30
+2022-11-13_02:58:16.04808 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:16.04920 Name request failed
+2022-11-13_02:58:16.04922 D-Bus disconnected, quitting...
+2022-11-13_02:58:17.05105 Wireless daemon version 1.30
+2022-11-13_02:58:17.05107 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:17.05217 Name request failed
+2022-11-13_02:58:17.05218 D-Bus disconnected, quitting...
+2022-11-13_02:58:18.05399 Wireless daemon version 1.30
+2022-11-13_02:58:18.05401 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:18.05533 Name request failed
+2022-11-13_02:58:18.05535 D-Bus disconnected, quitting...
+2022-11-13_02:58:19.05758 Wireless daemon version 1.30
+2022-11-13_02:58:19.05760 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:19.05887 Name request failed
+2022-11-13_02:58:19.05888 D-Bus disconnected, quitting...
+2022-11-13_02:58:20.06206 Wireless daemon version 1.30
+2022-11-13_02:58:20.06209 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:20.06315 Name request failed
+2022-11-13_02:58:20.06317 D-Bus disconnected, quitting...
+2022-11-13_02:58:21.06494 Wireless daemon version 1.30
+2022-11-13_02:58:21.06496 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:21.06599 Name request failed
+2022-11-13_02:58:21.06601 D-Bus disconnected, quitting...
+2022-11-13_02:58:22.06778 Wireless daemon version 1.30
+2022-11-13_02:58:22.06780 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:22.06905 Name request failed
+2022-11-13_02:58:22.06907 D-Bus disconnected, quitting...
+2022-11-13_02:58:23.07068 Wireless daemon version 1.30
+2022-11-13_02:58:23.07070 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:23.07186 Name request failed
+2022-11-13_02:58:23.07188 D-Bus disconnected, quitting...
+2022-11-13_02:58:24.07413 Wireless daemon version 1.30
+2022-11-13_02:58:24.07415 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:24.07543 Name request failed
+2022-11-13_02:58:24.07545 D-Bus disconnected, quitting...
+2022-11-13_02:58:25.07728 Wireless daemon version 1.30
+2022-11-13_02:58:25.07730 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:25.07855 Name request failed
+2022-11-13_02:58:25.07857 D-Bus disconnected, quitting...
+2022-11-13_02:58:26.08048 Wireless daemon version 1.30
+2022-11-13_02:58:26.08050 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:26.08176 Name request failed
+2022-11-13_02:58:26.08177 D-Bus disconnected, quitting...
+2022-11-13_02:58:27.08377 Wireless daemon version 1.30
+2022-11-13_02:58:27.08380 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:27.08490 Name request failed
+2022-11-13_02:58:27.08492 D-Bus disconnected, quitting...
+2022-11-13_02:58:28.08661 Wireless daemon version 1.30
+2022-11-13_02:58:28.08663 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:28.08781 Name request failed
+2022-11-13_02:58:28.08783 D-Bus disconnected, quitting...
+2022-11-13_02:58:29.09050 Wireless daemon version 1.30
+2022-11-13_02:58:29.09053 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:29.09192 Name request failed
+2022-11-13_02:58:29.09193 D-Bus disconnected, quitting...
+2022-11-13_02:58:30.09381 Wireless daemon version 1.30
+2022-11-13_02:58:30.09383 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:30.09510 Name request failed
+2022-11-13_02:58:30.09512 D-Bus disconnected, quitting...
+2022-11-13_02:58:31.09711 Wireless daemon version 1.30
+2022-11-13_02:58:31.09714 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:31.09826 Name request failed
+2022-11-13_02:58:31.09827 D-Bus disconnected, quitting...
+2022-11-13_02:58:32.10068 Wireless daemon version 1.30
+2022-11-13_02:58:32.10070 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:32.10201 Name request failed
+2022-11-13_02:58:32.10203 D-Bus disconnected, quitting...
+2022-11-13_02:58:33.10404 Wireless daemon version 1.30
+2022-11-13_02:58:33.10407 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:33.10524 Name request failed
+2022-11-13_02:58:33.10526 D-Bus disconnected, quitting...
+2022-11-13_02:58:34.10725 Wireless daemon version 1.30
+2022-11-13_02:58:34.10727 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:34.10833 Name request failed
+2022-11-13_02:58:34.10834 D-Bus disconnected, quitting...
+2022-11-13_02:58:35.11024 Wireless daemon version 1.30
+2022-11-13_02:58:35.11027 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:35.11152 Name request failed
+2022-11-13_02:58:35.11154 D-Bus disconnected, quitting...
+2022-11-13_02:58:36.11321 Wireless daemon version 1.30
+2022-11-13_02:58:36.11323 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:36.11438 Name request failed
+2022-11-13_02:58:36.11439 D-Bus disconnected, quitting...
+2022-11-13_02:58:37.11616 Wireless daemon version 1.30
+2022-11-13_02:58:37.11618 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:37.11706 Name request failed
+2022-11-13_02:58:37.11708 D-Bus disconnected, quitting...
+2022-11-13_02:58:38.11920 Wireless daemon version 1.30
+2022-11-13_02:58:38.11922 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:38.11995 Name request failed
+2022-11-13_02:58:38.11996 D-Bus disconnected, quitting...
+2022-11-13_02:58:39.12216 Wireless daemon version 1.30
+2022-11-13_02:58:39.12220 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:39.12300 Name request failed
+2022-11-13_02:58:39.12301 D-Bus disconnected, quitting...
+2022-11-13_02:58:40.12584 Wireless daemon version 1.30
+2022-11-13_02:58:40.12587 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:40.12696 Name request failed
+2022-11-13_02:58:40.12698 D-Bus disconnected, quitting...
+2022-11-13_02:58:41.12920 Wireless daemon version 1.30
+2022-11-13_02:58:41.12922 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:41.13026 Name request failed
+2022-11-13_02:58:41.13028 D-Bus disconnected, quitting...
+2022-11-13_02:58:42.13268 Wireless daemon version 1.30
+2022-11-13_02:58:42.13271 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:42.13375 Name request failed
+2022-11-13_02:58:42.13377 D-Bus disconnected, quitting...
+2022-11-13_02:58:43.13634 Wireless daemon version 1.30
+2022-11-13_02:58:43.13636 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:43.13755 Name request failed
+2022-11-13_02:58:43.13756 D-Bus disconnected, quitting...
+2022-11-13_02:58:44.13933 Wireless daemon version 1.30
+2022-11-13_02:58:44.13935 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:44.14045 Name request failed
+2022-11-13_02:58:44.14047 D-Bus disconnected, quitting...
+2022-11-13_02:58:45.14368 Wireless daemon version 1.30
+2022-11-13_02:58:45.14370 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:45.14502 Name request failed
+2022-11-13_02:58:45.14504 D-Bus disconnected, quitting...
+2022-11-13_02:58:46.14693 Wireless daemon version 1.30
+2022-11-13_02:58:46.14695 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:46.14821 Name request failed
+2022-11-13_02:58:46.14822 D-Bus disconnected, quitting...
+2022-11-13_02:58:47.15040 Wireless daemon version 1.30
+2022-11-13_02:58:47.15042 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:47.15152 Name request failed
+2022-11-13_02:58:47.15154 D-Bus disconnected, quitting...
+2022-11-13_02:58:48.15357 Wireless daemon version 1.30
+2022-11-13_02:58:48.15359 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:48.15481 Name request failed
+2022-11-13_02:58:48.15483 D-Bus disconnected, quitting...
+2022-11-13_02:58:49.15669 Wireless daemon version 1.30
+2022-11-13_02:58:49.15672 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:49.15798 Name request failed
+2022-11-13_02:58:49.15799 D-Bus disconnected, quitting...
+2022-11-13_02:58:50.15983 Wireless daemon version 1.30
+2022-11-13_02:58:50.15985 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:50.16118 Name request failed
+2022-11-13_02:58:50.16119 D-Bus disconnected, quitting...
+2022-11-13_02:58:51.16359 Wireless daemon version 1.30
+2022-11-13_02:58:51.16361 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:51.16477 Name request failed
+2022-11-13_02:58:51.16479 D-Bus disconnected, quitting...
+2022-11-13_02:58:52.16718 Wireless daemon version 1.30
+2022-11-13_02:58:52.16720 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:52.16833 Name request failed
+2022-11-13_02:58:52.16834 D-Bus disconnected, quitting...
+2022-11-13_02:58:53.17052 Wireless daemon version 1.30
+2022-11-13_02:58:53.17054 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:53.17149 Name request failed
+2022-11-13_02:58:53.17150 D-Bus disconnected, quitting...
+2022-11-13_02:58:54.17389 Wireless daemon version 1.30
+2022-11-13_02:58:54.17391 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:54.17516 Name request failed
+2022-11-13_02:58:54.17518 D-Bus disconnected, quitting...
+2022-11-13_02:58:55.17720 Wireless daemon version 1.30
+2022-11-13_02:58:55.17722 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:55.17832 Name request failed
+2022-11-13_02:58:55.17833 D-Bus disconnected, quitting...
+2022-11-13_02:58:56.18018 Wireless daemon version 1.30
+2022-11-13_02:58:56.18020 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:56.18135 Name request failed
+2022-11-13_02:58:56.18137 D-Bus disconnected, quitting...
+2022-11-13_02:58:57.18331 Wireless daemon version 1.30
+2022-11-13_02:58:57.18334 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:57.18459 Name request failed
+2022-11-13_02:58:57.18460 D-Bus disconnected, quitting...
+2022-11-13_02:58:58.18679 Wireless daemon version 1.30
+2022-11-13_02:58:58.18681 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:58.18809 Name request failed
+2022-11-13_02:58:58.18811 D-Bus disconnected, quitting...
+2022-11-13_02:58:59.19068 Wireless daemon version 1.30
+2022-11-13_02:58:59.19070 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:58:59.19210 Name request failed
+2022-11-13_02:58:59.19211 D-Bus disconnected, quitting...
+2022-11-13_02:59:00.19455 Wireless daemon version 1.30
+2022-11-13_02:59:00.19458 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:00.19576 Name request failed
+2022-11-13_02:59:00.19578 D-Bus disconnected, quitting...
+2022-11-13_02:59:01.19834 Wireless daemon version 1.30
+2022-11-13_02:59:01.19836 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:01.19937 Name request failed
+2022-11-13_02:59:01.19939 D-Bus disconnected, quitting...
+2022-11-13_02:59:02.20165 Wireless daemon version 1.30
+2022-11-13_02:59:02.20168 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:02.20278 Name request failed
+2022-11-13_02:59:02.20280 D-Bus disconnected, quitting...
+2022-11-13_02:59:03.20452 Wireless daemon version 1.30
+2022-11-13_02:59:03.20454 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:03.20558 Name request failed
+2022-11-13_02:59:03.20560 D-Bus disconnected, quitting...
+2022-11-13_02:59:04.20740 Wireless daemon version 1.30
+2022-11-13_02:59:04.20742 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:04.20848 Name request failed
+2022-11-13_02:59:04.20850 D-Bus disconnected, quitting...
+2022-11-13_02:59:05.21193 Wireless daemon version 1.30
+2022-11-13_02:59:05.21196 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:05.21295 Name request failed
+2022-11-13_02:59:05.21297 D-Bus disconnected, quitting...
+2022-11-13_02:59:06.21553 Wireless daemon version 1.30
+2022-11-13_02:59:06.21556 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:06.21651 Name request failed
+2022-11-13_02:59:06.21653 D-Bus disconnected, quitting...
+2022-11-13_02:59:07.21979 Wireless daemon version 1.30
+2022-11-13_02:59:07.21982 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:07.22127 Name request failed
+2022-11-13_02:59:07.22129 D-Bus disconnected, quitting...
+2022-11-13_02:59:08.22396 Wireless daemon version 1.30
+2022-11-13_02:59:08.22398 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:08.22542 Name request failed
+2022-11-13_02:59:08.22544 D-Bus disconnected, quitting...
+2022-11-13_02:59:09.22741 Wireless daemon version 1.30
+2022-11-13_02:59:09.22743 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:09.22859 Name request failed
+2022-11-13_02:59:09.22860 D-Bus disconnected, quitting...
+2022-11-13_02:59:10.23101 Wireless daemon version 1.30
+2022-11-13_02:59:10.23103 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:10.23224 Name request failed
+2022-11-13_02:59:10.23226 D-Bus disconnected, quitting...
+2022-11-13_02:59:11.23462 Wireless daemon version 1.30
+2022-11-13_02:59:11.23464 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:11.23592 Name request failed
+2022-11-13_02:59:11.23593 D-Bus disconnected, quitting...
+2022-11-13_02:59:12.23757 Wireless daemon version 1.30
+2022-11-13_02:59:12.23759 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:12.23865 Name request failed
+2022-11-13_02:59:12.23867 D-Bus disconnected, quitting...
+2022-11-13_02:59:13.24078 Wireless daemon version 1.30
+2022-11-13_02:59:13.24081 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:13.24193 Name request failed
+2022-11-13_02:59:13.24194 D-Bus disconnected, quitting...
+2022-11-13_02:59:14.24419 Wireless daemon version 1.30
+2022-11-13_02:59:14.24421 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:14.24551 Name request failed
+2022-11-13_02:59:14.24554 D-Bus disconnected, quitting...
+2022-11-13_02:59:15.24837 Wireless daemon version 1.30
+2022-11-13_02:59:15.24840 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:15.24951 Name request failed
+2022-11-13_02:59:15.24953 D-Bus disconnected, quitting...
+2022-11-13_02:59:16.25208 Wireless daemon version 1.30
+2022-11-13_02:59:16.25210 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:16.25292 Name request failed
+2022-11-13_02:59:16.25294 D-Bus disconnected, quitting...
+2022-11-13_02:59:17.25562 Wireless daemon version 1.30
+2022-11-13_02:59:17.25565 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:17.25642 Name request failed
+2022-11-13_02:59:17.25644 D-Bus disconnected, quitting...
+2022-11-13_02:59:18.25899 Wireless daemon version 1.30
+2022-11-13_02:59:18.25901 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:18.25985 Name request failed
+2022-11-13_02:59:18.25987 D-Bus disconnected, quitting...
+2022-11-13_02:59:19.26197 Wireless daemon version 1.30
+2022-11-13_02:59:19.26199 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:19.26282 Name request failed
+2022-11-13_02:59:19.26284 D-Bus disconnected, quitting...
+2022-11-13_02:59:20.26516 Wireless daemon version 1.30
+2022-11-13_02:59:20.26518 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:20.26614 Name request failed
+2022-11-13_02:59:20.26616 D-Bus disconnected, quitting...
+2022-11-13_02:59:21.26882 Wireless daemon version 1.30
+2022-11-13_02:59:21.26885 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:21.26958 Name request failed
+2022-11-13_02:59:21.26960 D-Bus disconnected, quitting...
+2022-11-13_02:59:22.27217 Wireless daemon version 1.30
+2022-11-13_02:59:22.27220 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:22.27295 Name request failed
+2022-11-13_02:59:22.27296 D-Bus disconnected, quitting...
+2022-11-13_02:59:23.27765 Wireless daemon version 1.30
+2022-11-13_02:59:23.27768 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:23.27915 Name request failed
+2022-11-13_02:59:23.27917 D-Bus disconnected, quitting...
+2022-11-13_02:59:24.28128 Wireless daemon version 1.30
+2022-11-13_02:59:24.28131 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:24.28250 Name request failed
+2022-11-13_02:59:24.28252 D-Bus disconnected, quitting...
+2022-11-13_02:59:25.28492 Wireless daemon version 1.30
+2022-11-13_02:59:25.28494 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:25.28597 Name request failed
+2022-11-13_02:59:25.28599 D-Bus disconnected, quitting...
+2022-11-13_02:59:26.28805 Wireless daemon version 1.30
+2022-11-13_02:59:26.28807 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:26.28906 Name request failed
+2022-11-13_02:59:26.28908 D-Bus disconnected, quitting...
+2022-11-13_02:59:27.29237 Wireless daemon version 1.30
+2022-11-13_02:59:27.29240 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:27.29329 Name request failed
+2022-11-13_02:59:27.29331 D-Bus disconnected, quitting...
+2022-11-13_02:59:28.29554 Wireless daemon version 1.30
+2022-11-13_02:59:28.29556 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:28.29645 Name request failed
+2022-11-13_02:59:28.29646 D-Bus disconnected, quitting...
+2022-11-13_02:59:29.29919 Wireless daemon version 1.30
+2022-11-13_02:59:29.29921 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:29.30032 Name request failed
+2022-11-13_02:59:29.30034 D-Bus disconnected, quitting...
+2022-11-13_02:59:30.30259 Wireless daemon version 1.30
+2022-11-13_02:59:30.30262 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:30.30379 Name request failed
+2022-11-13_02:59:30.30381 D-Bus disconnected, quitting...
+2022-11-13_02:59:31.30571 Wireless daemon version 1.30
+2022-11-13_02:59:31.30575 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:31.30677 Name request failed
+2022-11-13_02:59:31.30679 D-Bus disconnected, quitting...
+2022-11-13_02:59:32.30858 Wireless daemon version 1.30
+2022-11-13_02:59:32.30860 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:32.30964 Name request failed
+2022-11-13_02:59:32.30966 D-Bus disconnected, quitting...
+2022-11-13_02:59:33.31369 Wireless daemon version 1.30
+2022-11-13_02:59:33.31372 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:33.31546 Name request failed
+2022-11-13_02:59:33.31548 D-Bus disconnected, quitting...
+2022-11-13_02:59:34.31891 Wireless daemon version 1.30
+2022-11-13_02:59:34.31894 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:34.32056 Name request failed
+2022-11-13_02:59:34.32058 D-Bus disconnected, quitting...
+2022-11-13_02:59:35.32178 Wireless daemon version 1.30
+2022-11-13_02:59:35.32180 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:35.32281 Name request failed
+2022-11-13_02:59:35.32283 D-Bus disconnected, quitting...
+2022-11-13_02:59:36.32604 Wireless daemon version 1.30
+2022-11-13_02:59:36.32606 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:36.32733 Name request failed
+2022-11-13_02:59:36.32735 D-Bus disconnected, quitting...
+2022-11-13_02:59:37.33128 Wireless daemon version 1.30
+2022-11-13_02:59:37.33131 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:37.33270 Name request failed
+2022-11-13_02:59:37.33273 D-Bus disconnected, quitting...
+2022-11-13_02:59:38.33518 Wireless daemon version 1.30
+2022-11-13_02:59:38.33521 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:38.33628 Name request failed
+2022-11-13_02:59:38.33630 D-Bus disconnected, quitting...
+2022-11-13_02:59:39.33804 Wireless daemon version 1.30
+2022-11-13_02:59:39.33806 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:39.33928 Name request failed
+2022-11-13_02:59:39.33930 D-Bus disconnected, quitting...
+2022-11-13_02:59:40.34216 Wireless daemon version 1.30
+2022-11-13_02:59:40.34219 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:40.34297 Name request failed
+2022-11-13_02:59:40.34299 D-Bus disconnected, quitting...
+2022-11-13_02:59:41.34537 Wireless daemon version 1.30
+2022-11-13_02:59:41.34539 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:41.34608 Name request failed
+2022-11-13_02:59:41.34609 D-Bus disconnected, quitting...
+2022-11-13_02:59:42.35025 Wireless daemon version 1.30
+2022-11-13_02:59:42.35028 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:42.35182 Name request failed
+2022-11-13_02:59:42.35185 D-Bus disconnected, quitting...
+2022-11-13_02:59:43.35289 Wireless daemon version 1.30
+2022-11-13_02:59:43.35291 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:43.35392 Name request failed
+2022-11-13_02:59:43.35393 D-Bus disconnected, quitting...
+2022-11-13_02:59:44.35610 Wireless daemon version 1.30
+2022-11-13_02:59:44.35612 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:44.35719 Name request failed
+2022-11-13_02:59:44.35721 D-Bus disconnected, quitting...
+2022-11-13_02:59:45.35970 Wireless daemon version 1.30
+2022-11-13_02:59:45.35973 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:45.36115 Name request failed
+2022-11-13_02:59:45.36117 D-Bus disconnected, quitting...
+2022-11-13_02:59:46.36372 Wireless daemon version 1.30
+2022-11-13_02:59:46.36375 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:46.36511 Name request failed
+2022-11-13_02:59:46.36513 D-Bus disconnected, quitting...
+2022-11-13_02:59:47.36695 Wireless daemon version 1.30
+2022-11-13_02:59:47.36697 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:47.36822 Name request failed
+2022-11-13_02:59:47.36823 D-Bus disconnected, quitting...
+2022-11-13_02:59:48.37073 Wireless daemon version 1.30
+2022-11-13_02:59:48.37075 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:48.37212 Name request failed
+2022-11-13_02:59:48.37214 D-Bus disconnected, quitting...
+2022-11-13_02:59:49.37419 Wireless daemon version 1.30
+2022-11-13_02:59:49.37422 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:49.37553 Name request failed
+2022-11-13_02:59:49.37555 D-Bus disconnected, quitting...
+2022-11-13_02:59:50.37805 Wireless daemon version 1.30
+2022-11-13_02:59:50.37807 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:50.37936 Name request failed
+2022-11-13_02:59:50.37938 D-Bus disconnected, quitting...
+2022-11-13_02:59:51.38128 Wireless daemon version 1.30
+2022-11-13_02:59:51.38130 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:51.38250 Name request failed
+2022-11-13_02:59:51.38252 D-Bus disconnected, quitting...
+2022-11-13_02:59:52.38457 Wireless daemon version 1.30
+2022-11-13_02:59:52.38459 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:52.38574 Name request failed
+2022-11-13_02:59:52.38575 D-Bus disconnected, quitting...
+2022-11-13_02:59:53.38813 Wireless daemon version 1.30
+2022-11-13_02:59:53.38816 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:53.38929 Name request failed
+2022-11-13_02:59:53.38931 D-Bus disconnected, quitting...
+2022-11-13_02:59:54.39149 Wireless daemon version 1.30
+2022-11-13_02:59:54.39151 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:54.39261 Name request failed
+2022-11-13_02:59:54.39262 D-Bus disconnected, quitting...
+2022-11-13_02:59:55.39612 Wireless daemon version 1.30
+2022-11-13_02:59:55.39614 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:55.39760 Name request failed
+2022-11-13_02:59:55.39762 D-Bus disconnected, quitting...
+2022-11-13_02:59:56.39905 Wireless daemon version 1.30
+2022-11-13_02:59:56.39907 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:56.39986 Name request failed
+2022-11-13_02:59:56.39988 D-Bus disconnected, quitting...
+2022-11-13_02:59:57.40224 Wireless daemon version 1.30
+2022-11-13_02:59:57.40227 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:57.40299 Name request failed
+2022-11-13_02:59:57.40301 D-Bus disconnected, quitting...
+2022-11-13_02:59:58.40544 Wireless daemon version 1.30
+2022-11-13_02:59:58.40546 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:58.40620 Name request failed
+2022-11-13_02:59:58.40622 D-Bus disconnected, quitting...
+2022-11-13_02:59:59.40859 Wireless daemon version 1.30
+2022-11-13_02:59:59.40861 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_02:59:59.40956 Name request failed
+2022-11-13_02:59:59.40957 D-Bus disconnected, quitting...
+2022-11-13_03:00:00.41161 Wireless daemon version 1.30
+2022-11-13_03:00:00.41163 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:00.41243 Name request failed
+2022-11-13_03:00:00.41244 D-Bus disconnected, quitting...
+2022-11-13_03:00:01.41475 Wireless daemon version 1.30
+2022-11-13_03:00:01.41477 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:01.41577 Name request failed
+2022-11-13_03:00:01.41578 D-Bus disconnected, quitting...
+2022-11-13_03:00:02.41758 Wireless daemon version 1.30
+2022-11-13_03:00:02.41760 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:02.41880 Name request failed
+2022-11-13_03:00:02.41882 D-Bus disconnected, quitting...
+2022-11-13_03:00:03.42128 Wireless daemon version 1.30
+2022-11-13_03:00:03.42131 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:03.42254 Name request failed
+2022-11-13_03:00:03.42256 D-Bus disconnected, quitting...
+2022-11-13_03:00:04.42463 Wireless daemon version 1.30
+2022-11-13_03:00:04.42466 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:04.42589 Name request failed
+2022-11-13_03:00:04.42591 D-Bus disconnected, quitting...
+2022-11-13_03:00:05.42852 Wireless daemon version 1.30
+2022-11-13_03:00:05.42855 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:05.42962 Name request failed
+2022-11-13_03:00:05.42964 D-Bus disconnected, quitting...
+2022-11-13_03:00:06.43179 Wireless daemon version 1.30
+2022-11-13_03:00:06.43181 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:06.43281 Name request failed
+2022-11-13_03:00:06.43282 D-Bus disconnected, quitting...
+2022-11-13_03:00:07.43478 Wireless daemon version 1.30
+2022-11-13_03:00:07.43480 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:07.43585 Name request failed
+2022-11-13_03:00:07.43587 D-Bus disconnected, quitting...
+2022-11-13_03:00:08.43795 Wireless daemon version 1.30
+2022-11-13_03:00:08.43799 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:08.43903 Name request failed
+2022-11-13_03:00:08.43905 D-Bus disconnected, quitting...
+2022-11-13_03:00:09.44130 Wireless daemon version 1.30
+2022-11-13_03:00:09.44132 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:09.44251 Name request failed
+2022-11-13_03:00:09.44253 D-Bus disconnected, quitting...
+2022-11-13_03:00:10.44475 Wireless daemon version 1.30
+2022-11-13_03:00:10.44477 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:10.44591 Name request failed
+2022-11-13_03:00:10.44592 D-Bus disconnected, quitting...
+2022-11-13_03:00:11.44790 Wireless daemon version 1.30
+2022-11-13_03:00:11.44792 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:11.44906 Name request failed
+2022-11-13_03:00:11.44908 D-Bus disconnected, quitting...
+2022-11-13_03:00:12.45125 Wireless daemon version 1.30
+2022-11-13_03:00:12.45127 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:12.45235 Name request failed
+2022-11-13_03:00:12.45236 D-Bus disconnected, quitting...
+2022-11-13_03:00:13.45517 Wireless daemon version 1.30
+2022-11-13_03:00:13.45520 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:13.45624 Name request failed
+2022-11-13_03:00:13.45626 D-Bus disconnected, quitting...
+2022-11-13_03:00:14.45920 Wireless daemon version 1.30
+2022-11-13_03:00:14.45922 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:14.46033 Name request failed
+2022-11-13_03:00:14.46035 D-Bus disconnected, quitting...
+2022-11-13_03:00:15.46257 Wireless daemon version 1.30
+2022-11-13_03:00:15.46259 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:15.46365 Name request failed
+2022-11-13_03:00:15.46367 D-Bus disconnected, quitting...
+2022-11-13_03:00:16.46573 Wireless daemon version 1.30
+2022-11-13_03:00:16.46575 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:16.46645 Name request failed
+2022-11-13_03:00:16.46647 D-Bus disconnected, quitting...
+2022-11-13_03:00:17.46956 Wireless daemon version 1.30
+2022-11-13_03:00:17.46958 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:17.47098 Name request failed
+2022-11-13_03:00:17.47100 D-Bus disconnected, quitting...
+2022-11-13_03:00:18.47272 Wireless daemon version 1.30
+2022-11-13_03:00:18.47274 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:18.47362 Name request failed
+2022-11-13_03:00:18.47363 D-Bus disconnected, quitting...
+2022-11-13_03:00:19.47557 Wireless daemon version 1.30
+2022-11-13_03:00:19.47559 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:19.47643 Name request failed
+2022-11-13_03:00:19.47645 D-Bus disconnected, quitting...
+2022-11-13_03:00:20.47822 Wireless daemon version 1.30
+2022-11-13_03:00:20.47824 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:20.47921 Name request failed
+2022-11-13_03:00:20.47922 D-Bus disconnected, quitting...
+2022-11-13_03:00:21.48123 Wireless daemon version 1.30
+2022-11-13_03:00:21.48125 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:21.48243 Name request failed
+2022-11-13_03:00:21.48244 D-Bus disconnected, quitting...
+2022-11-13_03:00:22.48473 Wireless daemon version 1.30
+2022-11-13_03:00:22.48475 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:22.48587 Name request failed
+2022-11-13_03:00:22.48588 D-Bus disconnected, quitting...
+2022-11-13_03:00:23.48776 Wireless daemon version 1.30
+2022-11-13_03:00:23.48778 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:23.48897 Name request failed
+2022-11-13_03:00:23.48899 D-Bus disconnected, quitting...
+2022-11-13_03:00:24.49129 Wireless daemon version 1.30
+2022-11-13_03:00:24.49132 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:24.49262 Name request failed
+2022-11-13_03:00:24.49264 D-Bus disconnected, quitting...
+2022-11-13_03:00:25.49440 Wireless daemon version 1.30
+2022-11-13_03:00:25.49443 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:25.49566 Name request failed
+2022-11-13_03:00:25.49568 D-Bus disconnected, quitting...
+2022-11-13_03:00:26.49811 Wireless daemon version 1.30
+2022-11-13_03:00:26.49813 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:26.49936 Name request failed
+2022-11-13_03:00:26.49938 D-Bus disconnected, quitting...
+2022-11-13_03:00:27.50111 Wireless daemon version 1.30
+2022-11-13_03:00:27.50113 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:27.50237 Name request failed
+2022-11-13_03:00:27.50239 D-Bus disconnected, quitting...
+2022-11-13_03:00:28.50430 Wireless daemon version 1.30
+2022-11-13_03:00:28.50432 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:28.50558 Name request failed
+2022-11-13_03:00:28.50560 D-Bus disconnected, quitting...
+2022-11-13_03:00:29.50742 Wireless daemon version 1.30
+2022-11-13_03:00:29.50744 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:29.50869 Name request failed
+2022-11-13_03:00:29.50871 D-Bus disconnected, quitting...
+2022-11-13_03:00:30.51031 Wireless daemon version 1.30
+2022-11-13_03:00:30.51033 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:30.51158 Name request failed
+2022-11-13_03:00:30.51160 D-Bus disconnected, quitting...
+2022-11-13_03:00:31.51305 Wireless daemon version 1.30
+2022-11-13_03:00:31.51306 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:31.51434 Name request failed
+2022-11-13_03:00:31.51436 D-Bus disconnected, quitting...
+2022-11-13_03:00:32.51636 Wireless daemon version 1.30
+2022-11-13_03:00:32.51638 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:32.51745 Name request failed
+2022-11-13_03:00:32.51746 D-Bus disconnected, quitting...
+2022-11-13_03:00:33.51971 Wireless daemon version 1.30
+2022-11-13_03:00:33.51975 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:33.52113 Name request failed
+2022-11-13_03:00:33.52115 D-Bus disconnected, quitting...
+2022-11-13_03:00:34.52261 Wireless daemon version 1.30
+2022-11-13_03:00:34.52263 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:34.52375 Name request failed
+2022-11-13_03:00:34.52376 D-Bus disconnected, quitting...
+2022-11-13_03:00:35.52599 Wireless daemon version 1.30
+2022-11-13_03:00:35.52601 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:35.52727 Name request failed
+2022-11-13_03:00:35.52729 D-Bus disconnected, quitting...
+2022-11-13_03:00:36.52899 Wireless daemon version 1.30
+2022-11-13_03:00:36.52901 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:36.52985 Name request failed
+2022-11-13_03:00:36.52986 D-Bus disconnected, quitting...
+2022-11-13_03:00:37.53222 Wireless daemon version 1.30
+2022-11-13_03:00:37.53224 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:37.53319 Name request failed
+2022-11-13_03:00:37.53320 D-Bus disconnected, quitting...
+2022-11-13_03:00:38.53543 Wireless daemon version 1.30
+2022-11-13_03:00:38.53545 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:38.53633 Name request failed
+2022-11-13_03:00:38.53635 D-Bus disconnected, quitting...
+2022-11-13_03:00:39.53875 Wireless daemon version 1.30
+2022-11-13_03:00:39.53877 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:39.53970 Name request failed
+2022-11-13_03:00:39.53972 D-Bus disconnected, quitting...
+2022-11-13_03:00:40.54194 Wireless daemon version 1.30
+2022-11-13_03:00:40.54196 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:40.54290 Name request failed
+2022-11-13_03:00:40.54292 D-Bus disconnected, quitting...
+2022-11-13_03:00:41.54752 Wireless daemon version 1.30
+2022-11-13_03:00:41.54755 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:41.54881 Name request failed
+2022-11-13_03:00:41.54884 D-Bus disconnected, quitting...
+2022-11-13_03:00:42.55052 Wireless daemon version 1.30
+2022-11-13_03:00:42.55054 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:42.55138 Name request failed
+2022-11-13_03:00:42.55140 D-Bus disconnected, quitting...
+2022-11-13_03:00:43.55385 Wireless daemon version 1.30
+2022-11-13_03:00:43.55387 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:43.55490 Name request failed
+2022-11-13_03:00:43.55493 D-Bus disconnected, quitting...
+2022-11-13_03:00:44.55704 Wireless daemon version 1.30
+2022-11-13_03:00:44.55707 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:44.55785 Name request failed
+2022-11-13_03:00:44.55786 D-Bus disconnected, quitting...
+2022-11-13_03:00:45.56090 Wireless daemon version 1.30
+2022-11-13_03:00:45.56093 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:45.56206 Name request failed
+2022-11-13_03:00:45.56207 D-Bus disconnected, quitting...
+2022-11-13_03:00:46.56378 Wireless daemon version 1.30
+2022-11-13_03:00:46.56380 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:46.56457 Name request failed
+2022-11-13_03:00:46.56459 D-Bus disconnected, quitting...
+2022-11-13_03:00:47.56712 Wireless daemon version 1.30
+2022-11-13_03:00:47.56715 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:47.56819 Name request failed
+2022-11-13_03:00:47.56821 D-Bus disconnected, quitting...
+2022-11-13_03:00:48.57027 Wireless daemon version 1.30
+2022-11-13_03:00:48.57029 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:48.57130 Name request failed
+2022-11-13_03:00:48.57131 D-Bus disconnected, quitting...
+2022-11-13_03:00:49.57358 Wireless daemon version 1.30
+2022-11-13_03:00:49.57360 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:49.57484 Name request failed
+2022-11-13_03:00:49.57485 D-Bus disconnected, quitting...
+2022-11-13_03:00:50.57716 Wireless daemon version 1.30
+2022-11-13_03:00:50.57718 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:50.57841 Name request failed
+2022-11-13_03:00:50.57842 D-Bus disconnected, quitting...
+2022-11-13_03:00:51.58026 Wireless daemon version 1.30
+2022-11-13_03:00:51.58028 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:51.58152 Name request failed
+2022-11-13_03:00:51.58153 D-Bus disconnected, quitting...
+2022-11-13_03:00:52.58348 Wireless daemon version 1.30
+2022-11-13_03:00:52.58351 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:52.58480 Name request failed
+2022-11-13_03:00:52.58482 D-Bus disconnected, quitting...
+2022-11-13_03:00:53.58658 Wireless daemon version 1.30
+2022-11-13_03:00:53.58660 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:53.58783 Name request failed
+2022-11-13_03:00:53.58784 D-Bus disconnected, quitting...
+2022-11-13_03:00:54.58971 Wireless daemon version 1.30
+2022-11-13_03:00:54.58975 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:54.59091 Name request failed
+2022-11-13_03:00:54.59093 D-Bus disconnected, quitting...
+2022-11-13_03:00:55.59324 Wireless daemon version 1.30
+2022-11-13_03:00:55.59326 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:55.59454 Name request failed
+2022-11-13_03:00:55.59456 D-Bus disconnected, quitting...
+2022-11-13_03:00:56.59597 Wireless daemon version 1.30
+2022-11-13_03:00:56.59599 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:56.59703 Name request failed
+2022-11-13_03:00:56.59705 D-Bus disconnected, quitting...
+2022-11-13_03:00:57.59952 Wireless daemon version 1.30
+2022-11-13_03:00:57.59955 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:57.60084 Name request failed
+2022-11-13_03:00:57.60086 D-Bus disconnected, quitting...
+2022-11-13_03:00:58.60206 Wireless daemon version 1.30
+2022-11-13_03:00:58.60208 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:58.60301 Name request failed
+2022-11-13_03:00:58.60302 D-Bus disconnected, quitting...
+2022-11-13_03:00:59.60511 Wireless daemon version 1.30
+2022-11-13_03:00:59.60513 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:00:59.60609 Name request failed
+2022-11-13_03:00:59.60611 D-Bus disconnected, quitting...
+2022-11-13_03:01:00.60875 Wireless daemon version 1.30
+2022-11-13_03:01:00.60878 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:00.60958 Name request failed
+2022-11-13_03:01:00.60960 D-Bus disconnected, quitting...
+2022-11-13_03:01:01.61214 Wireless daemon version 1.30
+2022-11-13_03:01:01.61216 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:01.61290 Name request failed
+2022-11-13_03:01:01.61291 D-Bus disconnected, quitting...
+2022-11-13_03:01:02.61517 Wireless daemon version 1.30
+2022-11-13_03:01:02.61519 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:02.61589 Name request failed
+2022-11-13_03:01:02.61591 D-Bus disconnected, quitting...
+2022-11-13_03:01:03.61812 Wireless daemon version 1.30
+2022-11-13_03:01:03.61814 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:03.61919 Name request failed
+2022-11-13_03:01:03.61921 D-Bus disconnected, quitting...
+2022-11-13_03:01:04.62118 Wireless daemon version 1.30
+2022-11-13_03:01:04.62120 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:04.62234 Name request failed
+2022-11-13_03:01:04.62236 D-Bus disconnected, quitting...
+2022-11-13_03:01:05.62440 Wireless daemon version 1.30
+2022-11-13_03:01:05.62442 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:05.62567 Name request failed
+2022-11-13_03:01:05.62568 D-Bus disconnected, quitting...
+2022-11-13_03:01:06.62826 Wireless daemon version 1.30
+2022-11-13_03:01:06.62829 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:06.62950 Name request failed
+2022-11-13_03:01:06.62952 D-Bus disconnected, quitting...
+2022-11-13_03:01:07.63156 Wireless daemon version 1.30
+2022-11-13_03:01:07.63158 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:07.63257 Name request failed
+2022-11-13_03:01:07.63258 D-Bus disconnected, quitting...
+2022-11-13_03:01:08.63533 Wireless daemon version 1.30
+2022-11-13_03:01:08.63536 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:08.63645 Name request failed
+2022-11-13_03:01:08.63647 D-Bus disconnected, quitting...
+2022-11-13_03:01:09.63908 Wireless daemon version 1.30
+2022-11-13_03:01:09.63911 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:09.63988 Name request failed
+2022-11-13_03:01:09.63990 D-Bus disconnected, quitting...
+2022-11-13_03:01:10.64212 Wireless daemon version 1.30
+2022-11-13_03:01:10.64214 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:10.64287 Name request failed
+2022-11-13_03:01:10.64289 D-Bus disconnected, quitting...
+2022-11-13_03:01:11.64490 Wireless daemon version 1.30
+2022-11-13_03:01:11.64492 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:11.64588 Name request failed
+2022-11-13_03:01:11.64589 D-Bus disconnected, quitting...
+2022-11-13_03:01:12.64857 Wireless daemon version 1.30
+2022-11-13_03:01:12.64860 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:12.64944 Name request failed
+2022-11-13_03:01:12.64946 D-Bus disconnected, quitting...
+2022-11-13_03:01:13.65245 Wireless daemon version 1.30
+2022-11-13_03:01:13.65247 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:13.65365 Name request failed
+2022-11-13_03:01:13.65367 D-Bus disconnected, quitting...
+2022-11-13_03:01:14.65526 Wireless daemon version 1.30
+2022-11-13_03:01:14.65528 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:14.65604 Name request failed
+2022-11-13_03:01:14.65606 D-Bus disconnected, quitting...
+2022-11-13_03:01:15.65799 Wireless daemon version 1.30
+2022-11-13_03:01:15.65802 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:15.65906 Name request failed
+2022-11-13_03:01:15.65908 D-Bus disconnected, quitting...
+2022-11-13_03:01:16.66266 Wireless daemon version 1.30
+2022-11-13_03:01:16.66269 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:16.66394 Name request failed
+2022-11-13_03:01:16.66396 D-Bus disconnected, quitting...
+2022-11-13_03:01:17.66546 Wireless daemon version 1.30
+2022-11-13_03:01:17.66548 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:17.66615 Name request failed
+2022-11-13_03:01:17.66617 D-Bus disconnected, quitting...
+2022-11-13_03:01:18.66831 Wireless daemon version 1.30
+2022-11-13_03:01:18.66833 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:18.66927 Name request failed
+2022-11-13_03:01:18.66928 D-Bus disconnected, quitting...
+2022-11-13_03:01:19.67217 Wireless daemon version 1.30
+2022-11-13_03:01:19.67219 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:19.67293 Name request failed
+2022-11-13_03:01:19.67295 D-Bus disconnected, quitting...
+2022-11-13_03:01:20.67515 Wireless daemon version 1.30
+2022-11-13_03:01:20.67517 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:20.67593 Name request failed
+2022-11-13_03:01:20.67594 D-Bus disconnected, quitting...
+2022-11-13_03:01:21.67879 Wireless daemon version 1.30
+2022-11-13_03:01:21.67881 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:21.67958 Name request failed
+2022-11-13_03:01:21.67960 D-Bus disconnected, quitting...
+2022-11-13_03:01:22.68215 Wireless daemon version 1.30
+2022-11-13_03:01:22.68218 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:22.68289 Name request failed
+2022-11-13_03:01:22.68290 D-Bus disconnected, quitting...
+2022-11-13_03:01:23.68572 Wireless daemon version 1.30
+2022-11-13_03:01:23.68574 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:23.68646 Name request failed
+2022-11-13_03:01:23.68648 D-Bus disconnected, quitting...
+2022-11-13_03:01:24.68912 Wireless daemon version 1.30
+2022-11-13_03:01:24.68915 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:24.68983 Name request failed
+2022-11-13_03:01:24.68997 D-Bus disconnected, quitting...
+2022-11-13_03:01:25.69280 Wireless daemon version 1.30
+2022-11-13_03:01:25.69283 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:25.69416 Name request failed
+2022-11-13_03:01:25.69418 D-Bus disconnected, quitting...
+2022-11-13_03:01:26.69655 Wireless daemon version 1.30
+2022-11-13_03:01:26.69657 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:26.69794 Name request failed
+2022-11-13_03:01:26.69796 D-Bus disconnected, quitting...
+2022-11-13_03:01:27.70017 Wireless daemon version 1.30
+2022-11-13_03:01:27.70019 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:27.70159 Name request failed
+2022-11-13_03:01:27.70160 D-Bus disconnected, quitting...
+2022-11-13_03:01:28.70327 Wireless daemon version 1.30
+2022-11-13_03:01:28.70329 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:28.70445 Name request failed
+2022-11-13_03:01:28.70447 D-Bus disconnected, quitting...
+2022-11-13_03:01:29.70634 Wireless daemon version 1.30
+2022-11-13_03:01:29.70636 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:29.70757 Name request failed
+2022-11-13_03:01:29.70759 D-Bus disconnected, quitting...
+2022-11-13_03:01:30.70975 Wireless daemon version 1.30
+2022-11-13_03:01:30.70977 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:30.71102 Name request failed
+2022-11-13_03:01:30.71104 D-Bus disconnected, quitting...
+2022-11-13_03:01:31.71309 Wireless daemon version 1.30
+2022-11-13_03:01:31.71312 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:31.71424 Name request failed
+2022-11-13_03:01:31.71425 D-Bus disconnected, quitting...
+2022-11-13_03:01:32.71826 Wireless daemon version 1.30
+2022-11-13_03:01:32.71829 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:32.71948 Name request failed
+2022-11-13_03:01:32.71950 D-Bus disconnected, quitting...
+2022-11-13_03:01:33.72213 Wireless daemon version 1.30
+2022-11-13_03:01:33.72216 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:33.72297 Name request failed
+2022-11-13_03:01:33.72299 D-Bus disconnected, quitting...
+2022-11-13_03:01:34.72521 Wireless daemon version 1.30
+2022-11-13_03:01:34.72523 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:34.72601 Name request failed
+2022-11-13_03:01:34.72603 D-Bus disconnected, quitting...
+2022-11-13_03:01:35.72881 Wireless daemon version 1.30
+2022-11-13_03:01:35.72883 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:35.72958 Name request failed
+2022-11-13_03:01:35.72960 D-Bus disconnected, quitting...
+2022-11-13_03:01:36.73213 Wireless daemon version 1.30
+2022-11-13_03:01:36.73215 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:36.73287 Name request failed
+2022-11-13_03:01:36.73289 D-Bus disconnected, quitting...
+2022-11-13_03:01:37.73532 Wireless daemon version 1.30
+2022-11-13_03:01:37.73536 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:37.73614 Name request failed
+2022-11-13_03:01:37.73616 D-Bus disconnected, quitting...
+2022-11-13_03:01:38.73904 Wireless daemon version 1.30
+2022-11-13_03:01:38.73906 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:38.73984 Name request failed
+2022-11-13_03:01:38.73988 D-Bus disconnected, quitting...
+2022-11-13_03:01:39.74220 Wireless daemon version 1.30
+2022-11-13_03:01:39.74222 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:39.74290 Name request failed
+2022-11-13_03:01:39.74293 D-Bus disconnected, quitting...
+2022-11-13_03:01:40.74583 Wireless daemon version 1.30
+2022-11-13_03:01:40.74586 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:40.74684 Name request failed
+2022-11-13_03:01:40.74687 D-Bus disconnected, quitting...
+2022-11-13_03:01:41.74885 Wireless daemon version 1.30
+2022-11-13_03:01:41.74887 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:41.74954 Name request failed
+2022-11-13_03:01:41.74957 D-Bus disconnected, quitting...
+2022-11-13_03:01:42.75282 Wireless daemon version 1.30
+2022-11-13_03:01:42.75285 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:42.75422 Name request failed
+2022-11-13_03:01:42.75426 D-Bus disconnected, quitting...
+2022-11-13_03:01:43.75593 Wireless daemon version 1.30
+2022-11-13_03:01:43.75596 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:43.75684 Name request failed
+2022-11-13_03:01:43.75687 D-Bus disconnected, quitting...
+2022-11-13_03:01:44.75900 Wireless daemon version 1.30
+2022-11-13_03:01:44.75902 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:44.75975 Name request failed
+2022-11-13_03:01:44.75998 D-Bus disconnected, quitting...
+2022-11-13_03:01:45.76216 Wireless daemon version 1.30
+2022-11-13_03:01:45.76219 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:45.76286 Name request failed
+2022-11-13_03:01:45.76288 D-Bus disconnected, quitting...
+2022-11-13_03:01:46.76529 Wireless daemon version 1.30
+2022-11-13_03:01:46.76531 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:46.76600 Name request failed
+2022-11-13_03:01:46.76602 D-Bus disconnected, quitting...
+2022-11-13_03:01:47.76828 Wireless daemon version 1.30
+2022-11-13_03:01:47.76830 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:47.76924 Name request failed
+2022-11-13_03:01:47.76925 D-Bus disconnected, quitting...
+2022-11-13_03:01:48.77124 Wireless daemon version 1.30
+2022-11-13_03:01:48.77126 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:48.77239 Name request failed
+2022-11-13_03:01:48.77240 D-Bus disconnected, quitting...
+2022-11-13_03:01:49.77490 Wireless daemon version 1.30
+2022-11-13_03:01:49.77493 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:49.77595 Name request failed
+2022-11-13_03:01:49.77597 D-Bus disconnected, quitting...
+2022-11-13_03:01:50.77805 Wireless daemon version 1.30
+2022-11-13_03:01:50.77807 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:50.77912 Name request failed
+2022-11-13_03:01:50.77914 D-Bus disconnected, quitting...
+2022-11-13_03:01:51.78105 Wireless daemon version 1.30
+2022-11-13_03:01:51.78108 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:51.78223 Name request failed
+2022-11-13_03:01:51.78225 D-Bus disconnected, quitting...
+2022-11-13_03:01:52.78415 Wireless daemon version 1.30
+2022-11-13_03:01:52.78417 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:52.78536 Name request failed
+2022-11-13_03:01:52.78537 D-Bus disconnected, quitting...
+2022-11-13_03:01:53.78801 Wireless daemon version 1.30
+2022-11-13_03:01:53.78804 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:53.78901 Name request failed
+2022-11-13_03:01:53.78903 D-Bus disconnected, quitting...
+2022-11-13_03:01:54.79129 Wireless daemon version 1.30
+2022-11-13_03:01:54.79131 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:54.79232 Name request failed
+2022-11-13_03:01:54.79235 D-Bus disconnected, quitting...
+2022-11-13_03:01:55.79468 Wireless daemon version 1.30
+2022-11-13_03:01:55.79471 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:55.79570 Name request failed
+2022-11-13_03:01:55.79572 D-Bus disconnected, quitting...
+2022-11-13_03:01:56.79753 Wireless daemon version 1.30
+2022-11-13_03:01:56.79755 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:56.79873 Name request failed
+2022-11-13_03:01:56.79874 D-Bus disconnected, quitting...
+2022-11-13_03:01:57.80068 Wireless daemon version 1.30
+2022-11-13_03:01:57.80070 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:57.80187 Name request failed
+2022-11-13_03:01:57.80190 D-Bus disconnected, quitting...
+2022-11-13_03:01:58.80405 Wireless daemon version 1.30
+2022-11-13_03:01:58.80408 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:58.80525 Name request failed
+2022-11-13_03:01:58.80528 D-Bus disconnected, quitting...
+2022-11-13_03:01:59.80689 Wireless daemon version 1.30
+2022-11-13_03:01:59.80691 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:01:59.80808 Name request failed
+2022-11-13_03:01:59.80809 D-Bus disconnected, quitting...
+2022-11-13_03:02:00.80991 Wireless daemon version 1.30
+2022-11-13_03:02:00.80993 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:00.81111 Name request failed
+2022-11-13_03:02:00.81113 D-Bus disconnected, quitting...
+2022-11-13_03:02:01.81305 Wireless daemon version 1.30
+2022-11-13_03:02:01.81310 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:01.81429 Name request failed
+2022-11-13_03:02:01.81431 D-Bus disconnected, quitting...
+2022-11-13_03:02:02.81649 Wireless daemon version 1.30
+2022-11-13_03:02:02.81651 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:02.81762 Name request failed
+2022-11-13_03:02:02.81764 D-Bus disconnected, quitting...
+2022-11-13_03:02:03.81942 Wireless daemon version 1.30
+2022-11-13_03:02:03.81945 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:03.82057 Name request failed
+2022-11-13_03:02:03.82059 D-Bus disconnected, quitting...
+2022-11-13_03:02:04.82204 Wireless daemon version 1.30
+2022-11-13_03:02:04.82206 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:04.82286 Name request failed
+2022-11-13_03:02:04.82287 D-Bus disconnected, quitting...
+2022-11-13_03:02:05.82486 Wireless daemon version 1.30
+2022-11-13_03:02:05.82488 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:05.82592 Name request failed
+2022-11-13_03:02:05.82593 D-Bus disconnected, quitting...
+2022-11-13_03:02:06.82833 Wireless daemon version 1.30
+2022-11-13_03:02:06.82836 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:06.82931 Name request failed
+2022-11-13_03:02:06.82933 D-Bus disconnected, quitting...
+2022-11-13_03:02:07.83193 Wireless daemon version 1.30
+2022-11-13_03:02:07.83196 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:07.83277 Name request failed
+2022-11-13_03:02:07.83279 D-Bus disconnected, quitting...
+2022-11-13_03:02:08.83580 Wireless daemon version 1.30
+2022-11-13_03:02:08.83583 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:08.83682 Name request failed
+2022-11-13_03:02:08.83684 D-Bus disconnected, quitting...
+2022-11-13_03:02:09.83868 Wireless daemon version 1.30
+2022-11-13_03:02:09.83870 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:09.83938 Name request failed
+2022-11-13_03:02:09.83940 D-Bus disconnected, quitting...
+2022-11-13_03:02:10.84258 Wireless daemon version 1.30
+2022-11-13_03:02:10.84261 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:10.84360 Name request failed
+2022-11-13_03:02:10.84362 D-Bus disconnected, quitting...
+2022-11-13_03:02:11.84552 Wireless daemon version 1.30
+2022-11-13_03:02:11.84554 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:11.84622 Name request failed
+2022-11-13_03:02:11.84623 D-Bus disconnected, quitting...
+2022-11-13_03:02:12.84859 Wireless daemon version 1.30
+2022-11-13_03:02:12.84861 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:12.84936 Name request failed
+2022-11-13_03:02:12.84938 D-Bus disconnected, quitting...
+2022-11-13_03:02:13.85179 Wireless daemon version 1.30
+2022-11-13_03:02:13.85181 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:13.85265 Name request failed
+2022-11-13_03:02:13.85267 D-Bus disconnected, quitting...
+2022-11-13_03:02:14.85540 Wireless daemon version 1.30
+2022-11-13_03:02:14.85542 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:14.85613 Name request failed
+2022-11-13_03:02:14.85615 D-Bus disconnected, quitting...
+2022-11-13_03:02:15.85853 Wireless daemon version 1.30
+2022-11-13_03:02:15.85855 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:15.85934 Name request failed
+2022-11-13_03:02:15.85935 D-Bus disconnected, quitting...
+2022-11-13_03:02:16.86170 Wireless daemon version 1.30
+2022-11-13_03:02:16.86172 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:16.86263 Name request failed
+2022-11-13_03:02:16.86265 D-Bus disconnected, quitting...
+2022-11-13_03:02:17.86470 Wireless daemon version 1.30
+2022-11-13_03:02:17.86472 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:17.86576 Name request failed
+2022-11-13_03:02:17.86578 D-Bus disconnected, quitting...
+2022-11-13_03:02:18.86777 Wireless daemon version 1.30
+2022-11-13_03:02:18.86779 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:18.86900 Name request failed
+2022-11-13_03:02:18.86902 D-Bus disconnected, quitting...
+2022-11-13_03:02:19.87209 Wireless daemon version 1.30
+2022-11-13_03:02:19.87212 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:19.87295 Name request failed
+2022-11-13_03:02:19.87297 D-Bus disconnected, quitting...
+2022-11-13_03:02:20.87559 Wireless daemon version 1.30
+2022-11-13_03:02:20.87561 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:20.87637 Name request failed
+2022-11-13_03:02:20.87639 D-Bus disconnected, quitting...
+2022-11-13_03:02:21.87844 Wireless daemon version 1.30
+2022-11-13_03:02:21.87846 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:21.87929 Name request failed
+2022-11-13_03:02:21.87931 D-Bus disconnected, quitting...
+2022-11-13_03:02:22.88159 Wireless daemon version 1.30
+2022-11-13_03:02:22.88161 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:22.88256 Name request failed
+2022-11-13_03:02:22.88257 D-Bus disconnected, quitting...
+2022-11-13_03:02:23.88499 Wireless daemon version 1.30
+2022-11-13_03:02:23.88501 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:23.88597 Name request failed
+2022-11-13_03:02:23.88599 D-Bus disconnected, quitting...
+2022-11-13_03:02:24.88858 Wireless daemon version 1.30
+2022-11-13_03:02:24.88860 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:24.88943 Name request failed
+2022-11-13_03:02:24.88944 D-Bus disconnected, quitting...
+2022-11-13_03:02:25.89214 Wireless daemon version 1.30
+2022-11-13_03:02:25.89217 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:25.89292 Name request failed
+2022-11-13_03:02:25.89294 D-Bus disconnected, quitting...
+2022-11-13_03:02:26.89577 Wireless daemon version 1.30
+2022-11-13_03:02:26.89579 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:26.89663 Name request failed
+2022-11-13_03:02:26.89665 D-Bus disconnected, quitting...
+2022-11-13_03:02:27.90016 Wireless daemon version 1.30
+2022-11-13_03:02:27.90019 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:27.90162 Name request failed
+2022-11-13_03:02:27.90164 D-Bus disconnected, quitting...
+2022-11-13_03:02:28.90277 Wireless daemon version 1.30
+2022-11-13_03:02:28.90279 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:28.90391 Name request failed
+2022-11-13_03:02:28.90393 D-Bus disconnected, quitting...
+2022-11-13_03:02:29.90563 Wireless daemon version 1.30
+2022-11-13_03:02:29.90565 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:29.90633 Name request failed
+2022-11-13_03:02:29.90635 D-Bus disconnected, quitting...
+2022-11-13_03:02:30.91080 Wireless daemon version 1.30
+2022-11-13_03:02:30.91083 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:30.91239 Name request failed
+2022-11-13_03:02:30.91243 D-Bus disconnected, quitting...
+2022-11-13_03:02:31.91429 Wireless daemon version 1.30
+2022-11-13_03:02:31.91431 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:31.91564 Name request failed
+2022-11-13_03:02:31.91566 D-Bus disconnected, quitting...
+2022-11-13_03:02:32.91720 Wireless daemon version 1.30
+2022-11-13_03:02:32.91722 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:32.91846 Name request failed
+2022-11-13_03:02:32.91847 D-Bus disconnected, quitting...
+2022-11-13_03:02:33.92045 Wireless daemon version 1.30
+2022-11-13_03:02:33.92047 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:33.92174 Name request failed
+2022-11-13_03:02:33.92176 D-Bus disconnected, quitting...
+2022-11-13_03:02:34.92387 Wireless daemon version 1.30
+2022-11-13_03:02:34.92389 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:34.92512 Name request failed
+2022-11-13_03:02:34.92514 D-Bus disconnected, quitting...
+2022-11-13_03:02:35.92924 Wireless daemon version 1.30
+2022-11-13_03:02:35.92927 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:35.93061 Name request failed
+2022-11-13_03:02:35.93063 D-Bus disconnected, quitting...
+2022-11-13_03:02:36.93218 Wireless daemon version 1.30
+2022-11-13_03:02:36.93220 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:36.93311 Name request failed
+2022-11-13_03:02:36.93313 D-Bus disconnected, quitting...
+2022-11-13_03:02:37.93617 Wireless daemon version 1.30
+2022-11-13_03:02:37.93620 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:37.93760 Name request failed
+2022-11-13_03:02:37.93762 D-Bus disconnected, quitting...
+2022-11-13_03:02:38.93892 Wireless daemon version 1.30
+2022-11-13_03:02:38.93894 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:38.93985 Name request failed
+2022-11-13_03:02:38.93986 D-Bus disconnected, quitting...
+2022-11-13_03:02:39.94182 Wireless daemon version 1.30
+2022-11-13_03:02:39.94184 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:39.94276 Name request failed
+2022-11-13_03:02:39.94278 D-Bus disconnected, quitting...
+2022-11-13_03:02:40.94652 Wireless daemon version 1.30
+2022-11-13_03:02:40.94655 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:40.94803 Name request failed
+2022-11-13_03:02:40.94805 D-Bus disconnected, quitting...
+2022-11-13_03:02:41.95114 Wireless daemon version 1.30
+2022-11-13_03:02:41.95117 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:41.95258 Name request failed
+2022-11-13_03:02:41.95260 D-Bus disconnected, quitting...
+2022-11-13_03:02:42.95592 Wireless daemon version 1.30
+2022-11-13_03:02:42.95595 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:42.95723 Name request failed
+2022-11-13_03:02:42.95725 D-Bus disconnected, quitting...
+2022-11-13_03:02:43.95942 Wireless daemon version 1.30
+2022-11-13_03:02:43.95944 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:43.96070 Name request failed
+2022-11-13_03:02:43.96072 D-Bus disconnected, quitting...
+2022-11-13_03:02:44.96256 Wireless daemon version 1.30
+2022-11-13_03:02:44.96258 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:44.96360 Name request failed
+2022-11-13_03:02:44.96361 D-Bus disconnected, quitting...
+2022-11-13_03:02:45.96527 Wireless daemon version 1.30
+2022-11-13_03:02:45.96529 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:45.96624 Name request failed
+2022-11-13_03:02:45.96625 D-Bus disconnected, quitting...
+2022-11-13_03:02:46.96829 Wireless daemon version 1.30
+2022-11-13_03:02:46.96831 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:46.96944 Name request failed
+2022-11-13_03:02:46.96946 D-Bus disconnected, quitting...
+2022-11-13_03:02:47.97154 Wireless daemon version 1.30
+2022-11-13_03:02:47.97157 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:47.97273 Name request failed
+2022-11-13_03:02:47.97274 D-Bus disconnected, quitting...
+2022-11-13_03:02:48.97491 Wireless daemon version 1.30
+2022-11-13_03:02:48.97493 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:48.97610 Name request failed
+2022-11-13_03:02:48.97612 D-Bus disconnected, quitting...
+2022-11-13_03:02:49.97857 Wireless daemon version 1.30
+2022-11-13_03:02:49.97860 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:49.97971 Name request failed
+2022-11-13_03:02:49.97974 D-Bus disconnected, quitting...
+2022-11-13_03:02:50.98175 Wireless daemon version 1.30
+2022-11-13_03:02:50.98178 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:50.98292 Name request failed
+2022-11-13_03:02:50.98294 D-Bus disconnected, quitting...
+2022-11-13_03:02:51.98494 Wireless daemon version 1.30
+2022-11-13_03:02:51.98497 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:51.98611 Name request failed
+2022-11-13_03:02:51.98613 D-Bus disconnected, quitting...
+2022-11-13_03:02:52.98925 Wireless daemon version 1.30
+2022-11-13_03:02:52.98928 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:52.99045 Name request failed
+2022-11-13_03:02:52.99047 D-Bus disconnected, quitting...
+2022-11-13_03:02:53.99213 Wireless daemon version 1.30
+2022-11-13_03:02:53.99216 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:53.99304 Name request failed
+2022-11-13_03:02:53.99307 D-Bus disconnected, quitting...
+2022-11-13_03:02:54.99611 Wireless daemon version 1.30
+2022-11-13_03:02:54.99613 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:54.99752 Name request failed
+2022-11-13_03:02:54.99754 D-Bus disconnected, quitting...
+2022-11-13_03:02:55.99960 Wireless daemon version 1.30
+2022-11-13_03:02:55.99963 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:56.00096 Name request failed
+2022-11-13_03:02:56.00098 D-Bus disconnected, quitting...
+2022-11-13_03:02:57.00255 Wireless daemon version 1.30
+2022-11-13_03:02:57.00257 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:57.00355 Name request failed
+2022-11-13_03:02:57.00357 D-Bus disconnected, quitting...
+2022-11-13_03:02:58.00508 Wireless daemon version 1.30
+2022-11-13_03:02:58.00510 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:58.00610 Name request failed
+2022-11-13_03:02:58.00611 D-Bus disconnected, quitting...
+2022-11-13_03:02:59.00801 Wireless daemon version 1.30
+2022-11-13_03:02:59.00803 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:02:59.00919 Name request failed
+2022-11-13_03:02:59.00921 D-Bus disconnected, quitting...
+2022-11-13_03:03:00.01109 Wireless daemon version 1.30
+2022-11-13_03:03:00.01111 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:00.01235 Name request failed
+2022-11-13_03:03:00.01236 D-Bus disconnected, quitting...
+2022-11-13_03:03:01.01444 Wireless daemon version 1.30
+2022-11-13_03:03:01.01446 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:01.01576 Name request failed
+2022-11-13_03:03:01.01578 D-Bus disconnected, quitting...
+2022-11-13_03:03:02.01725 Wireless daemon version 1.30
+2022-11-13_03:03:02.01727 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:02.01837 Name request failed
+2022-11-13_03:03:02.01839 D-Bus disconnected, quitting...
+2022-11-13_03:03:03.02027 Wireless daemon version 1.30
+2022-11-13_03:03:03.02029 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:03.02151 Name request failed
+2022-11-13_03:03:03.02153 D-Bus disconnected, quitting...
+2022-11-13_03:03:04.02365 Wireless daemon version 1.30
+2022-11-13_03:03:04.02368 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:04.02493 Name request failed
+2022-11-13_03:03:04.02495 D-Bus disconnected, quitting...
+2022-11-13_03:03:05.02694 Wireless daemon version 1.30
+2022-11-13_03:03:05.02697 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:05.02845 Name request failed
+2022-11-13_03:03:05.02847 D-Bus disconnected, quitting...
+2022-11-13_03:03:06.02816 Wireless daemon version 1.30
+2022-11-13_03:03:06.02817 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:06.02888 Name request failed
+2022-11-13_03:03:06.02890 D-Bus disconnected, quitting...
+2022-11-13_03:03:07.03091 Wireless daemon version 1.30
+2022-11-13_03:03:07.03095 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:07.03210 Name request failed
+2022-11-13_03:03:07.03212 D-Bus disconnected, quitting...
+2022-11-13_03:03:08.03437 Wireless daemon version 1.30
+2022-11-13_03:03:08.03440 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:08.03546 Name request failed
+2022-11-13_03:03:08.03549 D-Bus disconnected, quitting...
+2022-11-13_03:03:09.03717 Wireless daemon version 1.30
+2022-11-13_03:03:09.03720 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:09.03841 Name request failed
+2022-11-13_03:03:09.03844 D-Bus disconnected, quitting...
+2022-11-13_03:03:10.04026 Wireless daemon version 1.30
+2022-11-13_03:03:10.04029 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:10.04152 Name request failed
+2022-11-13_03:03:10.04156 D-Bus disconnected, quitting...
+2022-11-13_03:03:11.04312 Wireless daemon version 1.30
+2022-11-13_03:03:11.04315 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:11.04433 Name request failed
+2022-11-13_03:03:11.04437 D-Bus disconnected, quitting...
+2022-11-13_03:03:12.04591 Wireless daemon version 1.30
+2022-11-13_03:03:12.04594 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:12.04692 Name request failed
+2022-11-13_03:03:12.04695 D-Bus disconnected, quitting...
+2022-11-13_03:03:13.04883 Wireless daemon version 1.30
+2022-11-13_03:03:13.04885 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:13.04981 Name request failed
+2022-11-13_03:03:13.04984 D-Bus disconnected, quitting...
+2022-11-13_03:03:14.05164 Wireless daemon version 1.30
+2022-11-13_03:03:14.05166 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:14.05282 Name request failed
+2022-11-13_03:03:14.05286 D-Bus disconnected, quitting...
+2022-11-13_03:03:15.05453 Wireless daemon version 1.30
+2022-11-13_03:03:15.05455 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:15.05581 Name request failed
+2022-11-13_03:03:15.05585 D-Bus disconnected, quitting...
+2022-11-13_03:03:16.05734 Wireless daemon version 1.30
+2022-11-13_03:03:16.05737 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:16.05861 Name request failed
+2022-11-13_03:03:16.05864 D-Bus disconnected, quitting...
+2022-11-13_03:03:17.06018 Wireless daemon version 1.30
+2022-11-13_03:03:17.06021 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:17.06145 Name request failed
+2022-11-13_03:03:17.06149 D-Bus disconnected, quitting...
+2022-11-13_03:03:18.06317 Wireless daemon version 1.30
+2022-11-13_03:03:18.06331 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:18.06422 Name request failed
+2022-11-13_03:03:18.06423 D-Bus disconnected, quitting...
+2022-11-13_03:03:19.06588 Wireless daemon version 1.30
+2022-11-13_03:03:19.06590 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:19.06691 Name request failed
+2022-11-13_03:03:19.06693 D-Bus disconnected, quitting...
+2022-11-13_03:03:20.06882 Wireless daemon version 1.30
+2022-11-13_03:03:20.06885 Loaded configuration from /etc/iwd/main.conf
+2022-11-13_03:03:20.06974 Name request failed
+2022-11-13_03:03:20.06975 D-Bus disconnected, quitting...
