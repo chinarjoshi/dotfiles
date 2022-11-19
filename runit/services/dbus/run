@@ -1,8 +1,0 @@
-#!/bin/sh -e
-exec 2>&1
-
-if [ ! -d /run/dbus ]; then
-	mkdir /run/dbus
-fi
-
-exec dbus-daemon --system

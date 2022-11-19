@@ -1,5 +1,0 @@
-2022-11-12_16:47:43.05574 dbus-daemon[17019]: Failed to start message bus: The pid file "/run/dbus.pid" exists, if the message bus is not running, remove this file
-2022-11-12_16:47:44.05747 dbus-daemon[17021]: Failed to start message bus: The pid file "/run/dbus.pid" exists, if the message bus is not running, remove this file
-2022-11-12_16:47:45.05955 dbus-daemon[17022]: Failed to start message bus: The pid file "/run/dbus.pid" exists, if the message bus is not running, remove this file
-2022-11-12_16:47:46.06149 dbus-daemon[17023]: Failed to start message bus: The pid file "/run/dbus.pid" exists, if the message bus is not running, remove this file
-2022-11-12_16:47:47.06348 dbus-daemon[17024]: Failed to start message bus: The pid file "/run/dbus.pid" exists, if the message bus is not running, remove this file

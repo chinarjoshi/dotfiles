@@ -1,0 +1,9 @@
+sys-process/cronie -inotify
+net-wireless/iwd standalone -monitor -crda
+media-video/pipewire sound-server
+app-admin/doas persist
+gui-wm/sway -swaybar -swaynag
+sys-kernel/gentoo-kernel-bin -initramfs
+sys-apps/systemd-utils -udev
+sys-libs/readline utils
+app-shells/zsh caps
