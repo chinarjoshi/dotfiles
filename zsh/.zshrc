@@ -2,7 +2,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-. $ZDOTDIR/theme/powerlevel10k.zsh-theme
+. $ZDOTDIR/plugins/theme/powerlevel10k.zsh-theme
 
 # Load plugins
 for file in $ZDOTDIR/plugins/*; do
@@ -18,4 +18,4 @@ for file in $ZDOTDIR/custom/*; do
 done
 
 # Load theme configuration (Goes last)
-. $ZDOTDIR/theme/.p10k.zsh
+. $ZDOTDIR/plugins/theme/.p10k.zsh
