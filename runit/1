@@ -2,29 +2,30 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
+modprobe i915
+
 # Mount missing psudo-fs
-mount -n -t securityfs securityfs /sys/kernel/security
 mount -o nosuid,noexec,nodev -t efivarfs efivarfs /sys/firmware/efi/efivars
+mount -n -t securityfs securityfs /sys/kernel/security
 mount -t cgroup2 -o nsdelegate cgroup2 /sys/fs/cgroup
 
 # Load static modules
 for mod in $(kmod static-nodes 2>/dev/null | awk '/Module/ {print $2}'); do
-	modprobe -bq $mod 2>/dev/null
+	modprobe -bq $mod 2>/dev/null &
 done
 
 # Start udev
-udevd --daemon
-udevadm trigger --action=add --type=subsystems
-udevadm trigger --action=add --type=devices
-udevadm settle
-
-# Load console fonts
-setfont latarcyrheb-sun32.psfu.gz -c /dev/tty0
+/lib/systemd/systemd-udevd --daemon &
+udevadm trigger --action=add --type=devices &
+udevadm trigger --action=add --type=subsystems &
+sleep 2
 
 # Hardware clock
 hwclock --systz
 
 btrfs device scan
+
+chown c /dev/dri/renderD128
 
 swapon -a
 
@@ -32,9 +33,6 @@ ip link set up dev lo
 
 echo "XPS" > /proc/sys/kernel/hostname
 ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
-
-dmesg > /var/log/dmesg.log
-chmod 0644 /var/log/dmesg.log
 
 mkdir -p /run/runit
 touch /etc/runit/stopit

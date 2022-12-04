@@ -1,7 +1,4 @@
 set $mod Mod4
-font pango:Source Code Pro 8
-
-set $menu bemenu-run --no-exec | xargs swaymsg exec
 
 # Arrow keys
 set $left h
@@ -18,21 +15,15 @@ input type:keyboard {
     repeat_rate 30
 }
 
-# Touchpad config
-# input type:touchpad {
-#     tap enabled
-#     pointer_accel .15
-#     scroll_factor .40
-#     natural_scroll enabled
-#     scroll_method two_finger
-# }
 input type:touchpad {
     tap enabled
     pointer_accel .06
-    scroll_factor .40
+    scroll_factor .20
     natural_scroll enabled
     scroll_method two_finger
 }
+
+output * bg #000000 solid_color
 
 # Lock screen: 5 mins, Sleep: 10 mins
 exec swayidle -w \
@@ -96,8 +87,8 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec sudo light -A 5
-bindsym XF86MonBrightnessDown exec sudo light -U 5
+bindsym XF86MonBrightnessUp exec doas light -A 10
+bindsym XF86MonBrightnessDown exec doas light -U 10
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -106,9 +97,6 @@ bindsym XF86Search exec bemenu-run
 bindsym Ctrl+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ 0%
 bindsym Ctrl+XF86MonBrightnessUp exec sudo light -S 100
 bindsym Ctrl+XF86MonBrightnessDown exec sudo light -S 0
-
-# Disable floating discord
-for_window [class="discord"] floating disable
 
 client.focused #404060 #404060 #000000 #666699
 client.focused_inactive #333333 #222222 #000000
