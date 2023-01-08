@@ -1,0 +1,17 @@
+dbus = 'mkdir -p /run/dbus && dbus-daemon --system'
+iwd = '/usr/libexec/iwd'
+seatd = 'seatd -g video'
+tlp = 'tlp init start'
+pipewire = 'chpst -u c pipewire'
+bluetooth = '/usr/libexec/bluetooth/bluetoothd'
+dcron = 'chpst -u c crond -f'
+wlsunset = 'wlsunset -l 33.8 -L -84.4'
+caps2esc = 'udevmon -c /etc/interception/udevmon.yaml'
+
+[tty1]
+run = 'chpst -P /sbin/agetty --autologin c --noclear 38400 tty1 linux'
+finish = 'utmpset -w tty1'
+
+[tty2]
+run = 'chpst -P /sbin/agetty 38400 tty2 linux'
+finish = 'utmpset -w tty1'

@@ -3,6 +3,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 modprobe i915
+modprobe iwlwifi
 
 # Mount missing psudo-fs
 mount -o nosuid,noexec,nodev -t efivarfs efivarfs /sys/firmware/efi/efivars
@@ -23,13 +24,11 @@ sleep 2
 # Hardware clock
 hwclock --systz
 
-btrfs device scan
-
 chown c /dev/dri/renderD128
 
 swapon -a
 
-ip link set up dev lo
+light -S 20
 
 echo "XPS" > /proc/sys/kernel/hostname
 ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime

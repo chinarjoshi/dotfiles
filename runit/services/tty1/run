@@ -1,2 +1,0 @@
-#!/bin/sh
-exec chpst -P /sbin/agetty --autologin c --noclear 38400 tty1 linux

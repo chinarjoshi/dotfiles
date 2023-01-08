@@ -17,12 +17,7 @@ for file in $ZDOTDIR/custom/*; do
     . $file
 done
 
-alias reboot="doas runit-init 6"
-alias poweroff="doas runit-init 0"
-alias sudo="doas"
-alias sleep="sudo su root -c 'echo mem > /sys/power/state'"
+# . ~/.local/lib/python3.10/site-packages/acronym/data/aliases.sh
 
 # Load theme configuration (Goes last)
 . $ZDOTDIR/plugins/theme/.p10k.zsh
-
-export CLASSPATH=~/Downloads/junit-4.12.jar:~/Downloads/hamcrest-core-1.3.jar

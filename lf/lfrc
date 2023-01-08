@@ -1,1 +1,1 @@
-cmd open ${{ nvim $f }}
+cmd open ${{ $EDITOR $f }}
