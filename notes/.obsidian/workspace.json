@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "c787be2ec2215922",
+    "type": "split",
+    "children": [
+      {
+        "id": "726ce70defa21f3a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e31ab0b8abe5b8b0",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "projects.md"
+              }
+            }
+          },
+          {
+            "id": "fe95bda35aa86d06",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "long-term.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8ac4f174037e5a63",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ba3d03898c552c9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bddfcf4abe8fe56a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "23ecd8db95f6b321",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4019ff32127220ad",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "52d3973dc1ba71c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "531e3aa76bf1dfbf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f0413909a988ff83",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "long-term.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9dbd088ddef1b86e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "long-term.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b575de5af69d9874",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "856f87796464e0f3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "long-term.md"
+              }
+            }
+          },
+          {
+            "id": "b728801eeb91de74",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "fe95bda35aa86d06",
+  "lastOpenFiles": [
+    "tasks.md",
+    "notes/CS 2110.md",
+    "projects.md",
+    "plus/Paid Time.md",
+    "plus/attendance.png",
+    "long-term.md",
+    "professional.md",
+    "plus/Untitled.canvas",
+    "plus/Untitled.md",
+    "Untitled.md"
+  ]
+}
