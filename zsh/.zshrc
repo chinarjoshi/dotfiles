@@ -1,8 +1,6 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+source ~/.cache/p10k-instant-prompt-c.zsh
 
-. $ZDOTDIR/plugins/theme/powerlevel10k.zsh-theme
+source $ZDOTDIR/plugins/theme/powerlevel10k.zsh-theme
 
 # Load plugins
 for file in $ZDOTDIR/plugins/*; do
@@ -10,14 +8,14 @@ for file in $ZDOTDIR/plugins/*; do
 done
 
 # Load sensitive data
-[[ -f $HOME/passwd.sh ]] && . $HOME/passwd.sh
+[[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
 
 # Load configuration
 for file in $ZDOTDIR/custom/*; do
-    . $file
+    source $file
 done
 
 # . ~/.local/lib/python3.10/site-packages/acronym/data/aliases.sh
 
 # Load theme configuration (Goes last)
-. $ZDOTDIR/plugins/theme/.p10k.zsh
+source $ZDOTDIR/plugins/theme/.p10k.zsh

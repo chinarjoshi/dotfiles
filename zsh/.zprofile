@@ -1,2 +1,1 @@
-mkdir $XDG_RUNTIME_DIR
-dbus-run-session sway
+mkdir $XDG_RUNTIME_DIR && dbus-run-session sway

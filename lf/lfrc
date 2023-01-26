@@ -1,1 +1,4 @@
 cmd open ${{ $EDITOR $f }}
+
+map d
+map d delete
