@@ -15,7 +15,7 @@ input type:keyboard {
 input type:touchpad {
     tap enabled
     pointer_accel .12
-    scroll_factor .20
+    scroll_factor .30
     natural_scroll enabled
     scroll_method two_finger
 }

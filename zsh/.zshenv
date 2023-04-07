@@ -3,7 +3,8 @@ export PATH=$PATH:/home/c/.local/bin:/home/c/.local/share/nvim/mason/bin
 declare -A env=(
     'EDITOR'               'nvim'
     'ZDOTDIR'              "$DOTFILES/zsh"
-    'QT_QPA_PLATFORM'      'wayland'
+    'CLASSPATH'            "/usr/share/java/junit.jar:/usr/share/java/hamcrest-core.java"
+    # 'QT_QPA_PLATFORM'      'wayland'
     'XDG_CONFIG_HOME'      "$HOME/.config"
     'XDG_SESSION_TYPE'     'wayland'
     'XDG_RUNTIME_DIR'      '/tmp/sway'

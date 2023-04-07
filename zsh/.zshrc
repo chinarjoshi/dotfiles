@@ -15,6 +15,9 @@ for file in $ZDOTDIR/custom/*; do
     source $file
 done
 
+alias sudo=doas
+alias android="_JAVA_AWT_WM_NONREPARENTING=1 android-studio"
+
 # . ~/.local/lib/python3.10/site-packages/acronym/data/aliases.sh
 
 # Load theme configuration (Goes last)
