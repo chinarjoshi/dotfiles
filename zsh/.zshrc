@@ -7,6 +7,8 @@ for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
 
+. ~/.autoenv/activate.sh
+
 # Load sensitive data
 [[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
 
@@ -15,10 +17,8 @@ for file in $ZDOTDIR/custom/*; do
     source $file
 done
 
-alias sudo=doas
-alias android="_JAVA_AWT_WM_NONREPARENTING=1 android-studio"
-
-# . ~/.local/lib/python3.10/site-packages/acronym/data/aliases.sh
+source ~/password.sh
+source ~/.englizsh
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh
