@@ -19,6 +19,7 @@ done
 
 source ~/password.sh
 source ~/.englizsh
+source ~/.aliases
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh
