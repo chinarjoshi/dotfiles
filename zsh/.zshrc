@@ -7,19 +7,13 @@ for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
 
-. ~/.autoenv/activate.sh
-
-# Load sensitive data
+# Load secrets
 [[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
 
 # Load configuration
 for file in $ZDOTDIR/custom/*; do
     source $file
 done
-
-source ~/password.sh
-source ~/.englizsh
-source ~/.aliases
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh

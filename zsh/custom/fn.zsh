@@ -14,10 +14,6 @@ ll() {
     unbuffer ls $@ --color=auto -1AF | while read line; do echo "| $line"; done
 }
 
-yq() {
-    yay --color=auto --noconfirm -Qq | rg "$@"
-}
-
 f() {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -43,11 +39,7 @@ command_not_found_handler() {
     fi
 }
 
-searchmod() {lsmod | rg $@}
-
 gcl() { git clone https://github.com/$1 }
-
-rs() { rustc $1.rs && ./$1 ${@:2} }
 
 collab() {
     ngrok http 8888 &
