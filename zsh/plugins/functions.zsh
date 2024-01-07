@@ -1,19 +1,3 @@
-# Quick and dirty push changes for solo project
-g() {
-    git add --all
-    git commit -m "$@"
-    git pull origin
-    git push origin
-}
-
-l() {
-    unbuffer ls $@ --color=auto -1F | while read line; do echo "| $line"; done
-}
-
-ll() {
-    unbuffer ls $@ --color=auto -1AF | while read line; do echo "| $line"; done
-}
-
 f() {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -30,6 +14,11 @@ f() {
 zle -N f
 bindkey '^f' f
 
+# WSL only
+function grab() {
+    cp /mnt/c/Users/china/Downloads/$1 .
+}
+
 command_not_found_handler() {
     if [[ -o interactive && -w $1 ]]; then
         nvim $1
@@ -38,8 +27,6 @@ command_not_found_handler() {
 	    return 1
     fi
 }
-
-gcl() { git clone https://github.com/$1 }
 
 collab() {
     ngrok http 8888 &
