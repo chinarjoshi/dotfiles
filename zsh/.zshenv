@@ -1,7 +1,7 @@
 export DOTFILES=$HOME/dotfiles
 export PATH=$PATH:/home/c/.local/bin:/home/c/.local/share/nvim/mason/bin
 declare -A env=(
-    'EDITOR'               'nvim'
+    'EDITOR'               'hx'
     'ZDOTDIR'              "$DOTFILES/zsh"
     'QT_QPA_PLATFORM'      'wayland'
     'XDG_CONFIG_HOME'      "$HOME/.config"
@@ -14,3 +14,4 @@ declare -A env=(
 for name value in "${(@kv)env[@]}"; do
     export $name=$value
 done
+. "$HOME/.cargo/env"

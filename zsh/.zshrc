@@ -25,11 +25,15 @@ for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
 
+. ~/.englizsh
+
 # Load sensitive data
 [[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
 
 # Load aliases
-. $(acronym -g)
+. $(ACRONYM_GLOBAL_DIR=~/dotfiles acronym -g)
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh
+
+export ACRONYM_GLOBAL_DIR=~/dotfiles

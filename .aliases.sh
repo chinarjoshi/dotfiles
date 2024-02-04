@@ -1,22 +1,27 @@
-alias gm='git merge' ## git
-alias gp='git push' ## git
-alias gchb='git checkout -b' ## git
-alias pw='cd ~/projects/chinarjoshi.github.io/' ## projects
-alias gs='git status' ## git
-alias gC='git commit' ## git
-alias ar='acronym read' ## acronym
-alias au='acronym update' ## acronym
-alias gch='git checkout' ## git
-alias gsta='git stash apply' ## git
-alias gstd='git stash drop' ## git
-alias gstp='git stash pop' ## git
+alias j='jupyter lab' ## jupyter
+alias l='ls -1AF --color=auto' ## etc
+alias n='nvim' ## etc
 alias ga='git add -A' ## git
+alias gsta='git stash apply' ## git
 alias gc='git commit -m' ## git
 alias gd='git diff' ## git
-alias gpl='git pull' ## git
+alias gch='git checkout' ## git
+alias gstd='git stash drop' ## git
+alias gchb='git checkout -b' ## git
+alias pw='cd ~/projects/chinarjoshi.github.io/_posts' ## projects
+alias gl="log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" ## git
+alias gm='git merge' ## git
 alias ac='acronym create' ## acronym
 alias ad='acronym delete' ## acronym
+alias gp='git push' ## git
+alias gstp='git stash pop' ## git
+alias gr='git reset --hard' ## git
+alias gs='git status -s' ## git
 alias win='/mnt/c/Users/china/Downloads' ## WSL
-alias l='ls -1AF --color=auto' ## etc
-alias gl="log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" ## git
-alias n='nvim' ## etc
+alias ar='acronym read' ## acronym
+alias gpl='git pull' ## git
+alias au='acronym update' ## acronym
+alias gst='git stash' ## git
+alias gds='git diff --staged' ## git
+alias python='python3' ## python3
+alias gC='git commit' ## git
