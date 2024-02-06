@@ -1,5 +1,4 @@
 export DOTFILES=$HOME/dotfiles
-export PATH=$PATH:/home/c/.local/bin:/home/c/.local/share/nvim/mason/bin
 declare -A env=(
     'EDITOR'               'hx'
     'ZDOTDIR'              "$DOTFILES/zsh"
