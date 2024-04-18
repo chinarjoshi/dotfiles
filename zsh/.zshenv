@@ -13,4 +13,3 @@ declare -A env=(
 for name value in "${(@kv)env[@]}"; do
     export $name=$value
 done
-. "$HOME/.cargo/env"

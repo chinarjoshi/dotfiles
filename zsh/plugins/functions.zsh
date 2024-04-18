@@ -11,13 +11,30 @@ f() {
         fi
     fi
 }
+
+g() {
+    zle -I
+    local file=$(fzf)
+    [ -n "$file" ] && $EDITOR "$file"
+}
+
+h() {
+    (cd ~ && g)
+}
+
 zle -N f
 bindkey '^f' f
 
+zle -N g
+bindkey '^g' g
+
+zle -N h
+bindkey '^h' h
+
 # WSL only
-function grab() {
-    cp /mnt/c/Users/china/Downloads/$1 .
-}
+# function grab() {
+#     cp /mnt/c/Users/china/Downloads/$1 .
+# }
 
 command_not_found_handler() {
     if [[ -o interactive && -w $1 ]]; then

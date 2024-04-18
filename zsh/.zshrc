@@ -31,7 +31,8 @@ done
 [[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
 
 # Load aliases
-. $(ACRONYM_GLOBAL_DIR=~/dotfiles acronym -g)
+# . $(ACRONYM_GLOBAL_DIR=~/dotfiles acronym -g)
+. ~/dotfiles/.aliases.sh
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh

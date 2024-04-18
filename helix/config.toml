@@ -6,3 +6,7 @@ select = 'underline'
 
 [editor.soft-wrap]
 enable = true
+
+[keys.normal.space]
+q = ":quit"
+w = ":write"
