@@ -27,3 +27,5 @@ alias gds='git diff --staged' ## git
 alias python='python3' ## python3
 alias gC='git commit' ## git
 alias sudo='doas'
+alias hnix='hx /etc/nixos/configuration.nix'
+alias hhypr='hx ~/dotfiles/hypr/hyprland.conf'

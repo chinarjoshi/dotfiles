@@ -25,7 +25,7 @@ for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
 
-. ~/.englizsh
+# . ~/.englizsh
 
 # Load sensitive data
 [[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh

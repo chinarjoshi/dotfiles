@@ -25,7 +25,7 @@
     ];
   };
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # Enable networking
   networking = {
@@ -83,6 +83,14 @@
       enable = true;
       alsa.enable = true;
       pulse.enable = true;
+      extraConfig.pipewire."92-low-latency" = {
+        context.properties = {
+          default.clock.rate = 48000;
+          default.clock.quantum = 32;
+          default.clock.min-quantum = 32;
+          default.clock.max-quantum = 32;
+        };
+      };
     };
 
     interception-tools = {
@@ -101,6 +109,7 @@
     thermald.enable = true;
     auto-cpufreq.enable = true;
     getty.autologinUser = "c";
+    # ydotool.enable = true;
   };
 
   # Rest of the packages
@@ -112,6 +121,12 @@
     swaybg
     tealdeer
     waybar    
+    fd
+    ripgrep
+    light
+    lf
+    wl-clipboard
+    wlsunset
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
