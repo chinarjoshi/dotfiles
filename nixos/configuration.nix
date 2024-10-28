@@ -3,7 +3,9 @@
 {
   imports = [ /etc/nixos/hardware-configuration.nix ];
   nixpkgs.config.allowUnfree = true;
-
+  documentation.enable = true;
+  documentation.man.enable = true;
+  documentation.dev.enable = true;
   # Use the systemd-boot EFI boot loader.
   boot = {
     loader.systemd-boot.enable = true;
@@ -73,10 +75,18 @@
       config = {
         init.defaultBranch = "main";
         credential.helper = "cache";
+        #package = pkgs.gitFull;
       };
     };
   };
   environment.variables.NIXOS_OZONE_WL = "1";
+
+  
+  systemd.services."xdg-desktop-portal" = {
+    description = "XDG Desktop Portal";
+    wantedBy = [ "graphical-session.target" ];
+    serviceConfig.ExecStart = "/nix/store/22sjcvcxd147wg4g7gczjwzb089yparm-xdg-desktop-portal-hyprland-1.2.4/libexec/xdg-desktop-portal-hyprland";
+  };
 
   # Systemd services
   services = {
@@ -131,6 +141,8 @@
     libglvnd
     mesa
     libGL
+    grim
+    slurp
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?

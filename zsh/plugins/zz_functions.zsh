@@ -1,4 +1,4 @@
-f() {
+lf-widget() {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
@@ -12,24 +12,14 @@ f() {
     fi
 }
 
-g() {
+f() {
     zle -I
     local file=$(fzf)
     [ -n "$file" ] && $EDITOR "$file"
 }
 
-h() {
-    (cd ~ && g)
-}
-
-zle -N f
-bindkey '^f' f
-
-zle -N g
-bindkey '^g' g
-
-zle -N h
-bindkey '^h' h
+zle -N lf-widget
+bindkey -M viins '^F' lf-widget
 
 # WSL only
 # function grab() {
@@ -38,9 +28,9 @@ bindkey '^h' h
 
 command_not_found_handler() {
     if [[ -o interactive && -w $1 ]]; then
-        nvim $1
+        hx $1
     else
-	    echo ⚠
+	    echo nah
 	    return 1
     fi
 }

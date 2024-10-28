@@ -29,3 +29,11 @@ alias gC='git commit' ## git
 alias sudo='doas'
 alias hnix='hx /etc/nixos/configuration.nix'
 alias hhypr='hx ~/dotfiles/hypr/hyprland.conf'
+alias pace='TERM=xterm ssh pace'
+alias advos='TERM=xterm ssh advos'
+alias syn='TERM=xterm ssh syn'
+alias rf='rm -rf *'
+alias halias='hx ~/.aliases.sh'
+alias hssh='hx ~/.ssh/config'
+alias hzsh='hx ~/dotfiles/zsh/.zshrc'
+

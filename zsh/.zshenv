@@ -1,6 +1,7 @@
 export DOTFILES=$HOME/dotfiles
 declare -A env=(
     'EDITOR'               'hx'
+    #'PATH'                 '$PATH:~/.local/bin'
     'ZDOTDIR'              "$DOTFILES/zsh"
     'QT_QPA_PLATFORM'      'wayland'
     'XDG_CONFIG_HOME'      "$HOME/.config"
