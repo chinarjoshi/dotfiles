@@ -36,4 +36,5 @@ alias rf='rm -rf *'
 alias halias='hx ~/.aliases.sh'
 alias hssh='hx ~/.ssh/config'
 alias hzsh='hx ~/dotfiles/zsh/.zshrc'
+alias hidle='hx ~/dotfiles/swayidle/config'
 

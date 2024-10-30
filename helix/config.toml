@@ -7,6 +7,13 @@ select = 'underline'
 [editor.soft-wrap]
 enable = true
 
+[keys.normal]
+V = ["goto_first_nonwhitespace", "extend_to_line_end", "select_mode"]
+X = "extend_line_up"
+
 [keys.normal.space]
 q = ":quit"
 w = ":write"
+
+[keys.select]
+";" = ["collapse_selection", "normal_mode"]
