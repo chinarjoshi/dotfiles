@@ -3,6 +3,7 @@
 {
   imports = [ /etc/nixos/hardware-configuration.nix ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
   documentation.enable = true;
   documentation.man.enable = true;
   documentation.dev.enable = true;
@@ -39,6 +40,9 @@
   # Set time zone.
   time.timeZone = "US/Eastern";
 
+  xdg.portal.enable = true;
+  xdg.portal.wlr.enable = true;
+
   # Privilege escalation
   security = {
     sudo.enable = false;
@@ -69,24 +73,16 @@
   programs = {
     zsh.enable = true;
     firefox.enable = true;
-    hyprland.enable = true;
+    sway.enable = true;
     git = {
       enable = true;
       config = {
         init.defaultBranch = "main";
-        credential.helper = "cache";
-        #package = pkgs.gitFull;
+        credential.helper = "store";
       };
     };
   };
   environment.variables.NIXOS_OZONE_WL = "1";
-
-  
-  systemd.services."xdg-desktop-portal" = {
-    description = "XDG Desktop Portal";
-    wantedBy = [ "graphical-session.target" ];
-    serviceConfig.ExecStart = "/nix/store/22sjcvcxd147wg4g7gczjwzb089yparm-xdg-desktop-portal-hyprland-1.2.4/libexec/xdg-desktop-portal-hyprland";
-  };
 
   # Systemd services
   services = {
@@ -94,14 +90,6 @@
       enable = true;
       alsa.enable = true;
       pulse.enable = true;
-      # extraConfig.pipewire."92-low-latency" = {
-      #   context.properties = {
-      #     default.clock.rate = 48000;
-      #     default.clock.quantum = 32;
-      #     default.clock.min-quantum = 32;
-      #     default.clock.max-quantum = 32;
-      #   };
-      # };
     };
 
     interception-tools = {
@@ -143,7 +131,23 @@
     libGL
     grim
     slurp
+    pulseaudio
+    fzf
+    egl-wayland
+    btop
+    git-credential-manager
+    glxinfo
+    jq
+    libglvnd
+    obsidian
+    swayidle
+    tree
+    unzip
+    usbutils
+    wl-clipboard
+    wlsunset
+    (python3.withPackages (ps: with ps; [ i3ipc ]))
   ];
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

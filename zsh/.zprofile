@@ -1,1 +1,1 @@
-Hyprland
+exec sway

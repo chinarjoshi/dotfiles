@@ -1,3 +1,4 @@
-timeout 60 '~/dotfiles/swayidle/blacken.sh' resume '~/dotfiles/swayidle/lighten.sh'
+timeout 110 'doas light -U 10' resume 'doas light -A 10'
+# timeout 110 '~/dotfiles/swayidle/blacken.sh' resume '~/dotfiles/swayidle/lighten.sh'
 timeout 120 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 timeout 360 'systemctl suspend'
