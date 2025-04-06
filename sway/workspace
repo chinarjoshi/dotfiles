@@ -1,0 +1,4 @@
+#!/bin/sh
+
+swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num' > ~/.workspace
+swaymsg workspace "$1"

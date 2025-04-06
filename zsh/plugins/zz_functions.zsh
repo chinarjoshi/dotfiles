@@ -26,14 +26,14 @@ bindkey -M viins '^F' lf-widget
 #     cp /mnt/c/Users/china/Downloads/$1 .
 # }
 
-command_not_found_handler() {
-    if [[ -o interactive && -w $1 ]]; then
-        hx $1
-    else
-	    echo nah
-	    return 1
-    fi
-}
+# command_not_found_handler() {
+#     if [[ -o interactive && -w $1 ]]; then
+#         hx $1
+#     else
+# 	    echo nah
+# 	    return 1
+#     fi
+# }
 
 collab() {
     ngrok http 8888 &

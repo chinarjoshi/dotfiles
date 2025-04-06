@@ -24,6 +24,6 @@ while true; do
     echo "$battery | $volume | $time"
 
     # Update every second
-    sleep 5
+    sleep 1
 done
 

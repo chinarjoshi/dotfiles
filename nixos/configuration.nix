@@ -14,7 +14,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
-      "quiet" "rd.systemd.show_status=0" 
+      "quiet" "rd.systemd.show_status=0" "iwlwifi.power_save=0"
       "rd.udev.log_level=3" "udev.log_priority=3"
     ];
   };
@@ -23,7 +23,7 @@
   users.users.c = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "input" "video" "docker" ];
+    extraGroups = [ "wheel" "input" "networkmanager" "video" "docker" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPbtN5PmfwSZefLuc8k3vLTBvJTqqKpp8E+8zzTyswB5 c@XPS"
     ];
@@ -33,7 +33,11 @@
 
   # Enable networking
   networking = {
-    wireless.iwd.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+      wifi.powersave = false;
+    };
     hostName = "XPS";
   };
 
@@ -104,7 +108,6 @@
     };    
 
     openssh.enable = true;
-    tlp.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
     getty.autologinUser = "c";
@@ -142,6 +145,7 @@
     obsidian
     swayidle
     tree
+    zip
     unzip
     usbutils
     wl-clipboard
