@@ -32,21 +32,6 @@
 
   virtualisation.docker.enable = true;
 
-  services.udev.extraHwdb = ''
-    evdev:input:b0018v04F3p31D1*
-     EVDEV_ABS_00=::0
-     EVDEV_ABS_01=::0
-     EVDEV_ABS_35=::0
-     EVDEV_ABS_36=::0
-  '';
-
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [No Hysteresis]
-    MatchName=VEN_04F3:00 04F3:31D1 Touchpad
-    AttrPalmSizeThreshold=0
-    AttrSizeHint=1x1
-  '';
-
   # Enable networking
   networking = {
     networkmanager = {
