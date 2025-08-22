@@ -32,7 +32,10 @@ done
 
 # Load aliases
 # . $(ACRONYM_GLOBAL_DIR=~/dotfiles acronym -g)
-. ~/dotfiles/.aliases.sh
+. $DOTFILES/.aliases.sh
+
+bindkey '^F' forward-char
+
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh

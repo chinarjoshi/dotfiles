@@ -1,4 +1,4 @@
-export DOTFILES=$HOME/dotfiles
+export DOTFILES=$HOME/.config
 declare -A env=(
     'EDITOR'               'hx'
     #'PATH'                 '$PATH:~/.local/bin'

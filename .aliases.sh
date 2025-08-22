@@ -10,7 +10,7 @@ alias gch='git checkout' ## git
 alias gchb='git checkout -b' ## git
 alias gsta='git stash apply' ## git
 alias gstd='git stash drop' ## git
-alias hidle='hx ~/dotfiles/swayidle/config' ## hx
+alias hidle='hx ~/.config/swayidle/config' ## hx
 alias syn='TERM=xterm ssh syn' ## xterm
 alias ac='acronym create' ## acronym
 alias ad='acronym delete' ## acronym
@@ -32,9 +32,9 @@ alias gdh='git diff HEAD~' ## git
 alias pace='TERM=xterm ssh pace' ## xterm
 alias gds='git diff --staged' ## git
 alias python='python3' ## python3
-alias hsway='hx ~/dotfiles/sway/config' ## hx
+alias hsway='hx ~/.config/sway/config' ## hx
 alias rf='rm -rf *' ## rm
 alias gba='git branch --all' ## git
 alias hssh='hx ~/.ssh/config' ## hx
-alias hzsh='hx ~/dotfiles/zsh/.zshrc' ## hx
+alias hzsh='hx ~/.config/zsh/.zshrc' ## hx
 alias gC='git commit' ## git

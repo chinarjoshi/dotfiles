@@ -7,7 +7,8 @@
   documentation.enable = true;
   documentation.man.enable = true;
   documentation.dev.enable = true;
-  # Use the systemd-boot EFI boot loader.
+  time.timeZone = "America/Los_Angeles";
+  # Set cursor size globally
   boot = {
     loader.systemd-boot.enable = true;
     loader.timeout = 0;
@@ -31,6 +32,21 @@
 
   virtualisation.docker.enable = true;
 
+  services.udev.extraHwdb = ''
+    evdev:input:b0018v04F3p31D1*
+     EVDEV_ABS_00=::0
+     EVDEV_ABS_01=::0
+     EVDEV_ABS_35=::0
+     EVDEV_ABS_36=::0
+  '';
+
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [No Hysteresis]
+    MatchName=VEN_04F3:00 04F3:31D1 Touchpad
+    AttrPalmSizeThreshold=0
+    AttrSizeHint=1x1
+  '';
+
   # Enable networking
   networking = {
     networkmanager = {
@@ -40,9 +56,6 @@
     };
     hostName = "XPS";
   };
-
-  # Set time zone.
-  time.timeZone = "US/Eastern";
 
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
@@ -86,7 +99,11 @@
       };
     };
   };
-  environment.variables.NIXOS_OZONE_WL = "1";
+  environment.variables = {
+    XCURSOR_SIZE = "48";  # or 64 if you want larger
+    XCURSOR_THEME = "Adwaita";  # or your preferred theme
+    NIXOS_OZONE_WL = "1";
+  };  # Use the systemd-boot EFI boot loader.
 
   # Systemd services
   services = {
@@ -117,7 +134,7 @@
   # Rest of the packages
   environment.systemPackages = with pkgs; [
     foot
-    firefox
+    firefox-bin
     helix
     dbus
     swaybg
@@ -147,9 +164,11 @@
     tree
     zip
     unzip
+    swappy
     usbutils
     wl-clipboard
     wlsunset
+    adwaita-icon-theme    
     (python3.withPackages (ps: with ps; [ i3ipc ]))
   ];
 
