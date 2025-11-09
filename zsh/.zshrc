@@ -6,7 +6,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Settings
 export HISTFILE=~/.histfile
 setopt appendhistory
-setopt INC_APPEND_HISTORY  
+setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt autocd # cd with path name
 setopt extended_glob # extended globbing
@@ -32,4 +32,7 @@ done
 source $ZDOTDIR/plugins/theme/.p10k.zsh
 
 bindkey -e
+autoload -Uz select-word-style
+select-word-style bash
+
 export GOOGLE_CRED_JSON=~/.config/neuralinux-6d4f71825a6d.json

@@ -23,7 +23,7 @@ input * {
     natural_scroll enabled
     scroll_factor 0.15
     tap enabled
-    pointer_accel 0.3
+    pointer_accel 0.4
 }
 
 input type:pointer {
