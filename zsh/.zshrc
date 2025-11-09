@@ -25,19 +25,11 @@ for file in $ZDOTDIR/plugins/*; do
     [[ $file == *.zsh ]] && . $file
 done
 
-# . ~/.englizsh
-
-# Load sensitive data
-[[ -f $HOME/passwd.sh ]] && source $HOME/passwd.sh
-
-# Load aliases
-# . $(ACRONYM_GLOBAL_DIR=~/dotfiles acronym -g)
 . $DOTFILES/.aliases.sh
-
-bindkey '^F' forward-char
 
 
 # Load theme configuration (Goes last)
 source $ZDOTDIR/plugins/theme/.p10k.zsh
 
-export ACRONYM_GLOBAL_DIR=~/dotfiles
+bindkey -e
+export GOOGLE_CRED_JSON=~/.config/neuralinux-6d4f71825a6d.json

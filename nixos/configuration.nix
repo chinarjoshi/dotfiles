@@ -20,6 +20,8 @@
     ];
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Create a single user
   users.users.c = {
     isNormalUser = true;
@@ -57,6 +59,25 @@
       }]; 
     };
   }; 
+
+  
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
+  services.resolved = {
+    enable = false;
+  };
+
 
   # Enable haredware video-acceleratoin
   nixpkgs.config.packageOverrides = pkgs: {
@@ -118,7 +139,7 @@
 
   # Rest of the packages
   environment.systemPackages = with pkgs; [
-    foot
+    kitty
     firefox-bin
     helix
     dbus
