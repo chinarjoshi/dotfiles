@@ -22,3 +22,6 @@ alias python='python3' ## python3
 alias hsway='$EDITOR ~/.config/sway/config' ## hx
 alias hzsh='$EDITOR ~/.config/zsh/.zshrc' ## hx
 alias hkitty='$EDITOR ~/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID'
+alias c="npx @openai/codex@latest resume"
+alias gst="git stash"
+alias gres="git restore"
