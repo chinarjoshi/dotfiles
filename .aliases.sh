@@ -24,4 +24,5 @@ alias hzsh='$EDITOR ~/.config/zsh/.zshrc' ## hx
 alias hkitty='$EDITOR ~/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID'
 alias c="npx @openai/codex@latest resume"
 alias gst="git stash"
+alias gb="git branch"
 alias gres="git restore"

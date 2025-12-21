@@ -8,7 +8,7 @@
   documentation.man.enable = true;
   documentation.dev.enable = true;
   time.timeZone = "America/Los_Angeles";
-  # Set cursor size globally
+
   boot = {
     loader.systemd-boot.enable = true;
     loader.timeout = 0;
@@ -56,11 +56,11 @@
         users = ["c"];
         noPass = true;
         keepEnv = true;
-      }]; 
+      }];
     };
-  }; 
+  };
 
-  
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -105,6 +105,7 @@
       };
     };
   };
+
   environment.variables = {
     XCURSOR_SIZE = "48";  # or 64 if you want larger
     XCURSOR_THEME = "Adwaita";  # or your preferred theme
@@ -113,6 +114,11 @@
 
   # Systemd services
   services = {
+    emacs = {
+      enable = true;
+      package = pkgs.emacs;
+    };
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -128,7 +134,7 @@
            EVENTS:
              EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
      '';
-    };    
+    };
 
     openssh.enable = true;
     thermald.enable = true;
@@ -139,13 +145,13 @@
 
   # Rest of the packages
   environment.systemPackages = with pkgs; [
-    kitty
+    foot
+    emacs
     firefox-bin
-    helix
     dbus
     swaybg
     tealdeer
-    waybar    
+    waybar
     fd
     ripgrep
     light
@@ -174,7 +180,7 @@
     usbutils
     wl-clipboard
     wlsunset
-    adwaita-icon-theme    
+    adwaita-icon-theme
     (python3.withPackages (ps: with ps; [ i3ipc ]))
   ];
 

@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+set $term foot
 
 # Startup applications
 exec_always swayidle -w
@@ -23,7 +23,7 @@ input * {
     natural_scroll enabled
     scroll_factor 0.15
     tap enabled
-    pointer_accel 0.4
+    pointer_accel 0.3
 }
 
 input type:pointer {
@@ -31,8 +31,11 @@ input type:pointer {
     pointer_accel 0.1
 }
 
-output eDP-1 pos 0 1080
-output DP-1 pos 0 0
+
+output eDP-1 pos 0 0 scale 2
+#output DP-1 mode 3840x2160@60Hz pos 0 0 scale 1.5
+output DP-1 mode 2560x1440@60Hz scale 1 pos -416 -1440
+
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -49,7 +52,7 @@ output DP-1 pos 0 0
     bindsym $mod+o exec obsidian
     bindsym $mod+Shift+s exec systemctl suspend
     bindsym $mod+Shift+q exec poweroff
-    bindsym $mod+Shift+r exec systemctl reboot
+    bindsym $mod+Shift+Control+r exec systemctl reboot
 
     #bindsym $mod+c exec wl-copy < /dev/null && wl-paste | wl-copy
     #bindsym $mod+v exec wl-paste
