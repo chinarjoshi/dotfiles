@@ -1,6 +1,6 @@
 export DOTFILES=$HOME/.config
 declare -A env=(
-    'EDITOR'               'nvim'
+    'EDITOR'               'emacsclient'
     'ZDOTDIR'              "$DOTFILES/zsh"
     'QT_QPA_PLATFORM'      'wayland'
     'XDG_CONFIG_HOME'      "$HOME/.config"

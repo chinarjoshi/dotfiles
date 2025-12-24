@@ -112,11 +112,15 @@
     NIXOS_OZONE_WL = "1";
   };  # Use the systemd-boot EFI boot loader.
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.inconsolata
+  ];
+
   # Systemd services
   services = {
     emacs = {
       enable = true;
-      package = pkgs.emacs;
+      package = pkgs.emacs-gtk;
     };
 
     pipewire = {
@@ -146,7 +150,7 @@
   # Rest of the packages
   environment.systemPackages = with pkgs; [
     foot
-    emacs
+    emacs-gtk
     firefox-bin
     dbus
     swaybg

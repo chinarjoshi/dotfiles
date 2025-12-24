@@ -26,3 +26,4 @@ alias c="npx @openai/codex@latest resume"
 alias gst="git stash"
 alias gb="git branch"
 alias gres="git restore"
+alias e='emacsclient'
