@@ -3,7 +3,6 @@
 {
   home.stateVersion = "24.11";
 
-  # Alacritty Terminal
   programs.alacritty = {
     enable = true;
     settings = {
@@ -21,7 +20,6 @@
     };
   };
 
-  # LF File Manager
   programs.lf = {
     enable = true;
     extraConfig = ''
@@ -32,20 +30,18 @@
     '';
   };
 
-  # Git
   programs.git = {
     enable = true;
     settings = {
       user = {
         name = "Chinar Joshi";
-        email = "chinarhjoshi@gmail.com";
+        email = "chinarjoshi7@gmail.com";
       };
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
     };
   };
 
-  # Delta (git diff viewer)
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
@@ -57,7 +53,6 @@
     };
   };
 
-  # Helix Editor
   programs.helix = {
     enable = true;
     settings = {
@@ -100,7 +95,6 @@
     };
   };
 
-  # Zsh with Powerlevel10k
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -208,14 +202,12 @@
     };
   };
 
-  # Emacs daemon service
   services.emacs = {
     enable = true;
     client.enable = true;
     package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
   };
 
-  # Swayidle Service
   services.swayidle = {
     enable = true;
     events = {
@@ -234,7 +226,6 @@
     ];
   };
 
-  # Sway Window Manager
   wayland.windowManager.sway = {
     enable = true;
     config = {
