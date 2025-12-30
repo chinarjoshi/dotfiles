@@ -386,15 +386,15 @@
   };
 
   # File symlinks for scripts and configs
-  home.file.".config/zsh/.p10k.zsh".source = /home/c/.config/zsh/plugins/theme/.p10k.zsh;
-  home.file.".config/zsh/plugins/sudo.zsh".source = /home/c/.config/zsh/plugins/sudo.zsh;
+  home.file.".config/zsh/.p10k.zsh".source = ./config-files/zsh/.p10k.zsh;
+  home.file.".config/zsh/plugins/sudo.zsh".source = ./config-files/zsh/sudo.zsh;
 
   home.file.".config/sway/bar.sh" = {
-    source = /home/c/.config/sway/bar.sh;
+    source = ./config-files/sway/bar.sh;
     executable = true;
   };
   home.file.".config/sway/dim.py" = {
-    source = /home/c/.config/sway/dim.py;
+    source = ./config-files/sway/dim.py;
     executable = true;
   };
 

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
@@ -73,7 +73,6 @@
     enable = true;
     drivers = with pkgs; [
       cups-filters
-      cups-browsed
     ];
   };
   services.resolved = {
@@ -112,7 +111,7 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
@@ -177,7 +176,7 @@
     pulseaudio
     egl-wayland
     git-credential-manager
-    glxinfo
+    mesa-demos
     usbutils
     adwaita-icon-theme
     gsettings-desktop-schemas
