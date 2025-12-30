@@ -35,20 +35,25 @@
   # Git
   programs.git = {
     enable = true;
-    userName = "Chinar Joshi";
-    userEmail = "chinarhjoshi@gmail.com";
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        light = false;
-        side-by-side = true;
-        line-numbers = true;
+    settings = {
+      user = {
+        name = "Chinar Joshi";
+        email = "chinarhjoshi@gmail.com";
       };
-    };
-    extraConfig = {
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
+    };
+  };
+
+  # Delta (git diff viewer)
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      light = false;
+      side-by-side = true;
+      line-numbers = true;
     };
   };
 
@@ -98,7 +103,7 @@
   # Zsh with Powerlevel10k
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
 
     envExtra = ''
       export DOTFILES=$HOME/.config
@@ -113,15 +118,15 @@
       export GOOGLE_CRED_JSON=~/.config/neuralinux-6d4f71825a6d.json
     '';
 
-    initExtraFirst = ''
-      # P10k instant prompt
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-      typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-    '';
-
-    initExtra = ''
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        # P10k instant prompt
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
+        typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+      '')
+      ''
       # Settings
       export HISTFILE=~/.histfile
       setopt appendhistory
@@ -150,7 +155,7 @@
       bindkey -e
       autoload -Uz select-word-style
       select-word-style bash
-    '';
+    ''];
 
     plugins = [
       {
@@ -193,13 +198,13 @@
       hkitty = "$EDITOR /home/c/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID";
 
       # Utilities
-      l = "ls -lAFgG --color=auto";
+      e = "emacsclient -nw";
       n = "nvim";
+      l = "ls -lAFgG --color=auto";
       c = "npx @anthropic-ai/claude-code";
-      e = "emacsclient";
       sudo = "doas";
       python = "python3";
-      rebuild = "doas nixos-rebuild switch --flake .#XPS";
+      rebuild = "doas nixos-rebuild switch --flake '/home/c/nixos#XPS";
     };
   };
 
@@ -207,15 +212,15 @@
   services.emacs = {
     enable = true;
     client.enable = true;
-    package = emacs-config.packages.${pkgs.system}.emacs;
+    package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
   };
 
   # Swayidle Service
   services.swayidle = {
     enable = true;
-    events = [
-      { event = "before-sleep"; command = "${pkgs.systemd}/bin/systemctl suspend"; }
-    ];
+    events = {
+      before-sleep = "${pkgs.systemd}/bin/systemctl suspend";
+    };
     timeouts = [
       {
         timeout = 120;
@@ -401,7 +406,7 @@
   # User packages
   home.packages = with pkgs; [
     # Emacs from flake
-    emacs-config.packages.${pkgs.system}.default
+    emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # User-specific tools
     btop
