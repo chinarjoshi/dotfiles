@@ -198,13 +198,13 @@
       hkitty = "$EDITOR /home/c/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID";
 
       # Utilities
-      e = "emacsclient -nw";
+      e = "emacsclient -c";
       n = "nvim";
       l = "ls -lAFgG --color=auto";
       c = "npx @anthropic-ai/claude-code";
       sudo = "doas";
       python = "python3";
-      rebuild = "doas nixos-rebuild switch --flake '/home/c/nixos#XPS";
+      rebuild = "doas nixos-rebuild switch --flake '/home/c/nixos#XPS'";
     };
   };
 
@@ -297,7 +297,7 @@
         "${mod}+Shift+c" = "reload";
         "${mod}+s" = "exec grim -g \"$(slurp)\" - | swappy -f -";
         "${mod}+o" = "exec obsidian";
-        "${mod}+e" = "emacsclient -c";
+        "${mod}+e" = "exec emacsclient -c";
         "${mod}+Shift+s" = "exec systemctl suspend";
         "${mod}+Shift+q" = "exec poweroff";
         "${mod}+Shift+Control+r" = "exec systemctl reboot";

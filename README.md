@@ -1,4 +1,4 @@
-Two config files:
+I cannot express to you how happy these two files make me:
 
 - **`configuration.nix`** - Full NixOS system configuration (requires root)
 - **`home.nix`** - Portable home-manager configuration (works without root)
