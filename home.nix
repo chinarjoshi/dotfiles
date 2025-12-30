@@ -186,10 +186,8 @@
       gres = "git restore";
 
       # Config editing
-      hsway = "$EDITOR /home/c/.config/sway/config";
-      hzsh = "$EDITOR /home/c/.config/zsh/.zshrc";
-      hnix = "$EDITOR /home/c/.config/nixos/configuration.nix";
-      hkitty = "$EDITOR /home/c/.config/kitty/kitty.conf && kill -SIGUSR1 $KITTY_PID";
+      hnix = "$EDITOR /home/c/nixos/configuration.nix";
+      hhome = "$EDITOR /home/c/nixos/home.nix";
 
       # Utilities
       e = "emacsclient -c";
@@ -243,6 +241,10 @@
 
       window.border = 0;
       focus.mouseWarping = "container";
+
+      assigns = {
+        "10" = [{ app_id = "obsidian"; }];
+      };
 
       seat."*" = {
         xcursor_theme = "Adwaita 24";
@@ -327,6 +329,7 @@
         "${mod}+7" = "workspace number 7";
         "${mod}+8" = "workspace number 8";
         "${mod}+9" = "workspace number 9";
+        "${mod}+0" = "workspace number 10";
 
         # Move to workspace
         "${mod}+Shift+1" = "move container to workspace number 1";
@@ -414,6 +417,5 @@
     ripgrep
     tealdeer
     jq
-    dropbox-cli
   ];
 }
