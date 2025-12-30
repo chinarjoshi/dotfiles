@@ -199,6 +199,7 @@
       e = "emacsclient";
       sudo = "doas";
       python = "python3";
+      rebuild = "doas nixos-rebuild switch --flake .#XPS";
     };
   };
 
@@ -291,6 +292,7 @@
         "${mod}+Shift+c" = "reload";
         "${mod}+s" = "exec grim -g \"$(slurp)\" - | swappy -f -";
         "${mod}+o" = "exec obsidian";
+        "${mod}+e" = "emacsclient -c";
         "${mod}+Shift+s" = "exec systemctl suspend";
         "${mod}+Shift+q" = "exec poweroff";
         "${mod}+Shift+Control+r" = "exec systemctl reboot";

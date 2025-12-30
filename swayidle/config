@@ -1,2 +1,0 @@
-timeout 120 '~/dotfiles/swayidle/blacken.sh' resume '~/dotfiles/swayidle/lighten.sh'
-timeout 240 'systemctl suspend'
