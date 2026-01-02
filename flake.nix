@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for XPS";
+  description = "NixOS and Home Manager configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -16,6 +16,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, emacs-config, ... }: {
+    # NixOS configuration for Linux
     nixosConfigurations.XPS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit emacs-config; };
@@ -27,7 +28,28 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs = { inherit emacs-config; };
-          home-manager.users.c = import ./home.nix;
+          home-manager.users.c = { ... }: {
+            imports = [
+              ./home/common.nix
+              ./home/linux.nix
+            ];
+            home.username = "c";
+            home.homeDirectory = "/home/c";
+          };
+        }
+      ];
+    };
+
+    # Standalone Home Manager for macOS
+    homeConfigurations.mac = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+      extraSpecialArgs = { inherit emacs-config; };
+      modules = [
+        ./home/common.nix
+        ./home/darwin.nix
+        {
+          home.username = "chijoshi";
+          home.homeDirectory = "/Users/chijoshi";
         }
       ];
     };

@@ -1,209 +1,22 @@
-{ pkgs, config, lib, emacs-config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
-  home.stateVersion = "24.11";
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font = {
-        normal = {
-          family = "Inconsolata";
-        };
-        size = 14;
-      };
-      colors = {
-        primary = {
-          background = "#000000";
-        };
-      };
-    };
-  };
-
-  programs.lf = {
-    enable = true;
-    extraConfig = ''
-      cmd open ''${{ $EDITOR $f }}
-
-      map d
-      map d delete
-    '';
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Chinar Joshi";
-        email = "chinarjoshi7@gmail.com";
-      };
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-    };
-  };
-
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
-    options = {
-      navigate = true;
-      light = false;
-      side-by-side = true;
-      line-numbers = true;
-    };
-  };
-
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "material_midnight";
-      editor.cursor-shape = {
-        insert = "bar";
-        select = "underline";
-      };
-      editor.soft-wrap.enable = true;
-      keys.normal = {
-        V = ["goto_first_nonwhitespace" "extend_to_line_end" "select_mode"];
-        X = "extend_line_up";
-        space.q = ":quit";
-        space.w = ":write";
-      };
-      keys.select = {
-        ";" = ["collapse_selection" "normal_mode"];
-      };
-    };
-    languages = {
-      language-server.jdtls = {
-        command = "jdt-language-server";
-        args = ["-data" "/home/c/.cache/jdtls/workspace"];
-      };
-      language = [{
-        name = "java";
-        scope = "source.java";
-        injection-regex = "java";
-        file-types = ["java"];
-        roots = ["pom.xml" "build.gradle"];
-        indent = { tab-width = 4; unit = "    "; };
-        language-servers = ["jdtls"];
-      }];
-    };
-    themes = {
-      material_midnight = ''
-        inherits = "material_deep_ocean"
-        "ui.background" = "#000000"
-      '';
-    };
-  };
-
   programs.zsh = {
-    enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
-
-    envExtra = ''
-      export DOTFILES=$HOME/.config
-      export EDITOR='emacsclient'
+    envExtra = lib.mkAfter ''
       export QT_QPA_PLATFORM='wayland'
-      export XDG_CONFIG_HOME="$HOME/.config"
       export XDG_SESSION_TYPE='wayland'
       export XDG_CURRENT_DESKTOP='sway'
       export MOZ_ENABLE_WAYLAND='1'
-      export AUTOENV_ASSUME_YES='1'
       export OBSIDIAN_USE_WAYLAND='1'
       export GOOGLE_CRED_JSON=~/.config/neuralinux-6d4f71825a6d.json
     '';
 
-    initContent = lib.mkMerge [
-      (lib.mkBefore ''
-        # P10k instant prompt
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
-        typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-      '')
-      ''
-      # Settings
-      export HISTFILE=~/.histfile
-      setopt appendhistory
-      setopt INC_APPEND_HISTORY
-      setopt SHARE_HISTORY
-      setopt autocd
-      setopt extended_glob
-      unsetopt extended_history
-      unsetopt beep
-      autoload -Uz compinit && compinit
-      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-      # Syntax highlighting settings
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-      typeset -A ZSH_HIGHLIGHT_STYLES
-      ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
-
-      # Load P10k config
-      [[ -f ${config.home.homeDirectory}/.config/zsh/.p10k.zsh ]] && source ${config.home.homeDirectory}/.config/zsh/.p10k.zsh
-
-      # Load custom plugins
-      for file in $ZDOTDIR/plugins/*.zsh(N); do
-        source $file
-      done
-
-      bindkey -e
-      autoload -Uz select-word-style
-      select-word-style bash
-    ''];
-
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      }
-    ];
-
     shellAliases = {
-      # Git aliases
-      ga = "git add";
-      gau = "git add -u";
-      gc = "git commit";
-      gC = "git commit --amend --no-edit";
-      gd = "git diff";
-      gch = "git checkout";
-      gchb = "git checkout -b";
-      gll = "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-      gl = "gll -n5";
-      gpu = "git push";
-      grh = "git reset --hard";
-      gs = "git status";
-      gpl = "git pull";
-      gdh = "git diff HEAD~";
-      gds = "git diff --staged";
-      gst = "git stash";
-      gb = "git branch";
-      gres = "git restore";
-
-      # Config editing
-      hnix = "$EDITOR /home/c/nixos/configuration.nix";
-      hhome = "$EDITOR /home/c/nixos/home.nix";
-
-      # Utilities
-      e = "emacsclient -c";
-      n = "nvim";
-      l = "ls -lAFgG --color=auto";
-      c = "npx @anthropic-ai/claude-code";
+      hnix = "$EDITOR ${config.home.homeDirectory}/nixos/configuration.nix";
+      hhome = "$EDITOR ${config.home.homeDirectory}/nixos/home/common.nix";
       sudo = "doas";
-      python = "python3";
-      rebuild = "doas nixos-rebuild switch --flake '/home/c/nixos#XPS'";
+      rebuild = "doas nixos-rebuild switch --flake '${config.home.homeDirectory}/nixos#XPS'";
     };
-  };
-
-  services.emacs = {
-    enable = true;
-    client.enable = true;
-    package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
   };
 
   services.swayidle = {
@@ -384,38 +197,20 @@
     '';
   };
 
-  # File symlinks for scripts and configs
-  home.file.".config/zsh/.p10k.zsh".source = ./config-files/zsh/.p10k.zsh;
-  home.file.".config/zsh/plugins/sudo.zsh".source = ./config-files/zsh/sudo.zsh;
-
   home.file.".config/sway/bar.sh" = {
-    source = ./config-files/sway/bar.sh;
+    source = ../config-files/sway/bar.sh;
     executable = true;
   };
   home.file.".config/sway/dim.py" = {
-    source = ./config-files/sway/dim.py;
+    source = ../config-files/sway/dim.py;
     executable = true;
   };
 
-  # User packages
   home.packages = with pkgs; [
-    # Emacs from flake
-    emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # User-specific tools
-    btop
-    fzf
-    tree
-    zip
-    unzip
     obsidian
     wl-clipboard
     grim
     slurp
     swappy
-    fd
-    ripgrep
-    tealdeer
-    jq
   ];
 }
