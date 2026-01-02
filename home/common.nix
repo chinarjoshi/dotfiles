@@ -3,17 +3,6 @@
 {
   home.stateVersion = "24.11";
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font = {
-        normal.family = "Inconsolata";
-        size = 14;
-      };
-      colors.primary.background = "#000000";
-    };
-  };
-
   programs.lf = {
     enable = true;
     extraConfig = ''

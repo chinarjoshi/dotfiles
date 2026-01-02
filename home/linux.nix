@@ -1,6 +1,17 @@
 { pkgs, config, lib, ... }:
 
 {
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        normal.family = "Inconsolata";
+        size = 14;
+      };
+      colors.primary.background = "#000000";
+    };
+  };
+
   programs.zsh = {
     envExtra = lib.mkAfter ''
       export QT_QPA_PLATFORM='wayland'
