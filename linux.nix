@@ -62,17 +62,20 @@ in {
     '';
   };
 
-  services.wob = {
+  services.avizo = {
     enable = true;
     settings = {
-      "" = {
-        border_color = "666666";
-        bar_color = "666666";
-        background_color = "000000";
-        anchor = "bottom";
-        margin = 100;
-        height = 20;
-        width = 300;
+      default = {
+        time = 0.5;
+        width = 200;
+        height = 200;
+        padding = 20;
+        y-offset = 0.5;
+        fade-in = 0.1;
+        fade-out = 0.2;
+        background = "rgba(0, 0, 0, 0.8)";
+        bar-fg-color = "rgba(102, 102, 102, 1)";
+        bar-bg-color = "rgba(50, 50, 50, 1)";
       };
     };
   };
@@ -179,16 +182,16 @@ in {
         "${mod}+Shift+l" = "move right";
 
         # Brightness
-        "${mod}+Up" = "exec doas light -A 1 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
-        "${mod}+Down" = "exec doas light -U 1 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86MonBrightnessUp" = "exec doas light -A 3 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86MonBrightnessDown" = "exec doas light -U 3 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
+        "${mod}+Up" = "exec lightctl up 1";
+        "${mod}+Down" = "exec lightctl down 1";
+        "XF86MonBrightnessUp" = "exec lightctl up 3";
+        "XF86MonBrightnessDown" = "exec lightctl down 3";
 
         # Audio
-        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -1 > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -1 > $XDG_RUNTIME_DIR/wob.sock";
-        "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        "${mod}+Shift+Up" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioRaiseVolume" = "exec volumectl up 5";
+        "XF86AudioLowerVolume" = "exec volumectl down 5";
+        "XF86AudioMute" = "exec volumectl toggle-mute";
+        "${mod}+Shift+Up" = "exec volumectl toggle-mute";
         "${mod}+Shift+b" = "bluetoothctl connect $(bluetoothctl devices | grep -i 'fosi' | awk '{print $2}')";
 
         # Workspaces

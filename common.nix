@@ -89,7 +89,7 @@
 
     initContent = ''
       export HISTFILE=~/.histfile
-      setopt appendhistory INC_APPEND_HISTORY SHARE_HISTORY autocd extended_glob
+      setopt appendhistory INC_APPEND_HISTORY SHARE_HISTORY PROMPT_SUBST autocd extended_glob
       unsetopt extended_history beep
       autoload -Uz compinit && compinit
       zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -98,7 +98,8 @@
       typeset -A ZSH_HIGHLIGHT_STYLES
       ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 
-      PROMPT=$'%F{blue}%~%f\n$ '
+      PROMPT='%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
+''$ '
 
       bindkey -e
       autoload -Uz select-word-style
