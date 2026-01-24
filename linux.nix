@@ -1,14 +1,15 @@
 { pkgs, config, lib, ... }:
 
 {
-  programs.alacritty = {
+  programs.foot = {
     enable = true;
     settings = {
-      font = {
-        normal.family = "Inconsolata";
-        size = 14;
+      main = {
+        font = "Inconsolata:size=12";
       };
-      colors.primary.background = "#000000";
+      colors = {
+        background = "000000";
+      };
     };
   };
 
@@ -27,7 +28,18 @@
       hhome = "$EDITOR ${config.home.homeDirectory}/nixos/home/common.nix";
       sudo = "doas";
       rebuild = "doas nixos-rebuild switch --flake '${config.home.homeDirectory}/nixos#XPS'";
+      toggle-scale = ''current=$(swaymsg -t get_outputs -r | jq -r ".[] | select(.name==\"eDP-1\") | .scale"); swaymsg "output eDP-1 scale $((3 - current))"'';
+      silksong = "steam steam://rungameid/1030300";
     };
+
+    initContent = ''
+      speakers() {
+        local dev=''$(bluetoothctl devices | grep -i 'fosi' | awk '{print $2}')
+        bluetoothctl info "$dev" | grep -q "Connected: yes" && \
+        bluetoothctl disconnect "$dev" || \
+        bluetoothctl connect "$dev"
+      }
+    '';
   };
 
   services.swayidle = {
@@ -52,7 +64,7 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      terminal = "alacritty";
+      terminal = "foot";
       fonts = {
         names = [ "Inconsolata" ];
         size = 11.0;
@@ -61,6 +73,7 @@
       startup = [
         { command = "wlsunset -l 37.4 -L -112.2"; always = true; }
         { command = "python3 ${config.home.homeDirectory}/.config/sway/dim.py -o .8"; always = true; }
+        { command = "${pkgs.autotiling-rs}/bin/autotiling-rs"; always = true; }
       ];
 
       window.border = 0;
@@ -105,16 +118,15 @@
       keybindings = let
         mod = "Mod4";
       in {
-        "${mod}+Return" = "splith; exec alacritty";
-        "${mod}+Space" = "splith; exec firefox";
-        "${mod}+Shift+Return" = "splitv; exec alacritty";
-        "${mod}+Shift+Space" = "splitv; exec firefox";
+        "${mod}+Return" = "exec emacsclient -c -e '(vterm-full)'";
+        "${mod}+Shift+Return" = "exec foot";
+        "${mod}+Space" = "exec firefox";
         "${mod}+Tab" = "workspace back_and_forth";
         "${mod}+q" = "kill";
         "${mod}+Shift+c" = "reload";
         "${mod}+s" = "exec grim -g \"$(slurp)\" - | swappy -f -";
         "${mod}+o" = "exec obsidian";
-        "${mod}+e" = "exec emacsclient -c";
+        "${mod}+e" = "exec emacsclient -c -e '(notes-open-daily)'";
         "${mod}+Shift+s" = "exec systemctl suspend";
         "${mod}+Shift+q" = "exec poweroff";
         "${mod}+Shift+Control+r" = "exec systemctl reboot";
@@ -142,6 +154,7 @@
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -10%";
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "${mod}+Shift+Up" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "${mod}+Shift+b" = "bluetoothctl connect $(bluetoothctl devices | grep -i 'fosi' | awk '{print $2}')";
 
         # Workspaces
         "${mod}+1" = "workspace number 1";
@@ -167,19 +180,10 @@
         "${mod}+Shift+9" = "move container to workspace number 9";
         "${mod}+Shift+0" = "move container to workspace number 10";
 
+        # Etc
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
-      };
-
-      modes = {
-        resize = {
-          "h" = "resize shrink width 10px";
-          "j" = "resize grow height 10px";
-          "k" = "resize shrink height 10px";
-          "l" = "resize grow width 10px";
-          "Return" = "mode default";
-          "Escape" = "mode default";
-        };
+        "${mod}+Control+s" = "exec steam steam://rungameid/1030300";
       };
 
       bars = [{
@@ -209,11 +213,11 @@
   };
 
   home.file.".config/sway/bar.sh" = {
-    source = ../config-files/sway/bar.sh;
+    source = ./config-files/sway/bar.sh;
     executable = true;
   };
   home.file.".config/sway/dim.py" = {
-    source = ../config-files/sway/dim.py;
+    source = ./config-files/sway/dim.py;
     executable = true;
   };
 

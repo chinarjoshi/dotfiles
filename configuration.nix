@@ -2,12 +2,10 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hw-config.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
-  documentation.enable = true;
-  documentation.man.enable = true;
   documentation.dev.enable = true;
   time.timeZone = "America/Los_Angeles";
 
@@ -71,22 +69,16 @@
 
   services.printing = {
     enable = true;
-    drivers = with pkgs; [
-      cups-filters
-    ];
-  };
-  services.resolved = {
-    enable = false;
+    drivers = [ pkgs.cups-filters ];
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [ 17500 ];
-    allowedUDPPorts = [ 17500 ];
-  };
-
-  # Enable haredware video-acceleratoin
+  # Hardware video acceleration
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
   hardware.graphics = {
     enable = true;
@@ -105,10 +97,10 @@
   };
 
   environment.variables = {
-    XCURSOR_SIZE = "48";  # or 64 if you want larger
-    XCURSOR_THEME = "Adwaita";  # or your preferred theme
+    XCURSOR_SIZE = "48";
+    XCURSOR_THEME = "Adwaita";
     NIXOS_OZONE_WL = "1";
-  };  # Use the systemd-boot EFI boot loader.
+  };
 
   fonts.packages = with pkgs; [
     garamond-libre
@@ -140,24 +132,15 @@
     thermald.enable = true;
     auto-cpufreq.enable = true;
     getty.autologinUser = "c";
-    # ydotool.enable = true;
   };
 
-  # System-level packages only
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     firefox-bin
-    dbus
-    swaybg
-    waybar
     light
     wlsunset
-    libglvnd
-    mesa
-    libGL
-    pulseaudio
-    egl-wayland
     git-credential-manager
-    mesa-demos
     usbutils
     adwaita-icon-theme
     gsettings-desktop-schemas

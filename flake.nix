@@ -30,8 +30,8 @@
           home-manager.extraSpecialArgs = { inherit emacs-config; };
           home-manager.users.c = { ... }: {
             imports = [
-              ./home/common.nix
-              ./home/linux.nix
+              ./common.nix
+              ./linux.nix
             ];
             home.username = "c";
             home.homeDirectory = "/home/c";
@@ -45,8 +45,8 @@
       pkgs = nixpkgs.legacyPackages.aarch64-darwin;
       extraSpecialArgs = { inherit emacs-config; };
       modules = [
-        ./home/common.nix
-        ./home/darwin.nix
+        ./common.nix
+        ./darwin.nix
         {
           home.username = "chijoshi";
           home.homeDirectory = "/Users/chijoshi";

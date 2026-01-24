@@ -84,7 +84,6 @@
     envExtra = ''
       export DOTFILES=$HOME/.config
       export EDITOR='emacsclient'
-      export XDG_CONFIG_HOME="$HOME/.config"
       export AUTOENV_ASSUME_YES='1'
     '';
 
@@ -177,8 +176,8 @@
     package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
   };
 
-  home.file.".config/zsh/.p10k.zsh".source = ../config-files/zsh/.p10k.zsh;
-  home.file.".config/zsh/plugins/sudo.zsh".source = ../config-files/zsh/sudo.zsh;
+  home.file.".config/zsh/.p10k.zsh".source = ./config-files/zsh/.p10k.zsh;
+  home.file.".config/zsh/plugins/sudo.zsh".source = ./config-files/zsh/sudo.zsh;
 
   home.packages = with pkgs; [
     emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.default
