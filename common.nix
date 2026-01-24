@@ -87,58 +87,36 @@
       export AUTOENV_ASSUME_YES='1'
     '';
 
-    initContent = lib.mkMerge [
-      (lib.mkBefore ''
-        # P10k instant prompt
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
-        typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-      '')
-      ''
-        # Settings
-        export HISTFILE=~/.histfile
-        setopt appendhistory
-        setopt INC_APPEND_HISTORY
-        setopt SHARE_HISTORY
-        setopt autocd
-        setopt extended_glob
-        unsetopt extended_history
-        unsetopt beep
-        autoload -Uz compinit && compinit
-        zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+    initContent = ''
+      export HISTFILE=~/.histfile
+      setopt appendhistory INC_APPEND_HISTORY SHARE_HISTORY autocd extended_glob
+      unsetopt extended_history beep
+      autoload -Uz compinit && compinit
+      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-        # Syntax highlighting settings
-        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-        typeset -A ZSH_HIGHLIGHT_STYLES
-        ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
+      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+      typeset -A ZSH_HIGHLIGHT_STYLES
+      ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 
-        # Load P10k config
-        [[ -f ${config.home.homeDirectory}/.config/zsh/.p10k.zsh ]] && source ${config.home.homeDirectory}/.config/zsh/.p10k.zsh
+      PROMPT=$'%F{blue}%~%f\n$ '
 
-        # Load custom plugins
-        for file in $ZDOTDIR/plugins/*.zsh(N); do
-          source $file
-        done
+      bindkey -e
+      autoload -Uz select-word-style
+      select-word-style bash
 
-        bindkey -e
-        autoload -Uz select-word-style
-        select-word-style bash
-      ''
-    ];
+      echo -e '\e[6 q'
 
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      }
-    ];
+      if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+          vterm_prompt_end() { printf "\e]51;A%s@%s:%s\e\\" "$USER" "$HOST" "$PWD" }
+          precmd_functions+=(vterm_prompt_end)
+      fi
+    '';
+
+    plugins = [{
+      name = "zsh-syntax-highlighting";
+      src = pkgs.zsh-syntax-highlighting;
+      file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+    }];
 
     shellAliases = {
       # Git aliases
@@ -175,9 +153,6 @@
     client.enable = true;
     package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
   };
-
-  home.file.".config/zsh/.p10k.zsh".source = ./config-files/zsh/.p10k.zsh;
-  home.file.".config/zsh/plugins/sudo.zsh".source = ./config-files/zsh/sudo.zsh;
 
   home.packages = with pkgs; [
     emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.default

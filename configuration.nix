@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hw-config.nix
+    ./hardware.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];

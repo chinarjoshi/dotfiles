@@ -1,6 +1,28 @@
 { pkgs, config, lib, ... }:
 
-{
+let
+  barScript = pkgs.writeShellScript "sway-bar" ''
+    while true; do
+      battery=$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null)
+      battery_status=$(cat /sys/class/power_supply/BAT*/status 2>/dev/null)
+      if [[ $battery_status == "Charging" ]]; then
+        battery="$battery%*"
+      else
+        battery="$battery%"
+      fi
+
+      volume=$(${pkgs.pulseaudio}/bin/pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1)
+      muted=$(${pkgs.pulseaudio}/bin/pactl get-sink-mute @DEFAULT_SINK@ | grep -o "yes")
+      if [[ $muted == "yes" ]]; then
+        volume="M"
+      fi
+
+      time=$(date "+%I:%M")
+      echo "$battery | $volume | $time"
+      sleep 1
+    done
+  '';
+in {
   programs.foot = {
     enable = true;
     settings = {
@@ -24,8 +46,6 @@
     '';
 
     shellAliases = {
-      hnix = "$EDITOR ${config.home.homeDirectory}/nixos/configuration.nix";
-      hhome = "$EDITOR ${config.home.homeDirectory}/nixos/home/common.nix";
       sudo = "doas";
       rebuild = "doas nixos-rebuild switch --flake '${config.home.homeDirectory}/nixos#XPS'";
       toggle-scale = ''current=$(swaymsg -t get_outputs -r | jq -r ".[] | select(.name==\"eDP-1\") | .scale"); swaymsg "output eDP-1 scale $((3 - current))"'';
@@ -40,6 +60,21 @@
         bluetoothctl connect "$dev"
       }
     '';
+  };
+
+  services.wob = {
+    enable = true;
+    settings = {
+      "" = {
+        border_color = "666666";
+        bar_color = "666666";
+        background_color = "000000";
+        anchor = "bottom";
+        margin = 100;
+        height = 20;
+        width = 300;
+      };
+    };
   };
 
   services.swayidle = {
@@ -72,7 +107,7 @@
 
       startup = [
         { command = "wlsunset -l 37.4 -L -112.2"; always = true; }
-        { command = "python3 ${config.home.homeDirectory}/.config/sway/dim.py -o .8"; always = true; }
+        { command = "${pkgs.sway-contrib.inactive-windows-transparency}/bin/inactive-windows-transparency.py -o 0.8"; always = true; }
         { command = "${pkgs.autotiling-rs}/bin/autotiling-rs"; always = true; }
       ];
 
@@ -118,7 +153,7 @@
       keybindings = let
         mod = "Mod4";
       in {
-        "${mod}+Return" = "exec emacsclient -c -e '(vterm-full)'";
+        "${mod}+Return" = "exec emacsclient -c -e '(vterm-full-toggle)'";
         "${mod}+Shift+Return" = "exec foot";
         "${mod}+Space" = "exec firefox";
         "${mod}+Tab" = "workspace back_and_forth";
@@ -144,14 +179,14 @@
         "${mod}+Shift+l" = "move right";
 
         # Brightness
-        "${mod}+Up" = "exec doas light -A 1";
-        "${mod}+Down" = "exec doas light -U 1";
-        "XF86MonBrightnessUp" = "exec doas light -A 3";
-        "XF86MonBrightnessDown" = "exec doas light -U 3";
+        "${mod}+Up" = "exec doas light -A 1 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
+        "${mod}+Down" = "exec doas light -U 1 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86MonBrightnessUp" = "exec doas light -A 3 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86MonBrightnessDown" = "exec doas light -U 3 && light -G | cut -d. -f1 > $XDG_RUNTIME_DIR/wob.sock";
 
         # Audio
-        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +10%";
-        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -10%";
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -1 > $XDG_RUNTIME_DIR/wob.sock";
+        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -1 > $XDG_RUNTIME_DIR/wob.sock";
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "${mod}+Shift+Up" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "${mod}+Shift+b" = "bluetoothctl connect $(bluetoothctl devices | grep -i 'fosi' | awk '{print $2}')";
@@ -188,7 +223,7 @@
 
       bars = [{
         position = "top";
-        statusCommand = "${config.home.homeDirectory}/.config/sway/bar.sh";
+        statusCommand = "${barScript}";
         fonts = {
           names = [ "Inconsolata" ];
           size = 14.0;
@@ -210,15 +245,6 @@
       default_floating_border none
       include /etc/sway/config.d/*
     '';
-  };
-
-  home.file.".config/sway/bar.sh" = {
-    source = ./config-files/sway/bar.sh;
-    executable = true;
-  };
-  home.file.".config/sway/dim.py" = {
-    source = ./config-files/sway/dim.py;
-    executable = true;
   };
 
   home.packages = with pkgs; [
