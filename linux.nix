@@ -256,5 +256,6 @@ in {
     grim
     slurp
     swappy
+    libvterm
   ];
 }
