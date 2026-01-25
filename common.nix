@@ -1,4 +1,4 @@
-{ pkgs, config, lib, emacs-config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   home.stateVersion = "24.11";
@@ -120,7 +120,6 @@
     }];
 
     shellAliases = {
-      # Git aliases
       ga = "git add";
       gau = "git add -u";
       gc = "git commit";
@@ -139,8 +138,6 @@
       gst = "git stash";
       gb = "git branch";
       gres = "git restore";
-
-      # Utilities
       e = "emacsclient -c";
       n = "nvim";
       l = "ls -lAFgG --color=auto";
@@ -149,44 +146,52 @@
     };
   };
 
-  services.emacs = {
-    enable = true;
-    client.enable = true;
-    package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
-  };
-
   home.packages = with pkgs; [
-    emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.default
-    btop
-    fzf
-    tree
-    zip
-    unzip
-    fd
-    ripgrep
-    tealdeer
-    jq
     arp-scan
     arping
+    btop
+    claude-code
+    clang-tools
+    cmake
     dbmate
+    emacs-lsp-booster
+    fd
+    fzf
+    gcc
     git-lfs
+    gnumake
     go
     golangci-lint
     golines
+    gopls
     grpc
     grpcurl
+    inter
+    jq
     libpq
+    lua-language-server
+    nerd-fonts.inconsolata
     neovim
     nmap
+    nodePackages.bash-language-server
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages.yaml-language-server
     nodejs
     pdsh
     postgresql_14
     pre-commit
+    pyright
+    ripgrep
     ruff
     sqlc
     squashfsTools
+    taplo
+    tealdeer
+    tree
+    unzip
     uv
     yarn
-    claude-code
+    zip
   ];
 }

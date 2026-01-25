@@ -32,7 +32,6 @@
 
     darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = { inherit emacs-config; };
       modules = [
         home-manager.darwinModules.home-manager
         ./darwin.nix

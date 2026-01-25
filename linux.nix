@@ -26,7 +26,6 @@ in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  # Hardware
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.kernelModules = [ "kvm-intel" ];
 
@@ -183,16 +182,21 @@ in
 
   system.stateVersion = "24.11";
 
-  # Home Manager
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = { inherit emacs-config; };
-  home-manager.users.c = { config, ... }: {
+  home-manager.users.c = { config, pkgs, ... }: {
     imports = [ ./common.nix ];
 
     home.username = "c";
     home.homeDirectory = "/home/c";
+
+    services.emacs = {
+      enable = true;
+      client.enable = true;
+      package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
+    };
 
     programs.zsh = {
       envExtra = lib.mkAfter ''
