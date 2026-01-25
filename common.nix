@@ -166,5 +166,27 @@
     ripgrep
     tealdeer
     jq
+    arp-scan
+    arping
+    dbmate
+    git-lfs
+    go
+    golangci-lint
+    golines
+    grpc
+    grpcurl
+    libpq
+    neovim
+    nmap
+    nodejs
+    pdsh
+    postgresql_14
+    pre-commit
+    ruff
+    sqlc
+    squashfsTools
+    uv
+    yarn
+    claude-code
   ];
 }

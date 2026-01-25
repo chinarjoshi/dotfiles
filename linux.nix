@@ -288,9 +288,6 @@ in
         window.border = 0;
         focus.mouseWarping = "container";
 
-        assigns = {
-          "10" = [{ app_id = "obsidian"; }];
-        };
 
         seat."*" = {
           xcursor_theme = "Adwaita 24";
@@ -334,7 +331,6 @@ in
           "${mod}+q" = "kill";
           "${mod}+Shift+c" = "reload";
           "${mod}+s" = "exec grim -g \"$(slurp)\" - | swappy -f -";
-          "${mod}+o" = "exec obsidian";
           "${mod}+e" = "exec emacsclient -c -e '(notes-open-daily)'";
           "${mod}+Shift+s" = "exec systemctl suspend";
           "${mod}+Shift+q" = "exec poweroff";
@@ -415,7 +411,6 @@ in
     };
 
     home.packages = with pkgs; [
-      obsidian
       wl-clipboard
       grim
       slurp
