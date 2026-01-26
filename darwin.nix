@@ -55,6 +55,15 @@ in
     '';
   };
 
+  launchd.user.agents.emacs = {
+    command = "/opt/homebrew/bin/emacs --fg-daemon";
+    serviceConfig = {
+      RunAtLoad = true;
+      KeepAlive = true;
+      WorkingDirectory = "/Users/chijoshi";
+    };
+  };
+
   services.skhd = {
     enable = true;
     skhdConfig = ''
