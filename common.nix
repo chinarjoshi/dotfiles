@@ -1,17 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, ... }:
 
 {
   home.stateVersion = "24.11";
-
-  programs.lf = {
-    enable = true;
-    extraConfig = ''
-      cmd open ''${{ $EDITOR $f }}
-
-      map d
-      map d delete
-    '';
-  };
 
   programs.git = {
     enable = true;
@@ -35,56 +25,16 @@
     };
   };
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "material_midnight";
-      editor.cursor-shape = {
-        insert = "bar";
-        select = "underline";
-      };
-      editor.soft-wrap.enable = true;
-      keys.normal = {
-        V = [ "goto_first_nonwhitespace" "extend_to_line_end" "select_mode" ];
-        X = "extend_line_up";
-        space.q = ":quit";
-        space.w = ":write";
-      };
-      keys.select = {
-        ";" = [ "collapse_selection" "normal_mode" ];
-      };
-    };
-    languages = {
-      language-server.jdtls = {
-        command = "jdt-language-server";
-        args = [ "-data" "${config.home.homeDirectory}/.cache/jdtls/workspace" ];
-      };
-      language = [{
-        name = "java";
-        scope = "source.java";
-        injection-regex = "java";
-        file-types = [ "java" ];
-        roots = [ "pom.xml" "build.gradle" ];
-        indent = { tab-width = 4; unit = "    "; };
-        language-servers = [ "jdtls" ];
-      }];
-    };
-    themes = {
-      material_midnight = ''
-        inherits = "material_deep_ocean"
-        "ui.background" = "#000000"
-      '';
-    };
-  };
-
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
 
     envExtra = ''
+      export PATH="/opt/homebrew/bin:$PATH"
       export DOTFILES=$HOME/.config
       export EDITOR='emacsclient'
       export AUTOENV_ASSUME_YES='1'
+      [ -f ~/.env ] && source ~/.env
     '';
 
     initContent = ''
@@ -139,9 +89,8 @@
       gb = "git branch";
       gres = "git restore";
       e = "emacsclient -c";
-      n = "nvim";
       l = "ls -lAFgG --color=auto";
-      c = "npx @anthropic-ai/claude-code";
+      c = "claude --dangerously-skip-permissions";
       python = "python3";
     };
   };
@@ -171,7 +120,6 @@
     libpq
     lua-language-server
     nerd-fonts.inconsolata
-    neovim
     nmap
     nodePackages.bash-language-server
     nodePackages.typescript-language-server

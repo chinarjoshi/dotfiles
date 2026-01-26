@@ -23,10 +23,8 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.vim
     pkgs.libtool
     glibtool
-    pkgs.cmake
     pkgs.iproute2mac
   ];
 
@@ -60,10 +58,10 @@ in
   services.skhd = {
     enable = true;
     skhdConfig = ''
-      cmd - return : emacsclient -c --eval '(vterm-full-toggle)'
+      cmd - return : /opt/homebrew/bin/emacsclient -c -n --eval "(vterm-full-toggle)" && yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app=="Emacs") | .id' | tail -n1)
       cmd + shift - return : open -a Alacritty || open -a Terminal
       cmd + shift - space : open -a "Google Chrome"
-      cmd - e : emacsclient -c --eval '(notes-open-daily)'
+      cmd - e : /opt/homebrew/bin/emacsclient -c -n --eval "(notes-open-daily)" && yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app=="Emacs") | .id' | tail -n1)
       cmd - s : screencapture -i ~/Desktop/screenshot-$(date +%Y%m%d-%H%M%S).png
 
       cmd - q : yabai -m window --close
@@ -79,7 +77,7 @@ in
       cmd + shift - k : yabai -m window --warp north || yabai -m window --move rel:0:-20
       cmd + shift - l : yabai -m window --warp east || yabai -m window --move rel:20:0
 
-      cmd - f : yabai -m window --toggle native-fullscreen
+      cmd - f : yabai -m window --toggle zoom-fullscreen
       cmd + ctrl - space : yabai -m window --toggle float
       cmd + shift - b : yabai -m space --balance
     '';
@@ -98,7 +96,7 @@ in
       rebuild = "sudo darwin-rebuild switch --flake '${config.home.homeDirectory}/nixos#mac'";
     };
 
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       unsetopt BEEP
       unsetopt HIST_BEEP
       unsetopt LIST_BEEP
