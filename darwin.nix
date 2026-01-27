@@ -31,6 +31,14 @@ in
   programs.zsh.enable = true;
   users.users.chijoshi.shell = pkgs.zsh;
 
+  system.defaults.CustomUserPreferences = {
+    "com.google.Chrome" = {
+      NSUserKeyEquivalents = {
+        "Find..." = "^f";
+      };
+    };
+  };
+
   services.yabai = {
     enable = true;
     config = {
@@ -56,7 +64,7 @@ in
   };
 
   launchd.user.agents.emacs = {
-    command = "/opt/homebrew/bin/emacs --fg-daemon";
+    command = "/bin/zsh -l -c 'cd /Users/chijoshi && /opt/homebrew/bin/emacs --fg-daemon'";
     serviceConfig = {
       RunAtLoad = true;
       KeepAlive = true;
@@ -68,7 +76,7 @@ in
     enable = true;
     skhdConfig = ''
       cmd - return : /opt/homebrew/bin/emacsclient -c -n --eval "(vterm-full-toggle)" && yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app=="Emacs") | .id' | tail -n1)
-      cmd + shift - return : open -a Alacritty || open -a Terminal
+      cmd + shift - return : open -a Kitty
       cmd + shift - space : open -a "Google Chrome"
       cmd - e : /opt/homebrew/bin/emacsclient -c -n --eval "(notes-open-daily)" && yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app=="Emacs") | .id' | tail -n1)
       cmd - s : screencapture -i ~/Desktop/screenshot-$(date +%Y%m%d-%H%M%S).png
@@ -109,6 +117,7 @@ in
       unsetopt BEEP
       unsetopt HIST_BEEP
       unsetopt LIST_BEEP
+      export LIBRARY_PATH="/opt/homebrew/lib/gcc/current''${LIBRARY_PATH:+:$LIBRARY_PATH}"
     '';
   };
 }
