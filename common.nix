@@ -44,10 +44,6 @@
       autoload -Uz compinit && compinit
       zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-      typeset -A ZSH_HIGHLIGHT_STYLES
-      ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
-
       PROMPT='%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
 ''$ '
 
@@ -62,12 +58,6 @@
           precmd_functions+=(vterm_prompt_end)
       fi
     '';
-
-    plugins = [{
-      name = "zsh-syntax-highlighting";
-      src = pkgs.zsh-syntax-highlighting;
-      file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-    }];
 
     shellAliases = {
       ga = "git add";
