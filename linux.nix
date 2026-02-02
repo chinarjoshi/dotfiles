@@ -163,6 +163,22 @@ in
      '';
     };
 
+    syncthing = {
+      enable = true;
+      user = "c";
+      dataDir = "/home/c";
+      configDir = "/home/c/.config/syncthing";
+      openDefaultPorts = true;
+      settings = {
+        devices."iphone".id = "REPLACE-WITH-PHONE-DEVICE-ID";
+        folders."daily" = {
+          path = "/home/c/org/daily";
+          devices = [ "iphone" ];
+          id = "daily";
+        };
+      };
+    };
+
     openssh.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
