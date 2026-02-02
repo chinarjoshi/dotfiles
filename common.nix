@@ -30,7 +30,7 @@
     dotDir = "${config.xdg.configHome}/zsh";
 
     envExtra = ''
-      export PATH="/opt/homebrew/bin:$PATH"
+      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
       export DOTFILES=$HOME/.config
       export EDITOR='emacsclient'
       export AUTOENV_ASSUME_YES='1'
@@ -99,6 +99,7 @@
     arp-scan
     arping
     btop
+    cargo
     claude-code
     clang-tools
     cmake
@@ -117,6 +118,7 @@
     grpcurl
     inter
     jq
+    libiconv
     libpq
     lua-language-server
     nerd-fonts.inconsolata
