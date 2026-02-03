@@ -171,10 +171,10 @@ in
       openDefaultPorts = true;
       settings = {
         devices."iphone".id = "REPLACE-WITH-PHONE-DEVICE-ID";
-        folders."daily" = {
+        folders."notes" = {
           path = "/home/c/org/daily";
           devices = [ "iphone" ];
-          id = "daily";
+          id = "notes";
         };
       };
     };

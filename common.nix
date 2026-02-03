@@ -141,7 +141,10 @@
     tree
     unzip
     uv
+    wget
     yarn
     zip
+    bun
+    gh
   ];
 }
