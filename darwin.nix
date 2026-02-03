@@ -49,6 +49,13 @@ in
         modifierFlags = 1179648;
       };
     };
+    # Ctrl+1/2 to switch spaces (used by Hammerspoon Cmd+Tab toggle)
+    "com.apple.symbolichotkeys" = {
+      AppleSymbolicHotKeys = {
+        "118" = { enabled = true; value = { parameters = [49 18 262144]; type = "standard"; }; };
+        "119" = { enabled = true; value = { parameters = [50 19 262144]; type = "standard"; }; };
+      };
+    };
   };
 
   launchd.user.agents.emacs = {
@@ -70,45 +77,45 @@ in
     home.homeDirectory = lib.mkForce "/Users/chijoshi";
 
     home.file.".hammerspoon/init.lua".text = ''
-      -- Focus windows
-      local function focusDirection(dir)
-        local win = hs.window.focusedWindow()
-        if not win then return end
-        if dir == "west" then win:focusWindowWest(nil, true) end
-        if dir == "east" then win:focusWindowEast(nil, true) end
-        if dir == "north" then win:focusWindowNorth(nil, true) end
-        if dir == "south" then win:focusWindowSouth(nil, true) end
+      -- map hjkl to the corresponding focusWindow methods
+      local dirMap = {
+        h = "West",
+        j = "South",
+        k = "North",
+        l = "East",
+      }
+
+      for key, dir in pairs(dirMap) do
+        hs.hotkey.bind({"cmd"}, key, function()
+          local win = hs.window.focusedWindow()
+          if not win then return end
+
+          -- invoke win:focusWindow<Dir>()
+          local method = "focusWindow" .. dir
+          win[method](win)
+
+          local win = hs.window.focusedWindow()
+          -- warp mouse to center
+          local f = win:frame()
+          hs.mouse.setAbsolutePosition({
+            x = f.x + f.w/2,
+            y = f.y + f.h/2,
+          })
+        end)
       end
 
-      hs.hotkey.bind({"cmd"}, "h", function() focusDirection("west") end)
-      hs.hotkey.bind({"cmd"}, "j", function() focusDirection("south") end)
-      hs.hotkey.bind({"cmd"}, "k", function() focusDirection("north") end)
-      hs.hotkey.bind({"cmd"}, "l", function() focusDirection("east") end)
-
-      -- App launchers
-      hs.hotkey.bind({"cmd"}, "return", function()
-        hs.execute("/opt/homebrew/bin/emacsclient -c -n --eval '(vterm-full-toggle)'", true)
+      -- Cmd+Tab to toggle between space 1 and 2 (uses native Ctrl+1/2 for speed)
+      local currentSpace = 1
+      cmdTabWatcher = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+        local flags = event:getFlags()
+        if flags.cmd and not flags.shift and not flags.alt and not flags.ctrl and event:getKeyCode() == 48 then
+          currentSpace = currentSpace == 1 and 2 or 1
+          hs.eventtap.keyStroke({"ctrl"}, tostring(currentSpace), 0)
+          return true
+        end
+        return false
       end)
-      hs.hotkey.bind({"cmd", "shift"}, "return", function() hs.application.launchOrFocus("Kitty") end)
-      hs.hotkey.bind({"cmd", "shift"}, "space", function() hs.application.launchOrFocus("Google Chrome") end)
-      hs.hotkey.bind({"cmd"}, "e", function()
-        hs.execute("/opt/homebrew/bin/emacsclient -c -n --eval '(notes-open-daily)'", true)
-      end)
-
-      -- Close window
-      hs.hotkey.bind({"cmd"}, "q", function()
-        local win = hs.window.focusedWindow()
-        if win then win:close() end
-      end)
-
-      -- Screenshot
-      hs.hotkey.bind({"cmd"}, "s", function()
-        local filename = os.date("~/Desktop/screenshot-%Y%m%d-%H%M%S.png")
-        hs.execute("screencapture -i " .. filename)
-      end)
-
-      -- Reload config
-      hs.hotkey.bind({"cmd", "shift"}, "c", function() hs.reload() end)
+      cmdTabWatcher:start()
     '';
 
     programs.zsh.shellAliases = {
