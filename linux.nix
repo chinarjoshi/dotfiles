@@ -170,7 +170,7 @@ in
       configDir = "/home/c/.config/syncthing";
       openDefaultPorts = true;
       settings = {
-        devices."iphone".id = "REPLACE-WITH-PHONE-DEVICE-ID";
+        devices."iphone".id = "DKGMRCB-SRY5S7N-HDPTLDS-V4OGMRI-BM4DUAL-NJ2FJUD-IKJL4EG-MM2XWA6";
         folders."notes" = {
           path = "/home/c/org/daily";
           devices = [ "iphone" ];
@@ -437,6 +437,7 @@ in
       swappy
       libvterm
       claude-code
+      vim
     ];
   };
 }
