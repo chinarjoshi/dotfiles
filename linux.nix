@@ -436,6 +436,7 @@ in
       slurp
       swappy
       libvterm
+      claude-code
     ];
   };
 }

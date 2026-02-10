@@ -20,7 +20,6 @@
     options = {
       navigate = true;
       light = false;
-      side-by-side = true;
       line-numbers = true;
     };
   };
@@ -54,6 +53,7 @@
       bindkey -e
       autoload -Uz select-word-style
       select-word-style bash
+      zstyle ':zle:backward-kill-word' word-style whitespace
 
       echo -e '\e[6 q'
 
@@ -100,7 +100,6 @@
     arping
     btop
     cargo
-    claude-code
     clang-tools
     cmake
     dbmate

@@ -22,12 +22,6 @@ in
     casks = [ "emacs-plus-app" "rectangle" "hammerspoon" ];
   };
 
-  environment.systemPackages = [
-    pkgs.libtool
-    glibtool
-    pkgs.iproute2mac
-  ];
-
   programs.zsh.enable = true;
   users.users.chijoshi.shell = pkgs.zsh;
 
@@ -81,7 +75,6 @@ in
       local dirMap = {
         h = "West",
         j = "South",
-        k = "North",
         l = "East",
       }
 
@@ -129,4 +122,11 @@ in
       export LIBRARY_PATH="/opt/homebrew/lib/gcc/current''${LIBRARY_PATH:+:$LIBRARY_PATH}"
     '';
   };
+
+  environment.systemPackages = [
+    pkgs.libtool
+    glibtool
+    pkgs.iproute2mac
+    pkgs.freerdp
+  ];
 }
