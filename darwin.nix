@@ -26,11 +26,6 @@ in
   users.users.chijoshi.shell = pkgs.zsh;
 
   system.defaults.CustomUserPreferences = {
-    "com.google.Chrome" = {
-      NSUserKeyEquivalents = {
-        "Find..." = "^f";
-      };
-    };
     "com.knollsoft.Rectangle" = {
       # cmd + shift + h = left half (keyCode 4 = h, modifierFlags 1179648 = cmd+shift)
       leftHalf = {

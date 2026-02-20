@@ -55,6 +55,13 @@
       select-word-style bash
       zstyle ':zle:backward-kill-word' word-style whitespace
 
+      backward-kill-bash-word() {
+        local WORDCHARS='''
+        zle .backward-kill-word
+      }
+      zle -N backward-kill-bash-word
+      bindkey '^[^?' backward-kill-bash-word
+
       echo -e '\e[6 q'
 
       if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
@@ -109,7 +116,7 @@
     gcc
     git-lfs
     gnumake
-    go
+
     golangci-lint
     golines
     gopls
