@@ -124,6 +124,7 @@
     git-lfs
     gnumake
 
+    go
     golangci-lint
     golines
     gopls
