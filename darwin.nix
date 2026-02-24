@@ -78,6 +78,7 @@ in
       local dirMap = {
         h = "West",
         j = "South",
+        k = "North",
         l = "East",
       }
 
@@ -113,17 +114,15 @@ in
       end)
       cmdTabWatcher:start()
 
-      local function openEmacs(expr)
-        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-c", "--eval", expr}):start()
-        local app = hs.application.find("Emacs")
-        if app then app:activate() end
-      end
-
       -- Cmd+e: open emacsclient to terminal
-      hs.hotkey.bind({"cmd"}, "e", function() openEmacs("(vterm)") end)
+      hs.hotkey.bind({"cmd"}, "e", function()
+        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(vterm)"}):start()
+      end)
 
       -- Cmd+Shift+e: open emacsclient to weekly note
-      hs.hotkey.bind({"cmd", "shift"}, "e", function() openEmacs("(notes-open-weekly)") end)
+      hs.hotkey.bind({"cmd", "shift"}, "e", function()
+        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(notes-open-weekly)"}):start()
+      end)
     '';
 
     programs.zsh.shellAliases = {

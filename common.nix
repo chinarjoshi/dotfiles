@@ -68,7 +68,8 @@
 
       if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
           vterm_prompt_end() { printf "\e]51;A%s@%s:%s\e\\" "$USER" "$HOST" "$PWD" }
-          precmd_functions+=(vterm_prompt_end)
+          vterm_set_title() { print -Pn "\e]2;%2~\a" }
+          precmd_functions+=(vterm_prompt_end vterm_set_title)
       fi
     '';
 
