@@ -113,20 +113,22 @@ in
       end)
       cmdTabWatcher:start()
 
+      local function openEmacs(expr)
+        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-c", "--eval", expr}):start()
+        local app = hs.application.find("Emacs")
+        if app then app:activate() end
+      end
+
       -- Cmd+e: open emacsclient to terminal
-      hs.hotkey.bind({"cmd"}, "e", function()
-        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(vterm-full-toggle)"}):start()
-      end)
+      hs.hotkey.bind({"cmd"}, "e", function() openEmacs("(vterm)") end)
 
       -- Cmd+Shift+e: open emacsclient to weekly note
-      hs.hotkey.bind({"cmd", "shift"}, "e", function()
-        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(notes-open-weekly)"}):start()
-      end)
+      hs.hotkey.bind({"cmd", "shift"}, "e", function() openEmacs("(notes-open-weekly)") end)
     '';
 
     programs.zsh.shellAliases = {
       rebuild = "sudo darwin-rebuild switch --flake '${config.home.homeDirectory}/nixos#mac'";
-      emacs-restart = "emacsclient -e '(kill-emacs)' 2>/dev/null; rm -f /var/folders/*/*/T/emacs$(id -u)/server; echo 'Restarting...'; while [ ! -e /var/folders/*/*/T/emacs$(id -u)/server ]; do sleep 0.5; done && emacsclient -e '(length (buffer-list))' && echo 'Daemon ready'";
+      emacs-restart = "emacsclient -e '(kill-emacs)' 2>/dev/null; echo 'Restarting...'; until emacsclient -a false -e t 2>/dev/null; do sleep 0.5; done; echo 'Daemon ready'";
       emacs-log = "tail -f /tmp/emacs.log";
     };
 
