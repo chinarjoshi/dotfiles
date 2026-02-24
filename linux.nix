@@ -143,6 +143,7 @@ in
     inter
     lora
     nerd-fonts.inconsolata
+    nerd-fonts.symbols-only
   ];
 
   services = {
@@ -227,6 +228,8 @@ in
       shellAliases = {
         sudo = "doas";
         rebuild = "doas nixos-rebuild switch --flake '${config.home.homeDirectory}/nixos#XPS'";
+        emacs-restart = "systemctl --user restart emacs && journalctl --user -u emacs -f";
+        emacs-log = "journalctl --user -u emacs -f";
         toggle-scale = ''current=$(swaymsg -t get_outputs -r | jq -r ".[] | select(.name==\"eDP-1\") | .scale"); swaymsg "output eDP-1 scale $((3 - current))"'';
         silksong = "steam steam://rungameid/1030300";
       };

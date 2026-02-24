@@ -48,11 +48,19 @@ in
   };
 
   launchd.user.agents.emacs = {
-    command = "/bin/zsh -l -c 'cd /Users/chijoshi && /opt/homebrew/bin/emacs --fg-daemon'";
+    command = "/opt/homebrew/bin/emacs --fg-daemon";
     serviceConfig = {
       RunAtLoad = true;
       KeepAlive = true;
       WorkingDirectory = "/Users/chijoshi";
+      StandardOutPath = "/tmp/emacs.log";
+      StandardErrorPath = "/tmp/emacs.log";
+      ThrottleInterval = 5;
+      EnvironmentVariables = {
+        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+        HOME = "/Users/chijoshi";
+        LANG = "en_US.UTF-8";
+      };
     };
   };
 
@@ -104,10 +112,22 @@ in
         return false
       end)
       cmdTabWatcher:start()
+
+      -- Cmd+e: open emacsclient to terminal
+      hs.hotkey.bind({"cmd"}, "e", function()
+        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(vterm-full-toggle)"}):start()
+      end)
+
+      -- Cmd+Shift+e: open emacsclient to weekly note
+      hs.hotkey.bind({"cmd", "shift"}, "e", function()
+        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(notes-open-weekly)"}):start()
+      end)
     '';
 
     programs.zsh.shellAliases = {
       rebuild = "sudo darwin-rebuild switch --flake '${config.home.homeDirectory}/nixos#mac'";
+      emacs-restart = "emacsclient -e '(kill-emacs)' 2>/dev/null; rm -f /var/folders/*/*/T/emacs$(id -u)/server; echo 'Restarting...'; while [ ! -e /var/folders/*/*/T/emacs$(id -u)/server ]; do sleep 0.5; done && emacsclient -e '(length (buffer-list))' && echo 'Daemon ready'";
+      emacs-log = "tail -f /tmp/emacs.log";
     };
 
     programs.zsh.initContent = ''

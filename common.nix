@@ -32,6 +32,7 @@
       export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
       export DOTFILES=$HOME/.config
       export EDITOR='emacsclient'
+      export ALTERNATE_EDITOR='vim'
       export AUTOENV_ASSUME_YES='1'
       [ -f ~/.env ] && source ~/.env
     '';
@@ -47,7 +48,8 @@
       typeset -A ZSH_HIGHLIGHT_STYLES
       ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 
-      PROMPT='%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
+      function __emacs_check { pgrep -qfi 'emacs.*daemon' || echo -n '%F{red}[E!] %f' }
+      PROMPT='$(__emacs_check)%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
 ''$ '
 
       bindkey -e
@@ -95,7 +97,9 @@
       gst = "git stash";
       gb = "git branch";
       gres = "git restore";
-      e = "emacsclient -c";
+      e = "emacsclient -cn";
+      emacs-open = "emacsclient -cn";
+      emacs-kill = "emacsclient -e '(kill-emacs)'";
       l = "ls -lAFgG --color=auto";
       c = "claude --dangerously-skip-permissions";
       python = "python3";
@@ -129,6 +133,7 @@
     lua-language-server
     nerd-fonts.inconsolata
     nmap
+    vim
     nodePackages.bash-language-server
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
