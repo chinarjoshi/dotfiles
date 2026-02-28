@@ -14,16 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-config = {
-      url = "github:chinarjoshi/init.el";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, emacs-config, ... }: {
+  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }: {
     nixosConfigurations.XPS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit emacs-config; };
       modules = [
         home-manager.nixosModules.home-manager
         ./linux.nix

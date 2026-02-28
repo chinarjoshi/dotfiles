@@ -29,10 +29,9 @@
     dotDir = "${config.xdg.configHome}/zsh";
 
     envExtra = ''
-      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
+      export PATH="/opt/homebrew/opt/go@1.22/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
       export DOTFILES=$HOME/.config
-      export EDITOR='emacsclient'
-      export ALTERNATE_EDITOR='vim'
+      export EDITOR='vim'
       export AUTOENV_ASSUME_YES='1'
       [ -f ~/.env ] && source ~/.env
     '';
@@ -48,8 +47,7 @@
       typeset -A ZSH_HIGHLIGHT_STYLES
       ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white
 
-      function __emacs_check { pgrep -qfi 'emacs.*daemon' || echo -n '%F{red}[E!] %f' }
-      PROMPT='$(__emacs_check)%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
+      PROMPT='%F{blue}''${''${''${PWD/#''$HOME/}#/}:-.}%f
 ''$ '
 
       bindkey -e
@@ -66,13 +64,6 @@
 
       echo -e '\e[6 q'
 
-      if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-          vterm_prompt_end() { printf "\e]51;A%s@%s:%s\e\\" "$USER" "$HOST" "$PWD" }
-          vterm_set_title() { print -Pn "\e]2;%2~\a" }
-          vterm_preexec_title() { print -Pn "\e]2;''${1%% *}\a" }
-          precmd_functions+=(vterm_prompt_end vterm_set_title)
-          preexec_functions+=(vterm_preexec_title)
-      fi
     '';
 
     plugins = [{
@@ -89,20 +80,31 @@
       gd = "git diff";
       gch = "git checkout";
       gchb = "git checkout -b";
-      gll = "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-      gl = "gll -n5";
+      gsh = "git show";
+      gshh = "git show HEAD~";
+      gl = "git log -n10";
+      gll = "git log";
       gpu = "git push";
+      gpuf = "git push -f";
       grh = "git reset --hard";
       gs = "git status";
       gpl = "git pull";
       gdh = "git diff HEAD~";
       gds = "git diff --staged";
       gst = "git stash";
+      gsta = "git stash apply";
+      gstd = "git stash drop";
+      gstp = "git stash pop";
       gb = "git branch";
+      gba = "git branch --all";
+      gm = "git merge";
+      gr = "git rebase";
+      gra = "git rebase --abort";
+      grc = "git rebase --continue";
+      gri = "git rebase -i";
+      gss = "git status -suno";
+      gdn = "git diff --name-only";
       gres = "git restore";
-      e = "emacsclient -cn";
-      emacs-open = "emacsclient -cn";
-      emacs-kill = "emacsclient -e '(kill-emacs)'";
       l = "ls -lAFgG --color=auto";
       c = "claude --dangerously-skip-permissions";
       python = "python3";
@@ -117,14 +119,11 @@
     clang-tools
     cmake
     dbmate
-    emacs-lsp-booster
     fd
     fzf
     gcc
     git-lfs
     gnumake
-
-    go
     golangci-lint
     golines
     gopls
@@ -161,5 +160,7 @@
     zip
     bun
     gh
+    zellij
+    obsidian
   ];
 }

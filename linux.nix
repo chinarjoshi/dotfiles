@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, emacs-config, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 let
   barScript = pkgs.writeShellScript "sway-bar" ''
@@ -202,18 +202,11 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.extraSpecialArgs = { inherit emacs-config; };
   home-manager.users.c = { config, pkgs, ... }: {
     imports = [ ./common.nix ];
 
     home.username = "c";
     home.homeDirectory = "/home/c";
-
-    services.emacs = {
-      enable = true;
-      client.enable = true;
-      package = emacs-config.packages.${pkgs.stdenv.hostPlatform.system}.emacs;
-    };
 
     programs.zsh = {
       envExtra = lib.mkAfter ''
@@ -228,8 +221,6 @@ in
       shellAliases = {
         sudo = "doas";
         rebuild = "doas nixos-rebuild switch --flake '${config.home.homeDirectory}/nixos#XPS'";
-        emacs-restart = "systemctl --user restart emacs && journalctl --user -u emacs -f";
-        emacs-log = "journalctl --user -u emacs -f";
         toggle-scale = ''current=$(swaymsg -t get_outputs -r | jq -r ".[] | select(.name==\"eDP-1\") | .scale"); swaymsg "output eDP-1 scale $((3 - current))"'';
         silksong = "steam steam://rungameid/1030300";
       };
@@ -244,15 +235,14 @@ in
       '';
     };
 
-    programs.foot = {
+    programs.kitty = {
       enable = true;
+      font = {
+        name = "Inconsolata";
+        size = 12;
+      };
       settings = {
-        main = {
-          font = "Inconsolata:size=12";
-        };
-        colors = {
-          background = "000000";
-        };
+        background = "#000000";
       };
     };
 
@@ -296,7 +286,7 @@ in
       enable = true;
       config = {
         modifier = "Mod4";
-        terminal = "foot";
+        terminal = "kitty";
         fonts = {
           names = [ "Inconsolata" ];
           size = 11.0;
@@ -347,14 +337,14 @@ in
         keybindings = let
           mod = "Mod4";
         in {
-          "${mod}+Return" = "exec emacsclient -c -e '(vterm-full-toggle)'";
-          "${mod}+Shift+Return" = "exec foot";
+          "${mod}+Return" = "exec kitty";
+          "${mod}+Shift+Return" = "exec kitty";
           "${mod}+Space" = "exec firefox";
           "${mod}+Tab" = "workspace back_and_forth";
           "${mod}+q" = "kill";
           "${mod}+Shift+c" = "reload";
           "${mod}+s" = "exec grim -g \"$(slurp)\" - | swappy -f -";
-          "${mod}+e" = "exec emacsclient -c -e '(notes-open-daily)'";
+          "${mod}+e" = "exec kitty";
           "${mod}+Shift+s" = "exec systemctl suspend";
           "${mod}+Shift+q" = "exec poweroff";
           "${mod}+Shift+Control+r" = "exec systemctl reboot";
@@ -438,7 +428,6 @@ in
       grim
       slurp
       swappy
-      libvterm
       claude-code
       vim
     ];

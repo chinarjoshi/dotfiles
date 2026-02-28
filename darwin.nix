@@ -18,8 +18,7 @@ in
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    taps = [ "d12frosted/emacs-plus" ];
-    casks = [ "emacs-plus-app" "rectangle" "hammerspoon" ];
+    casks = [ "rectangle" "hammerspoon" ];
   };
 
   programs.zsh.enable = true;
@@ -43,23 +42,6 @@ in
       AppleSymbolicHotKeys = {
         "118" = { enabled = true; value = { parameters = [49 18 262144]; type = "standard"; }; };
         "119" = { enabled = true; value = { parameters = [50 19 262144]; type = "standard"; }; };
-      };
-    };
-  };
-
-  launchd.user.agents.emacs = {
-    command = "/opt/homebrew/bin/emacs --fg-daemon";
-    serviceConfig = {
-      RunAtLoad = true;
-      KeepAlive = true;
-      WorkingDirectory = "/Users/chijoshi";
-      StandardOutPath = "/tmp/emacs.log";
-      StandardErrorPath = "/tmp/emacs.log";
-      ThrottleInterval = 5;
-      EnvironmentVariables = {
-        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
-        HOME = "/Users/chijoshi";
-        LANG = "en_US.UTF-8";
       };
     };
   };
@@ -114,21 +96,10 @@ in
       end)
       cmdTabWatcher:start()
 
-      -- Cmd+e: open emacsclient to terminal
-      hs.hotkey.bind({"cmd"}, "e", function()
-        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(vterm)"}):start()
-      end)
-
-      -- Cmd+Shift+e: open emacsclient to weekly note
-      hs.hotkey.bind({"cmd", "shift"}, "e", function()
-        hs.task.new("/opt/homebrew/bin/emacsclient", nil, {"-cn", "-e", "(notes-open-weekly)"}):start()
-      end)
     '';
 
     programs.zsh.shellAliases = {
       rebuild = "sudo darwin-rebuild switch --flake '${config.home.homeDirectory}/nixos#mac'";
-      emacs-restart = "emacsclient -e '(kill-emacs)' 2>/dev/null; echo 'Restarting...'; until emacsclient -a false -e t 2>/dev/null; do sleep 0.5; done; echo 'Daemon ready'";
-      emacs-log = "tail -f /tmp/emacs.log";
     };
 
     programs.zsh.initContent = ''
@@ -136,6 +107,7 @@ in
       unsetopt HIST_BEEP
       unsetopt LIST_BEEP
       export LIBRARY_PATH="/opt/homebrew/lib/gcc/current''${LIBRARY_PATH:+:$LIBRARY_PATH}"
+      export PATH="/opt/homebrew/opt/go@1.22/bin:$PATH"
     '';
   };
 
