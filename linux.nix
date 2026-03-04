@@ -164,22 +164,6 @@ in
      '';
     };
 
-    syncthing = {
-      enable = true;
-      user = "c";
-      dataDir = "/home/c";
-      configDir = "/home/c/.config/syncthing";
-      openDefaultPorts = true;
-      settings = {
-        devices."iphone".id = "DKGMRCB-SRY5S7N-HDPTLDS-V4OGMRI-BM4DUAL-NJ2FJUD-IKJL4EG-MM2XWA6";
-        folders."notes" = {
-          path = "/home/c/org/daily";
-          devices = [ "iphone" ];
-          id = "notes";
-        };
-      };
-    };
-
     openssh.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
@@ -243,6 +227,18 @@ in
       };
       settings = {
         background = "#000000";
+      };
+    };
+
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      music = "${config.home.homeDirectory}/Music";
+    };
+
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
       };
     };
 
@@ -338,7 +334,6 @@ in
           mod = "Mod4";
         in {
           "${mod}+Return" = "exec kitty";
-          "${mod}+Shift+Return" = "exec kitty";
           "${mod}+Space" = "exec firefox";
           "${mod}+Tab" = "workspace back_and_forth";
           "${mod}+q" = "kill";
@@ -393,7 +388,7 @@ in
           "${mod}+Shift+0" = "move container to workspace number 10";
 
           "${mod}+f" = "fullscreen";
-          "${mod}+r" = "mode resize";
+          "${mod}+r" = "exec gnome-sound-recorder";
           "${mod}+Control+s" = "exec steam steam://rungameid/1030300";
         };
 
@@ -429,7 +424,9 @@ in
       slurp
       swappy
       claude-code
+      codex
       vim
+      gnome-sound-recorder
     ];
   };
 }

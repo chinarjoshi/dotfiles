@@ -31,7 +31,7 @@
     envExtra = ''
       export PATH="/opt/homebrew/opt/go@1.22/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/bin:$PATH"
       export DOTFILES=$HOME/.config
-      export EDITOR='vim'
+      export EDITOR='nvim'
       export AUTOENV_ASSUME_YES='1'
       [ -f ~/.env ] && source ~/.env
     '';
@@ -108,6 +108,7 @@
       l = "ls -lAFgG --color=auto";
       c = "claude --dangerously-skip-permissions";
       python = "python3";
+      music = "cd ~/.local/share/org.gnome.SoundRecorder";
     };
   };
 
@@ -136,7 +137,7 @@
     lua-language-server
     nerd-fonts.inconsolata
     nmap
-    vim
+    neovim
     nodePackages.bash-language-server
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
