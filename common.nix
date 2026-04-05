@@ -62,6 +62,10 @@
       zle -N backward-kill-bash-word
       bindkey '^[^?' backward-kill-bash-word
 
+      autoload -Uz edit-command-line
+      zle -N edit-command-line
+      bindkey '^X^E' edit-command-line
+
       echo -e '\e[6 q'
 
     '';
@@ -77,20 +81,21 @@
       gau = "git add -u";
       gc = "git commit";
       gC = "git commit --amend --no-edit";
-      gd = "git diff";
+      gd = "git diff -- . ':!*.sql.go' ':!*.pb.go' ':!db.go'";
       gch = "git checkout";
       gchb = "git checkout -b";
       gsh = "git show";
       gshh = "git show HEAD~";
-      gl = "git log -n10";
+      gl = "git log -n15";
       gll = "git log";
       gpu = "git push";
       gpuf = "git push -f";
       grh = "git reset --hard";
       gs = "git status";
       gpl = "git pull";
+      gf = "git fetch";
       gdh = "git diff HEAD~";
-      gds = "git diff --staged";
+      gds = "git diff --staged -- . ':!*.sql.go' ':!*.pb.go' ':!db.go'";
       gst = "git stash";
       gsta = "git stash apply";
       gstd = "git stash drop";
@@ -107,6 +112,8 @@
       gres = "git restore";
       l = "ls -lAFgG --color=auto";
       c = "claude --dangerously-skip-permissions";
+      cr = "claude --dangerously-skip-permissions --resume";
+      cc = "claude --dangerously-skip-permissions --continue";
       python = "python3";
       music = "cd ~/.local/share/org.gnome.SoundRecorder";
     };
