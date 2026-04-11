@@ -3,18 +3,6 @@
 {
   home.stateVersion = "24.11";
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Chinar Joshi";
-        email = "chinarjoshi7@gmail.com";
-      };
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-    };
-  };
-
   programs.delta = {
     enable = true;
     options = {
@@ -68,6 +56,31 @@
 
       echo -e '\e[6 q'
 
+      mp4() {
+        if [ -z "$1" ]; then
+          echo "Usage: mp4 <input.mov>"
+          return 1
+        fi
+        local output="''${1%.*}.mp4"
+        ffmpeg -i "$1" -c:v libx264 -crf 23 -c:a aac -b:a 128k "$output"
+      }
+
+      html() {
+        if [ -z "$1" ]; then
+          echo "Usage: html <input.md>"
+          return 1
+        fi
+        local input="$1"
+        local output="''${1%.*}.html"
+        pandoc -s "$input" -o "$output"
+        echo "Watching $input → $output (Ctrl-C to stop)"
+        fswatch -o "$(dirname "$input")" | while read; do
+          if [ "$input" -nt "$output" ]; then
+            pandoc -s "$input" -o "$output" && echo "↻ $output"
+          fi
+        done
+      }
+
     '';
 
     plugins = [{
@@ -119,6 +132,18 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    settings = {
+      macos_option_as_alt = "yes";
+    };
+    keybindings = {
+      "opt+b" = "send_text all \\x1bb";
+      "opt+f" = "send_text all \\x1bf";
+      "f1" = "toggle_layout stack";
+    };
+  };
+
   home.packages = with pkgs; [
     arp-scan
     arping
@@ -150,6 +175,8 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodejs
+    pandoc
+    fswatch
     pdsh
     postgresql_14
     pre-commit

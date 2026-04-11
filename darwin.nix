@@ -17,8 +17,8 @@ in
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
-    casks = [ "rectangle" "hammerspoon" ];
+    onActivation.cleanup = "none";
+    casks = [ "rectangle" "hammerspoon" "karabiner-elements" ];
   };
 
   programs.zsh.enable = true;
@@ -55,17 +55,56 @@ in
     home.username = "chijoshi";
     home.homeDirectory = lib.mkForce "/Users/chijoshi";
 
+    home.file.".config/karabiner/karabiner.json".text = builtins.toJSON {
+      global.check_for_updates_on_startup = false;
+      profiles = [{
+        name = "Default";
+        selected = true;
+        virtual_hid_keyboard.keyboard_type_v2 = "ansi";
+        complex_modifications.rules = [
+          {
+            description = "Caps Lock → Escape (tap) / Left Control (hold)";
+            manipulators = [{
+              type = "basic";
+              from = {
+                key_code = "caps_lock";
+                modifiers.optional = [ "any" ];
+              };
+              to = [{ key_code = "left_control"; lazy = true; }];
+              to_if_alone = [{ key_code = "escape"; }];
+            }];
+          }
+          {
+            description = "Ctrl+K → Cmd+K";
+            manipulators = [{
+              type = "basic";
+              from = {
+                key_code = "k";
+                modifiers = {
+                  mandatory = [ "control" ];
+                  optional = [ "caps_lock" ];
+                };
+              };
+              to = [{
+                key_code = "k";
+                modifiers = [ "left_command" ];
+              }];
+            }];
+          }
+        ];
+      }];
+    };
+
     home.file.".hammerspoon/init.lua".text = ''
       -- map hjkl to the corresponding focusWindow methods
       local dirMap = {
         h = "West",
         j = "South",
-        k = "North",
-        l = "East",
       }
 
+      local hotkeys = {}
       for key, dir in pairs(dirMap) do
-        hs.hotkey.bind({"cmd"}, key, function()
+        hotkeys[key] = hs.hotkey.bind({"cmd"}, key, function()
           local win = hs.window.focusedWindow()
           if not win then return end
 
@@ -82,6 +121,13 @@ in
           })
         end)
       end
+
+      -- Cmd+K / Ctrl+L -> Cmd+L (focus address bar in Chrome etc.)
+      local function sendCmdL()
+        hs.eventtap.keyStroke({"cmd"}, "l", 0)
+      end
+      hs.hotkey.bind({"cmd"}, "k", sendCmdL)
+      hs.hotkey.bind({"ctrl"}, "l", sendCmdL)
 
       -- Cmd+Tab to toggle between space 1 and 2 (uses native Ctrl+1/2 for speed)
       local currentSpace = 1
@@ -107,7 +153,9 @@ in
       unsetopt HIST_BEEP
       unsetopt LIST_BEEP
       export LIBRARY_PATH="/opt/homebrew/lib/gcc/current''${LIBRARY_PATH:+:$LIBRARY_PATH}"
-      export PATH="/opt/homebrew/opt/go@1.22/bin:$PATH"
+      export PATH="/opt/homebrew/bin:/opt/homebrew/opt/go@1.22/bin:$PATH"
+      export SSH_SK_PROVIDER=/usr/local/lib/sk-libfido2.dylib
+      [ -f ~/.aliases.sh ] && . ~/.aliases.sh
     '';
   };
 

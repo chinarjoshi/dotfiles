@@ -192,6 +192,19 @@ in
     home.username = "c";
     home.homeDirectory = "/home/c";
 
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Chinar Joshi";
+          email = "chinarjoshi7@gmail.com";
+        };
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
+        push.autoSetupRemote = true;
+      };
+    };
+
     programs.zsh = {
       envExtra = lib.mkAfter ''
         export QT_QPA_PLATFORM='wayland'
